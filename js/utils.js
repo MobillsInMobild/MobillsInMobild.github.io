@@ -1,1 +1,102 @@
-Fluid.utils={listenScroll:function(e){const t=new Debouncer(e);window.addEventListener("scroll",t,!1),t.handleEvent()},scrollToElement:function(e,t){var n=$(e).offset();n&&$("html,body").animate({scrollTop:n.top+(t||0),easing:"swing"})},waitElementVisible:function(e,t){var n="undefined"!=typeof window,o=n&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),i=n&&"IntersectionObserver"in window;!o&&i?new IntersectionObserver(function(e,n){e[0].isIntersecting&&(t&&t(),n.disconnect())},{threshold:[0],rootMargin:(window.innerHeight||document.documentElement.clientHeight)+"px"}).observe(document.getElementById(e)):t&&t()},waitElementLoaded:function(e,t){var n="undefined"!=typeof window,o=n&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);n&&!o&&("MutationObserver"in window?new MutationObserver(function(n,o){document.getElementById(e)&&(t&&t(),o.disconnect())}).observe(document,{childList:!0,subtree:!0}):document.addEventListener("DOMContentLoaded",function(){t&&t()}))},createScript:function(e,t){var n=document.createElement("script");n.setAttribute("src",e),n.setAttribute("type","text/javascript"),n.setAttribute("charset","UTF-8"),n.async=!1,"function"==typeof t&&(window.attachEvent?n.onreadystatechange=function(){var e=n.readyState;"loaded"!==e&&"complete"!==e||(n.onreadystatechange=null,t())}:n.onload=t);var o=document.getElementsByTagName("script")[0]||document.getElementsByTagName("head")[0]||document.head||document.documentElement;o.parentNode.insertBefore(n,o)},createCssLink:function(e){var t=document.createElement("link");t.setAttribute("rel","stylesheet"),t.setAttribute("type","text/css"),t.setAttribute("href",e);var n=document.getElementsByTagName("link")[0]||document.getElementsByTagName("head")[0]||document.head||document.documentElement;n.parentNode.insertBefore(t,n)}};
+/* global Fluid, Debouncer */
+
+Fluid.utils = {
+
+  listenScroll: function(callback) {
+    const dbc = new Debouncer(callback);
+    window.addEventListener('scroll', dbc, false);
+    dbc.handleEvent();
+  },
+
+  scrollToElement: function(target, offset) {
+    var of = $(target).offset();
+    if (of) {
+      $('html,body').animate({
+        scrollTop: of.top + (offset || 0),
+        easing   : 'swing'
+      });
+    }
+  },
+
+  waitElementVisible: function(targetId, callback) {
+    var runningOnBrowser = typeof window !== 'undefined';
+    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
+    && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
+    var supportsIntersectionObserver = runningOnBrowser && 'IntersectionObserver' in window;
+    if (!isBot && supportsIntersectionObserver) {
+      var io = new IntersectionObserver(function(entries, ob) {
+        if (entries[0].isIntersecting) {
+          callback && callback();
+          ob.disconnect();
+        }
+      }, {
+        threshold : [0],
+        rootMargin: (window.innerHeight || document.documentElement.clientHeight) + 'px'
+      });
+      io.observe(document.getElementById(targetId));
+    } else {
+      callback && callback();
+    }
+  },
+
+  waitElementLoaded: function(targetId, callback) {
+    var runningOnBrowser = typeof window !== 'undefined';
+    var isBot = (runningOnBrowser && !('onscroll' in window)) || (typeof navigator !== 'undefined'
+    && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent));
+    if (!runningOnBrowser || isBot) {
+      return;
+    }
+
+    if ('MutationObserver' in window) {
+      var mo = new MutationObserver(function(records, ob) {
+        var ele = document.getElementById(targetId);
+        if (ele) {
+          callback && callback();
+          ob.disconnect();
+        }
+      });
+      mo.observe(document, { childList: true, subtree: true });
+    } else {
+      document.addEventListener('DOMContentLoaded', function() {
+        callback && callback();
+      });
+    }
+  },
+
+  createScript: function(url, onload) {
+    var s = document.createElement('script');
+    s.setAttribute('src', url);
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('charset', 'UTF-8');
+    s.async = false;
+    if (typeof onload === 'function') {
+      if (window.attachEvent) {
+        s.onreadystatechange = function() {
+          var e = s.readyState;
+          if (e === 'loaded' || e === 'complete') {
+            s.onreadystatechange = null;
+            onload();
+          }
+        };
+      } else {
+        s.onload = onload;
+      }
+    }
+    var e = document.getElementsByTagName('script')[0]
+    || document.getElementsByTagName('head')[0]
+    || document.head || document.documentElement;
+    e.parentNode.insertBefore(s, e);
+  },
+
+  createCssLink: function(url) {
+    var l = document.createElement('link');
+    l.setAttribute('rel', 'stylesheet');
+    l.setAttribute('type', 'text/css');
+    l.setAttribute('href', url);
+    var e = document.getElementsByTagName('link')[0]
+    || document.getElementsByTagName('head')[0]
+    || document.head || document.documentElement;
+    e.parentNode.insertBefore(l, e);
+  }
+
+};

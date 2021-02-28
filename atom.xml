@@ -6,7 +6,7 @@
   <link href="https://mobillsinmobild.github.io/atom.xml" rel="self"/>
   
   <link href="https://mobillsinmobild.github.io/"/>
-  <updated>2021-02-24T11:36:25.335Z</updated>
+  <updated>2021-02-28T13:07:08.326Z</updated>
   <id>https://mobillsinmobild.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://mobillsinmobild.github.io/2021/02/28/test/"/>
+    <id>https://mobillsinmobild.github.io/2021/02/28/test/</id>
+    <published>2021-02-28T13:06:52.726Z</published>
+    <updated>2021-02-28T13:07:08.326Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;123&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据库系统概论大纲</title>
@@ -385,25 +407,6 @@
     
     
     <summary type="html">&lt;p&gt;学习概率统计时提炼的大纲，不过由于时间原因有章节缺省了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="https://mobillsinmobild.github.io/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="数学" scheme="https://mobillsinmobild.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>近世代数大纲</title>
-    <link href="https://mobillsinmobild.github.io/2020/01/11/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://mobillsinmobild.github.io/2020/01/11/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/</id>
-    <published>2020-01-11T12:46:25.000Z</published>
-    <updated>2020-11-18T02:57:09.043Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习近世代数时提炼的大纲，这个在考期整理花费了很多时间，不过考得还不错&lt;/p&gt;</summary>
     
     
     

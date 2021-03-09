@@ -216,6 +216,48 @@
   </entry>
   
   <entry>
+    <title>Android 优秀软件推荐</title>
+    <link href="https://mobillsinmobild.github.io/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <id>https://mobillsinmobild.github.io/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</id>
+    <published>2020-10-25T11:23:56.000Z</published>
+    <updated>2021-03-09T01:09:21.542Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;想法来自于 &lt;a href=&quot;https://www.kancloud.cn/appexplore/coolist-android/956569&quot;&gt;酷软清单&lt;/a&gt;，用于记录自己曾经使用或者正在使用觉得还不错的 Android 上的软件&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="推荐" scheme="https://mobillsinmobild.github.io/categories/%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="软件" scheme="https://mobillsinmobild.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Android" scheme="https://mobillsinmobild.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 优秀软件推荐</title>
+    <link href="https://mobillsinmobild.github.io/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <id>https://mobillsinmobild.github.io/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</id>
+    <published>2020-10-25T11:23:32.000Z</published>
+    <updated>2021-03-09T01:09:16.642Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="推荐" scheme="https://mobillsinmobild.github.io/categories/%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="软件" scheme="https://mobillsinmobild.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Windows" scheme="https://mobillsinmobild.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浅谈GOROOT、GOPATH、Package、Project与Workspace</title>
     <link href="https://mobillsinmobild.github.io/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/"/>
     <id>https://mobillsinmobild.github.io/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/</id>
@@ -233,6 +275,25 @@
     <category term="编程" scheme="https://mobillsinmobild.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="Golang" scheme="https://mobillsinmobild.github.io/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客主题迁移以及一些杂谈</title>
+    <link href="https://mobillsinmobild.github.io/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/"/>
+    <id>https://mobillsinmobild.github.io/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/</id>
+    <published>2020-10-23T16:18:25.000Z</published>
+    <updated>2021-03-09T01:09:25.711Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;好久没有更新博客之后的一些杂谈&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://mobillsinmobild.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="博客" scheme="https://mobillsinmobild.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -353,40 +414,6 @@
     
     
     <category term="数学" scheme="https://mobillsinmobild.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>近世代数大纲</title>
-    <link href="https://mobillsinmobild.github.io/2020/01/11/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://mobillsinmobild.github.io/2020/01/11/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/</id>
-    <published>2020-01-11T12:46:25.000Z</published>
-    <updated>2020-11-18T02:57:09.043Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习近世代数时提炼的大纲，这个在考期整理花费了很多时间，不过考得还不错&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="https://mobillsinmobild.github.io/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="数学" scheme="https://mobillsinmobild.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://mobillsinmobild.github.io/2020/01/01/hello-world/"/>
-    <id>https://mobillsinmobild.github.io/2020/01/01/hello-world/</id>
-    <published>2020-01-01T12:46:25.000Z</published>
-    <updated>2021-02-24T14:07:27.112Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;The Infamous Hello World Program.&lt;/p&gt;</summary>
-    
-    
-    
     
   </entry>
   

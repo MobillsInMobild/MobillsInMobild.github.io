@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Joker">
   <meta name="keywords" content="">
-  <title>Deep Dive Into Modern Web Development 学习笔记 - Mobilis In Mobili</title>
+  <title>Deep Dive Into Modern Web Development - Mobilis In Mobili</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Deep Dive Into Modern Web Development 学习笔记">
+            <span class="h2" id="subtitle" title="Deep Dive Into Modern Web Development">
               
             </span>
 
@@ -202,7 +202,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      2k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      22
        分钟
     </span>
   
@@ -250,11 +250,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Deep Dive Into Modern Web Development 学习笔记</h1>
+            <h1 style="display: none">Deep Dive Into Modern Web Development</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年3月18日 下午
+                  本文最后更新于：2021年3月23日 上午
                 
               </p>
             
@@ -292,7 +292,7 @@
 </li>
 <li>
 <p>调用链条</p>
-<img src="..\img\post\Deep Dive Into Modern Web Development 学习笔记\调用链条.png" srcset="/img/loading.gif" style="zoom:67%;" />
+<img src="/img/post/Deep Dive Into Modern Web Development 学习笔记/调用链条.png" srcset="/img/loading.gif" style="zoom:67%;" />
 </li>
 </ul>
 <h4 id="traditional-web-applications"><a class="markdownIt-Anchor" href="#traditional-web-applications"></a> Traditional web applications</h4>
@@ -359,7 +359,7 @@
 </li>
 </ul>
 <h4 id="loading-a-page-containing-javascript-revised加载一个包含-javascript-的页面-复习"><a class="markdownIt-Anchor" href="#loading-a-page-containing-javascript-revised加载一个包含-javascript-的页面-复习"></a> Loading a page containing JavaScript - revised/加载一个包含 JavaScript 的页面-复习</h4>
-<img src="..\img\post\Deep Dive Into Modern Web Development 学习笔记\调用链条2.png" srcset="/img/loading.gif" style="zoom:67%;" />
+<img src="/img/post/Deep Dive Into Modern Web Development 学习笔记/调用链条2.png" srcset="/img/loading.gif" style="zoom:67%;" />
 <ul>
 <li>浏览器使用 HTTP GET 请求从服务器获取定义内容和页面结构的 HTML 代码</li>
 <li>Html 代码中的 Links 标签会让浏览器获取 CSS 样式表 main.css</li>
@@ -441,6 +441,131 @@
 </li>
 </ul>
 <h4 id="multiple-components多组件"><a class="markdownIt-Anchor" href="#multiple-components多组件"></a> Multiple components/多组件</h4>
+<ul>
+<li>React 的核心理念，就是<strong>将许多定制化的、可重用的组件组合成应用</strong></li>
+<li>约定：应用的组件树顶部都要有一个 <strong>root</strong> 组件叫做 <strong>App</strong></li>
+</ul>
+<h4 id="props-passing-data-to-componentsprops向组件传递数据"><a class="markdownIt-Anchor" href="#props-passing-data-to-componentsprops向组件传递数据"></a> props: passing data to components/props：向组件传递数据</h4>
+<ul>
+<li>props：作为参数，它接收了一个对象，该对象具有<strong>组件中所定义</strong>的<strong>所有“属性”所对应的字段</strong>
+<ul>
+<li>任意数量</li>
+<li>值可以是字符串，也可以是 JavaScript 表达式的结果（需要用花括号）</li>
+</ul>
+</li>
+</ul>
+<h4 id="some-note一些注意事项"><a class="markdownIt-Anchor" href="#some-note一些注意事项"></a> Some note/一些注意事项</h4>
+<ul>
+<li><strong>控制台应该始终开着</strong>，确保每一个修改都能按照预期的方式工作
+<ul>
+<li>可以在 React 代码中加入 <code>console.log()</code></li>
+</ul>
+</li>
+<li><strong>React 组件名称首字母必须大写</strong></li>
+<li>React 组件的内容(通常)需要包含 <strong>一个根元素</strong>
+<ul>
+<li>创建组件<strong>数组</strong>也是一个有效的解决方案，但是不明智</li>
+<li>由于根元素是必须的，所以在 Dom 树中会有额外的 div 元素。 这可以通过使用 <code>&lt;&gt; &lt;\&gt;</code>来避免，即用一个空元素来包装组件的返回内容</li>
+</ul>
+</li>
+</ul>
+<h3 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> JavaScript</h3>
+<h4 id="variables变量"><a class="markdownIt-Anchor" href="#variables变量"></a> Variables/变量</h4>
+<ul>
+<li>
+<p><code>const</code> 定义常量，<code>let</code> 定义变量</p>
+<ul>
+<li>
+<p>分配给变量的数据类型，在执行过程中可以发生更改</p>
+</li>
+<li>
+<p>本课程中明确不建议使用 <code>var</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="arrays数组"><a class="markdownIt-Anchor" href="#arrays数组"></a> Arrays/数组</h4>
+<ul>
+<li>
+<p>即使将数组用 <code>const</code> 定义，也可以<strong>修改该数组中的内容</strong></p>
+<ul>
+<li>因为数组是一个对象，而数组变量总是指向这同一个对象（类似于<strong>指针</strong>）</li>
+</ul>
+</li>
+<li>
+<p><code>push</code> 方法将一个新元素添加到数组中</p>
+<ul>
+<li>函数编程范型的一个特点，就是使用<strong>不可变</strong>的数据结构</li>
+<li>在React代码中，最好使用 <code>concat</code>方法 ，因为它不向数组中添加元素，而是创建一个新数组，新数组中包含了旧数组和新的元素
+<ul>
+<li><code>t.concat(5)</code> 这种方法调用不会向旧数组添加新的元素，而是直接返回一个新数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>遍历元素的一种方法是使用 <code>forEach</code></p>
+</li>
+<li>
+<p>数组中的单个元素可以很容易地通过<strong>解构赋值</strong>赋给变量</p>
+</li>
+</ul>
+<h4 id="objects对象"><a class="markdownIt-Anchor" href="#objects对象"></a> Objects/对象</h4>
+<ul>
+<li>定义对象
+<ul>
+<li>一个非常常见的方法是使用<strong>对象字面量 <strong>，就是通过</strong>在大括号中列出它的属性</strong>来实现的
+<ul>
+<li>对象的属性可以使用**“句点”号或括号<strong>进行</strong>引用、添加**</li>
+</ul>
+</li>
+<li>也可以利用构造函数定义对象，但是 Javascript 并<strong>没有对标</strong>面向对象中类的概念</li>
+</ul>
+</li>
+</ul>
+<h4 id="functions函数"><a class="markdownIt-Anchor" href="#functions函数"></a> Functions/函数</h4>
+<ul>
+<li>
+<p>箭头函数</p>
+</li>
+<li>
+<p>关键字 <code>function</code></p>
+<ul>
+<li>函数声明</li>
+<li>函数表达式</li>
+</ul>
+</li>
+<li>
+<p>在本课程中，我们将使用<strong>箭头语法</strong>定义所有函数</p>
+</li>
+</ul>
+<h3 id="组件状态事件处理"><a class="markdownIt-Anchor" href="#组件状态事件处理"></a> 组件状态，事件处理</h3>
+<h4 id="component-helper-functions组件辅助函数"><a class="markdownIt-Anchor" href="#component-helper-functions组件辅助函数"></a> Component helper functions/组件辅助函数</h4>
+<ul>
+<li>
+<p>组件辅助函数，可以直接访问传递给组件的所有props</p>
+</li>
+<li>
+<p><strong>在 JavaScript 中，在函数中定义函数是一种常规操作</strong></p>
+</li>
+</ul>
+<h4 id="destructuring解构"><a class="markdownIt-Anchor" href="#destructuring解构"></a> Destructuring/解构</h4>
+<ul>
+<li>
+<p>props 是一个<strong>对象</strong></p>
+</li>
+<li>
+<p><strong>解构赋值</strong>：数组、对象快速赋值</p>
+</li>
+</ul>
+<h4 id="page-re-rendering页面重渲染"><a class="markdownIt-Anchor" href="#page-re-rendering页面重渲染"></a> Page re-rendering/页面重渲染</h4>
+<ul>
+<li>重复调用 <code>ReactDOM.render</code> 可以实现页面免刷新进行重渲染，但是<strong>不推荐</strong></li>
+</ul>
+<h4 id="stateful-component有状态组件"><a class="markdownIt-Anchor" href="#stateful-component有状态组件"></a> Stateful component/有状态组件</h4>
+<ul>
+<li>通过 React 的 state hook 向应用的App 组件中添加状态</li>
+</ul>
 
             </div>
             <hr>

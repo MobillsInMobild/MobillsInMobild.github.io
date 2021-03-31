@@ -6,7 +6,7 @@
   <link href="http://justloseit.top/atom.xml" rel="self"/>
   
   <link href="http://justloseit.top/"/>
-  <updated>2021-03-23T03:25:02.734Z</updated>
+  <updated>2021-03-31T12:44:54.860Z</updated>
   <id>http://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>年度总结：2020年我的阅读·影视·游戏</title>
+    <link href="http://justloseit.top/2021/03/31/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2020%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
+    <id>http://justloseit.top/2021/03/31/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2020%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
+    <published>2021-03-31T11:31:25.000Z</published>
+    <updated>2021-03-31T12:44:54.860Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2020年，我印象比较深的所读、所看、所玩&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="http://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="阅读" scheme="http://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="年度总结" scheme="http://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="电影" scheme="http://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="游戏" scheme="http://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Deep Dive Into Modern Web Development</title>
@@ -394,25 +419,6 @@
     <category term="编程" scheme="http://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="Java" scheme="http://justloseit.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>概率统计大纲</title>
-    <link href="http://justloseit.top/2020/01/11/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E5%A4%A7%E7%BA%B2/"/>
-    <id>http://justloseit.top/2020/01/11/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E5%A4%A7%E7%BA%B2/</id>
-    <published>2020-01-11T12:46:25.000Z</published>
-    <updated>2021-03-22T09:02:03.444Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习概率统计时提炼的大纲，不过由于时间原因有章节缺省了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="http://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="数学" scheme="http://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   

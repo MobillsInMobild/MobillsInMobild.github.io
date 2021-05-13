@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon/favicon.png">
+  <link rel="icon" href="/img/favicon/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,6 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Joker">
   <meta name="keywords" content="">
+  
   <title>Mobilis In Mobili</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -39,7 +40,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -138,13 +139,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -193,18 +194,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/11/18/Introduction%20To%20Modern%20Cryptography/" target="_blank">
-          <img src="/img/index/Introduction_To_Modern%20Cryptography.jpg" srcset="/img/loading.gif" alt="Introduction To Modern Cryptography">
+          <img src="/img/index/Introduction_To_Modern%20Cryptography.jpg" srcset="/img/loading.gif" lazyload alt="Introduction To Modern Cryptography">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/11/18/Introduction%20To%20Modern%20Cryptography/">Introduction To Modern Cryptography</a>
+        <a href="/2020/11/18/Introduction%20To%20Modern%20Cryptography/" target="_blank">
+          Introduction To Modern Cryptography
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/11/18/Introduction%20To%20Modern%20Cryptography/">
+        <a href="/2020/11/18/Introduction%20To%20Modern%20Cryptography/" target="_blank">
           
           
             
@@ -247,18 +250,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/11/18/%E7%AA%84%E9%97%A8/" target="_blank">
-          <img src="/img/index/%E7%AA%84%E9%97%A8.jpg" srcset="/img/loading.gif" alt="窄门">
+          <img src="/img/index/%E7%AA%84%E9%97%A8.jpg" srcset="/img/loading.gif" lazyload alt="窄门">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/11/18/%E7%AA%84%E9%97%A8/">窄门</a>
+        <a href="/2020/11/18/%E7%AA%84%E9%97%A8/" target="_blank">
+          窄门
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/11/18/%E7%AA%84%E9%97%A8/">
+        <a href="/2020/11/18/%E7%AA%84%E9%97%A8/" target="_blank">
           
           
             
@@ -303,18 +308,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/" target="_blank">
-          <img src="/img/index/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2.png" srcset="/img/loading.gif" alt="密码学大纲">
+          <img src="/img/index/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2.png" srcset="/img/loading.gif" lazyload alt="密码学大纲">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/">密码学大纲</a>
+        <a href="/2020/10/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/" target="_blank">
+          密码学大纲
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/">
+        <a href="/2020/10/28/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/" target="_blank">
           
           
             
@@ -357,18 +364,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/26/Bilibili_1024Sec_Writeup/" target="_blank">
-          <img src="/img/index/Bilibili_1024Sec_Writeup.jpg" srcset="/img/loading.gif" alt="Bilibili 1024 Sec Writeup">
+          <img src="/img/index/Bilibili_1024Sec_Writeup.jpg" srcset="/img/loading.gif" lazyload alt="Bilibili 1024 Sec Writeup">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/26/Bilibili_1024Sec_Writeup/">Bilibili 1024 Sec Writeup</a>
+        <a href="/2020/10/26/Bilibili_1024Sec_Writeup/" target="_blank">
+          Bilibili 1024 Sec Writeup
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/26/Bilibili_1024Sec_Writeup/">
+        <a href="/2020/10/26/Bilibili_1024Sec_Writeup/" target="_blank">
           
           
             
@@ -413,18 +422,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
-          <img src="/img/index/Android-%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90.png" srcset="/img/loading.gif" alt="Android 优秀软件推荐">
+          <img src="/img/index/Android-%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90.png" srcset="/img/loading.gif" lazyload alt="Android 优秀软件推荐">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Android 优秀软件推荐</a>
+        <a href="/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
+          Android 优秀软件推荐
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
+        <a href="/2020/10/25/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
           
           
             
@@ -469,18 +480,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
-          <img src="/img/index/Windows-%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90.png" srcset="/img/loading.gif" alt="Windows 优秀软件推荐">
+          <img src="/img/index/Windows-%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90.png" srcset="/img/loading.gif" lazyload alt="Windows 优秀软件推荐">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 优秀软件推荐</a>
+        <a href="/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
+          Windows 优秀软件推荐
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
+        <a href="/2020/10/25/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" target="_blank">
           
           
             
@@ -525,18 +538,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/" target="_blank">
-          <img src="/img/index/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace.png" srcset="/img/loading.gif" alt="浅谈GOROOT、GOPATH、Package、Project与Workspace">
+          <img src="/img/index/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace.png" srcset="/img/loading.gif" lazyload alt="浅谈GOROOT、GOPATH、Package、Project与Workspace">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/">浅谈GOROOT、GOPATH、Package、Project与Workspace</a>
+        <a href="/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/" target="_blank">
+          浅谈GOROOT、GOPATH、Package、Project与Workspace
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/">
+        <a href="/2020/10/25/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/" target="_blank">
           
           
             
@@ -581,18 +596,20 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/" target="_blank">
-          <img src="/img/index/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88.jpg" srcset="/img/loading.gif" alt="博客主题迁移以及一些杂谈">
+          <img src="/img/index/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88.jpg" srcset="/img/loading.gif" lazyload alt="博客主题迁移以及一些杂谈">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/">博客主题迁移以及一些杂谈</a>
+        <a href="/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/" target="_blank">
+          博客主题迁移以及一些杂谈
+        </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/">
+        <a href="/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/" target="_blank">
           
           
             
@@ -634,15 +651,9 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -735,7 +746,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>京公网安备 11010802034644号</span>
           </a>
@@ -748,8 +759,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -762,9 +774,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -772,7 +783,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -787,7 +798,7 @@
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
@@ -813,11 +824,12 @@
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 
@@ -837,7 +849,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

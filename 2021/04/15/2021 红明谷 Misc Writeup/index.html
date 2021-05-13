@@ -8,15 +8,16 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png">
-  <link rel="icon" type="image/png" href="/img/favicon/favicon.png">
+  <link rel="icon" href="/img/favicon/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="2021 “红明谷”杯数据安全大赛 Misc Writeup">
   <meta name="author" content="Joker">
   <meta name="keywords" content="">
+  
   <title>2021 红明谷 Misc Writeup - Mobilis In Mobili</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
@@ -29,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
     
   
 
@@ -55,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +155,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -202,7 +203,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.6k 字
     </span>
   
 
@@ -212,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      22
        分钟
     </span>
   
@@ -287,17 +288,17 @@
 </ul>
 </li>
 <li>利用 <a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/issues/58">微软拼音自学习词库的导入导出算法</a>中@HowcanoeWang的<a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/files/4365598/pinyin.zip">脚本</a>，就能获得输入记录。<br />
-<img src="/img/post/2021 红明谷 Misc Writeup/pinyin.jpg" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+<img src="/img/post/2021 红明谷 Misc Writeup/pinyin.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></li>
 </ul>
 </li>
 <li>密码是：<code>有志者事竟成</code>
 <ul>
 <li>解压得到一个 pdf 文件<br />
-<img src="/img/post/2021 红明谷 Misc Writeup/pdf.png" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+<img src="/img/post/2021 红明谷 Misc Writeup/pdf.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></li>
 </ul>
 </li>
 <li>删除图片，得到图片下的 flag<br />
-<img src="/img/post/2021 红明谷 Misc Writeup/pdf2.png" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+<img src="/img/post/2021 红明谷 Misc Writeup/pdf2.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></li>
 </ul>
 </li>
 </ul>
@@ -306,8 +307,43 @@
             <p>快用你那无敌的<strong>取证大师</strong>想想办法啊!</p>
           </div>
 <p><s>然而，我使用取证大师并没有分析出结果</s></p>
+<h2 id="我的心是冰冰的"><a class="markdownIt-Anchor" href="#我的心是冰冰的"></a> 我的心是冰冰的</h2>
 <ul>
-<li>总的来说，是一道比较新颖的取证，关于输入法的词频统计</li>
+<li>题目描述：似乎有信息被隐藏了。</li>
+<li>提供一个压缩包</li>
+<li>解法
+<ul>
+<li>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？<br />
+<img src="/img/post/2021 红明谷 Misc Writeup/winrar.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<ul>
+<li>看了<a target="_blank" rel="noopener" href="https://l1near.top/index.php/2021/03/15/97.html#comment-174">L1near 师傅的官方 writeup</a> 后，需要修改 RAR 第 24 字节处（对应 <code>PASSWORD_ENCRYPTED</code>）从1改为0就可以正常打开文件了/把第24字节的后面一个4改成0也可以</li>
+<li>然而，即便是使用了 010editor 的模板也没有解析处这里对应 <code>PASSWORD_ENCRYPTED</code>，看官方 writeup 应该是 RAR 版本问题</li>
+<li>但是，或许正因为是版本问题，我在没有做任何伪加密修改时，同样能够正常解压缩</li>
+</ul>
+</li>
+<li>解压得到 <code>bingbing.jpg</code> 和 <code>bingbing.zip</code>
+<ul>
+<li><code>bingbing.zip</code> 有密码，含有一个 <code>bingbing.pcapng</code> 文件</li>
+</ul>
+</li>
+<li>根据官方 writeup，这是简单 FFT，其 payload 如下：（然而这道题改了，这样跑不出结果）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2 <span class="hljs-keyword">as</span> cv<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>img = cv.imread(<span class="hljs-string">&#x27;FFT.png&#x27;</span>, <span class="hljs-number">0</span>) <span class="hljs-comment">#直接读为灰度图像</span><br>f = np.fft.fft2(img)            <span class="hljs-comment">#做频率变换</span><br>fshift = np.fft.fftshift(f)     <span class="hljs-comment">#转移像素做幅度谱</span><br>s1 = np.log(np.<span class="hljs-built_in">abs</span>(fshift))<span class="hljs-comment">#取绝对值：将复数变化成实数取对数的目的为了将数据变化到0-255</span><br>plt.subplot(<span class="hljs-number">121</span>)<br>plt.imshow(img, <span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;original&#x27;</span>)<br>plt.subplot(<span class="hljs-number">122</span>)<br>plt.imshow(s1,<span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;center&#x27;</span>)<br>plt.show()<br></code></pre></td></tr></table></figure>
+<ul>
+<li>这里需要使用 Java 盲水印：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -jar .\BlindWatermark.jar decode -c .\bingbing.jpg clue.jpg<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Java 盲水印的工具：<a target="_blank" rel="noopener" href="https://github.com/ww23/BlindWatermark">BlindWatermark</a><br />
+![](/img/post/2021 红明谷 Misc Writeup/bingbing.png)<br />
+![](/img/post/2021 红明谷 Misc Writeup/blindwatermark.png)</li>
+</ul>
+</li>
+<li>得到压缩包密码：<code>gnibgnib</code></li>
+<li>打开压缩包，获得 <code>bingbing.pcapng</code><br />
+<img src="/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></li>
+<li>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></li>
+<li>Hex 转 ascii 得到flag</li>
+</ul>
+</li>
 </ul>
 <h2 id="歪比歪比"><a class="markdownIt-Anchor" href="#歪比歪比"></a> 歪比歪比</h2>
 <ul>
@@ -320,17 +356,16 @@
 <li>解法
 <ul>
 <li>追踪TCP流，得到如下文本<br />
-<img src="/img/post/2021 红明谷 Misc Writeup/wireshark.png" srcset="/img/loading.gif" style="zoom:50%;" /><br />
-<img src="/img/post/2021 红明谷 Misc Writeup/wireshark2.png" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+<img src="/img/post/2021 红明谷 Misc Writeup/wireshark.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /><br />
+<img src="/img/post/2021 红明谷 Misc Writeup/wireshark2.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></li>
 <li>明显是词频统计，哈夫曼编码</li>
 <li>payload如下：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 统计字符出现频率</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">countFrequency</span>(<span class="hljs-params">text</span>):</span><br>    chars=[]<br>    chars_freqs=[]<br>    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> text:<br>        <span class="hljs-keyword">if</span> char <span class="hljs-keyword">in</span> chars:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">else</span>:<br>            chars.append(char)<br>            chars_freqs.append((char,text.count(char)))<br>    <span class="hljs-keyword">return</span> chars_freqs<br><br><span class="hljs-comment"># 节点类</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self,freq</span>):</span><br>        self.left=<span class="hljs-literal">None</span><br>        self.right=<span class="hljs-literal">None</span><br>        self.father=<span class="hljs-literal">None</span><br>        self.freq=freq<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isLeft</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self.father.left==self<br><br><span class="hljs-comment"># 根据freqs数组创建叶子节点</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createNodes</span>(<span class="hljs-params">freqs</span>):</span><br>    <span class="hljs-keyword">return</span> [Node(freq) <span class="hljs-keyword">for</span> freq <span class="hljs-keyword">in</span> freqs]<br><br><span class="hljs-comment"># 构建Huffman树</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createHuffmanTree</span>(<span class="hljs-params">nodes</span>):</span><br>    queue=nodes[:]<br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(queue)&gt;<span class="hljs-number">1</span>:<br>        queue.sort(key=<span class="hljs-keyword">lambda</span> item:item.freq)<br>        node_left=queue.pop(<span class="hljs-number">0</span>)<br>        node_right=queue.pop(<span class="hljs-number">0</span>)<br>        node_father=Node(node_left.freq+node_right.freq)<br>        node_father.left=node_left<br>        node_father.right=node_right<br>        node_left.father=node_father<br>        node_right.father=node_father<br>        queue.append(node_father)<br>    queue[<span class="hljs-number">0</span>].father=<span class="hljs-literal">None</span><br>    <span class="hljs-keyword">return</span> queue[<span class="hljs-number">0</span>]<br><br><span class="hljs-comment"># 由Huffman树得到Huffman编码</span><br><span class="hljs-comment"># codes，nodes，chars_freqs的下标是一一对应的</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encodeHuffman</span>(<span class="hljs-params">nodes,root</span>):</span><br>    codes=[<span class="hljs-string">&#x27;&#x27;</span>]*<span class="hljs-built_in">len</span>(nodes)<br>    <span class="hljs-comment"># 对于每一个节点，找其父节点，若其父节点是左侧节点，则编码前添加&#x27;0&#x27;</span><br>    <span class="hljs-comment"># node_tmp即用于一层层向上寻找父节点</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nodes)):<br>        node_tmp=nodes[i]<br>        <span class="hljs-keyword">while</span> node_tmp!=root:<br>            <span class="hljs-keyword">if</span> node_tmp.isLeft():<br>                codes[i]=<span class="hljs-string">&#x27;0&#x27;</span>+codes[i]<br>            <span class="hljs-keyword">else</span>:<br>                codes[i]=<span class="hljs-string">&#x27;1&#x27;</span>+codes[i]<br>            node_tmp=node_tmp.father<br>    <span class="hljs-keyword">return</span> codes<br><br><span class="hljs-comment"># 编码字符串</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encodeStr</span>(<span class="hljs-params">text,chars_freqs,codes</span>):</span><br>    huffmanStr=<span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-comment"># 对字符串中的每个字符，遍历chars_freqs，查看对应codes的下标</span><br>    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> text:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(codes)):<br>            <span class="hljs-keyword">if</span> char==chars_freqs[i][<span class="hljs-number">0</span>]:<br>                huffmanStr+=codes[i]<br>                <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> huffmanStr<br><br><span class="hljs-comment"># 解码哈夫曼编码串</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decodeStr</span>(<span class="hljs-params">huffmanStr,chars_freqs,codes</span>):</span><br>    orignStr=<span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-comment"># 利用截断的方法，每次截取哈夫曼编码首部</span><br>    <span class="hljs-keyword">while</span> huffmanStr!=<span class="hljs-string">&#x27;&#x27;</span>:<br>        <span class="hljs-comment"># 遍历codes，查看是否有codes在哈夫曼编码串首部</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(codes)):<br>            <span class="hljs-keyword">if</span> codes[i] <span class="hljs-keyword">in</span> huffmanStr <span class="hljs-keyword">and</span> huffmanStr.index(codes[i])==<span class="hljs-number">0</span>:<br>                    orignStr+=chars_freqs[i][<span class="hljs-number">0</span>]<br>                    huffmanStr=huffmanStr[<span class="hljs-built_in">len</span>(codes[i]):]<br>    <span class="hljs-keyword">return</span> orignStr<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    trash_array = &#123;<br>    <span class="hljs-string">&#x27;j&#x27;</span>: <span class="hljs-number">29</span>,<br>    <span class="hljs-string">&#x27;z&#x27;</span>: <span class="hljs-number">31</span>,<br>    <span class="hljs-string">&#x27;7&#x27;</span>: <span class="hljs-number">25</span>,<br>    <span class="hljs-string">&#x27;e&#x27;</span>: <span class="hljs-number">31</span>,<br>    <span class="hljs-string">&#x27;l&#x27;</span>: <span class="hljs-number">23</span>,<br>    <span class="hljs-string">&#x27;6&#x27;</span>: <span class="hljs-number">37</span>,<br>    <span class="hljs-string">&#x27;4&#x27;</span>: <span class="hljs-number">32</span>,<br>    <span class="hljs-string">&#x27;p&#x27;</span>: <span class="hljs-number">38</span>,<br>    <span class="hljs-string">&#x27;h&#x27;</span>: <span class="hljs-number">27</span>,<br>    <span class="hljs-string">&#x27;g&#x27;</span>: <span class="hljs-number">26</span>,<br>    <span class="hljs-string">&#x27;x&#x27;</span>: <span class="hljs-number">28</span>,<br>    <span class="hljs-string">&#x27;i&#x27;</span>: <span class="hljs-number">25</span>,<br>    <span class="hljs-string">&#x27;u&#x27;</span>: <span class="hljs-number">27</span>,<br>    <span class="hljs-string">&#x27;n&#x27;</span>: <span class="hljs-number">25</span>,<br>    <span class="hljs-string">&#x27;8&#x27;</span>: <span class="hljs-number">36</span>,<br>    <span class="hljs-string">&#x27;0&#x27;</span>: <span class="hljs-number">24</span>,<br>    <span class="hljs-string">&#x27;o&#x27;</span>: <span class="hljs-number">23</span>,<br>    <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">28</span>,<br>    <span class="hljs-string">&#x27;y&#x27;</span>: <span class="hljs-number">24</span>,<br>    <span class="hljs-string">&#x27;1&#x27;</span>: <span class="hljs-number">29</span>,<br>    <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">26</span>,<br>    <span class="hljs-string">&#x27;m&#x27;</span>: <span class="hljs-number">27</span>,<br>    <span class="hljs-string">&#x27;2&#x27;</span>: <span class="hljs-number">28</span>,<br>    <span class="hljs-string">&#x27;v&#x27;</span>: <span class="hljs-number">25</span>,<br>    <span class="hljs-string">&#x27;d&#x27;</span>: <span class="hljs-number">33</span>,<br>    <span class="hljs-string">&#x27;f&#x27;</span>: <span class="hljs-number">28</span>,<br>    <span class="hljs-string">&#x27;9&#x27;</span>: <span class="hljs-number">33</span>,<br>    <span class="hljs-string">&#x27;t&#x27;</span>: <span class="hljs-number">21</span>,<br>    <span class="hljs-string">&#x27;w&#x27;</span>: <span class="hljs-number">22</span>,<br>    <span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">31</span>,<br>    <span class="hljs-string">&#x27;r&#x27;</span>: <span class="hljs-number">24</span>,<br>    <span class="hljs-string">&#x27;s&#x27;</span>: <span class="hljs-number">16</span>,<br>    <span class="hljs-string">&#x27;k&#x27;</span>: <span class="hljs-number">32</span>,<br>    <span class="hljs-string">&#x27;5&#x27;</span>: <span class="hljs-number">25</span>,<br>    <span class="hljs-string">&#x27;q&#x27;</span>: <span class="hljs-number">23</span>,<br>    <span class="hljs-string">&#x27;3&#x27;</span>: <span class="hljs-number">32</span>,<br>    <span class="hljs-string">&#x27;&#123;&#x27;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-string">&#x27;-&#x27;</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-string">&#x27;&#125;&#x27;</span>: <span class="hljs-number">1</span>,<br>    &#125;<br>    tt = <span class="hljs-built_in">list</span>(trash_array.items())<br>    chars_freqs = tt<br><br>    nodes = createNodes([item[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> chars_freqs])<br>    root = createHuffmanTree(nodes)<br>    codes = encodeHuffman(nodes, root)<br><br>    huffmanStr = <span class="hljs-string">&#x27;0111110001000011001010001111011110101010011011011110100000110010111101000010010010001100001110010000011110011101101111011001111101000000111010100000101101001000111100000000010100110100101001011101110010001100011100010010111001100011100110011010011000101010100011011110001111111110111001011100010100101111100001011011001001001000010111110101110111010111100010111011000011001011001101001010010111111001110101000110001001001100101110111101111000110010010111111000111110000101001100100100001001110100101011111101111110011101011101000000100100100011111111001000101110101001001101110001011101101001001001011010000101111111001011111100110010100111111110001001100100010010010011110111110110110001101000010010110110001011010000100011010111110101110000110000010001111111110000101000100101101111000111100101101011001100010101011000110010011111001010011110100100011000101111110111011011000011011010100011011100010001010001010000000001101001010010100111111010010110110011110100101010010101001010100010101011010011110001000011000100001010111001110001100101100001010111011110110111110000001011011111011101101000111111110100111100110011101111100111100101101101101010100110001100100110101011110000011111111100011110011101010011110101010111100111100001000111110111110100010011110011000010000100001100101111101010110101100011100010010100001110001001010110010010010100010101101101001110000101111110101010110110110000010011000111000010001001101101101101100111000011000011010101111010101100101000011011001011000101101110100011110001100111101111011000100110110000111010101101111101001111111111100001000111000001001011111011110010110101011110001110001101010011000101111100001111111011100110101001000011111101111111011001111110001110111110110010111000111011011110010101010110011001110110011110001111010000011010101000111110111011100101100100100100001111101010011101111100110011100000010100101000111100100011001011111000000111111111000000011111111101110111111001110100100000100000011011111010000000011110101110111101101011001111011010101111000010110001101000111000111000001110110111000100011110101100100100011100111100101101010010110101011111110011100100000111011011010101101110111000001001100110111001000111001000000111000110010110000100100010001001111010101000101101111000000110101110011101001011100110111101101111100001111000110001101010000111100100011110001100110111001101011100010101011110111111111100101100101010001101110101101101010101001110100001101011000100001111011011100101011000001001000011011000111011101110011001101110100000010100000101111010000001000011001101101111010011101000000101101101011101001101110000010011110001110100111000101111101010110111010011010011000011000110110010110001001000101101111000010010001011110100010111010100101100101111010100001110111100000100101101011110010110001000111111001000000101110010111010001101101111101110111000010101100100001010101001010010001011101001100101010101001111110000010011010011110101001001001110010110100111011110110000111101000010011111000111111001111010011101011010011100010001111101001110011110101111111111111011010100000010100010010011110100110011011101011101011101100000100111110111100100000101011000110110000010110001001111111111011101011000010101111110111001011101111111100111011101001000111011110110111101001011110011000110011000010011011001001100010010111110000110100001110111100110110100101010010111001001100101111010010001001111111000010111101010110000001110101000111011010111100110101001001110001110001001111110001000010011011110100111011111000101111110011000011010001000101000110011100011001001011000111011100101101000110001110011011101010101001010011101110100100111101011101010011010101010111101110101101000001111100111111010011010111101000101011111101011100101101101001100011001111101111100100111101101101110111111010111010100100101110111000011100001001000011100010101110100111110011001100101111110110100111101000010001000011011110000011010110111010110001110011111110000011110010001011010010111111101010101110010000001010011111011100101000101101010101101101000101000110011101101010110001100101011101110111100000001010000011110011010011000011111110100111011100100111000001101001110111100000101010110000010000100001110111000011111110010010100111111101010110000000000111011010000101100100111001110000001011101100000110110101011001011000111001111110010101111001011011101000010001100011101110010100111000011111001110001100111110110111101010101011001000101011010001100000010001111110011001101111111010110010001111001100111110001110011100010011011100100010011011000110000100101111100111110111101010010001101010011100110001011001111000100011011110100011101011101010111111110000011110110111011110000010111100110011100011010111101111110100000010001111100101100011110001101011111101111111011111011101010001101001000111000101111110101000110011000111011111101111110100001111011110010100011101110111111010101100111000101100100010011101001011110011111001111101110001110111111011100111100010110010011011010100011100101010101010110000001010111001101111100111110010100111000010101111001110011011011111001101110011111001000000000111101011000111110001101010011011000010100100100111011111110010000000101001111111110101100001010000001110100101001111001011011001001001011100101111110&#x27;</span><br>    orignStr = decodeStr(huffmanStr, chars_freqs, codes)<br><br>    print(<span class="hljs-string">&#x27;Decode result:&#x27;</span> + orignStr)<br></code></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="我的心是冰冰的"><a class="markdownIt-Anchor" href="#我的心是冰冰的"></a> 我的心是冰冰的</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 统计字符出现频率</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">countFrequency</span>(<span class="hljs-params">text</span>):</span><br>    chars = []<br>    chars_freqs = []<br>    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> text:<br>        <span class="hljs-keyword">if</span> char <span class="hljs-keyword">in</span> chars:<br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">else</span>:<br>            chars.append(char)<br>            chars_freqs.append((char, text.count(char)))<br>    <span class="hljs-keyword">return</span> chars_freqs<br><br><br><span class="hljs-comment"># 节点类</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, freq</span>):</span><br>        self.left = <span class="hljs-literal">None</span><br>        self.right = <span class="hljs-literal">None</span><br>        self.father = <span class="hljs-literal">None</span><br>        self.freq = freq<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isLeft</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> self.father.left == self<br><br><br><span class="hljs-comment"># 根据freqs数组创建叶子节点</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createNodes</span>(<span class="hljs-params">freqs</span>):</span><br>    <span class="hljs-keyword">return</span> [Node(freq) <span class="hljs-keyword">for</span> freq <span class="hljs-keyword">in</span> freqs]<br><br><br><span class="hljs-comment"># 构建Huffman树</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createHuffmanTree</span>(<span class="hljs-params">nodes</span>):</span><br>    queue = nodes[:]<br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(queue) &gt; <span class="hljs-number">1</span>:<br>        queue.sort(key=<span class="hljs-keyword">lambda</span> item: item.freq)<br>        node_left = queue.pop(<span class="hljs-number">0</span>)<br>        node_right = queue.pop(<span class="hljs-number">0</span>)<br>        node_father = Node(node_left.freq+node_right.freq)<br>        node_father.left = node_left<br>        node_father.right = node_right<br>        node_left.father = node_father<br>        node_right.father = node_father<br>        queue.append(node_father)<br>    queue[<span class="hljs-number">0</span>].father = <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">return</span> queue[<span class="hljs-number">0</span>]<br><br><br><span class="hljs-comment"># 由Huffman树得到Huffman编码</span><br><span class="hljs-comment"># codes，nodes，chars_freqs的下标是一一对应的</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encodeHuffman</span>(<span class="hljs-params">nodes, root</span>):</span><br>    codes = [<span class="hljs-string">&#x27;&#x27;</span>]*<span class="hljs-built_in">len</span>(nodes)<br>    <span class="hljs-comment"># 对于每一个节点，找其父节点，若其父节点是左侧节点，则编码前添加&#x27;0&#x27;</span><br>    <span class="hljs-comment"># node_tmp即用于一层层向上寻找父节点</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nodes)):<br>        node_tmp = nodes[i]<br>        <span class="hljs-keyword">while</span> node_tmp != root:<br>            <span class="hljs-keyword">if</span> node_tmp.isLeft():<br>                codes[i] = <span class="hljs-string">&#x27;0&#x27;</span>+codes[i]<br>            <span class="hljs-keyword">else</span>:<br>                codes[i] = <span class="hljs-string">&#x27;1&#x27;</span>+codes[i]<br>            node_tmp = node_tmp.father<br>    <span class="hljs-keyword">return</span> codes<br><br><br><span class="hljs-comment"># 编码字符串</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encodeStr</span>(<span class="hljs-params">text, chars_freqs, codes</span>):</span><br>    huffmanStr = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-comment"># 对字符串中的每个字符，遍历chars_freqs，查看对应codes的下标</span><br>    <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> text:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(codes)):<br>            <span class="hljs-keyword">if</span> char == chars_freqs[i][<span class="hljs-number">0</span>]:<br>                huffmanStr += codes[i]<br>                <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> huffmanStr<br><br><br><span class="hljs-comment"># 解码哈夫曼编码串</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decodeStr</span>(<span class="hljs-params">huffmanStr, chars_freqs, codes</span>):</span><br>    orignStr = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-comment"># 利用截断的方法，每次截取哈夫曼编码首部</span><br>    <span class="hljs-keyword">while</span> huffmanStr != <span class="hljs-string">&#x27;&#x27;</span>:<br>        <span class="hljs-comment"># 遍历codes，查看是否有codes在哈夫曼编码串首部</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(codes)):<br>            <span class="hljs-keyword">if</span> codes[i] <span class="hljs-keyword">in</span> huffmanStr <span class="hljs-keyword">and</span> huffmanStr.index(codes[i]) == <span class="hljs-number">0</span>:<br>                orignStr += chars_freqs[i][<span class="hljs-number">0</span>]<br>                huffmanStr = huffmanStr[<span class="hljs-built_in">len</span>(codes[i]):]<br>    <span class="hljs-keyword">return</span> orignStr<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    trash_array = &#123;<br>        <span class="hljs-string">&#x27;j&#x27;</span>: <span class="hljs-number">29</span>,<br>        <span class="hljs-string">&#x27;z&#x27;</span>: <span class="hljs-number">31</span>,<br>        <span class="hljs-string">&#x27;7&#x27;</span>: <span class="hljs-number">25</span>,<br>        <span class="hljs-string">&#x27;e&#x27;</span>: <span class="hljs-number">31</span>,<br>        <span class="hljs-string">&#x27;l&#x27;</span>: <span class="hljs-number">23</span>,<br>        <span class="hljs-string">&#x27;6&#x27;</span>: <span class="hljs-number">37</span>,<br>        <span class="hljs-string">&#x27;4&#x27;</span>: <span class="hljs-number">32</span>,<br>        <span class="hljs-string">&#x27;p&#x27;</span>: <span class="hljs-number">38</span>,<br>        <span class="hljs-string">&#x27;h&#x27;</span>: <span class="hljs-number">27</span>,<br>        <span class="hljs-string">&#x27;g&#x27;</span>: <span class="hljs-number">26</span>,<br>        <span class="hljs-string">&#x27;x&#x27;</span>: <span class="hljs-number">28</span>,<br>        <span class="hljs-string">&#x27;i&#x27;</span>: <span class="hljs-number">25</span>,<br>        <span class="hljs-string">&#x27;u&#x27;</span>: <span class="hljs-number">27</span>,<br>        <span class="hljs-string">&#x27;n&#x27;</span>: <span class="hljs-number">25</span>,<br>        <span class="hljs-string">&#x27;8&#x27;</span>: <span class="hljs-number">36</span>,<br>        <span class="hljs-string">&#x27;0&#x27;</span>: <span class="hljs-number">24</span>,<br>        <span class="hljs-string">&#x27;o&#x27;</span>: <span class="hljs-number">23</span>,<br>        <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">28</span>,<br>        <span class="hljs-string">&#x27;y&#x27;</span>: <span class="hljs-number">24</span>,<br>        <span class="hljs-string">&#x27;1&#x27;</span>: <span class="hljs-number">29</span>,<br>        <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">26</span>,<br>        <span class="hljs-string">&#x27;m&#x27;</span>: <span class="hljs-number">27</span>,<br>        <span class="hljs-string">&#x27;2&#x27;</span>: <span class="hljs-number">28</span>,<br>        <span class="hljs-string">&#x27;v&#x27;</span>: <span class="hljs-number">25</span>,<br>        <span class="hljs-string">&#x27;d&#x27;</span>: <span class="hljs-number">33</span>,<br>        <span class="hljs-string">&#x27;f&#x27;</span>: <span class="hljs-number">28</span>,<br>        <span class="hljs-string">&#x27;9&#x27;</span>: <span class="hljs-number">33</span>,<br>        <span class="hljs-string">&#x27;t&#x27;</span>: <span class="hljs-number">21</span>,<br>        <span class="hljs-string">&#x27;w&#x27;</span>: <span class="hljs-number">22</span>,<br>        <span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">31</span>,<br>        <span class="hljs-string">&#x27;r&#x27;</span>: <span class="hljs-number">24</span>,<br>        <span class="hljs-string">&#x27;s&#x27;</span>: <span class="hljs-number">16</span>,<br>        <span class="hljs-string">&#x27;k&#x27;</span>: <span class="hljs-number">32</span>,<br>        <span class="hljs-string">&#x27;5&#x27;</span>: <span class="hljs-number">25</span>,<br>        <span class="hljs-string">&#x27;q&#x27;</span>: <span class="hljs-number">23</span>,<br>        <span class="hljs-string">&#x27;3&#x27;</span>: <span class="hljs-number">32</span>,<br>        <span class="hljs-string">&#x27;&#123;&#x27;</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-string">&#x27;-&#x27;</span>: <span class="hljs-number">4</span>,<br>        <span class="hljs-string">&#x27;&#125;&#x27;</span>: <span class="hljs-number">1</span>,<br>    &#125;<br>    tt = <span class="hljs-built_in">list</span>(trash_array.items())<br>    chars_freqs = tt<br><br>    nodes = createNodes([item[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> chars_freqs])<br>    root = createHuffmanTree(nodes)<br>    codes = encodeHuffman(nodes, root)<br><br>    huffmanStr = <span class="hljs-string">&#x27;0111110001000011001010001111011110101010011011011110100000110010111101000010010010001100001110010000011110011101101111011001111101000000111010100000101101001000111100000000010100110100101001011101110010001100011100010010111001100011100110011010011000101010100011011110001111111110111001011100010100101111100001011011001001001000010111110101110111010111100010111011000011001011001101001010010111111001110101000110001001001100101110111101111000110010010111111000111110000101001100100100001001110100101011111101111110011101011101000000100100100011111111001000101110101001001101110001011101101001001001011010000101111111001011111100110010100111111110001001100100010010010011110111110110110001101000010010110110001011010000100011010111110101110000110000010001111111110000101000100101101111000111100101101011001100010101011000110010011111001010011110100100011000101111110111011011000011011010100011011100010001010001010000000001101001010010100111111010010110110011110100101010010101001010100010101011010011110001000011000100001010111001110001100101100001010111011110110111110000001011011111011101101000111111110100111100110011101111100111100101101101101010100110001100100110101011110000011111111100011110011101010011110101010111100111100001000111110111110100010011110011000010000100001100101111101010110101100011100010010100001110001001010110010010010100010101101101001110000101111110101010110110110000010011000111000010001001101101101101100111000011000011010101111010101100101000011011001011000101101110100011110001100111101111011000100110110000111010101101111101001111111111100001000111000001001011111011110010110101011110001110001101010011000101111100001111111011100110101001000011111101111111011001111110001110111110110010111000111011011110010101010110011001110110011110001111010000011010101000111110111011100101100100100100001111101010011101111100110011100000010100101000111100100011001011111000000111111111000000011111111101110111111001110100100000100000011011111010000000011110101110111101101011001111011010101111000010110001101000111000111000001110110111000100011110101100100100011100111100101101010010110101011111110011100100000111011011010101101110111000001001100110111001000111001000000111000110010110000100100010001001111010101000101101111000000110101110011101001011100110111101101111100001111000110001101010000111100100011110001100110111001101011100010101011110111111111100101100101010001101110101101101010101001110100001101011000100001111011011100101011000001001000011011000111011101110011001101110100000010100000101111010000001000011001101101111010011101000000101101101011101001101110000010011110001110100111000101111101010110111010011010011000011000110110010110001001000101101111000010010001011110100010111010100101100101111010100001110111100000100101101011110010110001000111111001000000101110010111010001101101111101110111000010101100100001010101001010010001011101001100101010101001111110000010011010011110101001001001110010110100111011110110000111101000010011111000111111001111010011101011010011100010001111101001110011110101111111111111011010100000010100010010011110100110011011101011101011101100000100111110111100100000101011000110110000010110001001111111111011101011000010101111110111001011101111111100111011101001000111011110110111101001011110011000110011000010011011001001100010010111110000110100001110111100110110100101010010111001001100101111010010001001111111000010111101010110000001110101000111011010111100110101001001110001110001001111110001000010011011110100111011111000101111110011000011010001000101000110011100011001001011000111011100101101000110001110011011101010101001010011101110100100111101011101010011010101010111101110101101000001111100111111010011010111101000101011111101011100101101101001100011001111101111100100111101101101110111111010111010100100101110111000011100001001000011100010101110100111110011001100101111110110100111101000010001000011011110000011010110111010110001110011111110000011110010001011010010111111101010101110010000001010011111011100101000101101010101101101000101000110011101101010110001100101011101110111100000001010000011110011010011000011111110100111011100100111000001101001110111100000101010110000010000100001110111000011111110010010100111111101010110000000000111011010000101100100111001110000001011101100000110110101011001011000111001111110010101111001011011101000010001100011101110010100111000011111001110001100111110110111101010101011001000101011010001100000010001111110011001101111111010110010001111001100111110001110011100010011011100100010011011000110000100101111100111110111101010010001101010011100110001011001111000100011011110100011101011101010111111110000011110110111011110000010111100110011100011010111101111110100000010001111100101100011110001101011111101111111011111011101010001101001000111000101111110101000110011000111011111101111110100001111011110010100011101110111111010101100111000101100100010011101001011110011111001111101110001110111111011100111100010110010011011010100011100101010101010110000001010111001101111100111110010100111000010101111001110011011011111001101110011111001000000000111101011000111110001101010011011000010100100100111011111110010000000101001111111110101100001010000001110100101001111001011011001001001011100101111110&#x27;</span><br>    orignStr = decodeStr(huffmanStr, chars_freqs, codes)<br><br>    print(<span class="hljs-string">&#x27;Decode result:&#x27;</span> + orignStr)<br></code></pre></td></tr></table></figure>
 <ul>
-<li>题目描述：似乎有信息被隐藏了。</li>
+<li>运行后得到flag</li>
+</ul>
+</li>
 </ul>
 
             </div>
@@ -359,7 +394,11 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -383,15 +422,17 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
+                
+                  
                 
                 
-  <div id="vcomments"></div>
+  <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.waitElementVisible('vcomments', function() {
+    Fluid.utils.loadComments('#valine', function() {
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
         new Valine({
-          el: "#vcomments",
+          el: "#valine",
           app_id: "t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz",
           app_key: "BpNeeVt0v3tKAbF1L6RTf94X",
           placeholder: "说点什么",
@@ -407,9 +448,7 @@
       });
     });
   </script>
-  <noscript>Please enable JavaScript to view the
-    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
-  </noscript>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -517,7 +556,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>京公网安备 11010802034644号</span>
           </a>
@@ -530,8 +569,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -544,9 +584,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -554,7 +593,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -563,7 +602,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
 
 
 
@@ -575,7 +614,7 @@
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
 
 
 
@@ -601,11 +640,12 @@
   <script>
     (function () {
       var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
+      $('#local-search-input').on('click', function() {
         searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
     })()
   </script>
 
@@ -625,7 +665,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

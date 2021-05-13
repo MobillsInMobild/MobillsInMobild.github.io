@@ -54,13 +54,13 @@
     <category term="杂谈" scheme="http://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
     
     
-    <category term="阅读" scheme="http://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
-    
     <category term="年度总结" scheme="http://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
     <category term="电影" scheme="http://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
     
     <category term="游戏" scheme="http://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="阅读" scheme="http://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
@@ -216,9 +216,9 @@
     <category term="杂谈" scheme="http://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
     
     
-    <category term="哲学" scheme="http://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
-    
     <category term="阅读" scheme="http://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="哲学" scheme="http://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   
@@ -246,7 +246,7 @@
     <link href="http://justloseit.top/2020/10/26/Bilibili_1024Sec_Writeup/"/>
     <id>http://justloseit.top/2020/10/26/Bilibili_1024Sec_Writeup/</id>
     <published>2020-10-26T02:19:04.000Z</published>
-    <updated>2021-03-22T09:03:24.593Z</updated>
+    <updated>2021-04-15T07:19:35.355Z</updated>
     
     
     <summary type="html">&lt;p&gt;电波系的脑洞题，不过说实话，如果服务器不崩，我觉得还挺有趣的&lt;/p&gt;</summary>

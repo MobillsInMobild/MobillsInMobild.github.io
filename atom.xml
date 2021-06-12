@@ -6,7 +6,7 @@
   <link href="http://justloseit.top/atom.xml" rel="self"/>
   
   <link href="http://justloseit.top/"/>
-  <updated>2021-05-13T14:11:35.968Z</updated>
+  <updated>2021-06-12T15:44:14.094Z</updated>
   <id>http://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>取证题中系统文件</title>
+    <link href="http://justloseit.top/2021/06/10/%E5%8F%96%E8%AF%81%E9%A2%98%E4%B8%AD%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/"/>
+    <id>http://justloseit.top/2021/06/10/%E5%8F%96%E8%AF%81%E9%A2%98%E4%B8%AD%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</id>
+    <published>2021-06-10T13:51:04.000Z</published>
+    <updated>2021-06-12T15:44:14.094Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;取证题中很容易遇见一些系统文件，如果能够理解各系统文件的名称和功能，就能方便取证分析。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="http://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="CTF" scheme="http://justloseit.top/tags/CTF/"/>
+    
+    <category term="Misc" scheme="http://justloseit.top/tags/Misc/"/>
+    
+  </entry>
   
   <entry>
     <title>2021 红明谷 Misc Writeup</title>
@@ -402,25 +423,6 @@
     <category term="NetworkX" scheme="http://justloseit.top/tags/NetworkX/"/>
     
     <category term="Python" scheme="http://justloseit.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字电路与系统大纲</title>
-    <link href="http://justloseit.top/2020/01/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%A7%E7%BA%B2/"/>
-    <id>http://justloseit.top/2020/01/14/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%A7%E7%BA%B2/</id>
-    <published>2020-01-14T12:46:25.000Z</published>
-    <updated>2021-03-22T10:02:08.704Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习数字电路与系统时提炼的大纲，供大家学习&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="http://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="数字电路" scheme="http://justloseit.top/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/"/>
     
   </entry>
   

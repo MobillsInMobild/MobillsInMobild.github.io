@@ -213,7 +213,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3k 字
+      2.9k 字
     </span>
   
 
@@ -223,7 +223,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47
+      44
        分钟
     </span>
   
@@ -299,46 +299,47 @@
 <h2 id="防御"><a class="markdownIt-Anchor" href="#防御"></a> 防御</h2>
 <h3 id="备份"><a class="markdownIt-Anchor" href="#备份"></a> 备份</h3>
 <ol>
-<li>
-<p>目录打包</p>
+<li>目录打包
 <ul>
-<li>
-<p>打包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zcvf archive_name.tar.gz  directory_to_compress<br></code></pre></td></tr></table></figure>
-</li>
-<li>
-<p>解包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxvf archive_name.tar.gz<br></code></pre></td></tr></table></figure>
-</li>
+<li>打包</li>
 </ul>
 </li>
+</ol>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zcvf archive_name.tar.gz  directory_to_compress<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<ul>
+<li>
+<p>解包</p>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf archive_name.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+</ul>
+<ol start="2">
 <li>
 <p>数据库</p>
 <ul>
 <li>
 <p>备份指定的多个数据库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysqldump -u root -p --databases DB1 DB2 &gt; /tmp/db.sql<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqldump -u root -p --databases DB1 DB2 <span class="token operator">></span> /tmp/db.sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <ul>
 <li>
 <p><strong>无 lock tables 权限</strong>的解决方法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mysqldump -u root --all-databases --skip-lock-tables &gt; /tmp/db.sql<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqldump -u root --all-databases --skip-lock-tables <span class="token operator">></span> /tmp/db.sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p>恢复备份（在 MySQL 终端下执行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">source FILE_PATH<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">source FILE_PATH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>重置 MySQL 密码（在 MySQL 终端下执行）</p>
 <ul>
 <li>
 <p>方法 1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set password for 用户名@localhost &#x3D; password(&quot;新密码&quot;)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">set password for 用户名@localhost &#x3D; password(&quot;新密码&quot;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>方法 2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysqladmin -u用户名 -p旧密码 password 新密码<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysqladmin -u用户名 -p旧密码 password 新密码<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
@@ -346,18 +347,18 @@
 </li>
 <li>
 <p>下载到本地</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp -P ssh_port user@host_ip:/tmp/bak.sql local_file<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> -P ssh_port user@host_ip:/tmp/bak.sql local_file<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 </ol>
 <h3 id="基础查杀"><a class="markdownIt-Anchor" href="#基础查杀"></a> 基础查杀</h3>
 <ol>
 <li>
 <p>寻找<strong>最近20分钟</strong>修改过的文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">find /var/www/html -n *.php -mmin -20<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> /var/www/html -n *.php -mmin -20<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>寻找<strong>行数最短</strong>的文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">find ./ -name <span class="hljs-string">&#x27;*.php&#x27;</span> | xargs wc -l | sort -u<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./ -name <span class="token string">'*.php'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">wc</span> -l <span class="token operator">|</span> <span class="token function">sort</span> -u<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>拿到源码后使用<strong>D盾查杀</strong>——可以找到<strong>位置不明显</strong>的 webshell</p>
@@ -376,32 +377,41 @@
 <ul>
 <li>方法 1</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -n 直接使用IP地址</span><br><span class="hljs-comment"># -a 所有连线中的Socket</span><br><span class="hljs-comment"># -p programs 显示正在使用Socket的程序识别码和程序名称</span><br><span class="hljs-comment"># -t 显示TCP传输协议的连线状况</span><br>netstat -napt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># -n 直接使用IP地址</span>
+<span class="token comment"># -a 所有连线中的Socket</span>
+<span class="token comment"># -p programs 显示正在使用Socket的程序识别码和程序名称</span>
+<span class="token comment"># -t 显示TCP传输协议的连线状况</span>
+<span class="token function">netstat</span> -napt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <ul>
 <li>方法 2</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">lsof -i:port<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> -i:port<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>杀掉进程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">kill</span> -9 PID<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">kill</span> -9 PID<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p>SSH 修改密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># SSH登录后执行</span><br>passwd<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># SSH登录后执行</span>
+<span class="token function">passwd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p>修改权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 用chattr命令防止系统中某个关键文件被修改：</span><br>chattr +i /etc/resolv.conf<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 删除file的所有用户的执行权限</span><br>chmod -R a-x file<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用chattr命令防止系统中某个关键文件被修改：</span>
+chattr +i /etc/resolv.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除file的所有用户的执行权限</span>
+<span class="token function">chmod</span> -R a-x <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 </li>
 <li>
 <p>关键字查杀</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">find . -name <span class="hljs-string">&#x27;*.php&#x27;</span> | xargs grep -n <span class="hljs-string">&#x27;eval(&#x27;</span><br>find . -name <span class="hljs-string">&#x27;*.php&#x27;</span> | xargs grep -n <span class="hljs-string">&#x27;assert&#x27;</span><br>find . -name <span class="hljs-string">&#x27;*.php&#x27;</span> | xargs grep -n <span class="hljs-string">&#x27;system()&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">'*.php'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> -n <span class="token string">'eval('</span>
+<span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">'*.php'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> -n <span class="token string">'assert'</span>
+<span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">'*.php'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> -n <span class="token string">'system()'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
 </li>
 <li>
 <p>重置web的各种登录密码，但是<strong>有被check的风险</strong></p>
@@ -411,7 +421,10 @@
 <ul>
 <li>因为获取 flag 一般是 <code>curl http://xxx.com/flag.txt​</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">alias</span> curl=<span class="hljs-string">&#x27;echo fuckoff&#x27;</span> <span class="hljs-comment">#权限要求较低，可以在这里改成虚假的flag</span><br><span class="hljs-comment"># 或者</span><br>chmod -x curl <span class="hljs-comment">#权限要求较高</span><br>/usr/bin curl路径<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">curl</span><span class="token operator">=</span><span class="token string">'echo fuckoff'</span> <span class="token comment">#权限要求较低，可以在这里改成虚假的flag</span>
+<span class="token comment"># 或者</span>
+<span class="token function">chmod</span> -x <span class="token function">curl</span> <span class="token comment">#权限要求较高</span>
+/usr/bin curl路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
 <h3 id="漏洞修复"><a class="markdownIt-Anchor" href="#漏洞修复"></a> 漏洞修复</h3>
 <ul>
 <li>
@@ -482,26 +495,333 @@
 </li>
 <li>
 <p>如果不能部署 waf，可以配置 apache 禁止 PHP 执行，<strong>很可能被 check</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">Directory</span> &quot;/<span class="hljs-attr">var</span>/<span class="hljs-attr">www</span>/<span class="hljs-attr">html</span>/&quot;&gt;</span><br>Options -ExecCGI -Indexes<br>AllowOverride None<br>RemoveHandler .php .phtml .php3 .pht .php4 .php5 .php7 .shtml<br>RemoveType .php .phtml .php3 .pht .php4 .php5 .php7 .shtml<br>php_flag engine off<br><span class="hljs-tag">&lt;<span class="hljs-name">FilesMatch</span> &quot;<span class="hljs-attr">.</span>+\<span class="hljs-attr">.ph</span>(<span class="hljs-attr">p</span>[<span class="hljs-attr">3457</span>]?|<span class="hljs-attr">t</span>|<span class="hljs-attr">tml</span>)$&quot;&gt;</span><br>deny from all<br><span class="hljs-tag">&lt;/<span class="hljs-name">FilesMatch</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">Directory</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-html" data-language="html"><code class="language-html">&lt;Directory "/var/www/html/">
+Options -ExecCGI -Indexes
+AllowOverride None
+RemoveHandler .php .phtml .php3 .pht .php4 .php5 .php7 .shtml
+RemoveType .php .phtml .php3 .pht .php4 .php5 .php7 .shtml
+php_flag engine off
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FilesMatch</span> <span class="token attr-name">".+\.ph(p[3457]?|t|tml)$"</span><span class="token punctuation">></span></span>
+deny from all
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>FilesMatch</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Directory</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </li>
 <li>
 <p>一个 WAF 的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs php+HTML">&lt;?php<br>error_reporting(0);<br>define(&#39;LOG_FILENAME&#39;, &#39;log.txt&#39;);	<br>function waf() &#123;<br>    if (!function_exists(&#39;getallheaders&#39;)) &#123;<br>        function getallheaders() &#123;<br>            foreach ($_SERVER as $name &#x3D;&gt; $value) &#123;<br>                if (substr($name, 0, 5) &#x3D;&#x3D; &#39;HTTP_&#39;) $headers[str_replace(&#39; &#39;, &#39;-&#39;, ucwords(strtolower(str_replace(&#39;_&#39;, &#39; &#39;, substr($name, 5))))) ] &#x3D; $value;<br>            &#125;<br>            return $headers;<br>        &#125;<br>    &#125;<br>    $get &#x3D; $_GET;<br>    $post &#x3D; $_POST;<br>    $cookie &#x3D; $_COOKIE;<br>    $header &#x3D; getallheaders();<br>    $files &#x3D; $_FILES;<br>    $ip &#x3D; $_SERVER[&quot;REMOTE_ADDR&quot;];<br>    $method &#x3D; $_SERVER[&#39;REQUEST_METHOD&#39;];<br>    $filepath &#x3D; $_SERVER[&quot;SCRIPT_NAME&quot;];<br>    &#x2F;&#x2F;rewirte shell which uploaded by others, you can do more<br>    foreach ($_FILES as $key &#x3D;&gt; $value) &#123;<br>        $files[$key][&#39;content&#39;] &#x3D; file_get_contents($_FILES[$key][&#39;tmp_name&#39;]);<br>        file_put_contents($_FILES[$key][&#39;tmp_name&#39;], &quot;virink&quot;);<br>    &#125;<br>    unset($header[&#39;Accept&#39;]); &#x2F;&#x2F;fix a bug<br>    $input &#x3D; array(<br>        &quot;Get&quot; &#x3D;&gt; $get,<br>        &quot;Post&quot; &#x3D;&gt; $post,<br>        &quot;Cookie&quot; &#x3D;&gt; $cookie,<br>        &quot;File&quot; &#x3D;&gt; $files,<br>        &quot;Header&quot; &#x3D;&gt; $header<br>    );<br>    &#x2F;&#x2F;deal with<br>    $pattern &#x3D; &quot;select|insert|update|delete|and|or|\&#39;|\&#x2F;\*|\*|\.\.\&#x2F;|\.\&#x2F;|union|into|load_file|outfile|dumpfile|sub|hex&quot;;<br>    $pattern.&#x3D; &quot;|file_put_contents|fwrite|curl|system|eval|assert&quot;;<br>    $pattern.&#x3D; &quot;|passthru|exec|system|chroot|scandir|chgrp|chown|shell_exec|proc_open|proc_get_status|popen|ini_alter|ini_restore&quot;;<br>    $pattern.&#x3D; &quot;|&#96;|dl|openlog|syslog|readlink|symlink|popepassthru|stream_socket_server|assert|pcntl_exec&quot;;<br>    $vpattern &#x3D; explode(&quot;|&quot;, $pattern);<br>    $bool &#x3D; false;<br>    foreach ($input as $k &#x3D;&gt; $v) &#123;<br>        foreach ($vpattern as $value) &#123;<br>            foreach ($v as $kk &#x3D;&gt; $vv) &#123;<br>                if (preg_match(&quot;&#x2F;$value&#x2F;i&quot;, $vv)) &#123;<br>                    $bool &#x3D; true;<br>                    logging($input);<br>                    break;<br>                &#125;<br>            &#125;<br>            if ($bool) break;<br>        &#125;<br>        if ($bool) break;<br>    &#125;<br>&#125;<br>function logging($var) &#123;<br>	date_default_timezone_set(&quot;Asia&#x2F;Shanghai&quot;);&#x2F;&#x2F;修正时间为中国准确时间<br>	$time&#x3D;date(&quot;Y-m-d H:i:s&quot;);&#x2F;&#x2F;将时间赋值给变量$time<br>    file_put_contents(LOG_FILENAME, &quot;\r\n\r\n\r\n&quot; . $time . &quot;\r\n&quot; . print_r($var, true) , FILE_APPEND);<br>    &#x2F;&#x2F; die() or unset($_GET) or unset($_POST) or unset($_COOKIE);<br>    <br>&#125;<br>waf();<br>?&gt;<br><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">&lt;?php
+error_reporting(0);
+define(&#39;LOG_FILENAME&#39;, &#39;log.txt&#39;);	
+function waf() &#123;
+    if (!function_exists(&#39;getallheaders&#39;)) &#123;
+        function getallheaders() &#123;
+            foreach ($_SERVER as $name &#x3D;&gt; $value) &#123;
+                if (substr($name, 0, 5) &#x3D;&#x3D; &#39;HTTP_&#39;) $headers[str_replace(&#39; &#39;, &#39;-&#39;, ucwords(strtolower(str_replace(&#39;_&#39;, &#39; &#39;, substr($name, 5))))) ] &#x3D; $value;
+            &#125;
+            return $headers;
+        &#125;
+    &#125;
+    $get &#x3D; $_GET;
+    $post &#x3D; $_POST;
+    $cookie &#x3D; $_COOKIE;
+    $header &#x3D; getallheaders();
+    $files &#x3D; $_FILES;
+    $ip &#x3D; $_SERVER[&quot;REMOTE_ADDR&quot;];
+    $method &#x3D; $_SERVER[&#39;REQUEST_METHOD&#39;];
+    $filepath &#x3D; $_SERVER[&quot;SCRIPT_NAME&quot;];
+    &#x2F;&#x2F;rewirte shell which uploaded by others, you can do more
+    foreach ($_FILES as $key &#x3D;&gt; $value) &#123;
+        $files[$key][&#39;content&#39;] &#x3D; file_get_contents($_FILES[$key][&#39;tmp_name&#39;]);
+        file_put_contents($_FILES[$key][&#39;tmp_name&#39;], &quot;virink&quot;);
+    &#125;
+    unset($header[&#39;Accept&#39;]); &#x2F;&#x2F;fix a bug
+    $input &#x3D; array(
+        &quot;Get&quot; &#x3D;&gt; $get,
+        &quot;Post&quot; &#x3D;&gt; $post,
+        &quot;Cookie&quot; &#x3D;&gt; $cookie,
+        &quot;File&quot; &#x3D;&gt; $files,
+        &quot;Header&quot; &#x3D;&gt; $header
+    );
+    &#x2F;&#x2F;deal with
+    $pattern &#x3D; &quot;select|insert|update|delete|and|or|\&#39;|\&#x2F;\*|\*|\.\.\&#x2F;|\.\&#x2F;|union|into|load_file|outfile|dumpfile|sub|hex&quot;;
+    $pattern.&#x3D; &quot;|file_put_contents|fwrite|curl|system|eval|assert&quot;;
+    $pattern.&#x3D; &quot;|passthru|exec|system|chroot|scandir|chgrp|chown|shell_exec|proc_open|proc_get_status|popen|ini_alter|ini_restore&quot;;
+    $pattern.&#x3D; &quot;|&#96;|dl|openlog|syslog|readlink|symlink|popepassthru|stream_socket_server|assert|pcntl_exec&quot;;
+    $vpattern &#x3D; explode(&quot;|&quot;, $pattern);
+    $bool &#x3D; false;
+    foreach ($input as $k &#x3D;&gt; $v) &#123;
+        foreach ($vpattern as $value) &#123;
+            foreach ($v as $kk &#x3D;&gt; $vv) &#123;
+                if (preg_match(&quot;&#x2F;$value&#x2F;i&quot;, $vv)) &#123;
+                    $bool &#x3D; true;
+                    logging($input);
+                    break;
+                &#125;
+            &#125;
+            if ($bool) break;
+        &#125;
+        if ($bool) break;
+    &#125;
+&#125;
+function logging($var) &#123;
+	date_default_timezone_set(&quot;Asia&#x2F;Shanghai&quot;);&#x2F;&#x2F;修正时间为中国准确时间
+	$time&#x3D;date(&quot;Y-m-d H:i:s&quot;);&#x2F;&#x2F;将时间赋值给变量$time
+    file_put_contents(LOG_FILENAME, &quot;\r\n\r\n\r\n&quot; . $time . &quot;\r\n&quot; . print_r($var, true) , FILE_APPEND);
+    &#x2F;&#x2F; die() or unset($_GET) or unset($_POST) or unset($_COOKIE);
+    
+&#125;
+waf();
+?&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </li>
 </ul>
 <h3 id="文件监控"><a class="markdownIt-Anchor" href="#文件监控"></a> 文件监控</h3>
 <ul>
 <li>Shell 监控新增文件，创建文件的时候更改文件创建时间<strong>可能监测不到</strong></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 循环监听一小时以内更改过的文件或新增的文件，进行删除。</span><br><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">true</span><br><span class="hljs-keyword">do</span><br>    find /var/www/dvwa/ -cmin -60 -<span class="hljs-built_in">type</span> f | xargs rm -rf<br>    sleep 1<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 循环监听一小时以内更改过的文件或新增的文件，进行删除。</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token boolean">true</span>
+<span class="token keyword">do</span>
+    <span class="token function">find</span> /var/www/dvwa/ -cmin -60 -type f <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> -rf
+    <span class="token function">sleep</span> <span class="token number">1</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <ul>
 <li>Python 监测新增文件：放在 <code>/var/www/</code> 或 <code>/var/www/html</code> 下执行这个脚本，它会先备份当前目录下的所有文件，然后监控当前目录，一旦当前目录下的某个文件发生变更，就会<strong>自动还原</strong>，有新的文件产生就会<strong>自动删除</strong>。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment">#use: python file_check.py ./</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> hashlib<br><span class="hljs-keyword">import</span> shutil<br><span class="hljs-keyword">import</span> ntpath<br><span class="hljs-keyword">import</span> time<br><br>CWD = os.getcwd()<br>FILE_MD5_DICT = &#123;&#125; <span class="hljs-comment"># 文件MD5字典</span><br>ORIGIN_FILE_LIST = []<br><br><span class="hljs-comment"># 特殊文件路径字符串</span><br>Special_path_str = <span class="hljs-string">&#x27;drops_JWI96TY7ZKNMQPDRUOSG0FLH41A3C5EXVB82&#x27;</span><br>bakstring = <span class="hljs-string">&#x27;bak_EAR1IBM0JT9HZ75WU4Y3Q8KLPCX26NDFOGVS&#x27;</span><br>logstring = <span class="hljs-string">&#x27;log_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD&#x27;</span><br>webshellstring = <span class="hljs-string">&#x27;webshell_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD&#x27;</span><br>difffile = <span class="hljs-string">&#x27;diff_UMTGPJO17F82K35Z0LEDA6QB9WH4IYRXVSCN&#x27;</span><br><br>Special_string = <span class="hljs-string">&#x27;drops_log&#x27;</span> <span class="hljs-comment"># 免死金牌</span><br>UNICODE_ENCODING = <span class="hljs-string">&quot;utf-8&quot;</span><br>INVALID_UNICODE_CHAR_FORMAT = <span class="hljs-string">r&quot;\?%02x&quot;</span><br><br><span class="hljs-comment"># 文件路径字典</span><br>spec_base_path = os.path.realpath(os.path.join(CWD, Special_path_str))<br>Special_path = &#123;<br>    <span class="hljs-string">&#x27;bak&#x27;</span> : os.path.realpath(os.path.join(spec_base_path, bakstring)),<br>    <span class="hljs-string">&#x27;log&#x27;</span> : os.path.realpath(os.path.join(spec_base_path, logstring)),<br>    <span class="hljs-string">&#x27;webshell&#x27;</span> : os.path.realpath(os.path.join(spec_base_path, webshellstring)),<br>    <span class="hljs-string">&#x27;difffile&#x27;</span> : os.path.realpath(os.path.join(spec_base_path, difffile)),<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isListLike</span>(<span class="hljs-params">value</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">isinstance</span>(value, (<span class="hljs-built_in">list</span>, <span class="hljs-built_in">tuple</span>, <span class="hljs-built_in">set</span>))<br><br><span class="hljs-comment"># 获取Unicode编码</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getUnicode</span>(<span class="hljs-params">value, encoding=<span class="hljs-literal">None</span>, noneToNull=<span class="hljs-literal">False</span></span>):</span><br>    <span class="hljs-keyword">if</span> noneToNull <span class="hljs-keyword">and</span> value <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        <span class="hljs-keyword">return</span> NULL<br>    <span class="hljs-keyword">if</span> isListLike(value):<br>        value = <span class="hljs-built_in">list</span>(getUnicode(_, encoding, noneToNull) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> value)<br>        <span class="hljs-keyword">return</span> value<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">isinstance</span>(value, unicode):<br>        <span class="hljs-keyword">return</span> value<br>    <span class="hljs-keyword">elif</span> <span class="hljs-built_in">isinstance</span>(value, basestring):<br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            <span class="hljs-keyword">try</span>:<br>                <span class="hljs-keyword">return</span> unicode(value, encoding <span class="hljs-keyword">or</span> UNICODE_ENCODING)<br>            <span class="hljs-keyword">except</span> UnicodeDecodeError, ex:<br>                <span class="hljs-keyword">try</span>:<br>                    <span class="hljs-keyword">return</span> unicode(value, UNICODE_ENCODING)<br>                <span class="hljs-keyword">except</span>:<br>                    value = value[:ex.start] + <span class="hljs-string">&quot;&quot;</span>.join(INVALID_UNICODE_CHAR_FORMAT % <span class="hljs-built_in">ord</span>(_) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> value[ex.start:ex.end]) + value[ex.end:]<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-keyword">return</span> unicode(value)<br>        <span class="hljs-keyword">except</span> UnicodeDecodeError:<br>            <span class="hljs-keyword">return</span> unicode(<span class="hljs-built_in">str</span>(value), errors=<span class="hljs-string">&quot;ignore&quot;</span>)<br><br><span class="hljs-comment"># 目录创建</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mkdir_p</span>(<span class="hljs-params">path</span>):</span><br>    <span class="hljs-keyword">import</span> errno<br>    <span class="hljs-keyword">try</span>:<br>        os.makedirs(path)<br>    <span class="hljs-keyword">except</span> OSError <span class="hljs-keyword">as</span> exc:<br>        <span class="hljs-keyword">if</span> exc.errno == errno.EEXIST <span class="hljs-keyword">and</span> os.path.isdir(path):<br>            <span class="hljs-keyword">pass</span><br>        <span class="hljs-keyword">else</span>: <span class="hljs-keyword">raise</span><br><br><span class="hljs-comment"># 获取当前所有文件路径</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getfilelist</span>(<span class="hljs-params">cwd</span>):</span><br>    filelist = []<br>    <span class="hljs-keyword">for</span> root,subdirs, files <span class="hljs-keyword">in</span> os.walk(cwd):<br>        <span class="hljs-keyword">for</span> filepath <span class="hljs-keyword">in</span> files:<br>            originalfile = os.path.join(root, filepath)<br>            <span class="hljs-keyword">if</span> Special_path_str <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> originalfile:<br>                filelist.append(originalfile)<br>    <span class="hljs-keyword">return</span> filelist<br><br><span class="hljs-comment"># 计算机文件MD5值</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calcMD5</span>(<span class="hljs-params">filepath</span>):</span><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filepath,<span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>            md5obj = hashlib.md5()<br>            md5obj.update(f.read())<br>            <span class="hljs-built_in">hash</span> = md5obj.hexdigest()<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">hash</span><br>    <span class="hljs-keyword">except</span> Exception, e:<br>        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[!] getmd5_error : &#x27;</span> + getUnicode(filepath)<br>        <span class="hljs-built_in">print</span> getUnicode(e)<br>        <span class="hljs-keyword">try</span>:<br>            ORIGIN_FILE_LIST.remove(filepath)<br>            FILE_MD5_DICT.pop(filepath, <span class="hljs-literal">None</span>)<br>        <span class="hljs-keyword">except</span> KeyError, e:<br>            <span class="hljs-keyword">pass</span><br><br><span class="hljs-comment"># 获取所有文件MD5</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getfilemd5dict</span>(<span class="hljs-params">filelist = []</span>):</span><br>    filemd5dict = &#123;&#125;<br>    <span class="hljs-keyword">for</span> ori_file <span class="hljs-keyword">in</span> filelist:<br>        <span class="hljs-keyword">if</span> Special_path_str <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> ori_file:<br>            md5 = calcMD5(os.path.realpath(ori_file))<br>            <span class="hljs-keyword">if</span> md5:<br>                filemd5dict[ori_file] = md5<br>    <span class="hljs-keyword">return</span> filemd5dict<br><br><span class="hljs-comment"># 备份所有文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backup_file</span>(<span class="hljs-params">filelist=[]</span>):</span><br>    <span class="hljs-comment"># if len(os.listdir(Special_path[&#x27;bak&#x27;])) == 0:</span><br>    <span class="hljs-keyword">for</span> filepath <span class="hljs-keyword">in</span> filelist:<br>        <span class="hljs-keyword">if</span> Special_path_str <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> filepath:<br>            shutil.copy2(filepath, Special_path[<span class="hljs-string">&#x27;bak&#x27;</span>])<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;---------start------------&#x27;</span><br>    <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> Special_path:<br>        mkdir_p(Special_path[value])<br>    <span class="hljs-comment"># 获取所有文件路径，并获取所有文件的MD5，同时备份所有文件</span><br>    ORIGIN_FILE_LIST = getfilelist(CWD)<br>    FILE_MD5_DICT = getfilemd5dict(ORIGIN_FILE_LIST)<br>    backup_file(ORIGIN_FILE_LIST) <span class="hljs-comment"># TODO 备份文件可能会产生重名BUG</span><br>    <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[*] pre work end!&#x27;</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        file_list = getfilelist(CWD)<br>        <span class="hljs-comment"># 移除新上传文件</span><br>        diff_file_list = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(file_list) ^ <span class="hljs-built_in">set</span>(ORIGIN_FILE_LIST))<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(diff_file_list) != <span class="hljs-number">0</span>:<br>            <span class="hljs-comment"># import pdb;pdb.set_trace()</span><br>            <span class="hljs-keyword">for</span> filepath <span class="hljs-keyword">in</span> diff_file_list:<br>                <span class="hljs-keyword">try</span>:<br>                    f = <span class="hljs-built_in">open</span>(filepath, <span class="hljs-string">&#x27;r&#x27;</span>).read()<br>                <span class="hljs-keyword">except</span> Exception, e:<br>                    <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">if</span> Special_string <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> f:<br>                    <span class="hljs-keyword">try</span>:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[*] webshell find : &#x27;</span> + getUnicode(filepath)<br>                        shutil.move(filepath, os.path.join(Special_path[<span class="hljs-string">&#x27;webshell&#x27;</span>], ntpath.basename(filepath) + <span class="hljs-string">&#x27;.txt&#x27;</span>))<br>                    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[!] move webshell error, &quot;%s&quot; maybe is webshell.&#x27;</span>%getUnicode(filepath)<br>                    <span class="hljs-keyword">try</span>:<br>                        f = <span class="hljs-built_in">open</span>(os.path.join(Special_path[<span class="hljs-string">&#x27;log&#x27;</span>], <span class="hljs-string">&#x27;log.txt&#x27;</span>), <span class="hljs-string">&#x27;a&#x27;</span>)<br>                        f.write(<span class="hljs-string">&#x27;newfile: &#x27;</span> + getUnicode(filepath) + <span class="hljs-string">&#x27; : &#x27;</span> + <span class="hljs-built_in">str</span>(time.ctime()) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>                        f.close()<br>                    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[-] log error : file move error: &#x27;</span> + getUnicode(e)<br><br>        <span class="hljs-comment"># 防止任意文件被修改,还原被修改文件</span><br>        md5_dict = getfilemd5dict(ORIGIN_FILE_LIST)<br>        <span class="hljs-keyword">for</span> filekey <span class="hljs-keyword">in</span> md5_dict:<br>            <span class="hljs-keyword">if</span> md5_dict[filekey] != FILE_MD5_DICT[filekey]:<br>                <span class="hljs-keyword">try</span>:<br>                    f = <span class="hljs-built_in">open</span>(filekey, <span class="hljs-string">&#x27;r&#x27;</span>).read()<br>                <span class="hljs-keyword">except</span> Exception, e:<br>                    <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">if</span> Special_string <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> f:<br>                    <span class="hljs-keyword">try</span>:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[*] file had be change : &#x27;</span> + getUnicode(filekey)<br>                        shutil.move(filekey, os.path.join(Special_path[<span class="hljs-string">&#x27;difffile&#x27;</span>], ntpath.basename(filekey) + <span class="hljs-string">&#x27;.txt&#x27;</span>))<br>                        shutil.move(os.path.join(Special_path[<span class="hljs-string">&#x27;bak&#x27;</span>], ntpath.basename(filekey)), filekey)<br>                    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[!] move webshell error, &quot;%s&quot; maybe is webshell.&#x27;</span>%getUnicode(filekey)<br>                    <span class="hljs-keyword">try</span>:<br>                        f = <span class="hljs-built_in">open</span>(os.path.join(Special_path[<span class="hljs-string">&#x27;log&#x27;</span>], <span class="hljs-string">&#x27;log.txt&#x27;</span>), <span class="hljs-string">&#x27;a&#x27;</span>)<br>                        f.write(<span class="hljs-string">&#x27;diff_file: &#x27;</span> + getUnicode(filekey) + <span class="hljs-string">&#x27; : &#x27;</span> + getUnicode(time.ctime()) + <span class="hljs-string">&#x27;\n&#x27;</span>)<br>                        f.close()<br>                    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                        <span class="hljs-built_in">print</span> <span class="hljs-string">u&#x27;[-] log error : done_diff: &#x27;</span> + getUnicode(filekey)<br>                        <span class="hljs-keyword">pass</span><br>        time.sleep(<span class="hljs-number">2</span>)<br>        <span class="hljs-comment"># print &#x27;[*] &#x27; + getUnicode(time.ctime())</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token comment">#use: python file_check.py ./</span>
+
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> shutil
+<span class="token keyword">import</span> ntpath
+<span class="token keyword">import</span> time
+
+CWD <span class="token operator">=</span> os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+FILE_MD5_DICT <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token comment"># 文件MD5字典</span>
+ORIGIN_FILE_LIST <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 特殊文件路径字符串</span>
+Special_path_str <span class="token operator">=</span> <span class="token string">'drops_JWI96TY7ZKNMQPDRUOSG0FLH41A3C5EXVB82'</span>
+bakstring <span class="token operator">=</span> <span class="token string">'bak_EAR1IBM0JT9HZ75WU4Y3Q8KLPCX26NDFOGVS'</span>
+logstring <span class="token operator">=</span> <span class="token string">'log_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD'</span>
+webshellstring <span class="token operator">=</span> <span class="token string">'webshell_WMY4RVTLAJFB28960SC3KZX7EUP1IHOQN5GD'</span>
+difffile <span class="token operator">=</span> <span class="token string">'diff_UMTGPJO17F82K35Z0LEDA6QB9WH4IYRXVSCN'</span>
+
+Special_string <span class="token operator">=</span> <span class="token string">'drops_log'</span> <span class="token comment"># 免死金牌</span>
+UNICODE_ENCODING <span class="token operator">=</span> <span class="token string">"utf-8"</span>
+INVALID_UNICODE_CHAR_FORMAT <span class="token operator">=</span> <span class="token string">r"\?%02x"</span>
+
+<span class="token comment"># 文件路径字典</span>
+spec_base_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>CWD<span class="token punctuation">,</span> Special_path_str<span class="token punctuation">)</span><span class="token punctuation">)</span>
+Special_path <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'bak'</span> <span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>spec_base_path<span class="token punctuation">,</span> bakstring<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'log'</span> <span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>spec_base_path<span class="token punctuation">,</span> logstring<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'webshell'</span> <span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>spec_base_path<span class="token punctuation">,</span> webshellstring<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">'difffile'</span> <span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>spec_base_path<span class="token punctuation">,</span> difffile<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">def</span> <span class="token function">isListLike</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">,</span> <span class="token builtin">tuple</span><span class="token punctuation">,</span> <span class="token builtin">set</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 获取Unicode编码</span>
+<span class="token keyword">def</span> <span class="token function">getUnicode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> noneToNull<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> noneToNull <span class="token keyword">and</span> value <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> NULL
+    <span class="token keyword">if</span> isListLike<span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        value <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>getUnicode<span class="token punctuation">(</span>_<span class="token punctuation">,</span> encoding<span class="token punctuation">,</span> noneToNull<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> value<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> value
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">unicode</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> value
+    <span class="token keyword">elif</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">basestring</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token builtin">unicode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> encoding <span class="token keyword">or</span> UNICODE_ENCODING<span class="token punctuation">)</span>
+            <span class="token keyword">except</span> UnicodeDecodeError<span class="token punctuation">,</span> ex<span class="token punctuation">:</span>
+                <span class="token keyword">try</span><span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> <span class="token builtin">unicode</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> UNICODE_ENCODING<span class="token punctuation">)</span>
+                <span class="token keyword">except</span><span class="token punctuation">:</span>
+                    value <span class="token operator">=</span> value<span class="token punctuation">[</span><span class="token punctuation">:</span>ex<span class="token punctuation">.</span>start<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>INVALID_UNICODE_CHAR_FORMAT <span class="token operator">%</span> <span class="token builtin">ord</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> value<span class="token punctuation">[</span>ex<span class="token punctuation">.</span>start<span class="token punctuation">:</span>ex<span class="token punctuation">.</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> value<span class="token punctuation">[</span>ex<span class="token punctuation">.</span>end<span class="token punctuation">:</span><span class="token punctuation">]</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token builtin">unicode</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> UnicodeDecodeError<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token builtin">unicode</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">,</span> errors<span class="token operator">=</span><span class="token string">"ignore"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 目录创建</span>
+<span class="token keyword">def</span> <span class="token function">mkdir_p</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">import</span> errno
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> OSError <span class="token keyword">as</span> exc<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> exc<span class="token punctuation">.</span>errno <span class="token operator">==</span> errno<span class="token punctuation">.</span>EEXIST <span class="token keyword">and</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token keyword">raise</span>
+
+<span class="token comment"># 获取当前所有文件路径</span>
+<span class="token keyword">def</span> <span class="token function">getfilelist</span><span class="token punctuation">(</span>cwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    filelist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> root<span class="token punctuation">,</span>subdirs<span class="token punctuation">,</span> files <span class="token keyword">in</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>cwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> filepath <span class="token keyword">in</span> files<span class="token punctuation">:</span>
+            originalfile <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>root<span class="token punctuation">,</span> filepath<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> Special_path_str <span class="token keyword">not</span> <span class="token keyword">in</span> originalfile<span class="token punctuation">:</span>
+                filelist<span class="token punctuation">.</span>append<span class="token punctuation">(</span>originalfile<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> filelist
+
+<span class="token comment"># 计算机文件MD5值</span>
+<span class="token keyword">def</span> <span class="token function">calcMD5</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            md5obj <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            md5obj<span class="token punctuation">.</span>update<span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token builtin">hash</span> <span class="token operator">=</span> md5obj<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token builtin">hash</span>
+    <span class="token keyword">except</span> Exception<span class="token punctuation">,</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span> <span class="token string">u'[!] getmd5_error : '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+        <span class="token keyword">print</span> getUnicode<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            ORIGIN_FILE_LIST<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+            FILE_MD5_DICT<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> KeyError<span class="token punctuation">,</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+
+<span class="token comment"># 获取所有文件MD5</span>
+<span class="token keyword">def</span> <span class="token function">getfilemd5dict</span><span class="token punctuation">(</span>filelist <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    filemd5dict <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> ori_file <span class="token keyword">in</span> filelist<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> Special_path_str <span class="token keyword">not</span> <span class="token keyword">in</span> ori_file<span class="token punctuation">:</span>
+            md5 <span class="token operator">=</span> calcMD5<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>realpath<span class="token punctuation">(</span>ori_file<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> md5<span class="token punctuation">:</span>
+                filemd5dict<span class="token punctuation">[</span>ori_file<span class="token punctuation">]</span> <span class="token operator">=</span> md5
+    <span class="token keyword">return</span> filemd5dict
+
+<span class="token comment"># 备份所有文件</span>
+<span class="token keyword">def</span> <span class="token function">backup_file</span><span class="token punctuation">(</span>filelist<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># if len(os.listdir(Special_path['bak'])) == 0:</span>
+    <span class="token keyword">for</span> filepath <span class="token keyword">in</span> filelist<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> Special_path_str <span class="token keyword">not</span> <span class="token keyword">in</span> filepath<span class="token punctuation">:</span>
+            shutil<span class="token punctuation">.</span>copy2<span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> Special_path<span class="token punctuation">[</span><span class="token string">'bak'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token string">u'---------start------------'</span>
+    <span class="token keyword">for</span> value <span class="token keyword">in</span> Special_path<span class="token punctuation">:</span>
+        mkdir_p<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token comment"># 获取所有文件路径，并获取所有文件的MD5，同时备份所有文件</span>
+    ORIGIN_FILE_LIST <span class="token operator">=</span> getfilelist<span class="token punctuation">(</span>CWD<span class="token punctuation">)</span>
+    FILE_MD5_DICT <span class="token operator">=</span> getfilemd5dict<span class="token punctuation">(</span>ORIGIN_FILE_LIST<span class="token punctuation">)</span>
+    backup_file<span class="token punctuation">(</span>ORIGIN_FILE_LIST<span class="token punctuation">)</span> <span class="token comment"># TODO 备份文件可能会产生重名BUG</span>
+    <span class="token keyword">print</span> <span class="token string">u'[*] pre work end!'</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        file_list <span class="token operator">=</span> getfilelist<span class="token punctuation">(</span>CWD<span class="token punctuation">)</span>
+        <span class="token comment"># 移除新上传文件</span>
+        diff_file_list <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">(</span>file_list<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token builtin">set</span><span class="token punctuation">(</span>ORIGIN_FILE_LIST<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>diff_file_list<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token comment"># import pdb;pdb.set_trace()</span>
+            <span class="token keyword">for</span> filepath <span class="token keyword">in</span> diff_file_list<span class="token punctuation">:</span>
+                <span class="token keyword">try</span><span class="token punctuation">:</span>
+                    f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">except</span> Exception<span class="token punctuation">,</span> e<span class="token punctuation">:</span>
+                    <span class="token keyword">break</span>
+                <span class="token keyword">if</span> Special_string <span class="token keyword">not</span> <span class="token keyword">in</span> f<span class="token punctuation">:</span>
+                    <span class="token keyword">try</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[*] webshell find : '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+                        shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span><span class="token string">'webshell'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ntpath<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[!] move webshell error, "%s" maybe is webshell.'</span><span class="token operator">%</span>getUnicode<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span>
+                    <span class="token keyword">try</span><span class="token punctuation">:</span>
+                        f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span><span class="token string">'log'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'log.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+                        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'newfile: '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filepath<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' : '</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[-] log error : file move error: '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+
+        <span class="token comment"># 防止任意文件被修改,还原被修改文件</span>
+        md5_dict <span class="token operator">=</span> getfilemd5dict<span class="token punctuation">(</span>ORIGIN_FILE_LIST<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> filekey <span class="token keyword">in</span> md5_dict<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> md5_dict<span class="token punctuation">[</span>filekey<span class="token punctuation">]</span> <span class="token operator">!=</span> FILE_MD5_DICT<span class="token punctuation">[</span>filekey<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">try</span><span class="token punctuation">:</span>
+                    f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filekey<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">except</span> Exception<span class="token punctuation">,</span> e<span class="token punctuation">:</span>
+                    <span class="token keyword">break</span>
+                <span class="token keyword">if</span> Special_string <span class="token keyword">not</span> <span class="token keyword">in</span> f<span class="token punctuation">:</span>
+                    <span class="token keyword">try</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[*] file had be change : '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span>
+                        shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>filekey<span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span><span class="token string">'difffile'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ntpath<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                        shutil<span class="token punctuation">.</span>move<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span><span class="token string">'bak'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ntpath<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> filekey<span class="token punctuation">)</span>
+                    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[!] move webshell error, "%s" maybe is webshell.'</span><span class="token operator">%</span>getUnicode<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span>
+                    <span class="token keyword">try</span><span class="token punctuation">:</span>
+                        f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>Special_path<span class="token punctuation">[</span><span class="token string">'log'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'log.txt'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+                        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'diff_file: '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">' : '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>time<span class="token punctuation">.</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+                        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                        <span class="token keyword">print</span> <span class="token string">u'[-] log error : done_diff: '</span> <span class="token operator">+</span> getUnicode<span class="token punctuation">(</span>filekey<span class="token punctuation">)</span>
+                        <span class="token keyword">pass</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token comment"># print '[*] ' + getUnicode(time.ctime())</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <ul>
 <li>Python 监控<strong>被修改</strong>的文件</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/python</span><br><span class="hljs-comment">#coding=utf-8</span><br><span class="hljs-comment">#Usage ：python demo.py</span><br><span class="hljs-comment">#Code by : AdminTony</span><br><span class="hljs-comment">#QQ : 78941695</span><br><span class="hljs-comment">#注意：要将此文件放在有读写权限的目录以及所有修改过的php必须在此目录或者该目录的子目录中。</span><br><span class="hljs-comment">#作用：读取被修改过的文件，然后将文件的地址加上内容全部存放在txt</span><br><br><br><span class="hljs-keyword">import</span> sys,subprocess,os<br><span class="hljs-comment">#查找最近10分钟被修改的文件</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">scanfile</span>():</span><br>	<span class="hljs-comment">#command: find -name &#x27;*.php&#x27; -mmin -10</span><br>	command = <span class="hljs-string">&quot;find -name \&#x27;*.php\&#x27; -mmin -10&quot;</span><br>	su = subprocess.Popen(command,shell=<span class="hljs-literal">True</span>,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)<br>	STDOUT,STDERR = su.communicate()<br>	<span class="hljs-built_in">list</span> = STDOUT.split(<span class="hljs-string">&quot;\n&quot;</span>)<br>	<span class="hljs-comment">#print str(list)</span><br>	<span class="hljs-comment">#将文件处理成list类型然后返回。</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span><br><br><span class="hljs-comment">#读取文件：</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loadfile</span>(<span class="hljs-params">addr</span>):</span><br>	data = <span class="hljs-string">&quot;&quot;</span><br>	<span class="hljs-comment">#如果文件不存在就跳出函数</span><br>	<span class="hljs-keyword">try</span> :<br>		file = <span class="hljs-built_in">open</span>(addr,<span class="hljs-string">&#x27;r&#x27;</span>)<br>		data = file.read()<br>	<span class="hljs-keyword">except</span> : <br>		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>	all_data = addr+<span class="hljs-string">&quot;\n&quot;</span>+data+<span class="hljs-string">&quot;\n\n&quot;</span><br>	file1 = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;shell.txt&quot;</span>,<span class="hljs-string">&#x27;a+&#x27;</span>)<br>	<span class="hljs-comment">#避免重复写入</span><br>	<span class="hljs-keyword">try</span>:<br>		shell_content = file1.read()<br>	<span class="hljs-keyword">except</span>:<br>		shell_content = <span class="hljs-string">&quot;null&quot;</span><br>	<span class="hljs-comment">#如果文件内容不为空再写入，避免写入空的。</span><br>	<span class="hljs-comment">#print shell_content</span><br>	<span class="hljs-keyword">if</span> data :<br>		<span class="hljs-keyword">if</span> all_data <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> shell_content:<br>			file1.write(all_data)<br>	file.close()<br>	file1.close()<br>	rm_cmd = <span class="hljs-string">&quot;rm -rf &quot;</span>+addr<br>	su = subprocess.Popen(rm_cmd,shell=<span class="hljs-literal">True</span>,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)<br>	su.communicate()<br>	<span class="hljs-built_in">print</span> <span class="hljs-string">&quot;loadfile over : &quot;</span>+addr<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>		<span class="hljs-built_in">list</span> = scanfile()<br>		<span class="hljs-keyword">if</span> <span class="hljs-built_in">list</span> :<br>			<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(<span class="hljs-built_in">list</span>)):<br>				<span class="hljs-comment">#如果list[i]为空就不读取了</span><br>				<span class="hljs-keyword">if</span> <span class="hljs-built_in">list</span>[i]:<br>					loadfile(<span class="hljs-built_in">str</span>(<span class="hljs-built_in">list</span>[i]))<br>		<span class="hljs-keyword">else</span> : <span class="hljs-keyword">pass</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+<span class="token comment">#coding=utf-8</span>
+<span class="token comment">#Usage ：python demo.py</span>
+<span class="token comment">#Code by : AdminTony</span>
+<span class="token comment">#QQ : 78941695</span>
+<span class="token comment">#注意：要将此文件放在有读写权限的目录以及所有修改过的php必须在此目录或者该目录的子目录中。</span>
+<span class="token comment">#作用：读取被修改过的文件，然后将文件的地址加上内容全部存放在txt</span>
+
+
+<span class="token keyword">import</span> sys<span class="token punctuation">,</span>subprocess<span class="token punctuation">,</span>os
+<span class="token comment">#查找最近10分钟被修改的文件</span>
+<span class="token keyword">def</span> <span class="token function">scanfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token comment">#command: find -name '*.php' -mmin -10</span>
+	command <span class="token operator">=</span> <span class="token string">"find -name \'*.php\' -mmin -10"</span>
+	su <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span>command<span class="token punctuation">,</span>shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>stdin<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span>
+	STDOUT<span class="token punctuation">,</span>STDERR <span class="token operator">=</span> su<span class="token punctuation">.</span>communicate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token builtin">list</span> <span class="token operator">=</span> STDOUT<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span>
+	<span class="token comment">#print str(list)</span>
+	<span class="token comment">#将文件处理成list类型然后返回。</span>
+	<span class="token keyword">return</span> <span class="token builtin">list</span>
+
+<span class="token comment">#读取文件：</span>
+<span class="token keyword">def</span> <span class="token function">loadfile</span><span class="token punctuation">(</span>addr<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	data <span class="token operator">=</span> <span class="token string">""</span>
+	<span class="token comment">#如果文件不存在就跳出函数</span>
+	<span class="token keyword">try</span> <span class="token punctuation">:</span>
+		<span class="token builtin">file</span> <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>addr<span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+		data <span class="token operator">=</span> <span class="token builtin">file</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">except</span> <span class="token punctuation">:</span> 
+		<span class="token keyword">return</span> <span class="token number">0</span>
+	all_data <span class="token operator">=</span> addr<span class="token operator">+</span><span class="token string">"\n"</span><span class="token operator">+</span>data<span class="token operator">+</span><span class="token string">"\n\n"</span>
+	file1 <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"shell.txt"</span><span class="token punctuation">,</span><span class="token string">'a+'</span><span class="token punctuation">)</span>
+	<span class="token comment">#避免重复写入</span>
+	<span class="token keyword">try</span><span class="token punctuation">:</span>
+		shell_content <span class="token operator">=</span> file1<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">except</span><span class="token punctuation">:</span>
+		shell_content <span class="token operator">=</span> <span class="token string">"null"</span>
+	<span class="token comment">#如果文件内容不为空再写入，避免写入空的。</span>
+	<span class="token comment">#print shell_content</span>
+	<span class="token keyword">if</span> data <span class="token punctuation">:</span>
+		<span class="token keyword">if</span> all_data <span class="token keyword">not</span> <span class="token keyword">in</span> shell_content<span class="token punctuation">:</span>
+			file1<span class="token punctuation">.</span>write<span class="token punctuation">(</span>all_data<span class="token punctuation">)</span>
+	<span class="token builtin">file</span><span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	file1<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	rm_cmd <span class="token operator">=</span> <span class="token string">"rm -rf "</span><span class="token operator">+</span>addr
+	su <span class="token operator">=</span> subprocess<span class="token punctuation">.</span>Popen<span class="token punctuation">(</span>rm_cmd<span class="token punctuation">,</span>shell<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>stdin<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">,</span>stderr<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span>
+	su<span class="token punctuation">.</span>communicate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">print</span> <span class="token string">"loadfile over : "</span><span class="token operator">+</span>addr
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+	<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+
+		<span class="token builtin">list</span> <span class="token operator">=</span> scanfile<span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> <span class="token builtin">list</span> <span class="token punctuation">:</span>
+			<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+				<span class="token comment">#如果list[i]为空就不读取了</span>
+				<span class="token keyword">if</span> <span class="token builtin">list</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+					loadfile<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token keyword">else</span> <span class="token punctuation">:</span> <span class="token keyword">pass</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <h3 id="删除不死马"><a class="markdownIt-Anchor" href="#删除不死马"></a> 删除不死马</h3>
 <ol>
 <li>
@@ -509,13 +829,13 @@
 <ul>
 <li>
 <p>循环杀进程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ps aux|grep www-data|awk <span class="hljs-string">&#x27;&#123;print $2&#125;&#x27;</span>|xargs <span class="hljs-built_in">kill</span> <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux<span class="token operator">|</span><span class="token function">grep</span> www-data<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;print <span class="token variable">$2</span>&#125;'</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">kill</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p>重启php等web服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">service php-fpm restart<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> php-fpm restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>用一个ignore_user_abort(true)脚本，一直竞争写入（断断续续）。</p>
@@ -525,7 +845,20 @@
 </li>
 <li>
 <p>3.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php+HTML">&lt;?php<br>    ignore_user_abort(true);<br>    set_time_limit(0);<br>    unlink(__FILE__);<br>    $file &#x3D; &#39;.3.php&#39;;<br>    $code &#x3D; &#39;hi springbird !&#39;;<br>    &#x2F;&#x2F;pass&#x3D;pass<br>    while (1)&#123;<br>        file_put_contents($file,$code);<br>        system(&#39;touch -m -d &quot;2018-12-01 09:10:12&quot; .3.php&#39;);<br>    &#x2F;&#x2F;    usleep(5000);<br>          usleep(1000);<br>    &#125;<br>?&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">&lt;?php
+    ignore_user_abort(true);
+    set_time_limit(0);
+    unlink(__FILE__);
+    $file &#x3D; &#39;.3.php&#39;;
+    $code &#x3D; &#39;hi springbird !&#39;;
+    &#x2F;&#x2F;pass&#x3D;pass
+    while (1)&#123;
+        file_put_contents($file,$code);
+        system(&#39;touch -m -d &quot;2018-12-01 09:10:12&quot; .3.php&#39;);
+    &#x2F;&#x2F;    usleep(5000);
+          usleep(1000);
+    &#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
@@ -534,7 +867,12 @@
 <ul>
 <li>
 <p>循环创建</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>dire=<span class="hljs-string">&quot;/var/www/html/.base.php/&quot;</span><br>file=<span class="hljs-string">&quot;/var/www/html/.base.php&quot;</span><br>rm -rf <span class="hljs-variable">$file</span><br>mkdir <span class="hljs-variable">$dire</span><br>./xx.sh<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">dire</span><span class="token operator">=</span><span class="token string">"/var/www/html/.base.php/"</span>
+<span class="token assign-left variable">file</span><span class="token operator">=</span><span class="token string">"/var/www/html/.base.php"</span>
+<span class="token function">rm</span> -rf <span class="token variable">$file</span>
+<span class="token function">mkdir</span> <span class="token variable">$dire</span>
+./xx.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
@@ -543,7 +881,8 @@
 <ul>
 <li>
 <p>在比赛服务器上抓取流量包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo tcpdump -s 0 -w flow.pcap port 80<br><span class="hljs-comment"># 然后使用 scp 写个脚本实时将流量包拷贝到本地</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> tcpdump -s <span class="token number">0</span> -w flow.pcap port <span class="token number">80</span>
+<span class="token comment"># 然后使用 scp 写个脚本实时将流量包拷贝到本地</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 </li>
 <li>
 <p>抓取流量平台 <a target="_blank" rel="noopener" href="https://github.com/wupco">wupco</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/wupco/weblogger">weblogger</a></strong></p>

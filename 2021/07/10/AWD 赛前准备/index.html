@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46
+      47
        分钟
     </span>
   
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年7月11日 下午
+                  本文最后更新于：2021年7月11日 晚上
                 
               </p>
             
@@ -432,6 +432,9 @@
 <ol>
 <li>在每个文件前加上代码，在 <code>php.ini</code> 中找到<code>auto_prepend_file = waf.php</code>；</li>
 <li>防护页面加上 <code>require_one('waf.php')</code>；</li>
+</ol>
+  <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo find /var/www/html/path_you_want -<span class="hljs-built_in">type</span> f -path <span class="hljs-string">&quot;*.php&quot;</span> | xargs sed -i <span class="hljs-string">&quot;s/&lt;?php /&lt;?php\nrequire_once(&#x27;\/tmp\/waf.php&#x27;);\n/g&quot;</span><br></code></pre></div></td></tr></table></figure>
+<ol start="3">
 <li><a target="_blank" rel="noopener" href="https://github.com/leohearts">leohearts</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/leohearts/awd-watchbird">awd-watchbird</a></strong>、<a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab">DasSecurity-HatLab</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab/AoiAWD">AoiAWD</a></strong>、<a target="_blank" rel="noopener" href="https://github.com/sharpleung">sharpleung</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/sharpleung/CTF-WAF">CTF-WAF</a></strong></li>
 <li>常用 PHP 系统添加 WAF</li>
 </ol>
@@ -598,6 +601,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/07/13/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%A4%A7%E7%BA%B2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算理论大纲</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

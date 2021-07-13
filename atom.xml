@@ -6,7 +6,7 @@
   <link href="http://justloseit.top/atom.xml" rel="self"/>
   
   <link href="http://justloseit.top/"/>
-  <updated>2021-07-11T09:03:15.165Z</updated>
+  <updated>2021-07-13T02:10:27.277Z</updated>
   <id>http://justloseit.top/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算理论大纲</title>
+    <link href="http://justloseit.top/2021/07/13/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%A4%A7%E7%BA%B2/"/>
+    <id>http://justloseit.top/2021/07/13/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-07-13T00:14:25.000Z</published>
+    <updated>2021-07-13T02:10:27.277Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一个相当玄学的课，很多时候觉得自己充分理解了，结果全错了……&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="http://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="计算机" scheme="http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="计算理论" scheme="http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AWD 赛前准备</title>
     <link href="http://justloseit.top/2021/07/10/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/"/>
     <id>http://justloseit.top/2021/07/10/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/</id>
     <published>2021-07-10T09:27:04.000Z</published>
-    <updated>2021-07-11T09:03:15.165Z</updated>
+    <updated>2021-07-11T11:42:22.001Z</updated>
     
     
     <summary type="html">&lt;p&gt;之前从未打过 AWD 的比赛，这次准备时把网上的资料整理了一下&lt;/p&gt;</summary>
@@ -406,25 +427,6 @@
     <category term="编程" scheme="http://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="Golang" scheme="http://justloseit.top/tags/Golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客主题迁移以及一些杂谈</title>
-    <link href="http://justloseit.top/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/"/>
-    <id>http://justloseit.top/2020/10/24/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/</id>
-    <published>2020-10-23T16:18:25.000Z</published>
-    <updated>2021-03-22T09:01:37.816Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;好久没有更新博客之后的一些杂谈&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="杂谈" scheme="http://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="博客" scheme="http://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

@@ -981,7 +981,7 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;[&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;[&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>定义模式实际上定义了一个<strong>命名空间</strong></li>
 </ul>
@@ -989,7 +989,7 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs MYSQL">DROP SCHEMA &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs MYSQL">DROP SCHEMA &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li><code>CASCADE</code>：删除模式的同时把该模式中所有的数据库对象全部删除</li>
 <li><code>RESTRICT</code>：如果该模式中定义了下属的数据库对象（如表、视图等），则拒绝该删除语句的执行
@@ -1003,7 +1003,7 @@ F--&gt;K[应用E]
 <ul>
 <li>基本格式：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE&lt;表名&gt;<br>(&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]<br>[,&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]]<br>…<br>[,&lt;表级完整性约束条件&gt;]);<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE TABLE&lt;表名&gt;<br>(&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]<br>[,&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]]<br>…<br>[,&lt;表级完整性约束条件&gt;]);<br></code></pre></div></td></tr></table></figure>
 <h5 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h5>
 <ul>
 <li>
@@ -1105,7 +1105,7 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="建立索引"><a class="markdownIt-Anchor" href="#建立索引"></a> 建立索引</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE \[ UNIQUE \]\[ CLUSTER \] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;\[&lt;次序&gt;\]\[ ,&lt;列名&gt;\[&lt;次序&gt;\]\]…)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE \[ UNIQUE \]\[ CLUSTER \] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;\[&lt;次序&gt;\]\[ ,&lt;列名&gt;\[&lt;次序&gt;\]\]…)<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>
 <p>&lt;表名&gt;：要建索引的基本表的名字</p>
@@ -1124,9 +1124,9 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="修改索引"><a class="markdownIt-Anchor" href="#修改索引"></a> 修改索引</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER INDEX &lt;旧索引名&gt; RENAME TO &lt;新索引名&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">ALTER INDEX &lt;旧索引名&gt; RENAME TO &lt;新索引名&gt;<br></code></pre></div></td></tr></table></figure>
 <h5 id="删除索引"><a class="markdownIt-Anchor" href="#删除索引"></a> 删除索引</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP INDEX &lt;索引名&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DROP INDEX &lt;索引名&gt;<br></code></pre></div></td></tr></table></figure>
 <h4 id="数据字典"><a class="markdownIt-Anchor" href="#数据字典"></a> 数据字典</h4>
 <ul>
 <li>数据字典：是关系数据库管理系统内部的一组系统表，它记录了数据库中所有定义信息
@@ -1286,12 +1286,12 @@ F--&gt;K[应用E]
 <li>子查询不仅可以出现在 <code>WHERE</code> 子句中，<strong>还可以出现在 <code>FROM</code>子句中</strong>，这时子查询生成的<strong>临时派生表</strong>成为主查询的查询对象</li>
 </ul>
 <h4 id="select-语句的一般格式"><a class="markdownIt-Anchor" href="#select-语句的一般格式"></a> SELECT 语句的一般格式</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT [ ALL | DISTINCT ]&lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]…<br>FROM &lt;表名或视图名&gt;[ ,&lt;表名或视图名&gt;]…|( SELECT 语句)<br>[ AS ]&lt;别名&gt;<br>[ WHERE &lt;条件表达式&gt;]<br>[ GROUP BY&lt;列名1&gt;[ HAVING &lt;条件表达式&gt;]]<br>[ ORDER BY&lt;列名2&gt;[ ASC | DESC ]];<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT [ ALL | DISTINCT ]&lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]…<br>FROM &lt;表名或视图名&gt;[ ,&lt;表名或视图名&gt;]…|( SELECT 语句)<br>[ AS ]&lt;别名&gt;<br>[ WHERE &lt;条件表达式&gt;]<br>[ GROUP BY&lt;列名1&gt;[ HAVING &lt;条件表达式&gt;]]<br>[ ORDER BY&lt;列名2&gt;[ ASC | DESC ]];<br></code></pre></div></td></tr></table></figure>
 <h4 id="select的一些特别用法"><a class="markdownIt-Anchor" href="#select的一些特别用法"></a> SELECT的一些特别用法</h4>
 <ul>
 <li><code>CASE WHEN</code>：条件返回</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT sname, (CASE sdeptwhen &#39;CS&#39; THEN &#39;计算机&#39; WHEN &#39;IS&#39; THEN &#39;信息&#39; ELSE &#39;其他&#39; END) AS DEPT FROM student;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT sname, (CASE sdeptwhen &#39;CS&#39; THEN &#39;计算机&#39; WHEN &#39;IS&#39; THEN &#39;信息&#39; ELSE &#39;其他&#39; END) AS DEPT FROM student;<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>
 <p><code>TOP</code>, <code>LIMIT</code> or <code>ROWNUM</code> ：返回查询结果集的前 N 条记录</p>
@@ -1300,7 +1300,7 @@ F--&gt;K[应用E]
 <p><code>WITH … AS</code>：定义一个临时作用域，便于随后的查询引用，类似临时表/视图</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">WITH qry AS ( SELECT * FROM student NATURAL JOIN scNATURAL JOIN course) <br>SELECT sno, sname, cname, grade FROM qry;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">WITH qry AS ( SELECT * FROM student NATURAL JOIN scNATURAL JOIN course) <br>SELECT sno, sname, cname, grade FROM qry;<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>Oracle<code>CONNECT BY</code> 层次遍历
 <ul>
@@ -1309,9 +1309,9 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <p>正序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE <br>START WITH cno&#x3D;1 CONNECT BY cno&#x3D; prior cpno<br>ORDER BY level<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE <br>START WITH cno&#x3D;1 CONNECT BY cno&#x3D; prior cpno<br>ORDER BY level<br></code></pre></div></td></tr></table></figure>
 <p>逆序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE<br>START WITH cno&#x3D;6 CONNECT by prior cno&#x3D; cpno<br>ORDER BY level<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE<br>START WITH cno&#x3D;6 CONNECT by prior cno&#x3D; cpno<br>ORDER BY level<br></code></pre></div></td></tr></table></figure>
 <h3 id="数据更新"><a class="markdownIt-Anchor" href="#数据更新"></a> 数据更新</h3>
 <h4 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h4>
 <ul>
@@ -1323,9 +1323,9 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="插入元组"><a class="markdownIt-Anchor" href="#插入元组"></a> 插入元组</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt;[,&lt;属性列2 &gt;…)]<br>VALUES (&lt;常量1&gt; [,&lt;常量2&gt;]… )<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt;[,&lt;属性列2 &gt;…)]<br>VALUES (&lt;常量1&gt; [,&lt;常量2&gt;]… )<br></code></pre></div></td></tr></table></figure>
 <h5 id="插入子查询结果"><a class="markdownIt-Anchor" href="#插入子查询结果"></a> 插入子查询结果</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt; [,&lt;属性列2&gt;… )]<br>子查询;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt; [,&lt;属性列2&gt;… )]<br>子查询;<br></code></pre></div></td></tr></table></figure>
 <h5 id="复制表结构数据"><a class="markdownIt-Anchor" href="#复制表结构数据"></a> 复制表结构/数据</h5>
 <ul>
 <li>
@@ -1333,23 +1333,23 @@ F--&gt;K[应用E]
 <ul>
 <li>
 <p>复制表结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE SC_2 LIKE SC<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE TABLE SC_2 LIKE SC<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>复制表结构和数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE SC_2 SELECT * FROM SC<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE TABLE SC_2 SELECT * FROM SC<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>复制数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT INTO SC_2 SELECT * FROM SC<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">INSERT INTO SC_2 SELECT * FROM SC<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 <h4 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">UPDATE &lt;表名&gt;<br>SET &lt;列名&gt;&#x3D;&lt;表达式&gt;[,&lt;列名&gt;&#x3D;&lt;表达式&gt;]…<br>[WHERE &lt;条件&gt;];<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">UPDATE &lt;表名&gt;<br>SET &lt;列名&gt;&#x3D;&lt;表达式&gt;[,&lt;列名&gt;&#x3D;&lt;表达式&gt;]…<br>[WHERE &lt;条件&gt;];<br></code></pre></div></td></tr></table></figure>
 <h4 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DELETE<br>FROM&lt;表名&gt;<br>[WHERE&lt;条件&gt;]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DELETE<br>FROM&lt;表名&gt;<br>[WHERE&lt;条件&gt;]<br></code></pre></div></td></tr></table></figure>
 <h3 id="空值的处理"><a class="markdownIt-Anchor" href="#空值的处理"></a> 空值的处理</h3>
 <ul>
 <li>空值的产生：插入元组的部分属性为空；外连接；空值的关系运算</li>
@@ -1377,13 +1377,13 @@ F--&gt;K[应用E]
 </ul>
 <h4 id="定义视图"><a class="markdownIt-Anchor" href="#定义视图"></a> 定义视图</h4>
 <h5 id="建立视图"><a class="markdownIt-Anchor" href="#建立视图"></a> 建立视图</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE VIEW<br>&lt;视图名&gt; [(&lt;列名&gt; [,&lt;列名&gt;]…)]<br>AS&lt;子查询&gt;<br>[WITH CHECK OPTION]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE VIEW<br>&lt;视图名&gt; [(&lt;列名&gt; [,&lt;列名&gt;]…)]<br>AS&lt;子查询&gt;<br>[WITH CHECK OPTION]<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li><code>WITH CHECK OPTION</code> 表示对视图进行 <code>UPDATE</code>，<code>INSERT</code>，<code>DELETE</code> 操作时要保证更新的行<strong>仍然满足视图定义中子查询的条件表达式</strong></li>
 <li>行列子集视图：一个视图是从<strong>单个基本表</strong>导出的，并且只是去掉了基本表的某些行和某些列，但<strong>保留了主码</strong></li>
 </ul>
 <h5 id="删除视图"><a class="markdownIt-Anchor" href="#删除视图"></a> 删除视图</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP VIEW &lt;视图名&gt;[CASCADE]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DROP VIEW &lt;视图名&gt;[CASCADE]<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>如果该视图上还导出了其他视图，使用 <code>CASCADE</code> 级联删除语句，把该视图和由它导出的所有视图一起删除</li>
 <li>删除基表时，由该基表导出的所有视图定义都必须显式地使用 <code>DROP VIEW</code> 语句删除</li>
@@ -1500,7 +1500,7 @@ F--&gt;K[应用E]
 <ol>
 <li>完整性约束命名子句</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CONSTRAINT &lt;完整性约束条件名&gt;&lt;完整性约束条件&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CONSTRAINT &lt;完整性约束条件名&gt;&lt;完整性约束条件&gt;<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>&lt;完整性约束条件&gt;包括 <code>NOT NULL</code>、<code>UNIQUE</code>、<code>PRIMARY KEY</code> 短语、<code>FOREIGN KEY</code> 短语、<code>CHECK</code> 短语等</li>
 </ul>
@@ -1510,7 +1510,7 @@ F--&gt;K[应用E]
 <ul>
 <li>
 <p>eg：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER TABLE Student DROP CONSTRAINT C4<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">ALTER TABLE Student DROP CONSTRAINT C4<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="断言"><a class="markdownIt-Anchor" href="#断言"></a> 断言</h3>
@@ -1518,12 +1518,12 @@ F--&gt;K[应用E]
 <li>断言：任何对断言中所涉及的关系的操作都会触发关系数据库管理系统对断言的检查，任何使<strong>断言不为真值</strong>的操作都会<strong>被拒绝执行</strong></li>
 </ul>
 <h4 id="创建断言"><a class="markdownIt-Anchor" href="#创建断言"></a> 创建断言</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE ASSERTION &lt;断言名&gt; &lt;CHECK 子句&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE ASSERTION &lt;断言名&gt; &lt;CHECK 子句&gt;<br></code></pre></div></td></tr></table></figure>
 <h4 id="删除断言"><a class="markdownIt-Anchor" href="#删除断言"></a> 删除断言</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP ASSERTION &lt;断言名&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DROP ASSERTION &lt;断言名&gt;<br></code></pre></div></td></tr></table></figure>
 <h3 id="触发器"><a class="markdownIt-Anchor" href="#触发器"></a> 触发器</h3>
 <h4 id="定义触发器"><a class="markdownIt-Anchor" href="#定义触发器"></a> 定义触发器</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TRIGGER &lt;触发器名&gt;<br>&#123;BEFORE  | AFTER&#125; &lt;触发事件&gt; ON &lt;表名&gt;<br>REFERENCING NEW|OLD ROW AS&lt;变量&gt;<br>FOR EACH &#123;ROW | STATEMENT&#125;<br>[WHEN &lt;触发条件&gt;] &lt;触发动作体&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE TRIGGER &lt;触发器名&gt;<br>&#123;BEFORE  | AFTER&#125; &lt;触发事件&gt; ON &lt;表名&gt;<br>REFERENCING NEW|OLD ROW AS&lt;变量&gt;<br>FOR EACH &#123;ROW | STATEMENT&#125;<br>[WHEN &lt;触发条件&gt;] &lt;触发动作体&gt;<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>
 <p>当特定的系统事件发生时，对规则的条件进行检查，如果条件成立则执行规则中的动作，否则不执行该动作</p>
@@ -1585,7 +1585,7 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h4 id="删除触发器"><a class="markdownIt-Anchor" href="#删除触发器"></a> 删除触发器</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP TRIGGER &lt;触发器名&gt; ON &lt;表名&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DROP TRIGGER &lt;触发器名&gt; ON &lt;表名&gt;<br></code></pre></div></td></tr></table></figure>
 <h2 id="关系数据理论"><a class="markdownIt-Anchor" href="#关系数据理论"></a> 关系数据理论</h2>
 <h3 id="问题的提出"><a class="markdownIt-Anchor" href="#问题的提出"></a> 问题的提出</h3>
 <ul>
@@ -2032,7 +2032,7 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>执行部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">BEGIN<br>   SQL语句、过程化 SQL 的流程控制语句<br>EXCEPTION<br>   异常处理部分<br>END;   <br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">BEGIN<br>   SQL语句、过程化 SQL 的流程控制语句<br>EXCEPTION<br>   异常处理部分<br>END;   <br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -2099,19 +2099,19 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <ol>
 <li>
 <p>创建存储过程</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE OR REPLACE PROCEDURE 过程名([参数1,参数2,...]) AS&lt;过程 SQL 块&gt;<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE OR REPLACE PROCEDURE 过程名([参数1,参数2,...]) AS&lt;过程 SQL 块&gt;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>执行存储过程</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CALL&#x2F;PERFORM PROCEDURE  过程名([参数1,参数2,...])<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CALL&#x2F;PERFORM PROCEDURE  过程名([参数1,参数2,...])<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>修改存储过程</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER PROCEDURE 过程1 RENAME TO 过程2<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">ALTER PROCEDURE 过程1 RENAME TO 过程2<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>删除存储过程</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP PROCEDURE 过程名<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">DROP PROCEDURE 过程名<br></code></pre></div></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -2123,19 +2123,19 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <ol>
 <li>
 <p>创建函数</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE OR REPLACE FUNCTION 函数名([参数1,参数2,...]) RETURNS &lt;类型&gt; AS&lt;过程 SQL 块&gt;<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CREATE OR REPLACE FUNCTION 函数名([参数1,参数2,...]) RETURNS &lt;类型&gt; AS&lt;过程 SQL 块&gt;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>执行存储过程</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CALL&#x2F;PERFORM FUNCTION  函数名([参数1,参数2,...])<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">CALL&#x2F;PERFORM FUNCTION  函数名([参数1,参数2,...])<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>修改函数名</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER FUNCTION 函数名1 RENAME TO 函数名2<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">ALTER FUNCTION 函数名1 RENAME TO 函数名2<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>重新编译</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER FUNCTION 函数名 COMLIPE<br></code></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">ALTER FUNCTION 函数名 COMLIPE<br></code></pre></div></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -2291,7 +2291,7 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>事务定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">BEGIN TRANSACTION                <br>    SQL 语句1                                         <br>    SQL 语句2                                                                                    <br>COMMIT &#x2F; ROLLBACK                                         <br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">BEGIN TRANSACTION                <br>    SQL 语句1                                         <br>    SQL 语句2                                                                                    <br>COMMIT &#x2F; ROLLBACK                                         <br></code></pre></div></td></tr></table></figure>
 </li>
 <li>
 <p>事务结束</p>

@@ -249,6 +249,13 @@
   </url>
   
   <url>
+    <loc>http://justloseit.top/tags/%E5%BC%BA%E7%BD%91%E6%9D%AF/</loc>
+    <lastmod>2021-07-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://justloseit.top/tags/%E7%BA%A2%E6%98%8E%E8%B0%B7/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
@@ -277,6 +284,13 @@
   </url>
   
   <url>
+    <loc>http://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
+    <lastmod>2021-07-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://justloseit.top/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
@@ -285,13 +299,6 @@
   
   <url>
     <loc>http://justloseit.top/tags/Web-%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2021-07-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -382,6 +389,27 @@
   </url>
   
   <url>
+    <loc>http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
+    <lastmod>2021-07-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/</loc>
+    <lastmod>2021-07-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://justloseit.top/tags/AWD/</loc>
+    <lastmod>2021-07-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
@@ -431,35 +459,7 @@
   </url>
   
   <url>
-    <loc>http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2021-07-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://justloseit.top/tags/%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-07-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://justloseit.top/tags/%E5%BC%BA%E7%BD%91%E6%9D%AF/</loc>
-    <lastmod>2021-07-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://justloseit.top/tags/AWD/</loc>
-    <lastmod>2021-07-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -482,14 +482,14 @@
   </url>
   
   <url>
-    <loc>http://justloseit.top/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://justloseit.top/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

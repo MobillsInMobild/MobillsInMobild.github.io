@@ -203,7 +203,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3k 字
+      3.1k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47
+      48
        分钟
     </span>
   
@@ -255,7 +255,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年7月11日 晚上
+                  本文最后更新于：2021年7月13日 下午
                 
               </p>
             
@@ -557,6 +557,31 @@
 </li>
 </ul>
 <h2 id="攻击"><a class="markdownIt-Anchor" href="#攻击"></a> 攻击</h2>
+<h3 id="自动提交flag"><a class="markdownIt-Anchor" href="#自动提交flag"></a> 自动提交flag</h3>
+<ul>
+<li>以i春秋的API接口为例<div class="hljs code-wrapper"><pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> sys
+reload(sys)
+sys.setdefaultencoding(utf<span class="hljs-number">-8</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_answer</span><span class="hljs-params">(flag)</span>:</span>
+    url=<span class="hljs-string">'http://172.16.4.1/Common/submitAnswer'</span> 
+    header = &#123;
+        <span class="hljs-string">'Content-type'</span>: <span class="hljs-string">r'application/x-www-form-urlencoded; charset=UTF-8'</span>,
+        <span class="hljs-string">'X-Requested-With'</span>: <span class="hljs-string">'XMLHttoRequest'</span>,
+        <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">r'Mozilla/5.0 (Windows NT 6.1; WOW64; re:45.0) Gecko/20100101 Firefox/45.0'</span>,
+        <span class="hljs-string">'Referer'</span>: <span class="hljs-string">'http://172.16.4.102/answer/index'</span>
+    &#125;
+    post_data=&#123;
+        <span class="hljs-string">'answer'</span>: flag.
+        <span class="hljs-string">'token'</span>: <span class="hljs-string">'d16ba10b829f4cfae33de641b071ea8a'</span>
+    &#125;
+    re=requests.post(url=url,data=post_data,headers=headers)
+    <span class="hljs-keyword">return</span> re
+
+
+</code></pre></div>
+</li>
+</ul>
 <h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XK4y1m7xA">A7enger战队_AWD赛前培训</a></li>

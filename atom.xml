@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mobilis In Mobili</title>
+  <icon>https://justloseit.top/icon.png</icon>
+  
+  <link href="https://justloseit.top/atom.xml" rel="self"/>
+  
+  <link href="https://justloseit.top/"/>
+  <updated>2021-07-13T02:31:23.184Z</updated>
+  <id>https://justloseit.top/</id>
+  
+  <author>
+    <name>Joker</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算理论大纲</title>
+    <link href="https://justloseit.top/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-07-13T00:14:25.000Z</published>
+    <updated>2021-07-13T02:31:23.184Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一个相当玄学的课，很多时候觉得自己充分理解了，结果全错了……&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="计算理论" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWD 赛前准备</title>
+    <link href="https://justloseit.top/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/"/>
+    <id>https://justloseit.top/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/</id>
+    <published>2021-07-10T09:27:04.000Z</published>
+    <updated>2021-07-17T03:16:01.971Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;之前从未打过 AWD 的比赛，这次准备时把网上的资料整理了一下&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
+    
+    <category term="AWD" scheme="https://justloseit.top/tags/AWD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对称密码学大纲</title>
+    <link href="https://justloseit.top/%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-06-11T12:46:25.000Z</published>
+    <updated>2021-07-10T03:31:19.374Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对称密码学大纲，课程证明太多，所以整理得很简略&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>取证题中系统文件</title>
+    <link href="https://justloseit.top/%E5%8F%96%E8%AF%81%E9%A2%98%E4%B8%AD%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/"/>
+    <id>https://justloseit.top/%E5%8F%96%E8%AF%81%E9%A2%98%E4%B8%AD%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</id>
+    <published>2021-06-10T13:51:04.000Z</published>
+    <updated>2021-07-09T16:47:29.466Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;取证题中很容易遇见一些系统文件，如果能够理解各系统文件的名称和功能，就能方便取证分析。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
+    
+    <category term="Misc" scheme="https://justloseit.top/tags/Misc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021 红明谷 Misc Writeup</title>
+    <link href="https://justloseit.top/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup/"/>
+    <id>https://justloseit.top/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup/</id>
+    <published>2021-04-15T02:19:04.000Z</published>
+    <updated>2021-06-12T17:03:17.790Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2021 “红明谷”杯数据安全大赛 Misc Writeup&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://justloseit.top/categories/Writeup/"/>
+    
+    
+    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
+    
+    <category term="Misc" scheme="https://justloseit.top/tags/Misc/"/>
+    
+    <category term="红明谷" scheme="https://justloseit.top/tags/%E7%BA%A2%E6%98%8E%E8%B0%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>年度总结：2020年我的阅读·影视·游戏</title>
+    <link href="https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2020%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
+    <id>https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2020%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
+    <published>2021-03-31T11:31:25.000Z</published>
+    <updated>2021-08-07T13:47:55.321Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2020年，我印象比较深的所读、所看、所玩&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="年度总结" scheme="https://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="电影" scheme="https://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="游戏" scheme="https://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Deep Dive Into Modern Web Development</title>
+    <link href="https://justloseit.top/Deep%20Dive%20Into%20Modern%20Web%20Development%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://justloseit.top/Deep%20Dive%20Into%20Modern%20Web%20Development%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-03-18T06:31:25.000Z</published>
+    <updated>2021-04-01T00:17:14.060Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;University of Helsinki 课程 Department of Computer Science 笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="编程" scheme="https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="Web 开发" scheme="https://justloseit.top/tags/Web-%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库系统概论大纲</title>
+    <link href="https://justloseit.top/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-01-05T12:46:25.000Z</published>
+    <updated>2021-03-22T09:43:46.528Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;学习数据库时提炼的大纲，比较详细&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="数据库" scheme="https://justloseit.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性代数大纲</title>
+    <link href="https://justloseit.top/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-01-04T12:46:25.000Z</published>
+    <updated>2021-03-22T09:44:24.138Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;从头再来的整理，自我感觉总结得还是比较全面的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="数学" scheme="https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信息论与编码大纲</title>
+    <link href="https://justloseit.top/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BC%96%E7%A0%81%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E4%BF%A1%E6%81%AF%E8%AE%BA%E4%B8%8E%E7%BC%96%E7%A0%81%E5%A4%A7%E7%BA%B2/</id>
+    <published>2021-01-01T07:46:25.000Z</published>
+    <updated>2021-03-22T10:09:37.316Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;信息论真的很神奇，这部分大纲主要涉及信源编码和信道传输&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="信息论" scheme="https://justloseit.top/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于 ESP8266 的 Wi-Fi 取消验证洪水攻击的实现</title>
+    <link href="https://justloseit.top/%E5%9F%BA%E4%BA%8E%20ESP8266%20%E7%9A%84%20Wi-Fi%20%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://justloseit.top/%E5%9F%BA%E4%BA%8E%20ESP8266%20%E7%9A%84%20Wi-Fi%20%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/</id>
+    <published>2021-01-01T02:19:04.000Z</published>
+    <updated>2021-03-22T09:02:13.719Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;大二时候照着教程做得有趣的玩意，现在看来还是很粗糙的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Wi-Fi" scheme="https://justloseit.top/tags/Wi-Fi/"/>
+    
+    <category term="NodeMCU" scheme="https://justloseit.top/tags/NodeMCU/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitcoin Core上实现多签交易</title>
+    <link href="https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/"/>
+    <id>https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/</id>
+    <published>2020-12-14T07:46:25.000Z</published>
+    <updated>2021-03-22T09:03:34.141Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Introduction To Modern Cryptography</title>
+    <link href="https://justloseit.top/Introduction%20To%20Modern%20Cryptography/"/>
+    <id>https://justloseit.top/Introduction%20To%20Modern%20Cryptography/</id>
+    <published>2020-11-18T07:46:25.000Z</published>
+    <updated>2021-03-22T10:08:30.661Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Introduction To Modern Cryptography 这本书英文原版的前两章笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>窄门</title>
+    <link href="https://justloseit.top/%E7%AA%84%E9%97%A8/"/>
+    <id>https://justloseit.top/%E7%AA%84%E9%97%A8/</id>
+    <published>2020-11-18T03:14:04.000Z</published>
+    <updated>2021-03-22T09:03:13.323Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;《少有人走的路》的阅读感悟&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+    <category term="哲学" scheme="https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>密码学大纲</title>
+    <link href="https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/</id>
+    <published>2020-10-28T07:46:25.000Z</published>
+    <updated>2021-03-24T15:26:36.850Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;自己在学习密码学课程时做的总结，AES 那一部分写得比较简略&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bilibili 1024 Sec Writeup</title>
+    <link href="https://justloseit.top/Bilibili_1024Sec_Writeup/"/>
+    <id>https://justloseit.top/Bilibili_1024Sec_Writeup/</id>
+    <published>2020-10-26T02:19:04.000Z</published>
+    <updated>2021-08-07T13:48:12.956Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;电波系的脑洞题，不过说实话，如果服务器不崩，我觉得还挺有趣的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://justloseit.top/categories/Writeup/"/>
+    
+    
+    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
+    
+    <category term="Bilibili" scheme="https://justloseit.top/tags/Bilibili/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android 优秀软件推荐</title>
+    <link href="https://justloseit.top/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <id>https://justloseit.top/Android%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</id>
+    <published>2020-10-25T11:23:56.000Z</published>
+    <updated>2021-08-04T04:05:57.739Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;想法来自于 &lt;a href=&quot;https://www.kancloud.cn/appexplore/coolist-android/956569&quot;&gt;酷软清单&lt;/a&gt;，用于记录自己曾经使用或者正在使用觉得还不错的 Android 上的软件&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="推荐" scheme="https://justloseit.top/categories/%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="软件" scheme="https://justloseit.top/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Android" scheme="https://justloseit.top/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 优秀软件推荐</title>
+    <link href="https://justloseit.top/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    <id>https://justloseit.top/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</id>
+    <published>2020-10-25T11:23:32.000Z</published>
+    <updated>2021-08-04T04:05:44.795Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;想法来自于 &lt;a href=&quot;https://www.kancloud.cn/appexplore/coolist-windows/1466990&quot;&gt;酷软清单&lt;/a&gt;，用于记录自己曾经使用或者正在使用觉得还不错的 Windows 上的软件&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="推荐" scheme="https://justloseit.top/categories/%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="软件" scheme="https://justloseit.top/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="Windows" scheme="https://justloseit.top/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈GOROOT、GOPATH、Package、Project与Workspace</title>
+    <link href="https://justloseit.top/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/"/>
+    <id>https://justloseit.top/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/</id>
+    <published>2020-10-25T02:19:04.000Z</published>
+    <updated>2021-03-22T09:02:42.842Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;学习 Golang 时，被其包管理和项目管理弄得很狼狈，所以写一些有关 GOROOT、GOPATH、Project与Workspace 的总结。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="编程" scheme="https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+    <category term="Golang" scheme="https://justloseit.top/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客主题迁移以及一些杂谈</title>
+    <link href="https://justloseit.top/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/"/>
+    <id>https://justloseit.top/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E8%BF%81%E7%A7%BB%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%9D%82%E8%B0%88/</id>
+    <published>2020-10-23T16:18:25.000Z</published>
+    <updated>2021-03-22T09:01:37.816Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;好久没有更新博客之后的一些杂谈&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="博客" scheme="https://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>

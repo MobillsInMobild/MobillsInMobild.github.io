@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      382 字
+      1.1k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      14
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月11日 凌晨
+                  本文最后更新于：2021年8月12日 下午
                 
               </p>
             
@@ -284,7 +284,54 @@
 <ul>
 <li><code>e[]</code> 存储节点的值，<code>l[]</code> 存储节点指向的上一个节点<strong>位置</strong>，<code>r[]</code> 存储节点指向的下一个节点<strong>位置</strong>，<code>idx</code> 表示当前用到哪个节点。设 <strong>0 是左端点， 1 是右端点</strong>，因此 <strong><code>idx</code> 从 2 开始</strong>。</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// 初始化</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123;<br>    r[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, l[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    idx = <span class="hljs-number">2</span>;<br>&#125;<br><br><span class="hljs-comment">//  在节点 a 的右边插入数 x</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    e[idx] = x;<br>    l[idx] = a, r[idx] = r[a];<br>    l[r[a]] = idx, r[a] = idx;<br>    idx ++;<br>&#125;<br><br><span class="hljs-comment">// 删除节点 a</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span></span>&#123;<br>    l[r[a]] = l[a];<br>    r[l[a]] = r[a];<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// 初始化</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span>&#123;<br>    r[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, l[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    idx = <span class="hljs-number">2</span>;<br>&#125;<br><br><span class="hljs-comment">//  在节点 a 的右边插入数 x</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    e[idx] = x;<br>    l[idx] = a, r[idx] = r[a];<br>    l[r[a]] = idx, r[a] = idx;<br>    idx ++;<br>&#125;<br><br><span class="hljs-comment">// 删除节点 a</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span></span>&#123;<br>    l[r[a]] = l[a];<br>    r[l[a]] = r[a];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="栈-队列"><a class="markdownIt-Anchor" href="#栈-队列"></a> 栈、队列</h2>
+<h3 id="栈"><a class="markdownIt-Anchor" href="#栈"></a> 栈</h3>
+<ul>
+<li>FILO</li>
+<li>模板
+<ul>
+<li>设<strong>栈顶初始为 0，表示空</strong>， <code>tt</code> 总指向<strong>栈顶元素</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// tt 表示栈顶</span><br><span class="hljs-keyword">int</span> stk[tt], tt = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">// 向栈顶插入一个数</span><br>stk[++ tt] = x;<br><br><span class="hljs-comment">// 栈顶弹出一个数</span><br>tt --;<br><br><span class="hljs-comment">// 栈顶的值</span><br>stk[tt];<br><br><span class="hljs-comment">// 判断栈是否为空</span><br><span class="hljs-keyword">if</span> (tt &gt; <span class="hljs-number">0</span>)&#123;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="队列"><a class="markdownIt-Anchor" href="#队列"></a> 队列</h3>
+<ul>
+<li>FIFO</li>
+</ul>
+<h4 id="普通队列"><a class="markdownIt-Anchor" href="#普通队列"></a> 普通队列</h4>
+<ul>
+<li>模板
+<ul>
+<li>设<strong>队头初始为 1，队尾初始为 -1，表示空</strong>，<code>tt</code> 总指向<strong>队尾元素</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> q[N], hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><br><span class="hljs-comment">// 向队尾插入一个数</span><br>q[++ tt] = x;<br><br><span class="hljs-comment">// 从队头弹出一个数</span><br>hh ++；<br><br><span class="hljs-comment">// 队头的值</span><br>q[tt];<br><br><span class="hljs-comment">// 判断队列是否为空</span><br><span class="hljs-keyword">if</span> (hh &lt;= tt)&#123;<br><br>&#125; <br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="循环队列"><a class="markdownIt-Anchor" href="#循环队列"></a> 循环队列</h4>
+<ul>
+<li>模板
+<ul>
+<li>设<strong>队头初始为 0，队尾初始为 0，表示空</strong>，<code>tt</code> 总指向<strong>队尾元素的后一个位置</strong>——因为如果按照普通队列那样初始化，队尾就到了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 处</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> q[N], hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">// 向队尾插入一个数</span><br>q[tt ++] = x;<br><span class="hljs-keyword">if</span> (tt == N) tt = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">// 从队头弹出一个数</span><br>hh ++;<br><span class="hljs-keyword">if</span> (hh == N) hh = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">//队头的值</span><br>q[hh];<br><br><span class="hljs-comment">//判断队列是否为空</span><br><span class="hljs-keyword">if</span> (hh != tt)&#123;<br><br>&#125; <br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="单调栈"><a class="markdownIt-Anchor" href="#单调栈"></a> 单调栈</h3>
+<ul>
+<li>满足<strong>单调性</strong>的栈结构，<strong>插入</strong>时要维护其单调性</li>
+<li>常见模型：找出每个数这边<strong>离它最近的比它大/小的数</strong></li>
+<li>模板（插入）<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> tt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>    <span class="hljs-keyword">while</span> (tt &amp;&amp; check(stk[tt],i)) tt --;<br>    stk[++ tt] = i;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="单调队列"><a class="markdownIt-Anchor" href="#单调队列"></a> 单调队列</h3>
+<ul>
+<li>满足<strong>单调性</strong>的队列结构，<strong>队尾插入</strong>要维护其单调性</li>
+<li>常见模型：找出<strong>滑动窗口</strong>中的最大值/最小值</li>
+<li>模版（插入）<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">  <span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++; <span class="hljs-comment">// 判断队头是否在滑动窗口中</span><br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt--; <span class="hljs-comment">// 这里和单调栈一样</span><br>    q[++ tt] = i;<br>  &#125;<br><br>## KMP<br>- 问题：模板串 $p$ 在 模式串 $s$ 中 的匹配<br>- KMP 算法的思路<br>  - 每次**失配**时，不是像暴力那样把模板串 $p$ 往后**移动一位**，而是把 $p$ 串向后**移动多位**。这里的移动位数对应的是找到**长度最长的相等前缀串**，所以可以一次移动多位了。<br>  - 对于每个模板串的字符，如果失配时，应该具体移动多少位呢？定义 `next[]` 数组来存模式串中每个前缀最长能够匹配前缀字符串的字符的下标。——我们发现相等前缀串是和模式串**无关的**<br>- 模板<br>  ```c++<br>  <span class="hljs-comment">// s[] 为模板串，p[] 为模式串</span><br><br>  <span class="hljs-comment">// 首先求 next[]</span><br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>, j = <span class="hljs-number">0</span>; i &lt;= p.size(); i ++)&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (p[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>    ne[i] = j;<br>  &#125;<br><br>  <span class="hljs-comment">// 匹配成功</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; i &lt;= n; i ++)&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (s[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>    <span class="hljs-keyword">if</span> (j == m)&#123;<br>      j = ne[j];<br>      <span class="hljs-comment">//  匹配成功后的逻辑</span><br>    &#125;<br>  &#125;<br><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 
             </div>

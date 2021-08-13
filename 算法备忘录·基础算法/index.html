@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.8k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42
+      43
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月11日 凌晨
+                  本文最后更新于：2021年8月12日 晚上
                 
               </p>
             
@@ -549,7 +549,11 @@
 <p>对于有的语言，不含 <code>unique()</code> 函数，则可以用双指针写</p>
 <figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::<span class="hljs-function">iterator <span class="hljs-title">unique</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;a)</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.size(); i ++)&#123;<br>		<span class="hljs-keyword">if</span> (!a[i] || a[i] != a[i - <span class="hljs-number">1</span>]) a[j ++] = a[i];<br>    &#125; <span class="hljs-comment">// a[0] ~ a[j - 1] 为所有 a 中不重复的数</span><br>    <span class="hljs-keyword">return</span> a.begin() + j;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
+<li>
+<p>对于二分查找，也可以直接使用 <code>low_bound()</code> 函数</p>
+</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> low_bound(alls.begin(), alls.end(), x) - alls.begin(); <span class="hljs-comment">// 下标从 0  开始 </span><br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="区间合并"><a class="markdownIt-Anchor" href="#区间合并"></a> 区间合并</h2>

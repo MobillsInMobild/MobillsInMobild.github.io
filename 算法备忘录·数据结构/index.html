@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.5k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      19
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月12日 晚上
+                  本文最后更新于：2021年8月13日 晚上
                 
               </p>
             
@@ -331,7 +331,7 @@
 <ul>
 <li>满足<strong>单调性</strong>的队列结构，<strong>队尾插入</strong>要维护其单调性</li>
 <li>常见模型：找出<strong>滑动窗口</strong>中的最大值/最小值</li>
-<li>模版（插入）<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>  <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++; <span class="hljs-comment">// 判断队头是否在滑动窗口中</span><br>  <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt--; <span class="hljs-comment">// 这里和单调栈一样</span><br>  q[++ tt] = i;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<li>模版（插入）<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++)&#123;<br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++; <span class="hljs-comment">// 判断队头是否在滑动窗口中</span><br>    <span class="hljs-keyword">while</span> (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt--; <span class="hljs-comment">// 这里和单调栈一样</span><br>    q[++ tt] = i;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="kmp"><a class="markdownIt-Anchor" href="#kmp"></a> KMP</h2>
@@ -353,7 +353,20 @@
 <li>接下来，考虑求 <code>next[]</code>。事实上两个串之间匹配是<strong>相互的</strong>，因为模板串移动匹配模式串也可以看成模式串移动匹配模板串。所以，我们求 <code>ne[i]</code> 时，相当于每次用模板串匹配模板串的<code>[1,i]</code>位。我们选择初始化 <code>i = 2</code>，是因为 <code>ne[1]=0</code> 始终成立。</li>
 </ul>
 </li>
-<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// s[] 为模式串，p[] 为模板串</span><br><br><span class="hljs-comment">// 首先求 next[]</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>, j = <span class="hljs-number">0</span>; i &lt;= p.size(); i ++)&#123;<br>  <span class="hljs-keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>  <span class="hljs-keyword">if</span> (p[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>  ne[i] = j;<br>&#125;<br><br><span class="hljs-comment">// 匹配</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; i &lt;= s.size(); i ++)&#123;<br>  <span class="hljs-keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>  <span class="hljs-keyword">if</span> (s[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>  <span class="hljs-keyword">if</span> (j == p.size())&#123;<br>    j = ne[j]; <span class="hljs-comment">// 继续寻找下一个</span><br>    <span class="hljs-comment">//  匹配成功后的逻辑</span><br>  &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure></li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// s[] 为模式串，p[] 为模板串</span><br><br><span class="hljs-comment">// 首先求 next[]</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>, j = <span class="hljs-number">0</span>; i &lt;= p.size(); i ++)&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (p[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>    ne[i] = j;<br>&#125;<br><br><span class="hljs-comment">// 匹配</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; i &lt;= s.size(); i ++)&#123;<br>    <span class="hljs-keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="hljs-number">1</span>]) j = ne[j];<br>    <span class="hljs-keyword">if</span> (s[i] == p[j + <span class="hljs-number">1</span>]) j ++;<br>    <span class="hljs-keyword">if</span> (j == p.size())&#123;<br>      j = ne[j]; <span class="hljs-comment">// 继续寻找下一个</span><br>      <span class="hljs-comment">//  匹配成功后的逻辑</span><br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="trie-树"><a class="markdownIt-Anchor" href="#trie-树"></a> Trie 树</h2>
+<ul>
+<li>用途：高效<strong>存取</strong>和<strong>查找</strong>字符串集合</li>
+<li>思路：每个节点存储一位字符</li>
+<li>模板
+<ul>
+<li>0 号点既是根节点，又是<strong>空节点</strong></li>
+<li><code>son[][]</code> 存储树中每个节点的<strong>子节点</strong>，实际上所有的点是对应 <code>idx</code></li>
+<li><code>cnt[]</code> 存储以每个节点结尾的单词数量</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> son[N][<span class="hljs-number">26</span>], cnt[N], idx;<br><br><span class="hljs-comment">// 插入字符串</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123; <br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;a&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) son[p][u] = ++ idx;<br>      p = son[p][u];<br>    &#125;<br>    cnt[p] ++;<br>&#125;<br><br><span class="hljs-comment">// 查询字符串出现次数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123;<br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;u&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>      p = son[p][u];<br>    &#125;<br>    <span class="hljs-keyword">return</span> cnt[p];<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ul>
 
             </div>

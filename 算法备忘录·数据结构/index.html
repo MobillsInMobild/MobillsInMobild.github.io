@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      2k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      26
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月13日 晚上
+                  本文最后更新于：2021年8月14日 下午
                 
               </p>
             
@@ -366,7 +366,42 @@
 <li><code>son[][]</code> 存储树中每个节点的<strong>子节点</strong>，实际上所有的点是对应 <code>idx</code></li>
 <li><code>cnt[]</code> 存储以每个节点结尾的单词数量</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> son[N][<span class="hljs-number">26</span>], cnt[N], idx = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">// 插入字符串</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123; <br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;a&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) son[p][u] = ++ idx;<br>      p = son[p][u];<br>    &#125;<br>    cnt[p] ++;<br>&#125;<br><br><span class="hljs-comment">// 查询字符串出现次数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123;<br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;u&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>      p = son[p][u];<br>    &#125;<br>    <span class="hljs-keyword">return</span> cnt[p];<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> son[N][<span class="hljs-number">26</span>], cnt[N], idx = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">// 插入字符串</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123; <br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;a&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) son[p][u] = ++ idx;<br>      p = son[p][u];<br>    &#125;<br>    cnt[p] ++;<br>&#125;<br><br><span class="hljs-comment">// 查询字符串出现次数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; str[i]; i ++)&#123;<br>      <span class="hljs-keyword">int</span> u = str[i] - <span class="hljs-string">&#x27;u&#x27;</span>;<br>      <span class="hljs-keyword">if</span> (!son[p][u]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>      p = son[p][u];<br>    &#125;<br>    <span class="hljs-keyword">return</span> cnt[p];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="并查集"><a class="markdownIt-Anchor" href="#并查集"></a> 并查集</h2>
+<ul>
+<li>
+<p>面试中常见，因为<strong>结构简单、构思巧妙</strong></p>
+</li>
+<li>
+<p>解决问题：</p>
+<ol>
+<li>合并：将两个不相交的集合合并位一个集合</li>
+<li>查询：查询两个元素是否在同一个集合中</li>
+</ol>
+</li>
+<li>
+<p>思想：树结构，每个点指向其<strong>父节点</strong></p>
+<ul>
+<li>路径压缩：把<strong>沿途</strong>的每个节点的父节点都设为<strong>祖先节点</strong></li>
+<li>按秩合并：不常见</li>
+</ul>
+</li>
+<li>
+<p>模板</p>
+<ul>
+<li>朴素并查集</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> p[N]; <span class="hljs-comment">// 存储各个节点的祖先节点</span><br><br><span class="hljs-comment">// 返回 x 的祖先节点</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">if</span> (p[x] != x) p[x] = find(p[x]);<br>  <span class="hljs-keyword">return</span> p[x];<br>&#125;<br><br><span class="hljs-comment">// 初始化，节点编号 1~n，各个节点的祖先节点为自己；</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++) p[i] = i;<br><br><span class="hljs-comment">// 合并 a 和 b 所在的集合，相当于让 a 的祖先节点为 b</span><br>p[find(a)] = find(b);<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>维护 size 的并查集</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// p[] 存储各个节点的祖先节点</span><br><span class="hljs-comment">// cnt[] 只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量</span><br><span class="hljs-keyword">int</span> p[N], cnt[N];<br><br><span class="hljs-comment">// 返回 x 的祖先节点</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">if</span> (p[x] != x) p[x] = find(p[x]);<br>    <span class="hljs-keyword">return</span> p[x];<br>&#125;<br><br><span class="hljs-comment">// 初始化，节点编号 1~n，各个节点的祖先节点为自己；</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++)&#123;<br>    p[i] = i;<br>    cnt[i] = <span class="hljs-number">1</span>;<br>&#125;<br><br><span class="hljs-comment">// 合并 a 和 b 所在的集合，相当于让 a 的祖先节点为 b</span><br>cnt[find(b)] += cnt[find(a)];<br>p[find(a)] = find(b);  <br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>维护到祖宗节点距离的并查集</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// p[] 存储各个节点的祖先节点</span><br><span class="hljs-comment">// d[x] 存储 x 到祖先节点的距离</span><br><span class="hljs-keyword">int</span> p[N], d[N];<br><br><br><span class="hljs-comment">// 返回 x 的祖先节点</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">if</span> (p[x] != x)&#123;<br>        <span class="hljs-keyword">int</span> u = find(p[x]);<br>        d[x] += d[p[x]];<br>        p[x] = u;<br>    &#125;<br>    <span class="hljs-keyword">return</span> p[x];<br>&#125;<br><br><span class="hljs-comment">// 初始化，节点编号 1~n，各个节点的祖先节点为自己；</span><br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++)&#123;<br>    p[i] = i;<br>    d[i] = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">// 合并 a 和 b 所在的集合，相当于让 a 的祖先节点为 b</span><br>p[find(a)] = find(b);  <br>cnt[find(a)] = distance; <span class="hljs-comment">// 根据具体问题，初始化 find(a) 的偏移量</span><br><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 
             </div>

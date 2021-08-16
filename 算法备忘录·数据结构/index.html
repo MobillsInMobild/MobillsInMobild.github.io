@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      2.5k 字
     </span>
   
 
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月16日 晚上
+                  本文最后更新于：2021年8月17日 凌晨
                 
               </p>
             
@@ -408,9 +408,6 @@
 <ul>
 <li>
 <p>堆：每个节点的值<strong>总是</strong>不大于或不小于其父节点的值</p>
-<ul>
-<li>堆排序：不断的取 <code>h[1]</code>，注意堆本身不一定有序，只能保证父子节点之间的单调性</li>
-</ul>
 </li>
 <li>
 <p>堆一定是<strong>完全二叉树</strong>，所以存储方式和之前的<strong>数组模拟链表不同</strong>，采用<strong>下标标记点的位置</strong></p>
@@ -421,6 +418,12 @@
 </ul>
 </li>
 </ul>
+</li>
+<li>
+<p>进行 <code>down</code> 操作时必须满足左儿子和右儿子已经是个堆</p>
+</li>
+<li>
+<p>堆排序：不断的取 <code>h[1]</code>，注意堆本身不一定有序，只能保证父子节点之间的单调性</p>
 </li>
 <li>
 <p>模板</p>

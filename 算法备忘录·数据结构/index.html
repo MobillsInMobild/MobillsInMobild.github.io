@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.9k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36
+      39
        分钟
     </span>
   
@@ -460,7 +460,26 @@
 <h4 id="开放寻址法"><a class="markdownIt-Anchor" href="#开放寻址法"></a> 开放寻址法</h4>
 <ul>
 <li>开放寻址法的好处是不需要<strong>开辟额外的数组</strong>，但是为了减少空间，一般会把 Hash 表的空间开大（约 拉链法 的 2 倍）</li>
-<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> h&#123;N&#125;;<br><br><span class="hljs-comment">// 如果 x 在哈希表中，返回 x 的下标；否则返回 x 应该插入的位置</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> t = (x % N + N) %N;<br>  <span class="hljs-keyword">while</span>(h[t] != null &amp;&amp; h[t] != x)&#123;<br>    t ++;<br>    <span class="hljs-keyword">if</span>(t == N) t = <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> t;<br>&#125;<br><br></code></pre></div></td></tr></table></figure></li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> h&#123;N&#125;;<br><br><span class="hljs-comment">// 如果 x 在哈希表中，返回 x 的下标；否则返回 x 应该插入的位置</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> t = (x % N + N) %N;<br>  <span class="hljs-keyword">while</span>(h[t] != null &amp;&amp; h[t] != x)&#123;<br>    t ++;<br>    <span class="hljs-keyword">if</span>(t == N) t = <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> t;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="字符串哈希"><a class="markdownIt-Anchor" href="#字符串哈希"></a> 字符串哈希</h3>
+<ul>
+<li>
+<p>核心思路：将字符串看成 P 进制数</p>
+<ul>
+<li>P 的经验值是 131 或 13331，取这两个值的冲突概率低</li>
+<li>一般我们假设 RP 足够好，不会发生碰撞</li>
+</ul>
+</li>
+<li>
+<p>KMP 的有力竞争对手<br />
+-小技巧：取模的数用 2^64，这样直接用<code>unsigned long long</code>存储，溢出的结果就是取模的结果</p>
+</li>
+<li>
+<p>模板</p>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ULL;<br>ULL h[N], p[N]; <span class="hljs-comment">// h[k] 存储字符串前 k 个字母的哈希值，p[k] 存储 p^k mod 2^64 便于计算</span><br><br><span class="hljs-comment">// 初始化</span><br>p[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++)&#123;<br>  h[i] = h[i - <span class="hljs-number">1</span>] * P + str[i];<br>  p[i] = p[i - <span class="hljs-number">1</span>] * P;<br>&#125;<br><br><span class="hljs-comment">// 计算字串 str[l ~ r] 的哈希值，这个思想类似于前缀和</span><br><span class="hljs-function">ULL <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span>&#123;<br>  <span class="hljs-keyword">return</span> h[r] - h[l - <span class="hljs-number">1</span>] * p[r - l + <span class="hljs-number">1</span>];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
 </ul>
 
             </div>

@@ -203,7 +203,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      325 字
+      1.1k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      14
        分钟
     </span>
   
@@ -265,12 +265,12 @@
 <h1 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h1>
 <h2 id="vector"><a class="markdownIt-Anchor" href="#vector"></a> vector</h2>
 <ul>
-<li>变长数组，使用了<strong>倍增</strong>的思想（每次用完后，空间扩大一倍）</li>
+<li>变长数组，使用了<strong>倍增</strong>的思想（每次用完后，空间扩大一倍），为了保证效率，元素的增删一般应该在<strong>末尾</strong>进行</li>
 <li><code>#include&lt;vector&gt;</code></li>
 <li>常见用法
 <ul>
-<li><code>size()</code> ：返回元素个数</li>
-<li><code>empty()</code> ：返回是否为空</li>
+<li><code>size()</code> ：返回元素个数，复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+<li><code>empty()</code> ：返回是否为空，复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
 <li><code>clear()</code> ：清空</li>
 <li><code>front()</code>/<code>back()</code> ：返回第一个/最后一个元素</li>
 <li><code>push_back()</code>/<code>pop_back()</code>：插入/弹出最后一个元素</li>
@@ -278,7 +278,7 @@
 <ul>
 <li>利用迭代器的遍历：</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;::iterator i = a.begin(); i != a.end(); i ++ )<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt;::iterator i = a.begin(); i != a.end(); i ++ ) <span class="hljs-built_in">cout</span> &lt;&lt; *i &lt;&lt; <span class="hljs-built_in">endl</span>;<br></code></pre></div></td></tr></table></figure>
 </li>
 <li>[] ： 随机访问</li>
 <li>支持<strong>比较运算</strong>，按字典序</li>
@@ -288,6 +288,7 @@
 <h2 id="pair"><a class="markdownIt-Anchor" href="#pair"></a> pair</h2>
 <ul>
 <li>相当于封装好的结构体，且自带<strong>比较运算</strong></li>
+<li><code>#include &lt;utility&gt;</code></li>
 <li>常见用法
 <ul>
 <li><code>first</code>/<code>second</code> ：第一个/第二个元素</li>
@@ -299,6 +300,7 @@
 <h2 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h2>
 <ul>
 <li>字符串</li>
+<li><code>#include &lt;cstring&gt;</code></li>
 <li>常见用法
 <ul>
 <li><code>size()</code>/<code>length()</code></li>
@@ -306,6 +308,159 @@
 <li><code>clear()</code></li>
 <li><code>substr(初始下标, (子串长度))</code> ：返回子串。如果子串长度为空则返回到末尾</li>
 <li><code>c_str()</code> ：返回字符串所在字符数组的起始地址——相当于变成 <code>char[]</code> 了</li>
+</ul>
+</li>
+</ul>
+<h2 id="queue"><a class="markdownIt-Anchor" href="#queue"></a> queue</h2>
+<ul>
+<li>队列</li>
+<li><code>#include &lt;queue&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>push()</code>/<code>pop()</code> 插入队尾元素/弹出队头元素</li>
+<li><code>front()</code>/<code>back()</code>  返回队头元素/返回队尾元素</li>
+</ul>
+</li>
+</ul>
+<h2 id="priority_queue"><a class="markdownIt-Anchor" href="#priority_queue"></a> priority_queue</h2>
+<ul>
+<li>优先队列，默认是<strong>大根堆</strong></li>
+<li><code>#include &lt;queue&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>push()</code>/<code>pop()</code> 插入一个元素/弹出<strong>堆顶</strong>元素</li>
+<li><code>top()</code>  返回<strong>堆顶</strong>元素</li>
+<li>定义小根堆：
+<ol>
+<li>法 1 —— 数字取负数</li>
+<li>法 2 —— <code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; q;</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="stack"><a class="markdownIt-Anchor" href="#stack"></a> stack</h2>
+<ul>
+<li>栈</li>
+<li><code>#include &lt;stack&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>push()</code>/<code>pop()</code> 向栈顶插入一个元素/弹出栈顶元素</li>
+<li><code>top()</code>  返回栈顶元素</li>
+</ul>
+</li>
+</ul>
+<h2 id="deque"><a class="markdownIt-Anchor" href="#deque"></a> deque</h2>
+<ul>
+<li>双端队列，加强版的 vector，但是<strong>时间复杂度高</strong></li>
+<li><code>#include &lt;deque&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>clear()</code></li>
+<li><code>front()</code>/<code>back()</code> ：返回第一个/最后一个元素</li>
+<li><code>push_back()</code>/<code>pop_back()</code>：插入/弹出最后一个元素</li>
+<li><code>push_front()</code>/<code>pop_front()</code>：<strong>插入/弹出第一个元素</strong></li>
+<li><code>begin()/end()</code> ：返回第一个元素的迭代器/vector 的尾部</li>
+<li>[] ： 随机访问</li>
+</ul>
+</li>
+</ul>
+<h2 id="set-multiset"><a class="markdownIt-Anchor" href="#set-multiset"></a> set, multiset</h2>
+<ul>
+<li>分别是“有序集合”和“有序多重集合”。基于平衡二叉树（<strong>红黑树</strong>），动态维护有序序列</li>
+<li><code>#include &lt;set&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>clear()</code></li>
+<li><code>begin()</code>/<code>end()</code> ：时间复杂度均为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+<li>不支持<strong>随机访问</strong>。只能用其迭代器——双向访问迭代器，支持星号(*)解除引用以及<code>++</code>, <code>--</code> 返回前驱和后继，时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log{n})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mclose">)</span></span></span></span></li>
+<li><code>insert()</code> 把一个元素 x 插入到集合 s 中，时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log{n})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mclose">)</span></span></span></span>
+<ul>
+<li>在 set 中，若元素已存在，则不会重复插入该元素</li>
+</ul>
+</li>
+<li><code>find()</code>  查找等于 x 的元素，并返回指向该元素的<strong>迭代器</strong>。若不存在，则返回 s.end()。时间复杂度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log{n})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mclose">)</span></span></span></span>。</li>
+<li><code>count()</code>  返回某一个数的<strong>个数</strong></li>
+<li><code>erase()</code>
+<ol>
+<li>输入是一个数x，删除所有 x。时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>k</mi><mo>+</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(k + \log{n})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mclose">)</span></span></span></span></li>
+<li>输入一个迭代器，删除这个迭代器指向的元素</li>
+</ol>
+</li>
+<li><code>lower_bound()</code>/<code>upper_bound()</code>
+<ul>
+<li><code>lower_bound(x)</code> ：返回<strong>大于等于</strong> x 的最小的数的迭代器</li>
+<li><code>upper_bound(x)</code> ：返回<strong>大于</strong> x 的最小的数的迭代器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="mapmultimap"><a class="markdownIt-Anchor" href="#mapmultimap"></a> map/multimap</h2>
+<ul>
+<li>键值对。实现是以 key 为关键码的红黑树</li>
+<li><code>#include &lt;map&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>size()</code></li>
+<li><code>empty()</code></li>
+<li><code>clear()</code></li>
+<li><code>begin()</code>/<code>end()</code> ：时间复杂度均为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+<li><code>insert()</code>  插入的数是一个 <code>pair&lt;key_type, value_type&gt;</code></li>
+<li><code>erase()</code>  输入的参数是 <code>pair&lt;key_type, value_type&gt;</code> 或者迭代器</li>
+<li><code>find()</code></li>
+<li>[] ： 随机访问。时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log{n})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mclose">)</span></span></span></span>
+<ul>
+<li>multimap 不支持此操作</li>
+</ul>
+</li>
+<li><code>lower_bound()</code>/<code>upper_bound()</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="unordered_set-unordered_map-unordered_multiset-unordered_multimap"><a class="markdownIt-Anchor" href="#unordered_set-unordered_map-unordered_multiset-unordered_multimap"></a> unordered_set, unordered_map, unordered_multiset, unordered_multimap</h2>
+<ul>
+<li>哈希表</li>
+<li>常见用法：和上面类似，增删改查的时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>
+<ul>
+<li>不支持 <code>lower_bound()</code>/<code>upper_bound()</code>， 迭代器的 <code>++</code>，<code>--</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="bitset"><a class="markdownIt-Anchor" href="#bitset"></a> bitset</h2>
+<ul>
+<li>压位，最小单位 1 bit</li>
+<li><code>#include &lt;bitset&gt;</code></li>
+<li>常见用法
+<ul>
+<li><code>~</code>, <code>&amp;</code>, <code>|</code>, <code>^</code></li>
+<li><code>&gt;&gt;</code>, <code>&lt;&lt;</code></li>
+<li><code>==</code>, <code>!=</code></li>
+<li>[] : 随机访问</li>
+<li><code>count()</code> ：求 1 的位数</li>
+<li><code>size()</code> ：求总位数</li>
+<li><code>any()</code>/<code>none()</code> ：判断是否有一个 1/ 判断是否全是 0</li>
+<li><code>set()</code> ：把所有位置变成 1
+<ul>
+<li><code>set(k, v)</code> ： 把位置 k 变成 v</li>
+</ul>
+</li>
+<li><code>reset()</code> 把所有位置变成 0</li>
+<li><code>flip()</code> 等价于 <code>~</code>
+<ul>
+<li><code>flip(k)</code> 把位置 k 取反</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.7k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32
+      36
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月18日 上午
+                  本文最后更新于：2021年8月18日 下午
                 
               </p>
             
@@ -445,7 +445,23 @@
 </ul>
 </li>
 </ul>
-<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
+<h2 id="hash-表"><a class="markdownIt-Anchor" href="#hash-表"></a> Hash 表</h2>
+<h3 id="一般哈希"><a class="markdownIt-Anchor" href="#一般哈希"></a> 一般哈希</h3>
+<ul>
+<li>常用：插入、查询（删除一般是<strong>直接标记</strong>）</li>
+<li>由于把区间变小了，所以一般要<strong>模 N</strong>。因为减少冲突，一般取 N 为素数</li>
+</ul>
+<h4 id="拉链法"><a class="markdownIt-Anchor" href="#拉链法"></a> 拉链法</h4>
+<ul>
+<li><code>h[]</code> 中存储对应链表的<code>head</code>头<strong>指针</strong></li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> h[N], e[N], ne[N], idx;<br><br><span class="hljs-comment">// 向哈希表中插入一个数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> k = (k %  N + N) % N; <span class="hljs-comment">// 这么写是因为在 C++ 中负数的模仍然是负数</span><br>  e[idx] = x;<br>  ne[idx] = h[k];<br>  h[k] = idx ++;<br>&#125;<br><br><span class="hljs-comment">// 在哈希表中查询某个数是否存在</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> k = (k % N + N) % N;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = h[k]; i != <span class="hljs-number">-1</span>; i = ne[i]);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="开放寻址法"><a class="markdownIt-Anchor" href="#开放寻址法"></a> 开放寻址法</h4>
+<ul>
+<li>开放寻址法的好处是不需要<strong>开辟额外的数组</strong>，但是为了减少空间，一般会把 Hash 表的空间开大（约 拉链法 的 2 倍）</li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> h&#123;N&#125;;<br><br><span class="hljs-comment">// 如果 x 在哈希表中，返回 x 的下标；否则返回 x 应该插入的位置</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> t = (x % N + N) %N;<br>  <span class="hljs-keyword">while</span>(h[t] != null &amp;&amp; h[t] != x)&#123;<br>    t ++;<br>    <span class="hljs-keyword">if</span>(t == N) t = <span class="hljs-number">0</span>;<br>  &#125;<br>  <span class="hljs-keyword">return</span> t;<br>&#125;<br><br></code></pre></div></td></tr></table></figure></li>
+</ul>
 
             </div>
             <hr>

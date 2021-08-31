@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      667 字
+      685 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      9
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月21日 上午
+                  本文最后更新于：2021年8月31日 晚上
                 
               </p>
             
@@ -306,7 +306,7 @@
 <h3 id="bfds"><a class="markdownIt-Anchor" href="#bfds"></a> BFDS</h3>
 <ul>
 <li>能够搜索到最短（边的权重为 1）</li>
-<li>有通用的框架<figure class="highlight vala"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vala">  queue ← 初始状态<br>  <span class="hljs-keyword">while</span> (queue 不空)&#123;<br>      t ← 队头<br>      扩展队头<br>  &#125;<br>  ```   <br>  <br><br><span class="hljs-meta">## 图的存储</span><br>- 有向图、无向图（无向图就当作双向有向图）<br><br><span class="hljs-meta">### 邻接矩阵</span><br>- `g[a][b]` 存储边 a-&gt;b<br><span class="hljs-meta">### 邻接表</span><br>- 每个点有一个单链表，类似于**拉链法**<br>- 模板<br>  ```c++<br>  <span class="hljs-comment">// 对每个节点 k，开单链表，存储其能够走到的所有点。h[k] 存储单链表的头节点</span><br>  <span class="hljs-keyword">int</span> h[N], e[N], ne[N], idx;<br><br>  <span class="hljs-comment">//添加一条边 a -&gt; b</span><br>  <span class="hljs-keyword">void</span> add(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)&#123;<br>      e[idx] = b, ne[idx] = h[a], h[a] = idx ++;<br>  &#125;<br><br>  <span class="hljs-comment">// 初始化</span><br>  idx = <span class="hljs-number">0</span>;<br>  memset(h, <span class="hljs-number">-1</span>, sizeof h);<br></code></pre></div></td></tr></table></figure>
+<li>有通用的框架<figure class="highlight prolog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs prolog">  queue ← 初始状态<br>  while (queue 不空)&#123;<br>      t ← 队头<br>      扩展队头<br>  &#125;<br>  <span class="hljs-string">``</span><span class="hljs-string">`   </span><br><span class="hljs-string">  </span><br><span class="hljs-string"></span><br><span class="hljs-string">## 图的存储</span><br><span class="hljs-string">- 有向图、无向图（无向图就当作双向有向图）</span><br><span class="hljs-string"></span><br><span class="hljs-string">### 邻接矩阵</span><br><span class="hljs-string">- `</span>g[a][b]<span class="hljs-string">` 存储边 a-&gt;b</span><br><span class="hljs-string">### 邻接表</span><br><span class="hljs-string">- 每个点有一个单链表，类似于**拉链法**</span><br><span class="hljs-string">- **使用的邻接表的 TLE 极可能是没有初始化 `</span>h[]<span class="hljs-string">`**</span><br><span class="hljs-string">- 模板</span><br><span class="hljs-string">  `</span><span class="hljs-string">``</span>c++<br>  // 对每个节点 k，开单链表，存储其能够走到的所有点。h[k] 存储单链表的头节点<br>  int h[<span class="hljs-symbol">N</span>], e[<span class="hljs-symbol">N</span>], ne[<span class="hljs-symbol">N</span>], idx;<br><br>  //添加一条边 a -&gt; b<br>  void add(int a, int b)&#123;<br>      e[idx] = b, ne[idx] = h[a], h[a] = idx ++;<br>  &#125;<br><br>  // 初始化<br>  idx = <span class="hljs-number">0</span>;<br>  memset(h, <span class="hljs-number">-1</span>, sizeof h);<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="图的遍历"><a class="markdownIt-Anchor" href="#图的遍历"></a> 图的遍历</h2>

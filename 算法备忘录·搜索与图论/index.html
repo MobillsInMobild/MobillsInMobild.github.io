@@ -204,7 +204,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      685 字
+      1.1k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      14
        分钟
     </span>
   
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月31日 晚上
+                  本文最后更新于：2021年9月10日 上午
                 
               </p>
             
@@ -303,7 +303,7 @@
 </li>
 <li>一般无通用框架，关键是<strong>搜索的顺序</strong></li>
 </ul>
-<h3 id="bfds"><a class="markdownIt-Anchor" href="#bfds"></a> BFDS</h3>
+<h3 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> BFS</h3>
 <ul>
 <li>能够搜索到最短（边的权重为 1）</li>
 <li>有通用的框架<figure class="highlight prolog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs prolog">  queue ← 初始状态<br>  while (queue 不空)&#123;<br>      t ← 队头<br>      扩展队头<br>  &#125;<br>  <span class="hljs-string">``</span><span class="hljs-string">`   </span><br><span class="hljs-string">  </span><br><span class="hljs-string"></span><br><span class="hljs-string">## 图的存储</span><br><span class="hljs-string">- 有向图、无向图（无向图就当作双向有向图）</span><br><span class="hljs-string"></span><br><span class="hljs-string">### 邻接矩阵</span><br><span class="hljs-string">- `</span>g[a][b]<span class="hljs-string">` 存储边 a-&gt;b</span><br><span class="hljs-string">### 邻接表</span><br><span class="hljs-string">- 每个点有一个单链表，类似于**拉链法**</span><br><span class="hljs-string">- **使用的邻接表的 TLE 极可能是没有初始化 `</span>h[]<span class="hljs-string">`**</span><br><span class="hljs-string">- 模板</span><br><span class="hljs-string">  `</span><span class="hljs-string">``</span>c++<br>  // 对每个节点 k，开单链表，存储其能够走到的所有点。h[k] 存储单链表的头节点<br>  int h[<span class="hljs-symbol">N</span>], e[<span class="hljs-symbol">N</span>], ne[<span class="hljs-symbol">N</span>], idx;<br><br>  //添加一条边 a -&gt; b<br>  void add(int a, int b)&#123;<br>      e[idx] = b, ne[idx] = h[a], h[a] = idx ++;<br>  &#125;<br><br>  // 初始化<br>  idx = <span class="hljs-number">0</span>;<br>  memset(h, <span class="hljs-number">-1</span>, sizeof h);<br></code></pre></div></td></tr></table></figure>
@@ -324,15 +324,49 @@
 <li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; q;<br><br>st[<span class="hljs-number">1</span>];<br>q.push(<span class="hljs-number">1</span>);<br><br><span class="hljs-keyword">while</span>(q.size())&#123;<br>    <span class="hljs-keyword">int</span> t = q.front();<br>    q.pop();<br>  <br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = h[t]; i != <span class="hljs-number">-1</span>; i = ne[i])&#123;<br>        <span class="hljs-keyword">int</span> j = e[i];<br>        <span class="hljs-keyword">if</span> (!st[j])&#123;<br>          st[j] = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 表示点 j 已经被遍历过</span><br>          q.push(j);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="有向图的拓扑序列"><a class="markdownIt-Anchor" href="#有向图的拓扑序列"></a> 有向图的拓扑序列</h2>
+<h3 id="有向图的拓扑序列"><a class="markdownIt-Anchor" href="#有向图的拓扑序列"></a> 有向图的拓扑序列</h3>
 <ul>
-<li>** 宽度优先搜索**的应用</li>
+<li><strong>宽度优先搜索</strong>的应用</li>
 <li>拓扑序列：所有的边都是从前指向后的
 <ul>
 <li><strong>有向无环图</strong>一定存在拓扑序列——所以有向无环图称为拓扑图</li>
 </ul>
 </li>
-<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">tosort</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><br>    <span class="hljs-comment">// d[i] 存储点的入度</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )&#123;<br>        <span class="hljs-keyword">if</span> (!d[i])<br>            q[++ tt] = i; <span class="hljs-comment">// 加入所有入度为 0 的点</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (hh &lt;= tt)&#123;<br>        <span class="hljs-keyword">int</span> t = q[hh ++];<br>        <span class="hljs-comment">// 对于队头 t，遍历其子节点，将子节点每个入度 - 1，如果入度为 0 则入队。</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = h[t]; i != <span class="hljs-number">-1</span>; i = ne[i])&#123;<br>            <span class="hljs-keyword">int</span> j = e[i];<br>            <span class="hljs-keyword">if</span> (--d[j] == <span class="hljs-number">0</span>)  <br>                q[++ tt] = j;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//如果所有点都入队了，说明存在拓扑序列；</span><br>    <span class="hljs-keyword">return</span> tt = n - <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">tosort</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">int</span> hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><br>    <span class="hljs-comment">// d[i] 存储点的入度</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )&#123;<br>        <span class="hljs-keyword">if</span> (!d[i])<br>            q[++ tt] = i; <span class="hljs-comment">// 加入所有入度为 0 的点</span><br>    &#125;<br><br>    <span class="hljs-keyword">while</span> (hh &lt;= tt)&#123;<br>        <span class="hljs-keyword">int</span> t = q[hh ++];<br>        <span class="hljs-comment">// 对于队头 t，遍历其子节点，将子节点每个入度 - 1，如果入度为 0 则入队。</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = h[t]; i != <span class="hljs-number">-1</span>; i = ne[i])&#123;<br>            <span class="hljs-keyword">int</span> j = e[i];<br>            <span class="hljs-keyword">if</span> (--d[j] == <span class="hljs-number">0</span>)  <br>                q[++ tt] = j;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//如果所有点都入队了，说明存在拓扑序列；</span><br>    <span class="hljs-keyword">return</span> tt = n - <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="最短路"><a class="markdownIt-Anchor" href="#最短路"></a> 最短路</h2>
+<div class="note note-info">
+            <p>图论最难的部分是<strong>实现</strong></p>
+          </div>
+<ul>
+<li>图中有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个点、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 条边</li>
+</ul>
+<pre><code class=" mermaid">graph LR
+    A[最短路] --&gt;B[单源最短路]
+    A --&gt; C[多源汇最短路]
+    B --&gt; D[所有边权都是正数]
+    B --&gt; E[存在负权边]
+    D --&gt; F[朴素 Dijstra 算法    O(n^2)]
+    D --&gt; G[堆优化版的 Dijstra 算法    O(mlogn)]
+    E --&gt; H[Bellman-Ford    O(nm)]
+    E --&gt; I[SPFA    一般 O(m)，最坏 O(nm)]
+    C --&gt; J[Floyd 算法    O(n^3)]
+</code></pre>
+<h3 id="朴素-dijkstra-算法"><a class="markdownIt-Anchor" href="#朴素-dijkstra-算法"></a> 朴素 Dijkstra 算法</h3>
+<ul>
+<li>时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>+</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2 +m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span></li>
+<li>使用<strong>邻接表</strong>存储，是为了<strong>快速找到从每个点出发的所有邻边</strong></li>
+<li>算法思路
+<ol>
+<li>dist[1] = 0, dist[i] = + INF;</li>
+<li>for i in 1 ~ n:<br />
+t ← 不在 s 中的、距离最近的点(s 是当前已确定最短距离的点);<br />
+s ← t;<br />
+用 t 更新其它点(1 ~ n)的距离;</li>
+</ol>
+</li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> g[N][N]; <span class="hljs-comment">// 存储每条边</span><br><span class="hljs-keyword">int</span> dist[N]; <span class="hljs-comment">// 存储 1 号点到每个点的距离</span><br><span class="hljs-keyword">bool</span> st[N]; <span class="hljs-comment">// 存储每个点的最短路是否已经确定</span><br><br><span class="hljs-comment">// 求 1 号点到 n 号点的最短路，若不存在则返回 -1</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">memset</span>(dist, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> dist);<br>    dist[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;n - <span class="hljs-number">1</span>; i ++ )&#123;<br>        <span class="hljs-keyword">int</span> t = <span class="hljs-number">-1</span>;<br>        <span class="hljs-comment">// 在未确定最短路的点中，寻找距离最小的点 t</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++ )<br>            <span class="hljs-keyword">if</span> (!st[j] &amp;&amp;(t == <span class="hljs-number">-1</span> || dist[t] &gt; dist[j]))<br>                t = j;<br>        <br>        <span class="hljs-comment">// 用 t 更新其他点的距离</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++ )&#123;<br>            dist[j] = min(dist[j], dist[t] + g[t][j]);<br>        &#125;<br><br>        st[t] = <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (dist[n] == <span class="hljs-number">0x3f3f3f3f</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> dist[n];<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
 </ul>
 
             </div>

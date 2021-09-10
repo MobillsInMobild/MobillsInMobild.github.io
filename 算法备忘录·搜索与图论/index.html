@@ -306,7 +306,22 @@
 <h3 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> BFS</h3>
 <ul>
 <li>能够搜索到最短（边的权重为 1）</li>
-<li>有通用的框架<figure class="highlight prolog"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs prolog">  queue ← 初始状态<br>  while (queue 不空)&#123;<br>      t ← 队头<br>      扩展队头<br>  &#125;<br>  <span class="hljs-string">``</span><span class="hljs-string">`   </span><br><span class="hljs-string">  </span><br><span class="hljs-string"></span><br><span class="hljs-string">## 图的存储</span><br><span class="hljs-string">- 有向图、无向图（无向图就当作双向有向图）</span><br><span class="hljs-string"></span><br><span class="hljs-string">### 邻接矩阵</span><br><span class="hljs-string">- `</span>g[a][b]<span class="hljs-string">` 存储边 a-&gt;b</span><br><span class="hljs-string">### 邻接表</span><br><span class="hljs-string">- 每个点有一个单链表，类似于**拉链法**</span><br><span class="hljs-string">- **使用的邻接表的 TLE 极可能是没有初始化 `</span>h[]<span class="hljs-string">`**</span><br><span class="hljs-string">- 模板</span><br><span class="hljs-string">  `</span><span class="hljs-string">``</span>c++<br>  // 对每个节点 k，开单链表，存储其能够走到的所有点。h[k] 存储单链表的头节点<br>  int h[<span class="hljs-symbol">N</span>], e[<span class="hljs-symbol">N</span>], ne[<span class="hljs-symbol">N</span>], idx;<br><br>  //添加一条边 a -&gt; b<br>  void add(int a, int b)&#123;<br>      e[idx] = b, ne[idx] = h[a], h[a] = idx ++;<br>  &#125;<br><br>  // 初始化<br>  idx = <span class="hljs-number">0</span>;<br>  memset(h, <span class="hljs-number">-1</span>, sizeof h);<br></code></pre></div></td></tr></table></figure>
+<li>有通用的框架<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-built_in">queue</span> ← 初始状态<br><span class="hljs-keyword">while</span> (<span class="hljs-built_in">queue</span> 不空)&#123;<br>    t ← 队头<br>    扩展队头<br>&#125;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="图的存储"><a class="markdownIt-Anchor" href="#图的存储"></a> 图的存储</h2>
+<ul>
+<li>有向图、无向图（无向图就当作双向有向图）</li>
+</ul>
+<h3 id="邻接矩阵"><a class="markdownIt-Anchor" href="#邻接矩阵"></a> 邻接矩阵</h3>
+<ul>
+<li><code>g[a][b]</code> 存储边 a-&gt;b</li>
+</ul>
+<h3 id="邻接表"><a class="markdownIt-Anchor" href="#邻接表"></a> 邻接表</h3>
+<ul>
+<li>每个点有一个单链表，类似于<strong>拉链法</strong></li>
+<li><strong>使用的邻接表的 TLE 极可能是没有初始化 <code>h[]</code></strong></li>
+<li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// 对每个节点 k，开单链表，存储其能够走到的所有点。h[k] 存储单链表的头节点</span><br><span class="hljs-keyword">int</span> h[N], e[N], ne[N], idx;<br><br><span class="hljs-comment">//添加一条边 a -&gt; b</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>&#123;<br>    e[idx] = b, ne[idx] = h[a], h[a] = idx ++;<br>&#125;<br><br><span class="hljs-comment">// 初始化</span><br>idx = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">memset</span>(h, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> h);<br></code></pre></div></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="图的遍历"><a class="markdownIt-Anchor" href="#图的遍历"></a> 图的遍历</h2>
@@ -347,11 +362,11 @@
     A --&gt; C[多源汇最短路]
     B --&gt; D[所有边权都是正数]
     B --&gt; E[存在负权边]
-    D --&gt; F[朴素 Dijstra 算法    O(n^2)]
-    D --&gt; G[堆优化版的 Dijstra 算法    O(mlogn)]
-    E --&gt; H[Bellman-Ford    O(nm)]
-    E --&gt; I[SPFA    一般 O(m)，最坏 O(nm)]
-    C --&gt; J[Floyd 算法    O(n^3)]
+    D --&gt; F[朴素 Dijstra 算法]
+    D --&gt; G[堆优化版的 Dijstra 算法]
+    E --&gt; H[Bellman-Ford]
+    E --&gt; I[SPFA]
+    C --&gt; J[Floyd 算法]
 </code></pre>
 <h3 id="朴素-dijkstra-算法"><a class="markdownIt-Anchor" href="#朴素-dijkstra-算法"></a> 朴素 Dijkstra 算法</h3>
 <ul>
@@ -361,9 +376,9 @@
 <ol>
 <li>dist[1] = 0, dist[i] = + INF;</li>
 <li>for i in 1 ~ n:<br />
-t ← 不在 s 中的、距离最近的点(s 是当前已确定最短距离的点);<br />
+t ← 不在 s 中的、距离最近的点（s 是当前已确定最短距离的点）;<br />
 s ← t;<br />
-用 t 更新其它点(1 ~ n)的距离;</li>
+用 t 更新其它点（1 ~ n）的距离;</li>
 </ol>
 </li>
 <li>模板<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> g[N][N]; <span class="hljs-comment">// 存储每条边</span><br><span class="hljs-keyword">int</span> dist[N]; <span class="hljs-comment">// 存储 1 号点到每个点的距离</span><br><span class="hljs-keyword">bool</span> st[N]; <span class="hljs-comment">// 存储每个点的最短路是否已经确定</span><br><br><span class="hljs-comment">// 求 1 号点到 n 号点的最短路，若不存在则返回 -1</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">dijkstra</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">memset</span>(dist, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> dist);<br>    dist[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;n - <span class="hljs-number">1</span>; i ++ )&#123;<br>        <span class="hljs-keyword">int</span> t = <span class="hljs-number">-1</span>;<br>        <span class="hljs-comment">// 在未确定最短路的点中，寻找距离最小的点 t</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++ )<br>            <span class="hljs-keyword">if</span> (!st[j] &amp;&amp;(t == <span class="hljs-number">-1</span> || dist[t] &gt; dist[j]))<br>                t = j;<br>        <br>        <span class="hljs-comment">// 用 t 更新其他点的距离</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= n; j ++ )&#123;<br>            dist[j] = min(dist[j], dist[t] + g[t][j]);<br>        &#125;<br><br>        st[t] = <span class="hljs-literal">true</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (dist[n] == <span class="hljs-number">0x3f3f3f3f</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">return</span> dist[n];<br>&#125;<br></code></pre></div></td></tr></table></figure></li>

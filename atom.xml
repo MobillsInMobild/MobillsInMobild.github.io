@@ -39,6 +39,25 @@
   </entry>
   
   <entry>
+    <title>密码学数论基础</title>
+    <link href="https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    <id>https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/</id>
+    <published>2021-09-13T08:14:25.000Z</published>
+    <updated>2021-09-24T12:32:46.865Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;密码学中需要知道的一些数论的知识大纲&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="数学" scheme="https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>算法备忘录·搜索与图论</title>
     <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/"/>
     <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</id>
@@ -410,25 +429,6 @@
     <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
     
     <category term="哲学" scheme="https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>密码学大纲</title>
-    <link href="https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%A4%A7%E7%BA%B2/</id>
-    <published>2020-10-28T07:46:25.000Z</published>
-    <updated>2021-09-12T13:42:28.773Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;自己在学习密码学课程时做的总结，AES 那一部分写得比较简略&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   

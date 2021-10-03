@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2021-09-24T12:35:57.071Z</updated>
+  <updated>2021-10-03T08:41:39.663Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可证明安全复习</title>
+    <link href="https://justloseit.top/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0/"/>
+    <id>https://justloseit.top/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0/</id>
+    <published>2021-10-03T06:35:25.000Z</published>
+    <updated>2021-10-03T08:41:39.663Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;前两章的介绍可以参见&lt;/li&gt;
+&lt;/ul&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    
+    
+    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>密码学数论基础</title>
@@ -408,27 +436,6 @@
     
     
     <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>窄门</title>
-    <link href="https://justloseit.top/%E7%AA%84%E9%97%A8/"/>
-    <id>https://justloseit.top/%E7%AA%84%E9%97%A8/</id>
-    <published>2020-11-18T03:14:04.000Z</published>
-    <updated>2021-08-20T05:59:59.871Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;《少有人走的路》的阅读感悟&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="哲学" scheme="https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   

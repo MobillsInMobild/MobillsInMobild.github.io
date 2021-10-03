@@ -15,7 +15,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="
-相关的参考教程是《Introduction To Modern Cryptography》。之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。
+之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。
 ">
   <meta name="author" content="Joker">
   <meta name="keywords" content="">
@@ -205,7 +205,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      57 字
+      2k 字
     </span>
   
 
@@ -215,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      24
        分钟
     </span>
   
@@ -257,17 +257,378 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月3日 下午
+                  本文最后更新于：2021年10月3日 晚上
                 
               </p>
             
             <div class="markdown-body">
               <ul>
-<li>相关的参考教程是《Introduction To Modern Cryptography》。之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。</li>
+<li>之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。</li>
 </ul>
 <span id="more"></span>
 <ul>
+<li>相关的参考教程是《Introduction To Modern Cryptography》，其中文版是《现代密码学——原理与协议》。中文版的翻译一言难尽，尤其是到了后面的规约部分。因此建议还是优先考虑英文版。</li>
 <li>前两章的英文笔记可以参见 <a href="https://justloseit.top/Introduction%20To%20Modern%20Cryptography/">Introduction To Modern Cryptography</a></li>
+</ul>
+<h1 id="可证明安全"><a class="markdownIt-Anchor" href="#可证明安全"></a> 可证明安全</h1>
+<h2 id="第一章引言"><a class="markdownIt-Anchor" href="#第一章引言"></a> 第一章：引言</h2>
+<ul>
+<li>
+<p>掌握现代密码学的<strong>三个原则</strong></p>
+<ul>
+<li>原则 1——形式化定义：解决任何密码学问题的第一步是形式化的表述严格且精确的安全定义
+<ul>
+<li>如果特定的敌手不能完成特定的攻破，则对任务的一个密码学方案是安全的</li>
+</ul>
+</li>
+<li>原则 2——精确假设：当密码学构造方案的安全性依赖于某个违背证明的假设时，这种假设必须精确地陈述，而且，所假设的要尽可能地少</li>
+<li>原则 3——安全证明：密码学构造方案应当伴随有严格的安全证明，跟随符合原则 1 的安全定义，以及与原则 2 陈述的假设有关
+<ul>
+<li>规约：若给定假设 X 是正确的，根据给定的定义，构造方案 Y 是安全的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>理解可证明安全的<strong>含义</strong>，区分<strong>可证明安全</strong>和<strong>现实安全</strong>的关系</p>
+</li>
+</ul>
+<h2 id="第二章完美保密"><a class="markdownIt-Anchor" href="#第二章完美保密"></a> 第二章：完美保密</h2>
+<ul>
+<li>掌握一次一密的原理</li>
+</ul>
+<div class="note note-primary">
+            <ol><li>令整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">l &gt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，设明文空间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span>，密钥空间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span> 和密文空间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span> 都等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">\left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span>（即长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span> 的二进制比特串的集合）。</li><li>密钥产生算法 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mi>e</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">Gen</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span></span></span></span> 从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">k=\left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span> 中依据<strong>均匀分布</strong>选择一个二进制比特串。</li><li>加密算法 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>n</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">Enc</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span></span></span></span>：给定一个密钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>∈</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">k\in \left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span> 和一个明文 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>∈</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">m \in \left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span>，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mo>:</mo><mo>=</mo><mi>k</mi><mo>⊕</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">c:=k\oplus m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span></li><li>解密算法 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mi>n</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">Enc</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span></span></span></span>：给定一个密钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>∈</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">k\in \left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span> 和一个密文 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mo>∈</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">c \in \left\{0,1\right\}^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2390079999999999em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9890079999999999em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span>，输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>:</mo><mo>=</mo><mi>k</mi><mo>⊕</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">m:=k\oplus k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span></li></ol>
+          </div>
+<ul>
+<li>
+<p>安全性证明</p>
+<ul>
+<li>利用完美保密定义</li>
+<li>利用香农定理</li>
+</ul>
+</li>
+<li>
+<p>掌握完美保密、完美不可区分两种概念及<strong>等价性</strong></p>
+<ul>
+<li>
+<p>完美保密：定义 2.3</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E5%AE%8C%E7%BE%8E%E4%BF%9D%E5%AF%86.png" alt="" /></p>
+</li>
+<li>
+<p>完美不可区分：定义 2.5</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E5%AE%8C%E7%BE%8E%E4%B8%8D%E5%8F%AF%E5%8C%BA%E5%88%86.png" alt="" /></p>
+</li>
+<li>
+<p><strong>等价性</strong>：习题 2.5</p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握一次一密的优缺点</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E4%B8%80%E6%AC%A1%E4%B8%80%E5%AF%86%E4%BC%98%E7%BC%BA%E7%82%B9.png" alt="" /></p>
+</li>
+</ul>
+<p>​</p>
+<p>​    ## 第三章：单钥加密</p>
+<ul>
+<li>
+<p>掌握具体方法（Concrete Approach）和渐近方法 Asymptotic Approach）的含义</p>
+<ul>
+<li>
+<p>具体方法</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E5%85%B7%E4%BD%93%E6%96%B9%E6%B3%95.png" alt="" /></p>
+</li>
+<li>
+<p>渐进方法</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E6%B8%90%E8%BF%9B%E6%96%B9%E6%B3%95.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握不可区分安全（窃听攻击）两种<strong>定义等价性</strong>、CPA 安全、CCA安全</p>
+<ul>
+<li>
+<p>不可区分安全 EAV-secure</p>
+<ul>
+<li>
+<p>定义1：定义 3.8</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CEAV1.png" alt="" /></p>
+</li>
+<li>
+<p>定义2：定义 3.9</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CEAV2.png" alt="" /></p>
+</li>
+<li>
+<p>等价性：习题3.4</p>
+</li>
+</ul>
+</li>
+<li>
+<p>CPA 安全：定义 3.22</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCPA.png" alt="" /></p>
+</li>
+<li>
+<p>CCA 安全：定义 3.33</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCCA.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握伪随机生成器和伪随机函数的概念、安全性</p>
+<ul>
+<li>
+<p>伪随机生成器：定义 3.14</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E4%BC%AA%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%94%9F%E6%88%90%E5%99%A8.png" alt="" /></p>
+</li>
+<li>
+<p>伪随机函数：定义 3.25</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E4%BC%AA%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握如何构造CPA安全加密方案：构造 3.30</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E4%BC%AA%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0CPA.png" alt="" /></p>
+</li>
+<li>
+<p>理解CBC模式、CTR模式、 理解Padding Oracle 攻击</p>
+<ul>
+<li>
+<p>CBC 模式：FIGURE 3.7</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCBC.png" alt="" /></p>
+</li>
+<li>
+<p>CTR 模式：FIGURE 3.10</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCTR.png" alt="" /></p>
+</li>
+<li>
+<p>Padding Oracle 攻击</p>
+<ul>
+<li><strong>CBC 模式</strong>对密码块链接进行解密需要先解密所有密文组，再验证填充，随后移除填充，最后再返回解密后的明文信息。</li>
+<li><strong>若服务器返回“填充无效”信息而非“解密失败”错误，则攻击者可利用服务器本身进行密文填塞来解密（或加密）信息。</strong></li>
+<li><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CPaddingOracle.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四章消息认证码"><a class="markdownIt-Anchor" href="#第四章消息认证码"></a> 第四章：消息认证码</h2>
+<ul>
+<li>
+<p>掌握MAC定义、安全性</p>
+<ul>
+<li>
+<p>定义：定义4.1</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%9A%E4%B9%89.png" alt="" /></p>
+</li>
+<li>
+<p>安全性：定义4.2</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%89%E5%85%A8.png" alt="" /></p>
+<ul>
+<li>
+<p>strong MAC：PROPOSITION 4.4</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CstrongMAC.png" alt="" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>掌握CBC-MAC，以及安全性</strong></p>
+<ul>
+<li>
+<p>定义：CONSTRUCTION 4.11</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCBC-MAC.png" alt="" /></p>
+</li>
+<li>
+<p>安全性</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCBC-MAC%E5%AE%89%E5%85%A8%E6%80%A7.png" alt="" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章杂凑函数"><a class="markdownIt-Anchor" href="#第五章杂凑函数"></a> 第五章：杂凑函数</h2>
+<ul>
+<li>掌握杂凑函数的安全性，包括Preimage Resistance、 Second preimage resistance、collision resistance， 安全定义以及<strong>三者之间的关系</strong>
+<ul>
+<li><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E6%8A%97%E7%A2%B0%E6%92%9E.png" alt="" /></li>
+<li>公式化定义和三者的关系见习题 5.1
+<ul>
+<li>抗碰撞性包含了次原像抗性，但无法保证原像抗性。相反，次原像攻击包含碰撞攻击</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>掌握随机预言模型以及如何在ROM下设计密码方案
+<ul>
+<li>定义：随机预言机是一部预言机，对任何输入都回传一个真正均匀随机的输出，不过对相同的输入，该预言机每次都会用同一方法输出。</li>
+<li>性质
+<ol>
+<li>均匀分布：If x has not been queried to H, then the value of H(x) is uniform.
+<ul>
+<li>均匀分布性：预言机的输出在取值空间内均匀分布，无碰撞</li>
+</ul>
+</li>
+<li><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CROM.png" alt="" /></li>
+</ol>
+</li>
+<li>设计密码方案：P178-P179</li>
+</ul>
+</li>
+</ul>
+<h2 id="第九章密码学难题"><a class="markdownIt-Anchor" href="#第九章密码学难题"></a> 第九章：密码学难题</h2>
+<ul>
+<li>
+<p>掌握DL、CDH、DDH难题/假设，及相互关系</p>
+<ul>
+<li>
+<p>DL</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CDLP.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CDL.png" alt="" /></p>
+</li>
+<li>
+<p>CDH</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCDH.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCDH_.png" alt="" /></p>
+</li>
+<li>
+<p>DDH</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CDDH.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CDDH_.png" alt="" /></p>
+</li>
+<li>
+<p>DL&gt;CDH&gt;DDH</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第十一章公钥加密"><a class="markdownIt-Anchor" href="#第十一章公钥加密"></a> 第十一章：公钥加密</h2>
+<ul>
+<li>
+<p>掌握PKE安全定义、CPA安全和CCA安全</p>
+<ul>
+<li>PKE 安全</li>
+</ul>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CPKE-EAV.png" alt="" /></p>
+<ul>
+<li>
+<p>CPA 安全</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CPKE-CPA.png" alt="" /></p>
+</li>
+<li>
+<p>CCA 安全</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CPKE-CCA.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握单比特CPA安全和多比特CPA安全等价<strong>证明</strong></p>
+<ul>
+<li>P382 的 THEOREM 11.6 的证明，可以参考 P385</li>
+</ul>
+</li>
+<li>
+<p>理解Hybrid Encryption的原理</p>
+<ul>
+<li>其中公钥加密方案是CPA安全的，私钥加密方案是窃听者存在安全的，那么混合加密方案是CPA安全的公钥加密方案</li>
+</ul>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86.png" alt="" /></p>
+</li>
+<li>
+<p>掌握El Gamal加密的原理和<strong>为何不是CCA安全</strong></p>
+<ul>
+<li>
+<p>EI Gamal</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CElGamal.png" alt="" /></p>
+</li>
+<li>
+<p>安全性</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CElGamal-CPA-1.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CElGamal-CPA-2.png" alt="" /></p>
+</li>
+<li>
+<p>为何不是CCA安全</p>
+</li>
+</ul>
+<p>![](D:\WorkspaceFolder\可证明安全技术\img\EIGamal 为什么不是CCA.png)</p>
+</li>
+</ul>
+<h2 id="第十二章电子签名"><a class="markdownIt-Anchor" href="#第十二章电子签名"></a> 第十二章：电子签名</h2>
+<ul>
+<li>
+<p>掌握签名安全定义</p>
+<ul>
+<li>
+<p>数字签名</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D.png" alt="" /></p>
+</li>
+<li>
+<p>数字签名安全</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5C%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E5%AE%89%E5%85%A8%E6%80%A7.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握RSA-FDH原理及安全性证明，<strong>要掌握归约主要步骤和概率计算</strong></p>
+<ul>
+<li>
+<p>RSA-FDA 方案</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi mathvariant="normal">SignFDH</mi><mo>⁡</mo><mrow><mi>N</mi><mo separator="true">,</mo><mi>d</mi></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\operatorname{SignFDH}_{N, d}(M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.130248em;vertical-align:-0.380248em;"></span><span class="mop"><span class="mop"><span class="mord mathrm">S</span><span class="mord mathrm">i</span><span class="mord mathrm" style="margin-right:0.01389em;">g</span><span class="mord mathrm">n</span><span class="mord mathrm">F</span><span class="mord mathrm">D</span><span class="mord mathrm">H</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2419679999999999em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.380248em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>←</mo><msub><mi>H</mi><mrow><mi>F</mi><mi>D</mi><mi>H</mi></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y \leftarrow H_{F D H}(M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span><br />
+return <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>y</mi><mi>d</mi></msup><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mi>N</mi></mrow><annotation encoding="application/x-tex">y^{d} \bmod N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.043548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span><br />
+Verify <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mi>D</mi><msub><mi>H</mi><mrow><mi>N</mi><mo separator="true">,</mo><mi>e</mi></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">F D H_{N, e}(M, x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>←</mo><msup><mi>x</mi><mi>e</mi></msup><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mtext> </mtext><mi>N</mi><mo separator="true">;</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup><mo>←</mo><msub><mi>H</mi><mrow><mi>F</mi><mi>D</mi><mi>H</mi></mrow></msub><mo stretchy="false">(</mo><mi>M</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">y \leftarrow x^{e} \bmod N ; y^{\prime} \leftarrow H_{F D H}(M)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span></span><span class="base"><span class="strut" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.08125em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">F</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mclose">)</span></span></span></span><br />
+if <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><msup><mi>y</mi><mo mathvariant="normal">′</mo></msup></mrow><annotation encoding="application/x-tex">y=y^{\prime}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> then return 1 else return 0 .</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH.png" alt="" /></p>
+</li>
+<li>
+<p>安全性证明</p>
+<ul>
+<li>
+<p>课本的标准证明（ROM）</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH-ROM-1.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH-ROM-2.png" alt="" /></p>
+</li>
+<li>
+<p>CSDN 上的证明</p>
+<ol>
+<li>
+<p>角色：仿真器 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span>，攻击者 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>。<br />
+仿真器I拥有公钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mi>n</mi><mo separator="true">,</mo><mi>e</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(n,e)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">e</span><span class="mclose">)</span></span></span></span> 随机选择 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>，仿真器需要利用攻击者的能力解决RSA求逆问题，即需计算出</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH-0.png" alt="" /></p>
+</li>
+<li>
+<p>仿真器 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> 执行hash询问如下（仿真器将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 嵌入到自己的hash询问应答中）：</p>
+<img src="D:\WorkspaceFolder\可证明安全技术\img\RSA-FDH-1.png" style="zoom: 67%;" />
+</li>
+<li>
+<p>签名询问如下：</p>
+<img src="D:\WorkspaceFolder\可证明安全技术\img\RSA-FDH-2.png" style="zoom:67%;" />
+</li>
+<li>
+<p>最后攻击者给出签名挑战（即敌手给出消息 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的有效签名即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><mi>h</mi><mo stretchy="false">(</mo><msub><mi>m</mi><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">x=h(m_i)^d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span></span></span></span></span></span></span></span> ，这里我们假设敌手已经进行过hash询问即列表中存储的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub><mo>=</mo><mi>h</mi><mo stretchy="false">(</mo><msub><mi>m</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">h_i=h(m_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>：</p>
+<img src="D:\WorkspaceFolder\可证明安全技术\img\RSA-FDH-3.png" style="zoom:67%;" />
+</li>
+<li>
+<p>我们假设攻击者已经询问过关于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的hash询问（如果没有，则仿真器进行hash询问，敌手只能对挑战的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 进行hash询问，不能进行签名询问）。即，列表中一定有关于mi的信息 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><msub><mi>m</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>h</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(m_i,h_i,r_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。<br />
+如果说 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>m</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">m_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的hash询问为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub><mo>=</mo><mi>y</mi><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup></mrow><annotation encoding="application/x-tex">h_i=yr_i^e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.923056em;vertical-align:-0.258664em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo>=</mo><msubsup><mi>h</mi><mi>i</mi><mi>d</mi></msubsup><mo>=</mo><msubsup><mi>y</mi><mi>i</mi><mi>d</mi></msubsup><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x=h_i^d=y_i^d r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.107772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.107772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>y</mi><mi>i</mi><mi>d</mi></msubsup><mo>=</mo><mi>x</mi><mi mathvariant="normal">/</mi><msub><mi>r</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">y_i^d =x / r_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.107772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mord">/</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.<br />
+假设敌手在执行了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>q</mi><mi>s</mi></msup></mrow><annotation encoding="application/x-tex">q^s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.858832em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span></span></span></span></span></span></span></span> 次签名询问后终止，成功伪造签名的概率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>，则RSA求逆问题的优势为<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mi>d</mi><mi>v</mi><mo>=</mo><msup><mi>p</mi><msup><mi>q</mi><mi>s</mi></msup></msup><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">Adv=p^{q^s} (1-p) a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.12998em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.87998em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7385428571428572em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">s</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span><span class="mord mathdefault">a</span></span></span></span>，即表示在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>q</mi><mi>s</mi></msup></mrow><annotation encoding="application/x-tex">q^s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.858832em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span></span></span></span></span></span></span></span> 次没有失败的签名询问后，敌手以概率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>伪造签名，且此时以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1-p)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">p</span><span class="mclose">)</span></span></span></span> 的概率对应的是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub><mo>=</mo><mi>y</mi><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup></mrow><annotation encoding="application/x-tex">h_i=yr_i^e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.923056em;vertical-align:-0.258664em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>PS:签名询问过程中之所以要终止的原因是因为仿真器需要保证每一个询问的签名值=<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>h</mi><mi>i</mi><mi>d</mi></msubsup></mrow><annotation encoding="application/x-tex">h_i^d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.107772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>，符合FDH签名约束。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>论文的标准证明</p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-1.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-2.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-3.png" alt="" /></p>
+<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-4.png" alt="" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </div>

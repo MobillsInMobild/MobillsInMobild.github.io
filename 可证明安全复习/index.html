@@ -25,7 +25,6 @@
 <meta property="og:site_name" content="Mobilis In Mobili">
 <meta property="og:description" content="之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%9A%E4%B9%89.png">
 <meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%89%E5%85%A8.png">
 <meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CstrongMAC.png">
 <meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCBC-MAC.png">
@@ -59,11 +58,11 @@
 <meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-3.png">
 <meta property="og:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CRSA-FDH%E8%AE%BA%E6%96%87%E7%89%88-4.png">
 <meta property="article:published_time" content="2021-10-03T06:35:25.000Z">
-<meta property="article:modified_time" content="2021-10-05T03:30:44.050Z">
+<meta property="article:modified_time" content="2021-10-26T09:31:52.974Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="密码学">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%9A%E4%B9%89.png">
+<meta name="twitter:image" content="d:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%89%E5%85%A8.png">
   
   <title>可证明安全复习 - Mobilis In Mobili</title>
 
@@ -263,7 +262,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      58 分钟
+      60 分钟
     </span>
   
 
@@ -304,7 +303,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月5日 中午
+                  本文最后更新于：2021年10月26日 下午
                 
               </p>
             
@@ -552,14 +551,14 @@
 </li>
 </ul>
 <h2 id="第四章消息认证码"><a class="markdownIt-Anchor" href="#第四章消息认证码"></a> 第四章：消息认证码</h2>
-<ul>
-<li>
-<p>掌握MAC定义、安全性</p>
+<h3 id="掌握mac定义-安全性"><a class="markdownIt-Anchor" href="#掌握mac定义-安全性"></a> 掌握MAC定义、安全性</h3>
 <ul>
 <li>
 <p>定义：定义4.1</p>
-<p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%9A%E4%B9%89.png" alt="" /></p>
-</li>
+<div class="note note-primary">
+            <p>（MAC 定义）消息认证码是一个 PPT 算法的三元组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mtext>Gen</mtext><mo separator="true">,</mo><mtext>Mac</mtext><mo separator="true">,</mo><mtext>Vrfy</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\text{Gen},\text{Mac},\text{Vrfy})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">Gen</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Mac</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord text"><span class="mord">Vrfy</span></span><span class="mclose">)</span></span></span></span>，满足：</p><ol><li>密钥生成算法 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Gen</mtext></mrow><annotation encoding="application/x-tex">\text{Gen}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Gen</span></span></span></span></span>：输入参数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>1</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">1^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>，输出长度不小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的密钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>。</li><li>标记生成算法 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>Mac</mtext></mrow><annotation encoding="application/x-tex">\text{Mac}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Mac</span></span></span></span></span>：输入密钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 和消息 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>∈</mo><msup><mrow><mo fence="true">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo fence="true">}</mo></mrow><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">m\in \left\{0,1\right\}^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.078596em;vertical-align:-0.25em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.828596em;"><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span>，输出标记 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>←</mo><msub><mtext>Mac</mtext><mi>k</mi></msub><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">t \leftarrow \text{Mac}_k(m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord text"><span class="mord">Mac</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span>。该算法具有随机性。</li><li>校验算法：输入密钥 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>、消息 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 和标记 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span></span></span></span>，输出比特位 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>:</mo><mo>=</mo><msub><mtext>Vrfy</mtext><mi>k</mi></msub><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">b:=\text{Vrfy}_k(m,t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord text"><span class="mord">Vrfy</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.24196799999999993em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 表示有效，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 表示无效。</li></ol>
+          </div>
+<ul>
 <li>
 <p>安全性：定义4.2</p>
 <p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CMAC%E5%AE%89%E5%85%A8.png" alt="" /></p>
@@ -572,8 +571,8 @@
 </li>
 </ul>
 </li>
-<li>
-<p><strong>掌握CBC-MAC，以及安全性</strong></p>
+</ul>
+<h3 id="掌握cbc-mac以及安全性"><a class="markdownIt-Anchor" href="#掌握cbc-mac以及安全性"></a> <strong>掌握CBC-MAC，以及安全性</strong></h3>
 <ul>
 <li>
 <p>定义：CONSTRUCTION 4.11</p>
@@ -582,8 +581,6 @@
 <li>
 <p>安全性</p>
 <p><img src="D:%5CWorkspaceFolder%5C%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%5Cimg%5CCBC-MAC%E5%AE%89%E5%85%A8%E6%80%A7.png" alt="" /></p>
-</li>
-</ul>
 </li>
 </ul>
 <h2 id="第五章杂凑函数"><a class="markdownIt-Anchor" href="#第五章杂凑函数"></a> 第五章：杂凑函数</h2>

@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条.png">
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条2.png">
 <meta property="article:published_time" content="2021-03-18T06:31:25.000Z">
-<meta property="article:modified_time" content="2021-11-08T07:11:12.243Z">
+<meta property="article:modified_time" content="2021-11-08T13:53:54.916Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Web 开发">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.4k 字
+      3.6k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17 分钟
+      18 分钟
     </span>
   
 
@@ -272,7 +272,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月8日 下午
+                  本文最后更新于：2021年11月8日 晚上
                 
               </p>
             
@@ -391,7 +391,11 @@
 </ul>
 <h4 id="ajax"><a class="markdownIt-Anchor" href="#ajax"></a> AJAX</h4>
 <ul>
-<li>AJAX：使用包含在 HTML 中的 JavaScript 来获取网页内容，而且<strong>不需要重新渲染页面</strong></li>
+<li>AJAX：使用包含在 HTML 中的 JavaScript 来获取网页内容，而且<strong>不需要重新渲染页面</strong>
+<ul>
+<li>以前向服务器请求资源，必须对<strong>整个页面资源</strong>进行请求以获得这个信息资源；而现在只需要请求<strong>资源载体</strong> JSON/XML 就能<strong>局部刷新</strong></li>
+</ul>
+</li>
 </ul>
 <h4 id="single-page-app单页面应用"><a class="markdownIt-Anchor" href="#single-page-app单页面应用"></a> Single page app/单页面应用</h4>
 <ul>
@@ -455,18 +459,18 @@
 </ul>
 <h4 id="jsx"><a class="markdownIt-Anchor" href="#jsx"></a> JSX</h4>
 <ul>
-<li>
-<p><strong>看起来 React 组件返回的是 HTML 标签</strong>，但实际并不是这样。</p>
+<li><strong>看起来 React 组件返回的是 HTML 标签</strong>，但实际并不是这样。
+<ul>
+<li>React 组件的布局大部分是使用<a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-JSX.html">JSX</a>编写的。 尽管 JSX 看起来像 HTML，但我们其实是在用一种 <strong>特殊的方法写 JavaScript</strong>。</li>
+<li>在底层，React 组件实际上返回的 JSX 会被<strong>编译成 JavaScript</strong>。</li>
+</ul>
 </li>
-<li>
-<p>React 组件的布局大部分是使用<a target="_blank" rel="noopener" href="https://reactjs.org/docs/introducing-JSX.html">JSX</a>编写的。 尽管 JSX 看起来像 HTML，但我们其实是在用一种**特殊的方法写 JavaScript **。</p>
-</li>
-<li>
-<p>在底层，React 组件实际上返回的 JSX 会被<strong>编译成 JavaScript</strong>。</p>
-</li>
-<li>
-<p>JSX 是一种“类XML”语言，这意味着<strong>每个标签都需要关闭</strong>。</p>
-</li>
+</ul>
+<div class="note note-danger">
+            <p>也可以将 React 写成“纯 JavaScript”，而不用 JSX。 但没有一个精神正常的人会这样做的。</p>
+          </div>
+<ul>
+<li>JSX 是一种“类XML”语言，这意味着<strong>每个标签都需要关闭</strong>。例如：<code>&lt;br /&gt;</code></li>
 </ul>
 <h4 id="multiple-components多组件"><a class="markdownIt-Anchor" href="#multiple-components多组件"></a> Multiple components/多组件</h4>
 <ul>
@@ -475,10 +479,10 @@
 </ul>
 <h4 id="props-passing-data-to-componentsprops向组件传递数据"><a class="markdownIt-Anchor" href="#props-passing-data-to-componentsprops向组件传递数据"></a> props: passing data to components/props：向组件传递数据</h4>
 <ul>
-<li>props：作为参数，它接收了一个对象，该对象具有<strong>组件中所定义</strong>的<strong>所有“属性”所对应的字段</strong>
+<li>props：作为<strong>参数</strong>，它接收了一个对象，该对象具有组件中所定义的<strong>所有“属性”所对应的字段</strong>
 <ul>
 <li>任意数量</li>
-<li>值可以是字符串，也可以是 JavaScript 表达式的结果（需要用花括号）</li>
+<li><strong>值</strong>可以是字符串，也可以是 <strong>JavaScript 表达式</strong>的结果（需要用花括号括起来）</li>
 </ul>
 </li>
 </ul>
@@ -490,9 +494,9 @@
 </ul>
 </li>
 <li><strong>React 组件名称首字母必须大写</strong></li>
-<li>React 组件的内容(通常)需要包含 <strong>一个根元素</strong>
+<li>React 组件的内容(通常)需要包含 <strong>一个根元素</strong>，例如<code>&lt;div&gt; &lt;div/&gt;</code>
 <ul>
-<li>创建组件<strong>数组</strong>也是一个有效的解决方案，但是不明智</li>
+<li>创建组件<em>数组</em>也是一个有效的解决方案，但是不明智</li>
 <li>由于根元素是必须的，所以在 Dom 树中会有额外的 div 元素。 这可以通过使用 <code>&lt;&gt; &lt;\&gt;</code>来避免，即用一个空元素来包装组件的返回内容</li>
 </ul>
 </li>
@@ -594,6 +598,50 @@
 <ul>
 <li>通过 React 的 state hook 向应用的App 组件中添加状态</li>
 </ul>
+<hr />
+<h3 id="练习-2"><a class="markdownIt-Anchor" href="#练习-2"></a> 练习</h3>
+<div>
+            <input type="checkbox" disabled checked="checked">练习1.1
+          </div>
+<div>
+            <input type="checkbox" disabled checked="checked">练习1.2
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.3
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.4
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.5
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.6
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.7
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.8
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.9
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.10
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.11
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.12
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.13
+          </div>
+<div>
+            <input type="checkbox" disabled >练习1.14
+          </div>
 
             </div>
             <hr>

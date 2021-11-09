@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条.png">
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条2.png">
 <meta property="article:published_time" content="2021-03-18T06:31:25.000Z">
-<meta property="article:modified_time" content="2021-11-09T08:39:09.484Z">
+<meta property="article:modified_time" content="2021-11-09T09:10:45.072Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Web 开发">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5k 字
+      5.3k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25 分钟
+      27 分钟
     </span>
   
 
@@ -479,7 +479,7 @@
 </ul>
 <h4 id="props-passing-data-to-componentsprops向组件传递数据"><a class="markdownIt-Anchor" href="#props-passing-data-to-componentsprops向组件传递数据"></a> props: passing data to components/props：向组件传递数据</h4>
 <ul>
-<li>props：作为<strong>参数</strong>，它接收了一个对象，该对象具有组件中所定义的<strong>所有“属性”所对应的字段</strong>
+<li><code>props</code>：作为<strong>参数</strong>，它接收了一个对象，该对象具有组件中所定义的<strong>所有“属性”所对应的字段</strong>
 <ul>
 <li>任意数量</li>
 <li><strong>值</strong>可以是字符串，也可以是 <strong>JavaScript 表达式</strong>的结果（需要用花括号括起来）</li>
@@ -611,21 +611,15 @@
 <h3 id="组件状态事件处理"><a class="markdownIt-Anchor" href="#组件状态事件处理"></a> 组件状态，事件处理</h3>
 <h4 id="component-helper-functions组件辅助函数"><a class="markdownIt-Anchor" href="#component-helper-functions组件辅助函数"></a> Component helper functions/组件辅助函数</h4>
 <ul>
-<li>
-<p>组件辅助函数，可以直接访问传递给组件的所有props</p>
-</li>
-<li>
-<p><strong>在 JavaScript 中，在函数中定义函数是一种常规操作</strong></p>
+<li>组件辅助函数，可以直接访问传递给组件的所有 <code>props</code>
+<ul>
+<li><strong>在 JavaScript 中，在函数中定义函数是一种常规操作</strong></li>
+</ul>
 </li>
 </ul>
 <h4 id="destructuring解构"><a class="markdownIt-Anchor" href="#destructuring解构"></a> Destructuring/解构</h4>
 <ul>
-<li>
-<p>props 是一个<strong>对象</strong></p>
-</li>
-<li>
-<p><strong>解构赋值</strong>：数组、对象快速赋值</p>
-</li>
+<li><code>props</code> 是一个<strong>对象</strong>，因此 <code>const &#123; name, age &#125; = props</code> （解构赋值）是可行的</li>
 </ul>
 <h4 id="page-re-rendering页面重渲染"><a class="markdownIt-Anchor" href="#page-re-rendering页面重渲染"></a> Page re-rendering/页面重渲染</h4>
 <ul>
@@ -633,8 +627,10 @@
 </ul>
 <h4 id="stateful-component有状态组件"><a class="markdownIt-Anchor" href="#stateful-component有状态组件"></a> Stateful component/有状态组件</h4>
 <ul>
-<li>通过 React 的 state hook 向应用的App 组件中添加状态</li>
+<li>通过 React 的 <strong>state hook</strong> 向组件中添加状态</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs JavaSript">&#x2F;&#x2F; 导入了 useState 函数<br>import React, &#123; useState &#125; from &#39;react&#39;<br><br>const App &#x3D; () &#x3D;&gt; &#123;<br>  const [ counter, setCounter ] &#x3D; useState(0)<br><br>  setTimeout(<br>    () &#x3D;&gt; setCounter(counter + 1),<br>    1000<br>  )<br><br>  return (<br>    &lt;div&gt;&#123;counter&#125;&lt;&#x2F;div&gt;<br>  )<br>&#125;<br><br>export default App<br></code></pre></div></td></tr></table></figure>
+<h4 id="event-handling事件处理"><a class="markdownIt-Anchor" href="#event-handling事件处理"></a> Event handling/事件处理</h4>
 <hr />
 <h3 id="练习-2"><a class="markdownIt-Anchor" href="#练习-2"></a> 练习</h3>
 <div>

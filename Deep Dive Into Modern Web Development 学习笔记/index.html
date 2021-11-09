@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条.png">
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条2.png">
 <meta property="article:published_time" content="2021-03-18T06:31:25.000Z">
-<meta property="article:modified_time" content="2021-11-09T09:25:25.312Z">
+<meta property="article:modified_time" content="2021-11-09T09:26:48.279Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Web 开发">
@@ -646,7 +646,7 @@
 <li>对比：<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;button onClick=&#123;<span class="hljs-function">() =&gt;</span> setCounter(counter + <span class="hljs-number">1</span>)&#125;&gt; <br>plus<br>&lt;/button&gt;<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;button onClick=&#123;setCounter(counter + <span class="hljs-number">1</span>)&#125;&gt; <br>plus<br>&lt;/button&gt;<br></code></pre></div></td></tr></table></figure>
 </li>
-<li>后者是不行的，因为 React 第一次渲染时，它执行函数<strong>调用</strong> <code>setCounter(0+1)</code>，并将组件状态修改为 1。这导致组件再次渲染，React 将再次执行 <code>setCounter(1+1)</code> …… 不断重复下去。</li>
+<li>后者是不行的，因为 React 第一次渲染时，它执行函数<strong>调用</strong> <code>setCounter(0+1)</code>，并将组件状态修改为 1。这导致组件再次渲染，React 将再次执行 <code>setCounter(1+1)</code> 并不断重复下去。</li>
 </ul>
 <hr />
 <h3 id="练习-2"><a class="markdownIt-Anchor" href="#练习-2"></a> 练习</h3>

@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条.png">
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条2.png">
 <meta property="article:published_time" content="2021-03-18T06:31:25.000Z">
-<meta property="article:modified_time" content="2021-11-08T13:53:54.916Z">
+<meta property="article:modified_time" content="2021-11-09T05:43:37.477Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Web 开发">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.6k 字
+      4.1k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18 分钟
+      21 分钟
     </span>
   
 
@@ -272,7 +272,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月8日 晚上
+                  本文最后更新于：2021年11月9日 下午
                 
               </p>
             
@@ -502,6 +502,9 @@
 </li>
 </ul>
 <h3 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> JavaScript</h3>
+<ul>
+<li><code>node 文件名.js</code> 命令以运行文件。</li>
+</ul>
 <h4 id="variables变量"><a class="markdownIt-Anchor" href="#variables变量"></a> Variables/变量</h4>
 <ul>
 <li>
@@ -511,7 +514,7 @@
 <p>分配给变量的数据类型，在执行过程中可以发生更改</p>
 </li>
 <li>
-<p>本课程中明确不建议使用 <code>var</code></p>
+<p>本课程中<strong>明确不建议</strong>使用 <code>var</code></p>
 </li>
 </ul>
 </li>
@@ -542,14 +545,17 @@
 <p>数组中的单个元素可以很容易地通过<strong>解构赋值</strong>赋给变量</p>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> t = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><br><span class="hljs-keyword">const</span> m1 = t.map(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value * <span class="hljs-number">2</span>)<br><span class="hljs-built_in">console</span>.log(m1)   <span class="hljs-comment">// [2, 4, 6] is printed</span><br></code></pre></div></td></tr></table></figure>
 <h4 id="objects对象"><a class="markdownIt-Anchor" href="#objects对象"></a> Objects/对象</h4>
 <ul>
 <li>定义对象
 <ul>
-<li>一个非常常见的方法是使用<strong>对象字面量 <strong>，就是通过</strong>在大括号中列出它的属性</strong>来实现的
+<li>一个非常常见的方法是使用<strong>对象字面量</strong>，就是通过<strong>在大括号中列出它的属性</strong>来实现的
 <ul>
-<li>对象的属性可以使用**“句点”号或括号<strong>进行</strong>引用、添加**</li>
+<li>属性的值可以是<strong>任何类型</strong>的，比如整数、字符串、数组、对象</li>
+<li>对象的属性可以使用 <strong>“句点”号或括号</strong>进行引用、添加</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">object1.address = <span class="hljs-string">&#x27;Helsinki&#x27;</span><br>object1[<span class="hljs-string">&#x27;secret number&#x27;</span>] = <span class="hljs-number">12341</span> <span class="hljs-comment">// 这个属性的添加必须通过使用中括号来完成，因为属性名中有空格</span><br></code></pre></div></td></tr></table></figure>
 </li>
 <li>也可以利用构造函数定义对象，但是 Javascript 并<strong>没有对标</strong>面向对象中类的概念</li>
 </ul>
@@ -557,19 +563,21 @@
 </ul>
 <h4 id="functions函数"><a class="markdownIt-Anchor" href="#functions函数"></a> Functions/函数</h4>
 <ul>
-<li>
-<p>箭头函数</p>
-</li>
-<li>
-<p>关键字 <code>function</code></p>
+<li>箭头函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> sum = <span class="hljs-function">(<span class="hljs-params">p1, p2</span>) =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(p1)<br>  <span class="hljs-built_in">console</span>.log(p2)<br>  <span class="hljs-keyword">return</span> p1 + p2<br>&#125;<br><br><span class="hljs-keyword">const</span> result = sum(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>)<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>关键字 <code>function</code>
 <ul>
 <li>函数声明</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">product</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> a * b<br>&#125;<br><br><span class="hljs-keyword">const</span> result = product(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>)<br></code></pre></div></td></tr></table></figure>
+<ul>
 <li>函数表达式</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> average = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> (a + b) / <span class="hljs-number">2</span><br>&#125;<br><br><span class="hljs-keyword">const</span> result = average(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>)<br></code></pre></div></td></tr></table></figure>
 </li>
-<li>
-<p>在本课程中，我们将使用<strong>箭头语法</strong>定义所有函数</p>
-</li>
+<li>在本课程中，我们将使用<strong>箭头语法</strong>定义所有函数</li>
 </ul>
 <h3 id="组件状态事件处理"><a class="markdownIt-Anchor" href="#组件状态事件处理"></a> 组件状态，事件处理</h3>
 <h4 id="component-helper-functions组件辅助函数"><a class="markdownIt-Anchor" href="#component-helper-functions组件辅助函数"></a> Component helper functions/组件辅助函数</h4>

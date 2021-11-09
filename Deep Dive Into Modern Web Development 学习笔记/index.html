@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条.png">
 <meta property="og:image" content="https://justloseit.top/img/post/Deep%20Dive%20Into%20Modern%20Web%20Development%20学习笔记/调用链条2.png">
 <meta property="article:published_time" content="2021-03-18T06:31:25.000Z">
-<meta property="article:modified_time" content="2021-11-09T09:15:25.844Z">
+<meta property="article:modified_time" content="2021-11-09T09:25:25.312Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Web 开发">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.3k 字
+      5.8k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      27 分钟
+      29 分钟
     </span>
   
 
@@ -629,8 +629,25 @@
 <ul>
 <li>通过 React 的 <strong>state hook</strong> 向组件中添加状态</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 导入了 useState 函数</span><br><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><br><span class="hljs-keyword">const</span> App = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">// 解构赋值语法将元素分配给变量 counter 和 setCounter</span><br>  <span class="hljs-keyword">const</span> [ counter, setCounter ] = useState(<span class="hljs-number">0</span>)<br><br>  <span class="hljs-built_in">setTimeout</span>(<br>    () =&gt; setCounter(counter + <span class="hljs-number">1</span>),<br>    <span class="hljs-number">1000</span><br>  )<br><br>  <span class="hljs-keyword">return</span> (<br>    &lt;div&gt;&#123;counter&#125;&lt;/div&gt;<br>  )<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 导入了 useState 函数</span><br><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><br><span class="hljs-keyword">const</span> App = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">// 解构赋值语法将元素分配给变量 counter 和 setCounter</span><br>  <span class="hljs-comment">// setCounter 是 状态修改函数，被调用时 React 会重新渲染该组件</span><br>  <span class="hljs-keyword">const</span> [ counter, setCounter ] = useState(<span class="hljs-number">0</span>)<br><br>  <span class="hljs-comment">// 超时 1 秒则调用 setCounter(counter + 1)</span><br>  <span class="hljs-built_in">setTimeout</span>(<br>    () =&gt; setCounter(counter + <span class="hljs-number">1</span>),<br>    <span class="hljs-number">1000</span><br>  )<br><br>  <span class="hljs-keyword">return</span> (<br>    &lt;div&gt;&#123;counter&#125;&lt;/div&gt;<br>  )<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App<br></code></pre></div></td></tr></table></figure>
 <h4 id="event-handling事件处理"><a class="markdownIt-Anchor" href="#event-handling事件处理"></a> Event handling/事件处理</h4>
+<ul>
+<li>button-元素支持所谓的<strong>鼠标事件</strong> ，其中点击是最常见的事件</li>
+</ul>
+<div class="note note-secondary">
+            <p>点击事件同样可能被键盘或者触屏设备所触发，虽然名字叫<strong>鼠标事件</strong></p>
+          </div>
+<ul>
+<li>例子：<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;button onClick=&#123;<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;clicked&#x27;</span>)&#125;&gt;<br></code></pre></div></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="event-handler-is-a-function事件处理是一个函数"><a class="markdownIt-Anchor" href="#event-handler-is-a-function事件处理是一个函数"></a> Event handler is a function/事件处理是一个函数</h4>
+<ul>
+<li>对比：<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;button onClick=&#123;<span class="hljs-function">() =&gt;</span> setCounter(counter + <span class="hljs-number">1</span>)&#125;&gt; <br>plus<br>&lt;/button&gt;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;button onClick=&#123;setCounter(counter + <span class="hljs-number">1</span>)&#125;&gt; <br>plus<br>&lt;/button&gt;<br></code></pre></div></td></tr></table></figure>
+</li>
+<li>后者是不行的，因为 React 第一次渲染时，它执行函数<strong>调用</strong> <code>setCounter(0+1)</code>，并将组件状态修改为 1。这导致组件再次渲染，React 将再次执行 <code>setCounter(1+1)</code> …… 不断重复下去。</li>
+</ul>
 <hr />
 <h3 id="练习-2"><a class="markdownIt-Anchor" href="#练习-2"></a> 练习</h3>
 <div>

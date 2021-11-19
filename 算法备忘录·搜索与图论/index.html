@@ -25,7 +25,7 @@
 <meta property="og:description" content="一直以来，没能系统学习算法，是我心中的痛；现在学了y总的算法基础课，做做笔记，希望能够有所收获。 这是第四节，搜索与图论。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-21T12:46:25.000Z">
-<meta property="article:modified_time" content="2021-11-19T01:43:56.601Z">
+<meta property="article:modified_time" content="2021-11-19T10:01:03.835Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.7k 字
+      7.3k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      34 分钟
+      36 分钟
     </span>
   
 
@@ -270,7 +270,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月19日 上午
+                  本文最后更新于：2021年11月19日 晚上
                 
               </p>
             
@@ -500,7 +500,9 @@ s ← t;<br />
 <li>枚举每条边 ab（权重为 c），如果 a、b 不连通，将这条边加入集合中</li>
 </ol>
 </li>
+<li>模板</li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> n, m;<br><span class="hljs-keyword">int</span> p[N];<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Edge</span>&#123;</span><br>    <span class="hljs-keyword">int</span> a, b, w;<br><br>    <span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>&lt; (<span class="hljs-keyword">const</span> Edge &amp;W)<span class="hljs-keyword">const</span>&#123;<br>        <span class="hljs-keyword">return</span> w &lt; W.w<br>    &#125;<br>&#125;edges[M];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">if</span> (p[x] != x) p[x] = find(p[x]);<br>    <span class="hljs-keyword">return</span> p[x];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">kruskal</span><span class="hljs-params">()</span></span>&#123;<br>    sort(edges, edges + m);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ ) p[i] = i;<br><br><br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>, cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i ++ )&#123;<br>        <span class="hljs-keyword">int</span> a = edges[i].a, b = edges[i].b, w = edges[i].w;<br><br>        a = find(a), b = find(b);<br>        <span class="hljs-keyword">if</span> (a != b)&#123;<br>            p[a] = b;<br>            res += w;<br>            cnt ++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (cnt &lt; n - <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> INF;  <span class="hljs-comment">// 最小生成树最后有 n - 1 条边</span><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
 <h2 id="二分图"><a class="markdownIt-Anchor" href="#二分图"></a> 二分图</h2>
 <h3 id="染色法"><a class="markdownIt-Anchor" href="#染色法"></a> 染色法</h3>
 <ul>

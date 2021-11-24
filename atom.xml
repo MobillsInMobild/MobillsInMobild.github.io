@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2021-11-22T03:58:27.395Z</updated>
+  <updated>2021-11-24T15:07:34.527Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>区块链跨链技术笔记</title>
+    <link href="https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    <id>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-11-23T10:46:25.000Z</published>
+    <updated>2021-11-24T15:07:34.527Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在研究当前区块链跨链技术过程中记录的技术笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    <category term="跨链" scheme="https://justloseit.top/tags/%E8%B7%A8%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>算法备忘录·数学知识</title>
@@ -413,25 +434,6 @@
     <category term="Wi-Fi" scheme="https://justloseit.top/tags/Wi-Fi/"/>
     
     <category term="NodeMCU" scheme="https://justloseit.top/tags/NodeMCU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bitcoin Core上实现多签交易</title>
-    <link href="https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/"/>
-    <id>https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/</id>
-    <published>2020-12-14T07:46:25.000Z</published>
-    <updated>2021-03-22T09:03:34.141Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   

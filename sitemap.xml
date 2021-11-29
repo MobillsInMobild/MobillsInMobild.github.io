@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://justloseit.top/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup/</loc>
+    
+    <lastmod>2021-11-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2021-11-29</lastmod>
@@ -542,6 +549,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://justloseit.top/tags/Pikachu/</loc>
+    <lastmod>2021-11-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -581,6 +595,13 @@
   
   <url>
     <loc>https://justloseit.top/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2021-11-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/categories/Writeup/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-11-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/2021%20红明谷%20Misc%20Writeup/wireshark.png">
 <meta property="og:image" content="https://justloseit.top/img/post/2021%20红明谷%20Misc%20Writeup/wireshark2.png">
 <meta property="article:published_time" content="2021-04-15T02:19:04.000Z">
-<meta property="article:modified_time" content="2021-09-12T13:40:22.413Z">
+<meta property="article:modified_time" content="2021-11-29T05:37:17.352Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Misc">
@@ -237,7 +237,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      52 分钟
+      51 分钟
     </span>
   
 
@@ -278,7 +278,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年9月12日 晚上
+                  本文最后更新于：2021年11月29日 下午
                 
               </p>
             
@@ -336,17 +336,24 @@
 <li>提供一个压缩包</li>
 <li>解法
 <ul>
-<li>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/winrar.png" style="zoom:50%;" /></div>
-- 看了[L1near 师傅的官方 writeup](https://l1near.top/index.php/2021/03/15/97.html#comment-174) 后，需要修改 RAR 第 24 字节处（对应 `PASSWORD_ENCRYPTED`）从1改为0就可以正常打开文件了/把第24字节的后面一个4改成0也可以
-- 然而，即便是使用了 010editor 的模板也没有解析处这里对应 `PASSWORD_ENCRYPTED`，看官方 writeup 应该是 RAR 版本问题
-- 但是，或许正因为是版本问题，我在没有做任何伪加密修改时，同样能够正常解压缩
+<li>
+<p>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？</p>
+<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/winrar.png" style="zoom:50%;" /></div>
+<ul>
+<li>看了<a target="_blank" rel="noopener" href="https://l1near.top/index.php/2021/03/15/97.html#comment-174">L1near 师傅的官方 writeup</a> 后，需要修改 RAR 第 24 字节处（对应 <code>PASSWORD_ENCRYPTED</code>）从1改为0就可以正常打开文件了/把第24字节的后面一个4改成0也可以</li>
+<li>然而，即便是使用了 010editor 的模板也没有解析处这里对应 <code>PASSWORD_ENCRYPTED</code>，看官方 writeup 应该是 RAR 版本问题</li>
+<li>但是，或许正因为是版本问题，我在没有做任何伪加密修改时，同样能够正常解压缩</li>
+</ul>
 </li>
-<li>解压得到 <code>bingbing.jpg</code> 和 <code>bingbing.zip</code>
+<li>
+<p>解压得到 <code>bingbing.jpg</code> 和 <code>bingbing.zip</code></p>
 <ul>
 <li><code>bingbing.zip</code> 有密码，含有一个 <code>bingbing.pcapng</code> 文件</li>
 </ul>
 </li>
-<li>根据官方 writeup，这是简单 FFT，其 payload 如下：（然而这道题改了，这样跑不出结果）<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2 <span class="hljs-keyword">as</span> cv<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>img = cv.imread(<span class="hljs-string">&#x27;FFT.png&#x27;</span>, <span class="hljs-number">0</span>) <span class="hljs-comment">#直接读为灰度图像</span><br>f = np.fft.fft2(img)            <span class="hljs-comment">#做频率变换</span><br>fshift = np.fft.fftshift(f)     <span class="hljs-comment">#转移像素做幅度谱</span><br>s1 = np.log(np.<span class="hljs-built_in">abs</span>(fshift))<span class="hljs-comment">#取绝对值：将复数变化成实数取对数的目的为了将数据变化到0-255</span><br>plt.subplot(<span class="hljs-number">121</span>)<br>plt.imshow(img, <span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;original&#x27;</span>)<br>plt.subplot(<span class="hljs-number">122</span>)<br>plt.imshow(s1,<span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;center&#x27;</span>)<br>plt.show()<br></code></pre></div></td></tr></table></figure>
+<li>
+<p>根据官方 writeup，这是简单 FFT，其 payload 如下：（然而这道题改了，这样跑不出结果）</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2 <span class="hljs-keyword">as</span> cv<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>img = cv.imread(<span class="hljs-string">&#x27;FFT.png&#x27;</span>, <span class="hljs-number">0</span>) <span class="hljs-comment">#直接读为灰度图像</span><br>f = np.fft.fft2(img)            <span class="hljs-comment">#做频率变换</span><br>fshift = np.fft.fftshift(f)     <span class="hljs-comment">#转移像素做幅度谱</span><br>s1 = np.log(np.<span class="hljs-built_in">abs</span>(fshift))<span class="hljs-comment">#取绝对值：将复数变化成实数取对数的目的为了将数据变化到0-255</span><br>plt.subplot(<span class="hljs-number">121</span>)<br>plt.imshow(img, <span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;original&#x27;</span>)<br>plt.subplot(<span class="hljs-number">122</span>)<br>plt.imshow(s1,<span class="hljs-string">&#x27;gray&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;center&#x27;</span>)<br>plt.show()<br></code></pre></div></td></tr></table></figure>
 <ul>
 <li>这里需要使用 Java 盲水印：</li>
 </ul>
@@ -357,11 +364,19 @@
 ![](/img/post/2021 红明谷 Misc Writeup/blindwatermark.png)</li>
 </ul>
 </li>
-<li>得到压缩包密码：<code>gnibgnib</code></li>
-<li>打开压缩包，获得 <code>bingbing.pcapng</code><div align=center><img src="/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png" style="zoom:50%;" /></div>
+<li>
+<p>得到压缩包密码：<code>gnibgnib</code></p>
 </li>
-<li>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></li>
-<li>Hex 转 ascii 得到flag</li>
+<li>
+<p>打开压缩包，获得 <code>bingbing.pcapng</code></p>
+<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png" style="zoom:50%;" /></div>
+</li>
+<li>
+<p>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></p>
+</li>
+<li>
+<p>Hex 转 ascii 得到flag</p>
+</li>
 </ul>
 </li>
 </ul>

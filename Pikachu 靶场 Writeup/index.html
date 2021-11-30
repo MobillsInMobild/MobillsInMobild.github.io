@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/设置重定向.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2021-11-30T09:53:33.254Z">
+<meta property="article:modified_time" content="2021-11-30T10:00:46.512Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -276,13 +276,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月30日 下午
+                  本文最后更新于：2021年11月30日 晚上
                 
               </p>
             
             <div class="markdown-body">
               <p>Pikachu 是国人<a target="_blank" rel="noopener" href="https://github.com/zhuifengshaonianhanlu">zhuifengshaonianhanlu</a> 开发的一套 Web 渗透靶场，以人性化、友好度高著称。这里将记录其 Writeup 和一些笔记。</p>
 <span id="more"></span>
+<p>P.S.: 图片都进行了压缩，是因为多图杀猫。</p>
 <h1 id="pikachu-靶场-writeup"><a class="markdownIt-Anchor" href="#pikachu-靶场-writeup"></a> Pikachu 靶场 Writeup</h1>
 <h2 id="暴力爆破"><a class="markdownIt-Anchor" href="#暴力爆破"></a> 暴力爆破</h2>
 <blockquote>
@@ -325,7 +326,7 @@
 <ul>
 <li>
 <p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></div>
 </li>
 <li>
 <p>首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。</p>

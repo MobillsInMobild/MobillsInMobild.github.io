@@ -23,12 +23,19 @@
 <meta property="og:site_name" content="Mobilis In Mobili">
 <meta property="og:description" content="Pikachu 是国人zhuifengshaonianhanlu 开发的一套 Web 渗透靶场，以人性化、友好度高著称。这里将记录其 Writeup 和一些笔记。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/返回%20token.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/提取上一次的%20token.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20设置%20Pitchfork.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/第二个%20payload%20集.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/设置重定向.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2021-11-30T08:48:29.798Z">
+<meta property="article:modified_time" content="2021-11-30T09:42:56.351Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/返回%20token.jpg">
   
   <title>Pikachu 靶场 Writeup - Mobilis In Mobili</title>
 
@@ -219,7 +226,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.5k 字
     </span>
   
 
@@ -228,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      7 分钟
     </span>
   
 
@@ -301,7 +308,7 @@
 <li>没有验证码，直接使用 BurpSuite 的 Intruder 模块进行爆破即可。</li>
 </ul>
 <div class="note note-success">
-            <p>（Attack Type）</p><ul><li>Sniper：<ul><li>仅用一组 Payload。</li><li>依次瞄准每个 Payload 的位置，并一次将 Payload 放置到该位置（其他位置此时保持空白）。</li><li>请求的总数是 Payload 的位置数 * Payload 的个数。</li></ul></li><li>Battering ram<ul><li>仅用一组 Payload。</li><li>同时将 Payload 放置到每个位置（所有位置此时保持一致）。</li><li>请求的总数是 Payload 的个数。</li></ul></li><li>Pitchfork<ul><li>使用多组 Payload。</li><li>攻击<strong>同时遍历</strong>所有 Payload 集，并将一个 Payload 放入每个定义的位置。</li><li>请求的总数是最小 Payload 集中的 Payload 数。</li></ul></li><li>Cluster bomb<ul><li>使用多组 Payload。</li><li>攻击<strong>依次迭代</strong>每个 Payload 集，以便测试 Payload 组合的所有排列。</li><li>请求的总数是所有 Payload 集中的 Payload 数的乘积。【非常巨大】</li></ul></li></ul>
+            <p>（Intruder 模块的 Attack Type）</p><ul><li>Sniper：<ul><li>仅用一组 Payload。</li><li>依次瞄准每个 Payload 的位置，并一次将 Payload 放置到该位置（其他位置此时保持空白）。</li><li>请求的总数是 Payload 的位置数 * Payload 的个数。</li></ul></li><li>Battering ram<ul><li>仅用一组 Payload。</li><li>同时将 Payload 放置到每个位置（所有位置此时保持一致）。</li><li>请求的总数是 Payload 的个数。</li></ul></li><li>Pitchfork<ul><li>使用多组 Payload。</li><li>攻击<strong>同时遍历</strong>所有 Payload 集，并将一个 Payload 放入每个定义的位置。</li><li>请求的总数是最小 Payload 集中的 Payload 数。</li></ul></li><li>Cluster bomb<ul><li>使用多组 Payload。</li><li>攻击<strong>依次迭代</strong>每个 Payload 集，以便测试 Payload 组合的所有排列。</li><li>请求的总数是所有 Payload 集中的 Payload 数的乘积。【非常巨大】</li></ul></li></ul>
           </div>
 <h3 id="验证码绕过on-server"><a class="markdownIt-Anchor" href="#验证码绕过on-server"></a> 验证码绕过(on server)</h3>
 <ul>
@@ -313,8 +320,25 @@
 </ul>
 <h3 id="token防爆破"><a class="markdownIt-Anchor" href="#token防爆破"></a> token防爆破?</h3>
 <div class="note note-success">
-            <p>（Token 令牌）</p><ol><li>在服务器端生成一个唯一的随机标识号 Token，同时在当前用户的 Session 域中保存这个 Token；</li><li>然后将 Token 发送到客户端的 Form 表单中，在 Form 表单中使用<strong>隐藏域</strong>来存储这个 Token；</li><li>表单提交的时候连同这个 Token 一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致：</li></ol><ul><li>如果不一致，说明是重复提交，此时服务器端就可以不处理重复提交的表单。</li><li>如果一致，说明是处理表单提交，处理完后清除当前用户的 Session 域中存储的 Token。</li></ul>
+            <p>（Token 令牌防重放）</p><ol><li>在服务器端生成一个唯一的随机标识号 Token，同时在当前用户的 Session 域中保存这个 Token；</li><li>然后将 Token 发送到客户端的 Form 表单中，在 Form 表单中使用<strong>隐藏域</strong>来存储这个 Token；</li><li>表单提交的时候连同这个 Token 一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致：<ul><li>如果不一致，说明是重复提交，此时服务器端就可以不处理重复提交的表单。</li><li>如果一致，说明是处理表单提交，处理完后清除当前用户的 Session 域中存储的 Token。</li></ul></li></ol>
           </div>
+<ul>
+<li>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。</li>
+</ul>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" style="zoom:100%;" /></div>
+- 首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。
+- 单线程直接在 Intruder 模块的 `Options--Request Engine--Number of threads` 中修改即可。
+- 每次发包使用上次返回包中的 token。
+    - 首先抓取返回包中的 token：
+      <div align=center><img src="/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg" style="zoom:100%;" /></div>
+    - Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。
+      <div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg" style="zoom:100%;" /></div>
+      <div align=center><img src="/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg" style="zoom:100%;" /></div>
+- 除此之外，还需要设置重定向，保证发包收包是连续的：
+      <div align=center><img src="/img/post/Pikachu 靶场 Writeup/设置重定向.jpg" style="zoom:100%;" /></div>
+- 最后爆破成功。可以看到 `123456789` 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。
+      <div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" style="zoom:100%;" /></div>
+
             </div>
             <hr>
             <div>

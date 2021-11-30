@@ -73,7 +73,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -366,7 +366,7 @@
 <p>构造，得到 <a target="_blank" rel="noopener" href="http://120.92.151.189/blog/end.php?id%5B%5D=1&amp;url=/api/ctf/6/flag.txt">http://120.92.151.189/blog/end.php?id[]=1&amp;url=/api/ctf/6/flag.txt</a> ，是一张图片</p>
 </li>
 </ul>
-<div align=center><img src="/img/post/Bilibili_1024Sec_Writeup/bilibili_224a634752448def6c0ec064e49fe797_havefun.jpg" style="zoom:25%;" /></div>
+<div align=center><img src="/img/post/Bilibili_1024Sec_Writeup/bilibili_224a634752448def6c0ec064e49fe797_havefun.jpg" srcset="/img/loading.gif" lazyload style="zoom:25%;" /></div>
 <ul>
 <li>
 <p>解法：用 Winhex 打开，发现最后面藏有 {flag10:2ebd3b08-47ffc478-b49a5f9d-f6099d65}</p>
@@ -434,7 +434,7 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
                 
                   
                 
@@ -565,7 +565,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>京公网安备 11010802034644号</span>
           </a>
@@ -604,6 +604,10 @@
   <script  src="/js/local-search.js" ></script>
 
 
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 

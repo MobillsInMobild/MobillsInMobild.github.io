@@ -80,7 +80,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -401,32 +401,32 @@
 <ul>
 <li>
 <p>我们选取连入了 Wi-Fi 名为 El-PSY-CONGROO-Android 的米家台灯 1s 作为攻击的对象。这是一款支持通过 Wi-Fi 进行物联网接入的台灯，能够通过米家 APP 进行相应的操控。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家台灯.png" style="zoom:50%;" /></div>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家APP.jpg" style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家台灯.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家APP.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
 </li>
 <li>
 <p>我们将Wi-Fi攻击器通过USB供电，工作中的Wi-Fi攻击器如下图。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266连接电源.jpg" style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266连接电源.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
 </li>
 <li>
 <p>我们首先先连接到 Wi-Fi 中的 pwned，这样我们就可以登陆到操作后台。</p>
 </li>
 <li>
 <p>接下来，我们登陆到 192.168.4.1 对 Wi-Fi 攻击器开始控制：</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/登录到管理页面.jpg" style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/登录到管理页面.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
 </li>
 <li>
 <p>点击 SCAN APS 开始扫描 Wi-Fi，此时 Wi-Fi 攻击器的指示灯会变蓝，当指示灯不再变蓝时，Wi-Fi 扫描即完成。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266扫描WiFi.jpg" style="zoom: 33%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266扫描WiFi.jpg" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></div>
 </li>
 <li>
 <p>在扫描得到的 Wi-Fi 列表中，我们能够发现米家台灯所接入的 Wi-Fi。我们选中对应的 Wi-Fi，并在菜单中选择 Attacks 开始攻击。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/Attack.png" style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/Attack.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
 </li>
 <li>
 <p>攻击之后米家 APP 显示米家台灯不在线，无法进行操作。Wi-Fi 网关显示连接设备的数目为 0，这样就实现了攻击。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/攻击效果.png" style="zoom: 50%;" /></div>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/接入设备0.jpg" style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/攻击效果.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/接入设备0.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
 </li>
 </ul>
 <h2 id="防护措施"><a class="markdownIt-Anchor" href="#防护措施"></a> 防护措施</h2>
@@ -497,7 +497,7 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
                 
                   
                 
@@ -628,7 +628,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>京公网安备 11010802034644号</span>
           </a>
@@ -667,6 +667,10 @@
   <script  src="/js/local-search.js" ></script>
 
 
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 

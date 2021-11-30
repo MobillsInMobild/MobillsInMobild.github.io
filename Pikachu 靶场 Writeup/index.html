@@ -78,7 +78,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -325,7 +325,7 @@
 <ul>
 <li>
 <p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" style="zoom:60%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></div>
 </li>
 <li>
 <p>首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。</p>
@@ -335,20 +335,20 @@
 </li>
 <li>
 <p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg" style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
 </li>
 <li>
 <p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg" style="zoom:40%;" /></div>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg" style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
 </li>
 <li>
 <p>除此之外，还需要设置重定向，保证发包收包是连续的：</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/设置重定向.jpg" style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/设置重定向.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
 </li>
 <li>
 <p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" style="zoom:40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" srcset="/img/loading.gif" lazyload style="zoom:40%;" /></div>
 </li>
 </ul>
 <div class="note note-info">
@@ -408,7 +408,7 @@
 
             
               <!-- Comments -->
-              <article class="comments" id="comments">
+              <article class="comments" id="comments" lazyload>
                 
                   
                 
@@ -539,7 +539,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>京公网安备 11010802034644号</span>
           </a>
@@ -578,6 +578,10 @@
   <script  src="/js/local-search.js" ></script>
 
 
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 

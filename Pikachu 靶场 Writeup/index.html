@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/飞雷神二段.gif">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2021-12-01T06:02:20.177Z">
+<meta property="article:modified_time" content="2021-12-01T06:02:38.875Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -410,8 +410,7 @@
 </ul>
 <h3 id="dom-型-xss-x"><a class="markdownIt-Anchor" href="#dom-型-xss-x"></a> DOM 型 xss-x</h3>
 <ul>
-<li>构造方式相同，仍然是输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick=&quot;alert(/xss/)&quot;&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了<br />
-”，触发 <code>domxss()</code>。</li>
+<li>构造方式相同，仍然是输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick=&quot;alert(/xss/)&quot;&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了”，触发 <code>domxss()</code>。</li>
 <li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
 </ul>
 <div class="note note-warning">

@@ -29,9 +29,8 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/第二个%20payload%20集.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/设置重定向.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
-<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2021-12-01T03:35:57.000Z">
+<meta property="article:modified_time" content="2021-12-01T05:55:47.878Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -227,7 +226,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      2.9k 字
     </span>
   
 
@@ -236,7 +235,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      15 分钟
     </span>
   
 
@@ -277,7 +276,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年12月1日 中午
+                  本文最后更新于：2021年12月1日 下午
                 
               </p>
             
@@ -399,16 +398,25 @@
 </ul>
 <h3 id="存储型-xss"><a class="markdownIt-Anchor" href="#存储型-xss"></a> 存储型 xss</h3>
 <ul>
-<li>输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code> 即可，相比于反射型，该 xss 存储在服务器上。之后刷新即可触发</li>
+<li>输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code> 即可，相比于反射型，该 xss 存储在服务器上。之后刷新即可再次触发</li>
 </ul>
 <h3 id="dom-型-xss"><a class="markdownIt-Anchor" href="#dom-型-xss"></a> DOM 型 xss</h3>
 <div class="note note-success">
             <p>W3C 文档对象模型（DOM）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的<strong>接口</strong>。<br />DOM 型 XSS 是基于 DOM 文档对象模型的一种漏洞。DOM 型 XSS 也能算广义的反射型 XSS，但 DOM 型 XSS 并不会和后台进行交互，仅涉及 Web 前端的安全问题，只能在客户端上进行防御。</p>
           </div>
 <ul>
-<li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码，发现是拼接到 <code>&lt;a href=&quot;123&quot;&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href=&quot;&quot; onclick=&quot;alert(/xss/)&quot;&gt;</code>，所以输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code> 即可。</li>
+<li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码 <code>document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href='&quot;+str+&quot;'&gt;what do you see?&lt;/a&gt;&quot;;</code>，发现是拼接到 <code>&lt;a href=&quot;123&quot;&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href=&quot;&quot; onclick=&quot;alert(/xss/)&quot;&gt;</code>，所以输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code> 即可。</li>
 </ul>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+<h3 id="dom-型-xss-x"><a class="markdownIt-Anchor" href="#dom-型-xss-x"></a> DOM 型 xss-x</h3>
+<ul>
+<li>构造方式相同，仍然是输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick=&quot;alert(/xss/)&quot;&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了<br />
+”，触发 <code>domxss()</code>。</li>
+<li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
+</ul>
+<div class="note note-warning">
+            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。（飞雷神·二段🥷）</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。</li></ul>
+          </div>  
+
             </div>
             <hr>
             <div>

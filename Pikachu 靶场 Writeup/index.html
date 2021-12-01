@@ -29,8 +29,9 @@
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/第二个%20payload%20集.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/设置重定向.jpg">
 <meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/token%20爆破成功.jpg">
+<meta property="og:image" content="https://justloseit.top/img/post/Pikachu%20靶场%20Writeup/飞雷神二段.gif">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2021-12-01T05:55:47.878Z">
+<meta property="article:modified_time" content="2021-12-01T06:01:31.344Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -414,7 +415,7 @@
 <li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
 </ul>
 <div class="note note-warning">
-            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。（飞雷神·二段🥷）</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。</li></ul>
+            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。<br />（飞雷神·二段🥷）</li></ul><div align=center><img src="/img/post/Pikachu 靶场 Writeup/飞雷神二段.gif" srcset="/img/loading.gif" lazyload style="zoom: 100%;" /></div>- 所以 DOM 型 xss 也不是完完全全的鸡肋。
           </div>  
 
             </div>

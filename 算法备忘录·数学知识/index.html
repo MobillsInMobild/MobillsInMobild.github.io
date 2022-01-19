@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86.jpg">
 <meta property="article:published_time" content="2021-11-22T03:58:25.000Z">
-<meta property="article:modified_time" content="2022-01-15T15:04:28.070Z">
+<meta property="article:modified_time" content="2022-01-19T05:44:38.738Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.7k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      22 分钟
+      23 分钟
     </span>
   
 
@@ -272,7 +272,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年1月15日 晚上
+                  本文最后更新于：2022年1月19日 下午
                 
               </p>
             
@@ -369,7 +369,17 @@ s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
 s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.11333499999999996em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
 <li>模板</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++">```<br><br>#### 筛法批量求欧拉函数<br>- 时间复杂度 $O(N)$<br>  - 基于线性筛<br>- 模板<br>```c++<br><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">phi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> res = x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= x / i; i ++ )&#123;<br>        <span class="hljs-keyword">if</span> (x % i == <span class="hljs-number">0</span>)&#123;<br>            res = res / i * (i - <span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">while</span> (x % i == <span class="hljs-number">0</span>) x /= i; <br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">1</span>) res = res / x * (x - <span class="hljs-number">1</span>);<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h4 id="筛法批量求欧拉函数"><a class="markdownIt-Anchor" href="#筛法批量求欧拉函数"></a> 筛法批量求欧拉函数</h4>
+<ul>
+<li>时间复杂度 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>
+<ul>
+<li>基于线性筛</li>
+</ul>
+</li>
+<li>模板</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c++"><br></code></pre></div></td></tr></table></figure>
 <h2 id="快速幂"><a class="markdownIt-Anchor" href="#快速幂"></a> 快速幂</h2>
 <h3 id="快速幂算法"><a class="markdownIt-Anchor" href="#快速幂算法"></a> 快速幂算法</h3>
 <ul>

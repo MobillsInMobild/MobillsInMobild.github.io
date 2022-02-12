@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.jpg">
 <meta property="article:published_time" content="2022-02-04T03:35:25.000Z">
-<meta property="article:modified_time" content="2022-02-12T05:56:57.687Z">
+<meta property="article:modified_time" content="2022-02-12T06:35:44.343Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -218,7 +218,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.9k 字
+      2.7k 字
     </span>
   
 
@@ -227,7 +227,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25 分钟
+      23 分钟
     </span>
   
 
@@ -278,28 +278,11 @@
 <span id="more"></span>
 <h1 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h1>
 <h2 id="闫氏-dp-分析法"><a class="markdownIt-Anchor" href="#闫氏-dp-分析法"></a> 闫氏 DP 分析法</h2>
-<pre><code class=" mermaid">graph LR
-A[DP] --- B1[状态表示]
-B1 --- C1[集合]
-C1 --- F1(f 数组含义)
-F1 --&gt; G1(满足维度约束下解的集合)
-B1 --- C2[属性]
-C2 --- D1(集合内解的特性)
-D1 --&gt; E1[[max]]
-D1 --&gt; E2[[min]]
-D1 --&gt; E3[[集合的元素个数]]
-A --- B2[状态计算]
-B2 --- C3(状态转移方程)
-C3 --&gt; F2(集合划分)
-F2 --&gt; G2[[将大集合分成若干个可求得子集]]
-F2 --&gt; G3[[再通过子集递推求出末状态]]
-</code></pre>
-<h2 id="背包问题"><a class="markdownIt-Anchor" href="#背包问题"></a> 背包问题</h2>
-<h3 id="01-背包问题"><a class="markdownIt-Anchor" href="#01-背包问题"></a> 01 背包问题</h3>
-<ul>
-<li>问题：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个物品，每个物品的体积是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，价值是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，背包的容量是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>。若每个物品<strong>最多只能装一个</strong>，且不能超过背包容量，则背包的最大价值是多少？</li>
-<li>DP 分析</li>
-</ul>
+<div align=center> <img src="/img/post/算法备忘录·动态规划/闫氏分析法.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+## 背包问题
+### 01 背包问题
+- 问题：$n$ 个物品，每个物品的体积是 $v_i$，价值是 $w_i$，背包的容量是 $m$。若每个物品**最多只能装一个**，且不能超过背包容量，则背包的最大价值是多少？
+- DP 分析
 <div align=center> <img src="/img/post/算法备忘录·动态规划/01背包.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
 - 模板
   - 二维形式

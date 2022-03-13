@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2022-02-23T02:06:17.824Z</updated>
+  <updated>2022-03-13T06:55:59.515Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>区块链分片技术综述</title>
+    <link href="https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%88%86%E7%89%87%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/"/>
+    <id>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%88%86%E7%89%87%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/</id>
+    <published>2022-03-13T06:46:25.000Z</published>
+    <updated>2022-03-13T06:55:59.515Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Survey Sharding in Blockchains 笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    <category term="分片" scheme="https://justloseit.top/tags/%E5%88%86%E7%89%87/"/>
+    
+  </entry>
   
   <entry>
     <title>算法备忘录·时空复杂度分析</title>
@@ -152,11 +173,11 @@
   </entry>
   
   <entry>
-    <title>区块链跨链技术笔记</title>
-    <link href="https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    <id>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</id>
+    <title>区块链跨链技术综述</title>
+    <link href="https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/"/>
+    <id>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B7%A8%E9%93%BE%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/</id>
     <published>2021-11-23T10:46:25.000Z</published>
-    <updated>2022-01-20T10:01:32.020Z</updated>
+    <updated>2022-03-13T06:55:12.392Z</updated>
     
     
     <summary type="html">&lt;p&gt;在研究当前区块链跨链技术过程中记录的技术笔记&lt;/p&gt;</summary>
@@ -422,29 +443,6 @@
     <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
     
     <category term="Misc" scheme="https://justloseit.top/tags/Misc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 红明谷 Misc Writeup</title>
-    <link href="https://justloseit.top/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup/"/>
-    <id>https://justloseit.top/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup/</id>
-    <published>2021-04-15T02:19:04.000Z</published>
-    <updated>2021-11-29T05:37:17.352Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;2021 “红明谷”杯数据安全大赛 Misc Writeup&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Writeup" scheme="https://justloseit.top/categories/Writeup/"/>
-    
-    
-    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
-    
-    <category term="Misc" scheme="https://justloseit.top/tags/Misc/"/>
-    
-    <category term="红明谷" scheme="https://justloseit.top/tags/%E7%BA%A2%E6%98%8E%E8%B0%B7/"/>
     
   </entry>
   

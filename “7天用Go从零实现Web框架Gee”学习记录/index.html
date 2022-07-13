@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2022-07-03T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-07-08T14:36:25.343Z">
+<meta property="article:modified_time" content="2022-07-13T06:35:14.706Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Golang">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          2.7k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          22 分钟
+          23 分钟
         
       </span>
     
@@ -304,7 +304,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月8日 晚上
+                    本文最后更新于：2022年7月13日 下午
                   
                 
               </p>
@@ -460,6 +460,17 @@
 </ul>
 </li>
 </ul>
+<h2 id="day5-中间件-middleware"><a class="markdownIt-Anchor" href="#day5-中间件-middleware"></a> Day5 中间件 Middleware</h2>
+<h3 id="中间件是什么"><a class="markdownIt-Anchor" href="#中间件是什么"></a> 中间件是什么</h3>
+<ul>
+<li>中间件是框架提供的<strong>插口</strong>，用于用户自己定义功能</li>
+<li>需要考虑的点：
+<ul>
+<li>插入点如果太底层，中间件的逻辑会非常复杂；如果离用户太近，和用户直接定义一组函数直接在 <code>Handler</code> 中调用区别不大。</li>
+<li>中间件的输入决定了其<strong>扩展能力</strong>。暴露的参数太少，扩展能力有限。</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
@@ -526,7 +537,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年7月8日</div>
+          <div>2022年7月13日</div>
         </div>
       
       <div class="license-meta-item">

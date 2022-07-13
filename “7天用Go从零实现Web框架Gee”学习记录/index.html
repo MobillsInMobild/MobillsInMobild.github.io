@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2022-07-03T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-07-13T06:35:14.706Z">
+<meta property="article:modified_time" content="2022-07-13T06:56:41.497Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Golang">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          3.2k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          23 分钟
+          27 分钟
         
       </span>
     
@@ -459,7 +459,13 @@
 <li>指向 <code>Engine</code> 的指针，因为 <code>Engine</code> 是框架统一入口，这样可以间接访问其他各种接口</li>
 </ul>
 </li>
+<li><code>Group</code> 的定义：</li>
 </ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go">RouterGroup <span class="hljs-keyword">struct</span> &#123;<br>	prefix      <span class="hljs-keyword">string</span><br>	middlewares []HandlerFunc <span class="hljs-comment">// support middleware</span><br>	parent      *RouterGroup  <span class="hljs-comment">// support nesting</span><br>	engine      *Engine       <span class="hljs-comment">// all groups share a Engine instance</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>Engine</code> 作为最顶层的分组，拥有 <code>RouteGroup</code> 的<strong>所有能力</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">Engine <span class="hljs-keyword">struct</span> &#123;<br>	*RouterGroup<br>	router *router<br>	groups []*RouterGroup <span class="hljs-comment">// store all groups</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="day5-中间件-middleware"><a class="markdownIt-Anchor" href="#day5-中间件-middleware"></a> Day5 中间件 Middleware</h2>
 <h3 id="中间件是什么"><a class="markdownIt-Anchor" href="#中间件是什么"></a> 中间件是什么</h3>
 <ul>
@@ -470,6 +476,13 @@
 <li>中间件的输入决定了其<strong>扩展能力</strong>。暴露的参数太少，扩展能力有限。</li>
 </ul>
 </li>
+</ul>
+<h3 id="中间件设计"><a class="markdownIt-Anchor" href="#中间件设计"></a> 中间件设计</h3>
+<ul>
+<li>中间件的定义和路由映射的 <code>Handler</code> 一致，输入均为 <code>Context</code> 对象。插入点是<strong>框架接收到请求初始化 <code>Context</code>后</strong>，允许用户使用自定义的中间件做一些额外处理。</li>
+<li><code>(*Context).Next()</code> 函数用于用户自己定义的 <code>Handler</code> <strong>处理结束后</strong>，再进行额外操作。</li>
+<li>综合上述，设计的中间件支持用户在请求被处理的<strong>前后</strong>，做出额外的操作。</li>
+<li></li>
 </ul>
 
                 

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2022-07-03T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-07-13T06:56:41.497Z">
+<meta property="article:modified_time" content="2022-07-13T07:49:48.535Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Golang">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k 字
+          3.9k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          27 分钟
+          33 分钟
         
       </span>
     
@@ -482,7 +482,15 @@
 <li>中间件的定义和路由映射的 <code>Handler</code> 一致，输入均为 <code>Context</code> 对象。插入点是<strong>框架接收到请求初始化 <code>Context</code>后</strong>，允许用户使用自定义的中间件做一些额外处理。</li>
 <li><code>(*Context).Next()</code> 函数用于用户自己定义的 <code>Handler</code> <strong>处理结束后</strong>，再进行额外操作。</li>
 <li>综合上述，设计的中间件支持用户在请求被处理的<strong>前后</strong>，做出额外的操作。</li>
-<li></li>
+<li>框架设计：当接收到请求后，匹配路由，<strong>查找应作用于该路由的中间件</strong>，该请求的所有信息都保存在 <code>Context</code> 中（<strong>因为处理结束后还可以调用</strong>）。</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Context <span class="hljs-keyword">struct</span> &#123;<br>	<span class="hljs-comment">// origin objects</span><br>	Writer http.ResponseWriter<br>	Req    *http.Request<br>	<span class="hljs-comment">// request info</span><br>	Path   <span class="hljs-keyword">string</span><br>	Method <span class="hljs-keyword">string</span><br>	Params <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span><br>	<span class="hljs-comment">// response info</span><br>	StatusCode <span class="hljs-keyword">int</span><br>	<span class="hljs-comment">// middleware</span><br>	handlers []HandlerFunc<br>	index    <span class="hljs-keyword">int</span><br>&#125;<br><br><span class="hljs-comment">// 对设置多个中间件依次进行调用</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *Context)</span> <span class="hljs-title">Next</span><span class="hljs-params">()</span></span> &#123;<br>	c.index++<br>	s := <span class="hljs-built_in">len</span>(c.handlers)<br>	<span class="hljs-keyword">for</span> ; c.index &lt; s; c.index++ &#123;<br>		c.handlers[c.index](c)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>index</code> 记录当前执行到第几个中间件，当中间件调用 <code>Next</code> 方法时，控制权<strong>交给下一个中间件</strong>，直到调用到最后一个中间件，再从后往前，调用各个中间件<strong>在 <code>Next</code> 方法之后定义的部分</strong>。
+<ul>
+<li>例如：定义中间件 A、B 和路由映射 <em>Handler</em>，<code>c.handlers</code>=[A,B,<em>Handler</em> ],<code>c.index</code> = -1，调用 <code>c.Next()</code>。对应的流程为：<strong>part1 -&gt; part3 -&gt; <em>Handler</em> -&gt; part 4 -&gt; part2</strong></li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">A</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>  part1<br>  c.Next()<br>  part2<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">B</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>    part3<br>    c.Next()<br>    part4<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 
                 

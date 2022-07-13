@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2022-07-03T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-07-13T07:50:31.266Z">
+<meta property="article:modified_time" content="2022-07-13T14:06:07.113Z">
 <meta property="article:author" content="Joker">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Golang">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          4k 字
         
       </span>
     
@@ -253,7 +253,7 @@
         
         
         
-          33 分钟
+          34 分钟
         
       </span>
     
@@ -304,7 +304,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年7月13日 下午
+                    本文最后更新于：2022年7月13日 晚上
                   
                 
               </p>
@@ -490,7 +490,13 @@
 <ul>
 <li>例如：定义中间件 A、B 和路由映射 <em>Handler</em>，<code>c.handlers</code>=[A,B,<em>Handler</em> ]，<code>c.index</code> = -1，调用 <code>c.Next()</code>。对应的流程为：<strong>part1 -&gt; part3 -&gt; <em>Handler</em> -&gt; part 4 -&gt; part2</strong></li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">A</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>  part1<br>  c.Next()<br>  part2<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">B</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>    part3<br>    c.Next()<br>    part4<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">A</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>  part1<br>  c.Next()<br>  part2<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">B</span><span class="hljs-params">(c *Context)</span></span> &#123;<br>    part3<br>    c.Next()<br>    part4<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h3>
+<ul>
+<li>定义 <code>use</code> 函数，将中间件应用到某个 Group。</li>
+<li>修改 ServeHTTP：当收到一个具体请求时，通过 URL 前缀判断请求适用于哪些中间件，得到中间件列表后赋值给 <code>c.handlers</code>。</li>
 </ul>
 
                 

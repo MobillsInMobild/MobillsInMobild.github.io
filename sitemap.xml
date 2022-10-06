@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://justloseit.top/about/index.html</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://justloseit.top/Windows%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</loc>
     
     <lastmod>2022-10-04</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://justloseit.top/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace/</loc>
     
     <lastmod>2022-09-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/about/index.html</loc>
-    
-    <lastmod>2022-08-26</lastmod>
     
   </url>
   

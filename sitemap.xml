@@ -361,6 +361,13 @@
   </url>
   
   <url>
+    <loc>https://justloseit.top/tags/AWD/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://justloseit.top/tags/Misc/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
@@ -375,7 +382,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/AWD/</loc>
+    <loc>https://justloseit.top/tags/Bilibili/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -396,7 +410,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
+    <loc>https://justloseit.top/tags/Java/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -404,34 +418,6 @@
   
   <url>
     <loc>https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/Web-%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/Bilibili/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/Java/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -452,7 +438,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/Pikachu/</loc>
+    <loc>https://justloseit.top/tags/Web-%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -460,6 +446,20 @@
   
   <url>
     <loc>https://justloseit.top/tags/Windows/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/Pikachu/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -487,14 +487,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://justloseit.top/tags/%E5%88%86%E7%89%87/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E5%88%86%E7%89%87/</loc>
+    <loc>https://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -615,14 +615,14 @@
 
   
   <url>
-    <loc>https://justloseit.top/categories/Writeup/</loc>
+    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://justloseit.top/categories/Writeup/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -636,14 +636,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/</loc>
+    <loc>https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -375,20 +375,6 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/Bilibili/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/AWD/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://justloseit.top/tags/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
@@ -410,6 +396,13 @@
   </url>
   
   <url>
+    <loc>https://justloseit.top/tags/AWD/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
@@ -424,7 +417,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+    <loc>https://justloseit.top/tags/Bilibili/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -453,6 +446,13 @@
   
   <url>
     <loc>https://justloseit.top/tags/Pikachu/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -571,14 +571,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/</loc>
-    <lastmod>2022-11-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/</loc>
+    <loc>https://justloseit.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -592,7 +585,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -622,14 +622,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://justloseit.top/categories/%E6%8E%A8%E8%8D%90/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E6%8E%A8%E8%8D%90/</loc>
+    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

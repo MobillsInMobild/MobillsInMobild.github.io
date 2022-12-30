@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2022-12-30T16:23:47.595Z</updated>
+  <updated>2022-12-30T16:30:14.693Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://justloseit.top/test/"/>
+    <id>https://justloseit.top/test/</id>
+    <published>2022-12-01T06:31:25.000Z</published>
+    <updated>2022-12-30T16:30:14.693Z</updated>
+    
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    <category term="共识" scheme="https://justloseit.top/tags/%E5%85%B1%E8%AF%86/"/>
+    
+    <category term="异步" scheme="https://justloseit.top/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>拜占庭共识中的“蜜獾”</title>
@@ -424,27 +445,6 @@
     <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="计算理论" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWD 赛前准备</title>
-    <link href="https://justloseit.top/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/"/>
-    <id>https://justloseit.top/AWD%20%E8%B5%9B%E5%89%8D%E5%87%86%E5%A4%87/</id>
-    <published>2021-07-10T09:27:04.000Z</published>
-    <updated>2022-11-22T04:25:29.182Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;之前从未打过 AWD 的比赛，这次准备时把网上的资料整理了一下&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
-    
-    <category term="AWD" scheme="https://justloseit.top/tags/AWD/"/>
     
   </entry>
   

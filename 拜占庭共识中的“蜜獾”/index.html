@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86%E4%B8%AD%E7%9A%84%E2%80%9C%E8%9C%9C%E7%8D%BE%E2%80%9D.jpg">
 <meta property="article:published_time" content="2022-11-14T06:31:25.000Z">
-<meta property="article:modified_time" content="2022-12-31T12:51:17.541Z">
+<meta property="article:modified_time" content="2022-12-31T12:57:57.532Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="区块链">
 <meta property="article:tag" content="共识">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          6.6k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          53 分钟
+          55 分钟
         
       </span>
     
@@ -566,7 +566,7 @@
 </ul>
 </li>
 <li>
-<p>使用 Moustefaoui 等人提出的基于公共硬币 CC 的 ABA 实现：</p>
+<p>使用 Moustefaoui 等人提出的基于公共掷币 CC 的 ABA 实现：</p>
 <ul>
 <li>当节点无法达成一致的时候借助一个外部的随机源 CC 做决定</li>
 <li>使用 Cachin 等人基于门限签名方案的公共硬币 CC 实现</li>
@@ -575,6 +575,13 @@
 </li>
 </ul>
 <div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/ABA.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<div class="note note-info">
+            <ul><li>算法 CC<ul><li>sid 被假定为一个唯一的随机数，用作这个公共硬币的 “明文”</li><li>(可信设置阶段)：可信第三方生成公共公钥以及密钥分享，密钥分享发送给各方。</li><li>被调用 <code>GetCoin</code> 时，广播 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi><mi>h</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>o</mi><mi>l</mi><mi>d</mi><mi>S</mi><mi>i</mi><mi>g</mi><mi>n</mi><msub><mi>n</mi><mi>k</mi></msub><mo stretchy="false">(</mo><mi>s</mi><msub><mi>k</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>s</mi><mi>i</mi><mi>d</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">ThresholdSign n_{ k}(s k_i, sid)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mclose">)</span></span></span></span></li><li>当收到至少 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个密钥共享时，将其生成签名 Sig，签名检验成功则输出签名</li></ul></li></ul>
+          </div>
+<h2 id="一点想法"><a class="markdownIt-Anchor" href="#一点想法"></a> 一点想法</h2>
+<ul>
+<li>HoneyBadgerBFT 称自己的方案为 “cherry-pick”，这点确实不假。几乎可以如剥洋葱一样，找到<strong>每一层</strong>算法的来源。</li>
+</ul>
 
                 
               </div>

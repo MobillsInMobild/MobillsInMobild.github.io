@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86%E4%B8%AD%E7%9A%84%E2%80%9C%E8%9C%9C%E7%8D%BE%E2%80%9D.jpg">
 <meta property="article:published_time" content="2022-11-14T06:31:25.000Z">
-<meta property="article:modified_time" content="2022-12-31T09:42:09.460Z">
+<meta property="article:modified_time" content="2022-12-31T09:50:51.769Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="区块链">
 <meta property="article:tag" content="共识">
@@ -48,6 +48,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -244,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.5k 字
         
       </span>
     
@@ -255,7 +257,7 @@
         
         
         
-          10 分钟
+          13 分钟
         
       </span>
     
@@ -386,6 +388,9 @@
 <li>符号定义</li>
 </ul>
 <div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/符号定义.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<div class="note note-success">
+            <p>0 Δ → 1 Δ → 3 Δ → 7 Δ，原因是 PBFT 每次视图切换后，超时间隔翻倍</p>
+          </div>
 <h4 id="0delta-阶段"><a class="markdownIt-Anchor" href="#0delta-阶段"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">0\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">Δ</span></span></span></span> 阶段</h4>
 <div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/T0 阶段.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
 <ul>
@@ -399,8 +404,25 @@
 <h4 id="1delta-阶段"><a class="markdownIt-Anchor" href="#1delta-阶段"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">1\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">Δ</span></span></span></span> 阶段</h4>
 <div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/T1 阶段.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
 <ul>
-<li>调度器**推迟*8了所有 <code>VIEW_CHANGE</code> 消息对副本 1（视图 1 的领导者）的传递</li>
+<li>调度器<strong>推迟</strong>了所有 <code>VIEW_CHANGE</code> 消息对副本 1（视图 1 的领导者）的传递</li>
 <li>其余节点的视图改变操作<strong>超时</strong>，因为它们没有从副本 1 收到有效的 <code>NEW_VIEW</code> 消息</li>
+</ul>
+<h4 id="3delta-阶段"><a class="markdownIt-Anchor" href="#3delta-阶段"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">3\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">Δ</span></span></span></span> 阶段</h4>
+<div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/T3 阶段1.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<ul>
+<li>节点 0、2 和 3 将他们的视图计数器增加到 2，并广播另一个 <code>VIEW_CHANGE</code> 消息</li>
+<li>此时，<strong>视图 1</strong> 的 <code>VIEW_CHANGE</code> 消息被传递给副本 1，副本1通过在<strong>视图 1</strong> 中广播一个 <code>NEW_VIEW</code> 和一个 <code>PRE_PREPARE</code> 消息来回应</li>
+</ul>
+<div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/T3 阶段2.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<ul>
+<li>副本 1 通过在视图 1 中广播一个 <code>NEW_VIEW</code> 和一个 <code>PRE_PREPARE</code> 消息<strong>被所有其他节点忽略</strong>，因为<strong>它们已经进展到了视图编号 2</strong><br />
+然后，副本 1 将收到视图 2 的 <code>VIEW_CHANGE</code> 消息，并相应增加其视图计数器</li>
+</ul>
+<h4 id="7delta-阶段"><a class="markdownIt-Anchor" href="#7delta-阶段"></a> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>7</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">7\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">Δ</span></span></span></span> 阶段</h4>
+<div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/T7 阶段.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<ul>
+<li>调度器会<strong>推迟所有 <code>VIEW_CHANGE</code> 消息对副本 2 的传递</strong>，确保所有其他节点的视图改变操作再次超时</li>
+<li>这个过程将持续到有问题的副本 0 再次被选为领导者，这时调度器将加速传递所有消息，而副本 0 则<strong>扣留相应的 <code>NEW_VIEW</code> 和 <code>PRE_PREPARE</code> 消息</strong>以触发另一个视图变化，并<strong>重复这个循环</strong></li>
 </ul>
 
                 
@@ -594,6 +616,11 @@
 
 
   
+
+
+  
+  
+
 
 
 

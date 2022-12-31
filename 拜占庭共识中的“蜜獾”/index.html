@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86%E4%B8%AD%E7%9A%84%E2%80%9C%E8%9C%9C%E7%8D%BE%E2%80%9D.jpg">
 <meta property="article:published_time" content="2022-11-14T06:31:25.000Z">
-<meta property="article:modified_time" content="2022-12-30T16:35:10.223Z">
+<meta property="article:modified_time" content="2022-12-31T09:36:16.809Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="区块链">
 <meta property="article:tag" content="共识">
@@ -244,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          237 字
+          941 字
         
       </span>
     
@@ -255,7 +255,7 @@
         
         
         
-          2 分钟
+          8 分钟
         
       </span>
     
@@ -306,7 +306,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月31日 凌晨
+                    本文最后更新于：2022年12月31日 下午
                   
                 
               </p>
@@ -325,12 +325,69 @@
 <h1 id="the-honey-badger-of-bft-protocols"><a class="markdownIt-Anchor" href="#the-honey-badger-of-bft-protocols"></a> The Honey Badger of BFT Protocols</h1>
 <h2 id="论文背景"><a class="markdownIt-Anchor" href="#论文背景"></a> 论文背景</h2>
 <ul>
-<li>FLP 不可能定理：在<strong>纯异步环境</strong>下不可能存在一种<strong>确定性</strong>的共识协议
+<li>
+<p>FLP 不可能定理：在<strong>纯异步环境</strong>下不可能存在一种<strong>确定性</strong>的共识协议</p>
 <ul>
 <li>做出一些更强的时序假设</li>
-<li>使用随机性的共识协议</li>
+<li>使用随机性的共识协议 ✅</li>
 </ul>
 </li>
+<li>
+<p>做出一些更强的时序假设</p>
+<ul>
+<li>
+<p>从网络分区中恢复得很慢：一个节点崩溃了，网络被暂时分割，持续时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>D</mi></msup><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">2^D\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span><span class="mord">Δ</span></span></span></span>。修复网络后， 协议必须等待另一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mo stretchy="false">(</mo></msup><mi>D</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">2^(D+1)\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9713299999999999em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mopen mtight">(</span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord">Δ</span></span></span></span> 的间隔才能开始选举一个新的领导者</p>
+</li>
+<li>
+<p>稳健性和响应性之间的权衡：参数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Δ</span></span></span></span> 的选取是复杂的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="论文贡献"><a class="markdownIt-Anchor" href="#论文贡献"></a> 论文贡献</h2>
+<ul>
+<li>
+<p>时序假设被证明是脆弱的</p>
+<ul>
+<li>明确地构建了一个<strong>对抗性 “间歇同步 ”网络</strong>，使得 PBFT 等弱同步协议陷入停顿</li>
+</ul>
+</li>
+<li>
+<p>实用异步拜占庭共识</p>
+<ul>
+<li>提出了 HoneyBadgerBFT，这是<strong>第一个在异步情况下提供最佳渐进效率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>𝑂</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">𝑂(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 的 BFT 原子广播协议</strong>。</li>
+<li>乐观情况下实验，PBFT 可达到的吞吐量随着节点数量的增加而减少，而 HoneyBadgerBFT 的<strong>吞吐量大致保持不变</strong>。</li>
+<li>PBFT 在面对对抗性 “间歇同步 ”网络时将实现零吞吐量，而HoneyBadgerBFT 将<strong>以正常的速度完成周期</strong>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="构建对抗性-间歇同步-网络"><a class="markdownIt-Anchor" href="#构建对抗性-间歇同步-网络"></a> 构建对抗性 “间歇同步 ”网络</h2>
+<ul>
+<li>
+<p>对抗性 “间歇同步 ”网络由<strong>调度器</strong>控制</p>
+</li>
+<li>
+<p>调度器构建思路</p>
+<ul>
+<li>PBFT 协议在很大程度上依赖于弱同步网络的有效性。如果没有取得进展，要么是因为领导者有问题，要么是因为网络停滞不前。而节点就会<strong>试图选举一个新的领导者</strong></li>
+<li>对 PBFT 的攻击，调度器<strong>不会丢弃或重新排序</strong>任何消息，而只是延迟将消息传递到当前领导者的任何节点</li>
+</ul>
+</li>
+<li>
+<p>调度器构建步骤</p>
+<ul>
+<li>首先，我们假设有一个节点崩溃了。然后，每当一个正确的节点成为领导者时，网络就会延迟消息，阻止进展，并导致下一个节点以轮流的方式成为新的领导者</li>
+<li>当<strong>崩溃的节点成为下一个领导者</strong>时，调度器立即修复网络分区，并在诚实的节点之间非常迅速地传递消息；然而，由于领导者已经崩溃，这里也没有取得进展</li>
+</ul>
+</li>
+</ul>
+<h3 id="对抗性-间歇同步-网络实例"><a class="markdownIt-Anchor" href="#对抗性-间歇同步-网络实例"></a> 对抗性 “间歇同步 ”网络实例</h3>
+<ul>
+<li>符号定义</li>
+</ul>
+<div align=center> <img src="/img/post/拜占庭共识中的“蜜獾”/符号定义.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<ul>
+<li></li>
 </ul>
 
                 

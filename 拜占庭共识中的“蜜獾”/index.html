@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86%E4%B8%AD%E7%9A%84%E2%80%9C%E8%9C%9C%E7%8D%BE%E2%80%9D.jpg">
 <meta property="article:published_time" content="2022-11-14T06:31:25.000Z">
-<meta property="article:modified_time" content="2022-12-31T09:52:20.421Z">
+<meta property="article:modified_time" content="2022-12-31T10:02:33.584Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="区块链">
 <meta property="article:tag" content="共识">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.5k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          14 分钟
+          21 分钟
         
       </span>
     
@@ -308,7 +308,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年12月31日 下午
+                    本文最后更新于：2022年12月31日 晚上
                   
                 
               </p>
@@ -427,6 +427,48 @@
 <div class="note note-primary">
             <p><strong>只要调度器扣留预定的非故障领导者的 <code>VIEW_CHANGE</code> 消息的时间超过（指数级增加的）超时间隔</strong>，这个循环就可以无限期地继续下去，阻止任何视图改变成功，并阻止协议<strong>取得任何进展</strong>。</p>
           </div>
+<h2 id="honeybadgerbft-方案"><a class="markdownIt-Anchor" href="#honeybadgerbft-方案"></a> HoneyBadgerBFT 方案</h2>
+<ul>
+<li>
+<p>模型假设</p>
+<ul>
+<li>纯异步网络：</li>
+<li>静态拜占庭故障：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi mathvariant="normal">ｆ</mi><mo>+</mo><mn>1</mn><mo>≤</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">3ｆ+1\leq N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord cjk_fallback">ｆ</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></li>
+<li>受信任的设置：初始设置阶段与受信任的密钥分发者交互</li>
+</ul>
+</li>
+<li>
+<p>分布式计算中的共识等价问题</p>
+<ul>
+<li>相等问题
+<ul>
+<li>原子广播：Hadzilacos and Toueg, 1994</li>
+<li>状态机复制：Schneider, 1990</li>
+</ul>
+</li>
+<li>相关问题
+<ul>
+<li>集群管理：Guerraoui and Schiper, 2001</li>
+<li>非阻塞原子提交：Guerraoui and Schiper, 2001</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="note note-primary">
+            <p>HoneyBadgerBFT 方案实际上是实现了<strong>原子广播</strong></p>
+          </div>
+<h3 id="原子广播"><a class="markdownIt-Anchor" href="#原子广播"></a> 原子广播</h3>
+<ul>
+<li>原子广播协议必须满足以下属性，所有这些属性都应在异步网络中以高概率成立，并且不受任意对手的影响
+<ul>
+<li>一致性：如果任何正确的节点输出交易 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{tx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span></span></span></span>，那么每个正确的节点都输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{tx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span></span></span></span>（安全性）</li>
+<li>全序性：如果一个正确的节点输出了交易序列 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">⟨</mo><msub><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mn>0</mn></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mn>1</mn></msub><mo separator="true">,</mo><mo>…</mo><msub><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mi>j</mi></msub><mo fence="true">⟩</mo></mrow><annotation encoding="application/x-tex">\left\langle\mathrm{tx}_0, \mathrm{tx}_1, \ldots \mathrm{tx}_j\right\rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⟨</span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">⟩</span></span></span></span></span>  ，而另一个正确的节点输出了 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">⟨</mo><msubsup><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mn>0</mn><mo mathvariant="normal">′</mo></msubsup><mo separator="true">,</mo><msubsup><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mn>1</mn><mo mathvariant="normal">′</mo></msubsup><mo separator="true">,</mo><mo>…</mo><msubsup><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mi>j</mi><mo mathvariant="normal">′</mo></msubsup><mo fence="true">⟩</mo></mrow><annotation encoding="application/x-tex">\left\langle\mathrm{tx}_0^{\prime}, \mathrm{tx}_1^{\prime}, \ldots \mathrm{tx}_j^{\prime}\right\rangle</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.239792em;vertical-align:-0.389792em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">⟨</span></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.756872em;"><span style="top:-2.4530000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.0679800000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.756872em;"><span style="top:-2.4530000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.0679800000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.756872em;"><span style="top:-2.4463160000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.0679800000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.389792em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">⟩</span></span></span></span></span></span>，则对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>≤</mo><mi>min</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mi>j</mi><mo separator="true">,</mo><msup><mi>j</mi><mo mathvariant="normal">′</mo></msup><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">i \leq \min \left(j, j^{\prime}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span>， 有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mi>i</mi></msub><mo>=</mo><msubsup><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><mi>i</mi><mo mathvariant="normal">′</mo></msubsup></mrow><annotation encoding="application/x-tex">\mathrm{tx}_i=\mathrm{tx}_i^{\prime}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.010556em;vertical-align:-0.253684em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.756872em;"><span style="top:-2.4463160000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span><span style="top:-3.0679800000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.253684em;"><span></span></span></span></span></span></span></span></span></span> 成立（安全性）</li>
+<li>抗审查攻击：如果一个交易 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow><annotation encoding="application/x-tex">\mathrm{tx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">t</span><span class="mord mathrm">x</span></span></span></span></span> 被输入到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>−</mo><mi>f</mi></mrow><annotation encoding="application/x-tex">N-f</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span> 个正确的节点，那么它最终会被每个正确的节点输出（活性）</li>
+</ul>
+</li>
+</ul>
+
                 
               </div>
             

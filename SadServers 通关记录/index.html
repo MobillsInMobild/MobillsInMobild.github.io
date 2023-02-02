@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/SadServers%20%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2023-02-02T12:06:04.000Z">
-<meta property="article:modified_time" content="2023-02-02T14:37:14.869Z">
+<meta property="article:modified_time" content="2023-02-02T15:43:01.614Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="运维">
 <meta property="article:tag" content="Linux">
@@ -258,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.9k 字
         
       </span>
     
@@ -269,7 +269,7 @@
         
         
         
-          19 分钟
+          25 分钟
         
       </span>
     
@@ -396,7 +396,7 @@
 <li>
 <p>题目描述：现有 Postgres 数据库中无法插入，解决该问题。</p>
 <ul>
-<li>Postgres 监听 5432 端口，data_directory 在 <code>/opt/pgdata/main</code>，由systemd 作为一个名为 postgresql 的单元进行管理</li>
+<li>Postgres 监听 5432 端口，data_directory 在 <code>/opt/pgdata/main</code>，由 systemd 作为一个名为 postgresql 的单元进行管理</li>
 </ul>
 </li>
 <li>
@@ -408,6 +408,34 @@
 <li>检测</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 插入数据</span><br>sudo -u postgres psql -c <span class="hljs-string">&quot;insert into persons(name) values (&#x27;jane smith&#x27;);&quot;</span> -d dt<br></code></pre></td></tr></table></figure>
+<h3 id="tokyo-cant-serve-web-file"><a class="markdownIt-Anchor" href="#tokyo-cant-serve-web-file"></a> “Tokyo”: can’t serve web file</h3>
+<ul>
+<li>
+<p>题目描述：配置好的 Web 服务器，代理 <code>/var/www/html/index.html</code> 时异常</p>
+</li>
+<li>
+<p>解答：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 测试 curl 命令未中止且无回显，说明网阻塞</span><br><span class="hljs-comment"># 查看防火墙规则，http 阻塞</span><br>iptables -L<br><br><span class="hljs-comment"># 清空防火墙</span><br>iptables -F<br><br><span class="hljs-comment"># 测试 curl 命令有回显，显示 403 Forbbiden</span><br><span class="hljs-comment"># 查看权限</span><br><span class="hljs-built_in">ls</span> -l /var/www/html/index.html<br><br><span class="hljs-comment"># 修改权限</span><br><span class="hljs-built_in">chmod</span> 777 /var/www/html/index.html<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl 127.0.0.1:80<br></code></pre></td></tr></table></figure>
+<h3 id="cape-town-borked-nginx"><a class="markdownIt-Anchor" href="#cape-town-borked-nginx"></a> “Cape Town”: Borked Nginx</h3>
+<ul>
+<li>
+<p>问题描述：执行 <code>curl -I 127.0.0.1:80</code> 时回显 <code>curl -I 127.0.0.1:80 returns curl: (7) Failed to connect to localhost port 80: Connection refuse</code>。解决该异常。Nginx 由 systemd 管理。</p>
+</li>
+<li>
+<p>解答：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重启 Nginx，失败</span><br>systemctl restart nginx<br><br><span class="hljs-comment"># 检查配置文件，报错</span><br>nginx -t<br><br><span class="hljs-comment"># 重新加载配置并重启 nginx，检测报错 500 Internal Server Error</span><br><span class="hljs-comment"># 查看 Nginx 日志，发现 24: Too many open files</span><br><span class="hljs-built_in">cat</span> /var/log/nginx/error.log<br><br><span class="hljs-comment"># 增加 systemd 中在 `/etc/systemd/system/nginx.service` 的打开文件上限 LimitNOFILE</span><br><span class="hljs-comment"># 重新加载配置并重启 nginx</span><br>systemctl daemon-reload<br>systemctl restart nginx<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -Is 127.0.0.1:80| <span class="hljs-built_in">head</span> -1<br></code></pre></td></tr></table></figure>
 
                 
               </div>

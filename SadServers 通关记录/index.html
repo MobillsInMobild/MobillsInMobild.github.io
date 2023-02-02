@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/SadServers%20%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2023-02-02T12:06:04.000Z">
-<meta property="article:modified_time" content="2023-02-02T12:36:10.562Z">
+<meta property="article:modified_time" content="2023-02-02T14:04:56.854Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="运维">
 <meta property="article:tag" content="Linux">
@@ -258,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          420 字
+          1.6k 字
         
       </span>
     
@@ -269,7 +269,7 @@
         
         
         
-          4 分钟
+          14 分钟
         
       </span>
     
@@ -353,7 +353,44 @@
 <p>解答</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查找占用 `/var/log/bad.log` 进程的 pid</span><br>lsof |grep /var/log/bad.log<br><br><span class="hljs-comment"># 终止进程</span><br><span class="hljs-built_in">kill</span> -9 [pid]<br><br><span class="hljs-comment"># 检测终止进程后是否在 6 秒内被修改过</span><br>find /var/log/bad.log -mmin -0.1<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查找占用 `/var/log/bad.log` 进程的 pid</span><br>lsof |grep /var/log/bad.log<br><br><span class="hljs-comment"># 终止进程</span><br><span class="hljs-built_in">kill</span> -9 [pid]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检测终止进程后是否在 6 秒内被修改过</span><br>find /var/log/bad.log -mmin -0.1<br></code></pre></td></tr></table></figure>
+<h3 id="saskatoon-counting-ips"><a class="markdownIt-Anchor" href="#saskatoon-counting-ips"></a> “Saskatoon”: counting IPs</h3>
+<ul>
+<li>
+<p>题目描述：根据Web服务器访问日志 <code>/home/admin/access.log</code> 找出请求最多的 IP 地址，并将其写入 <code>/home/admin/highestip.txt</code></p>
+</li>
+<li>
+<p>解答</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 取出文件第一列</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log<br><br><span class="hljs-comment"># 排序</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span><br><br><span class="hljs-comment"># 计数（次数在第一列）</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c<br><br><span class="hljs-comment"># 对计数排列</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r<br><br><span class="hljs-comment"># 取第二列第一行</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r |<span class="hljs-built_in">head</span> -1 |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span><br><br><span class="hljs-comment"># 输出到指定文件</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r |<span class="hljs-built_in">head</span> -1 |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> &gt; /home/admin/highestip.txt<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检验 hash 值</span><br><span class="hljs-built_in">sha1sum</span> /home/admin/highestip.txt<br></code></pre></td></tr></table></figure>
+<h3 id="santiago-find-the-secret-combination"><a class="markdownIt-Anchor" href="#santiago-find-the-secret-combination"></a> “Santiago”: Find the secret combination</h3>
+<ul>
+<li>
+<p>题目描述：</p>
+<ol>
+<li>找到 <code>/home/admin</code> 目录中字符串 <code>Alice</code> 在 <code>*.txt</code> 文件中的出现次数</li>
+<li>在字符串 <code>Alice</code> 仅出现一次的文件中在此之后一行中的数字</li>
+<li>将这两个数字写入 <code>/home/admin/solution</code></li>
+</ol>
+</li>
+<li>
+<p>解答：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 找字符串出现次数（-type f 指普通文件），返回各文件中字符串出现次数</span><br>find /home/admin -<span class="hljs-built_in">type</span> f  -name <span class="hljs-string">&quot;*.txt&quot;</span> |xargs grep -c <span class="hljs-string">&#x27;Alice&#x27;</span><br><br><span class="hljs-comment"># 写入结果（无换行符）</span><br><span class="hljs-built_in">echo</span> -n 411 &gt; /home/admin/solution<br><br><span class="hljs-comment"># 对仅出现一次的文件 1342-0.txt 查找 alice 出现后的一行</span><br><span class="hljs-built_in">cat</span> /home/admin/1342-0.txt| grep <span class="hljs-string">&#x27;Alice&#x27;</span> -A 1<br><br><span class="hljs-comment"># 写入结果（追加一行）</span><br><span class="hljs-built_in">echo</span> 156 &gt;&gt; /home/admin/solution<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检验 hash 值</span><br><span class="hljs-built_in">md5sum</span>  /home/admin/solution<br></code></pre></td></tr></table></figure>
 
                 
               </div>

@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2023-02-06T15:32:36.958Z</updated>
+  <updated>2023-03-02T14:43:36.270Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>规则翻译：Agent Decker 牌筑特工</title>
+    <link href="https://justloseit.top/%E8%A7%84%E5%88%99%E7%BF%BB%E8%AF%91%EF%BC%9AAgent%20Decker%20%E7%89%8C%E7%BB%84%E7%89%B9%E5%B7%A5/"/>
+    <id>https://justloseit.top/%E8%A7%84%E5%88%99%E7%BF%BB%E8%AF%91%EF%BC%9AAgent%20Decker%20%E7%89%8C%E7%BB%84%E7%89%B9%E5%B7%A5/</id>
+    <published>2023-03-02T14:24:04.000Z</published>
+    <updated>2023-03-02T14:43:36.270Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2015 金极客最佳 PnP(Print &amp;amp; Play) 桌游提名 Agent Decker 牌筑特工 的规则翻译&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="翻译" scheme="https://justloseit.top/categories/%E7%BF%BB%E8%AF%91/"/>
+    
+    
+    <category term="桌游" scheme="https://justloseit.top/tags/%E6%A1%8C%E6%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>SadServers 通关记录</title>
@@ -418,28 +437,6 @@
     
     <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
 这是第二节，数据结构。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·基础算法</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</id>
-    <published>2021-07-29T12:46:25.000Z</published>
-    <updated>2022-11-22T04:27:16.163Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
-这是第一节，基础算法。&lt;/p&gt;</summary>
     
     
     

@@ -40,7 +40,7 @@
     <link href="https://justloseit.top/SadServers%20%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/"/>
     <id>https://justloseit.top/SadServers%20%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95/</id>
     <published>2023-02-02T12:06:04.000Z</published>
-    <updated>2023-02-06T15:32:36.958Z</updated>
+    <updated>2023-03-03T06:50:38.311Z</updated>
     
     
     <summary type="html">&lt;p&gt;“Like LeetCode for Linux”&lt;/p&gt;</summary>
@@ -327,16 +327,16 @@
     <link href="https://justloseit.top/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0/"/>
     <id>https://justloseit.top/%E5%8F%AF%E8%AF%81%E6%98%8E%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0/</id>
     <published>2021-10-03T06:35:25.000Z</published>
-    <updated>2022-11-22T04:27:16.165Z</updated>
+    <updated>2023-03-03T06:49:24.759Z</updated>
     
     
     <summary type="html">&lt;ul&gt;
-&lt;li&gt;之前写过前两章英文版的笔记，现在把这门课的复习大纲整理了一下。&lt;/li&gt;
+&lt;li&gt;之前写过前两章英文版的笔记，现在把这门课的复习备忘整理了一下。&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
     
-    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
     
     
     <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
@@ -348,14 +348,14 @@
     <link href="https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
     <id>https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/</id>
     <published>2021-09-24T08:14:25.000Z</published>
-    <updated>2022-11-22T04:27:16.165Z</updated>
+    <updated>2023-03-03T06:49:24.757Z</updated>
     
     
-    <summary type="html">&lt;p&gt;密码学中需要知道的一些数论的知识大纲&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;密码学中需要知道的一些数论的知识备忘&lt;/p&gt;</summary>
     
     
     
-    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
     
     
     <category term="数学" scheme="https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
@@ -363,11 +363,11 @@
   </entry>
   
   <entry>
-    <title>操作系统大纲</title>
-    <link href="https://justloseit.top/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%A7%E7%BA%B2/"/>
-    <id>https://justloseit.top/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%A7%E7%BA%B2/</id>
+    <title>操作系统备忘</title>
+    <link href="https://justloseit.top/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98/"/>
+    <id>https://justloseit.top/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98/</id>
     <published>2021-09-13T08:14:25.000Z</published>
-    <updated>2022-11-21T12:10:46.940Z</updated>
+    <updated>2023-03-03T06:49:24.755Z</updated>
     
     
     <summary type="html">&lt;p&gt;快速回顾操作系统时，对其的知识进行了整理，方便记忆。&lt;br /&gt;
@@ -375,7 +375,7 @@
     
     
     
-    <category term="大纲" scheme="https://justloseit.top/categories/%E5%A4%A7%E7%BA%B2/"/>
+    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
     
     
     <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>

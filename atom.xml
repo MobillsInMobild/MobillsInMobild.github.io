@@ -57,6 +57,25 @@
   </entry>
   
   <entry>
+    <title>Learn Git Branching 备忘</title>
+    <link href="https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/"/>
+    <id>https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/</id>
+    <published>2023-01-15T07:46:25.000Z</published>
+    <updated>2023-03-03T15:48:41.978Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Learn Git Branching 是个不错的练手教程，可惜长期不用太容易忘了&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
+    
+    
+    <category term="Git" scheme="https://justloseit.top/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>年度总结：2022年我的阅读·影视·游戏</title>
     <link href="https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
     <id>https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
@@ -209,25 +228,6 @@
     <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Learn Git Branching 备忘</title>
-    <link href="https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/"/>
-    <id>https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/</id>
-    <published>2022-01-15T07:46:25.000Z</published>
-    <updated>2023-03-03T15:47:55.817Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Learn Git Branching 是个不错的练手教程，可惜长期不用太容易忘了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
-    
-    
-    <category term="Git" scheme="https://justloseit.top/tags/Git/"/>
     
   </entry>
   

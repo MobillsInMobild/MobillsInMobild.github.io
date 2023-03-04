@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98.png">
 <meta property="article:published_time" content="2023-01-15T07:46:25.000Z">
-<meta property="article:modified_time" content="2023-03-04T11:18:04.607Z">
+<meta property="article:modified_time" content="2023-03-04T12:12:07.954Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2.3k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          11 分钟
+          20 分钟
         
       </span>
     
@@ -335,6 +335,17 @@
 <ul>
 <li><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/">Learn Git Branching</a> 是目前为止最好的 Git 教程了，结合图示 + 通关的教学让人很容易就能上手。然而，很多命令一时间未必会用到。因此对其中常见的命令留作备忘。</li>
 </ul>
+<h2 id="git-基本概念"><a class="markdownIt-Anchor" href="#git-基本概念"></a> Git 基本概念</h2>
+<pre><code class=" mermaid">graph LR 
+A[工作区] -- git add --&gt; B[暂存区]
+
+subgraph &quot;版本库&quot;
+B -- git commit --&gt; C[HEAD]
+subgraph &quot;提交树&quot;
+C
+end
+end
+</code></pre>
 <h2 id="变更"><a class="markdownIt-Anchor" href="#变更"></a> 变更</h2>
 <h3 id="提交变更"><a class="markdownIt-Anchor" href="#提交变更"></a> 提交变更</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit<br></code></pre></td></tr></table></figure>
@@ -366,6 +377,9 @@
 <h4 id="rebase"><a class="markdownIt-Anchor" href="#rebase"></a> rebase</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提取在当前分支上的改动，然后应用在 [branch_name] 分支的代码上</span><br><br>git rebase [branch_name]<br></code></pre></td></tr></table></figure>
 <div align=center> <img src="/img/post/Learn Git Branching 备忘/reabse.png" srcset="/img/loading.gif" lazyload  style="zoom:50%;"/></div>
+<div class="note note-success">
+            <ul><li>rebase 使提交树变得很干净, 所有的提交都在一条线上</li><li>merge 则能够保留提交历史</li></ul>
+          </div>
 <h2 id="在提交树上移动"><a class="markdownIt-Anchor" href="#在提交树上移动"></a> 在提交树上移动</h2>
 <h3 id="分离-head"><a class="markdownIt-Anchor" href="#分离-head"></a> 分离 HEAD</h3>
 <ul>
@@ -390,7 +404,41 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git tag [tag_name] [commit_id]<br></code></pre></td></tr></table></figure>
 <h3 id="describe"><a class="markdownIt-Anchor" href="#describe"></a> describe</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># &lt;ref&gt; 可以是任何能被 Git 识别成提交记录的引用，默认是 HEAD</span><br><span class="hljs-comment">## 输出的结果是这样的：&lt;tag&gt;_&lt;numCommits&gt;_g&lt;hash&gt;：距离 tag 有 numCommits 个提交；hash 表示的是 ref_hash 的前几位</span><br><br>git describe &lt;ref&gt;<br></code></pre></td></tr></table></figure>
-
+<hr />
+<h2 id="远程仓库拷贝"><a class="markdownIt-Anchor" href="#远程仓库拷贝"></a> 远程仓库拷贝</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> [remote-repository-git]<br></code></pre></td></tr></table></figure>
+<h2 id="远程分支"><a class="markdownIt-Anchor" href="#远程分支"></a> 远程分支</h2>
+<ul>
+<li>远程分支命名规范：<code>&lt;remote repository name&gt;/&lt;branch name&gt;</code>，repository 一般为 origin</li>
+<li>checkout 远程分支时，自动进入<strong>分离 HEAD</strong> 状态</li>
+</ul>
+<h3 id="fetch从远程仓库获取数据"><a class="markdownIt-Anchor" href="#fetch从远程仓库获取数据"></a> fetch：从远程仓库获取数据</h3>
+<ul>
+<li>下载提交记录 + 更新远程分支指针</li>
+<li>不影响本地分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git fetch<br></code></pre></td></tr></table></figure>
+<ul>
+<li>带参数：到远程仓库的 <code>[place]</code> 上，然后获取所有本地不存在的提交，放到本地的 <code>o/[place]</code> 上。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">git fetch [remote] [place]<br><br><br><span class="hljs-comment"># 从远程仓库的 &lt;source&gt; 到本地仓库的 &lt;destination&gt;</span><br>git fetch [remote] &lt;<span class="hljs-built_in">source</span>&gt;:&lt;destination&gt;<br><br><span class="hljs-comment"># 在本地创建空分支</span><br>git fetch [remote] :&lt;destination&gt;<br><br></code></pre></td></tr></table></figure>
+<h3 id="pull从远程仓库更新本地仓库"><a class="markdownIt-Anchor" href="#pull从远程仓库更新本地仓库"></a> pull：从远程仓库更新本地仓库</h3>
+<ul>
+<li>下载提交记录 + 更新远程分支指针 + 合并本地分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">git pull<br><br><br><span class="hljs-comment"># 等同于</span><br><br>git fetch<br>git merge origin/master<br></code></pre></td></tr></table></figure>
+<ul>
+<li>将本地分支工作 rebase 到远程分支</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git pull --rebase<br></code></pre></td></tr></table></figure>
+<h3 id="向远程仓库提交变更"><a class="markdownIt-Anchor" href="#向远程仓库提交变更"></a> 向远程仓库提交变更</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git push<br></code></pre></td></tr></table></figure>
+<ul>
+<li>带参数：切到本地仓库中的 <code>[place]</code>，获取所有的提交，再到远程仓库  <code>[remote]</code> 中找到 <code>[place]</code>，将远程仓库中没有的提交记录都添加上去</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">git push [remote] [place]<br><br><br><span class="hljs-comment"># 从本地仓库的 &lt;source&gt; 到远程仓库的 &lt;destination&gt;</span><br>git push [remote] &lt;<span class="hljs-built_in">source</span>&gt;:&lt;destination&gt;<br><br><span class="hljs-comment"># 删除了远程仓库中的 &lt;destination&gt;</span><br>git push [remote] :&lt;destination&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="远程跟踪"><a class="markdownIt-Anchor" href="#远程跟踪"></a> 远程跟踪</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git branch -u [remote_branch] [local_branch]<br></code></pre></td></tr></table></figure>
                 
               </div>
             

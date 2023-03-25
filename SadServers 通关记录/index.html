@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/SadServers%20%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95.jpg">
 <meta property="article:published_time" content="2023-02-02T12:06:04.000Z">
-<meta property="article:modified_time" content="2023-03-25T11:59:06.363Z">
+<meta property="article:modified_time" content="2023-03-25T17:08:21.738Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="运维">
 <meta property="article:tag" content="Linux">
@@ -258,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.9k 字
+          10k 字
         
       </span>
     
@@ -269,7 +269,7 @@
         
         
         
-          66 分钟
+          85 分钟
         
       </span>
     
@@ -320,7 +320,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月25日 晚上
+                    本文最后更新于：2023年3月26日 凌晨
                   
                 
               </p>
@@ -581,6 +581,37 @@
 <li>检测</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 insert 0 1</span><br>sudo -u postgres psql -c <span class="hljs-string">&quot;insert into persons(name) values (&#x27;jane smith&#x27;);&quot;</span> -d dt<br></code></pre></td></tr></table></figure>
+<h3 id="pokhara-ssh-and-other-sshenanigans"><a class="markdownIt-Anchor" href="#pokhara-ssh-and-other-sshenanigans"></a> “Pokhara”: SSH and other sshenanigans</h3>
+<ul>
+<li>
+<p>问题描述：一个用户 client 和它的 SSH 公钥被添加到服务器。目标是能够作为该用户使用它的 SSH 密钥在本地进行 SSH（只有一台服务器）。</p>
+</li>
+<li>
+<p>解答：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接运行，报 “man-in-the-middle” 警告</span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 清空 known_hosts 配置</span><br>ssh-keygen -f <span class="hljs-string">&quot;/home/client/.ssh/known_hosts&quot;</span> -R <span class="hljs-string">&quot;localhost&quot;</span><br><br><span class="hljs-comment"># 再次运行，显示 client@localhost: Permission denied (publickey).</span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 删除 ssh 错误配置并重启服务</span><br><span class="hljs-built_in">rm</span> /etc/ssh/sshd_config.d/sad.conf<br>systemctl restart ssh<br><br><span class="hljs-comment"># 再次运行，显示 WARNING: UNPROTECTED PRIVATE KEY FILE! Permissions 0644 for &#x27;/home/client/.ssh/id_rsa&#x27; are too open.</span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 修改 /home/client/.ssh/id_rsa 权限</span><br><span class="hljs-built_in">chmod</span> 600 /home/client/.ssh/id_rsa<br><br><span class="hljs-comment"># 再次运行，显示 Your account has expired; please contact your system administrator.       </span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 查看 client 的账户有效期，被设置到 0</span><br>lslogins client<br><span class="hljs-comment"># 或</span><br>grep client /etc/shadow<br><br><span class="hljs-comment"># 修改有效期</span><br>chage -E-1 client<br><br><span class="hljs-comment"># 再次运行，显示 exec request failed on channel 0，系统线程有限制       </span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 查看文件描述符配置（/etc/pam.d/sshd 中引用），删除 client hard nproc 0</span><br>vim /etc/security/limits.conf<br><br><span class="hljs-comment"># 再次运行，显示 This account is currently not available.</span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span> <br><br><span class="hljs-comment"># 查看用户登录信息，shell 显示  /usr/sbin/nologin                   </span><br>lslogins client<br><br><span class="hljs-comment"># 查看所有可用 shell</span><br><span class="hljs-built_in">cat</span> /etc/shells<br><br><span class="hljs-comment"># 设置用户登录 shell 为 /bin/bash</span><br>usermod --shell /bin/bash client<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># /home/client</span><br>sudo -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="roseau-hack-a-web-server"><a class="markdownIt-Anchor" href="#roseau-hack-a-web-server"></a> “Roseau”: Hack a Web Server</h3>
+<ul>
+<li>
+<p>问题描述：说明：本地 Apache Web 服务器可以提供的文件中存储了一个 secret。 找到这个 secret 并将其保存为 <code>/home/admin/secret.txt</code> 文件。</p>
+<ul>
+<li>密码破解程序 Hashcat 和 Hydra 是从软件包安装的，而 John the Ripper 二进制文件是从 <code>/home/admin/john/run</code> 中的源代码构建的</li>
+</ul>
+</li>
+<li>
+<p>解答：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 有 webfile 文件，权限不够无法打开</span><br><span class="hljs-built_in">ls</span>  /var/www/html/<br><br><span class="hljs-comment"># 401 Unauthorized，需要正确的 credentials</span><br>curl localhost<br><br><span class="hljs-comment"># 查看 credentials 位置，在 /etc/apache2/.htpasswd</span><br>vim /etc/apache2/sites-enabled/000-default.conf<br><br><span class="hljs-comment"># 用 John the Ripper 破解，得到账户:密码为 carlos:chalet</span><br><span class="hljs-built_in">cd</span> ~ ; john/run/john /etc/apache2/.htpasswd<br><br><span class="hljs-comment"># 查看 webfile，并输出到 secret</span><br>curl localhost/webfile -u <span class="hljs-string">&quot;carlos:chalet&quot;</span> --output secret<br><br><span class="hljs-comment"># 查看 secret 文件类型，是 zip</span><br>file secret<br><br><span class="hljs-comment"># 解压，但是有密码保护</span><br>unzip secret<br><br><span class="hljs-comment"># zip2john 提取 hash</span><br>john/run/zip2john secret &gt; zip.hash<br><br><span class="hljs-comment"># 用 John the Ripper 破解，得到密码 andes</span><br>john/run/john zip.hash<br><br><span class="hljs-comment"># 解压，成功得到 secret.txt</span><br>unzip secret<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检测</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 cc2c322fbcac56923048d083b465901aac0fe8f8</span><br><span class="hljs-built_in">sha1sum</span> /home/admin/secret.txt |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
 <h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2>
 <ul>
 <li>
@@ -659,7 +690,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年3月25日</div>
+          <div>2023年3月26日</div>
         </div>
       
       

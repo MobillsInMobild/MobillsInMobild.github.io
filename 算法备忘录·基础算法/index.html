@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95.jpg">
 <meta property="article:published_time" content="2021-07-29T12:46:25.000Z">
-<meta property="article:modified_time" content="2022-11-22T04:27:16.163Z">
+<meta property="article:modified_time" content="2023-03-31T02:31:10.158Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -322,7 +322,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年11月22日 中午
+                    本文最后更新于：2023年3月31日 上午
                   
                 
               </p>
@@ -352,7 +352,7 @@
 </li>
 <li>
 <p>模板</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> a[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span>&#123;<br>  <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, x = a[(l + r) &gt;&gt; <span class="hljs-number">1</span>];<br>  <span class="hljs-keyword">while</span> (l &lt; r)&#123;<br>    <span class="hljs-keyword">do</span> i ++; <span class="hljs-keyword">while</span>(a[i] &lt; x);<br>    <span class="hljs-keyword">do</span> j --; <span class="hljs-keyword">while</span>(a[j] &gt; x);<br>    <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(a[i], a[j]);<span class="hljs-comment">// 注意这里的if判断</span><br>  &#125;<br>  <span class="hljs-built_in">quick_sort</span>(a, l, j), <span class="hljs-built_in">quick_sort</span>(a, j + <span class="hljs-number">1</span>, r);<br>&#125;<br></code></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">quick_sort</span><span class="hljs-params">(<span class="hljs-type">int</span> a[], <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span>&#123;<br>  <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-type">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, x = a[(l + r) &gt;&gt; <span class="hljs-number">1</span>];<br>  <span class="hljs-keyword">while</span> (i &lt; j)&#123;<br>    <span class="hljs-keyword">do</span> i ++; <span class="hljs-keyword">while</span>(a[i] &lt; x);<br>    <span class="hljs-keyword">do</span> j --; <span class="hljs-keyword">while</span>(a[j] &gt; x);<br>    <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(a[i], a[j]);<span class="hljs-comment">// 注意这里的if判断</span><br>  &#125;<br>  <span class="hljs-built_in">quick_sort</span>(a, l, j), <span class="hljs-built_in">quick_sort</span>(a, j + <span class="hljs-number">1</span>, r);<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="归并排序"><a class="markdownIt-Anchor" href="#归并排序"></a> 归并排序</h3>
@@ -714,7 +714,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月22日</div>
+          <div>2023年3月31日</div>
         </div>
       
       

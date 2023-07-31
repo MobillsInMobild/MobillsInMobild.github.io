@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2023-04-06T13:29:36.130Z</updated>
+  <updated>2023-07-31T08:22:33.640Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://justloseit.top/public/newPost/"/>
+    <id>https://justloseit.top/public/newPost/</id>
+    <published>2023-07-31T08:22:33.622Z</published>
+    <updated>2023-07-31T08:22:33.640Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">{&quot;title&quot;:&quot;规则翻译：《Agent Decker/牌筑特工》&quot;,&quot;id&quot;:&quot;规则翻译：Agent Decker 牌组特工/&quot;,&quot;date_published&quot;:&quot;03/02/2023&quot;,&quot;summary&quot;:&quot;2015 金极客最佳 Print &amp;amp; Play</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://justloseit.top/public/webpushr-sw/"/>
+    <id>https://justloseit.top/public/webpushr-sw/</id>
+    <published>2023-07-31T08:22:33.622Z</published>
+    <updated>2023-07-31T08:22:33.640Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">importScripts(&#39;https://cdn.webpushr.com/sw-server.min.js&#39;);</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>规则翻译：《Agent Decker/牌筑特工》</title>
@@ -61,7 +103,7 @@
     <link href="https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/"/>
     <id>https://justloseit.top/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98/</id>
     <published>2023-01-15T07:46:25.000Z</published>
-    <updated>2023-07-31T08:22:12.544Z</updated>
+    <updated>2023-07-31T08:30:06.560Z</updated>
     
     
     <summary type="html">&lt;p&gt;Learn Git Branching 是个不错的练手教程，可惜长期不用太容易忘了&lt;/p&gt;</summary>
@@ -400,49 +442,6 @@
     <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="操作系统" scheme="https://justloseit.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·搜索与图论</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</id>
-    <published>2021-08-21T12:46:25.000Z</published>
-    <updated>2022-11-22T04:34:34.907Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
-这是第四节，搜索与图论。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·STL</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7STL/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7STL/</id>
-    <published>2021-08-14T12:46:25.000Z</published>
-    <updated>2023-03-15T15:06:03.446Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;上一节数据结构中，用代码实现了各个数据结构的基本操作。然而在实际使用中， C++ 中的 STL 已经很好的封装了这些。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

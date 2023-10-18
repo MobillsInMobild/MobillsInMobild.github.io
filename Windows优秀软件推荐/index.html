@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/Windows-%E4%BC%98%E7%A7%80%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90.png">
 <meta property="article:published_time" content="2020-10-25T11:23:32.000Z">
-<meta property="article:modified_time" content="2023-04-11T10:13:16.936Z">
+<meta property="article:modified_time" content="2023-10-18T03:35:14.829Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="软件">
 <meta property="article:tag" content="Windows">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          3.5k 字
         
       </span>
     
@@ -321,7 +321,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月11日 晚上
+                    本文最后更新于：2023年10月18日 中午
                   
                 
               </p>
@@ -473,6 +473,10 @@
 <li>💖我主要通过它实现了两个功能：CapsLock 轻按切换中英文，长按大小写锁定；右 ALT 配合 WSADQE 进行上下左右以及翻页切换</li>
 </ul>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs rust">RAlt &amp; a::<br><span class="hljs-built_in">Send</span> &#123;Left&#125;<br><span class="hljs-keyword">return</span><br><br>RAlt &amp; d::<br><span class="hljs-built_in">Send</span> &#123;Right&#125;<br><span class="hljs-keyword">return</span><br><br>RAlt &amp; w::   <br><span class="hljs-built_in">Send</span> &#123;Up&#125;   <br><span class="hljs-keyword">return</span><br><br>RAlt &amp; s::<br><span class="hljs-built_in">Send</span> &#123;Down&#125;<br><span class="hljs-keyword">return</span><br><br>RAlt &amp; q::<br><span class="hljs-built_in">Send</span> &#123;PgUp&#125;<br><span class="hljs-keyword">return</span><br><br>RAlt &amp; e::<br><span class="hljs-built_in">Send</span> &#123;PgDn&#125;<br><span class="hljs-keyword">return</span><br><br>CapsLock::<br>KeyWait, CapsLock, T0.<span class="hljs-number">60</span><br><span class="hljs-title function_ invoke__">if</span> (ErrorLevel)<br>SetCapsLockState, % (t:=!t) ? <span class="hljs-string">&quot;On&quot;</span> : <span class="hljs-string">&quot;Off&quot;</span><br><span class="hljs-keyword">else</span><br><span class="hljs-built_in">Send</span> ^&#123;Space&#125;<br>KeyWait, CapsLock<br><span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>💖 窗口置顶：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-id">#t</span>::<br>&#123;<br>WinSet AlwaysOnTop,-<span class="hljs-number">1</span>,<span class="hljs-selector-tag">A</span><br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="系统美化"><a class="markdownIt-Anchor" href="#系统美化"></a> 系统美化</h4>
@@ -707,7 +711,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年4月11日</div>
+          <div>2023年10月18日</div>
         </div>
       
       

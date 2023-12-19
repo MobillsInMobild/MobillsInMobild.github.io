@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2023-12-10T16:00:48.197Z</updated>
+  <updated>2023-12-10T16:23:33.153Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://justloseit.top/Cryptic%20Woods%20%E5%AF%B9%20jaredfromsubway%20%E7%9A%84%E9%87%87%E8%AE%BF/"/>
     <id>https://justloseit.top/Cryptic%20Woods%20%E5%AF%B9%20jaredfromsubway%20%E7%9A%84%E9%87%87%E8%AE%BF/</id>
     <published>2023-12-10T16:00:25.000Z</published>
-    <updated>2023-12-10T16:00:48.197Z</updated>
+    <updated>2023-12-10T16:23:33.153Z</updated>
     
     
     <summary type="html">&lt;p&gt;一个 MEV 新研究组织 Cryptic Woods 对 “夹子之王” jaredfromsubway 的采访，非常有意思&lt;/p&gt;</summary>
@@ -34,6 +34,25 @@
     <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
     <category term="MEV" scheme="https://justloseit.top/tags/MEV/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BokkyPooBah&#39;s Token Teleportation Service 复现</title>
+    <link href="https://justloseit.top/BokkyPooBah&#39;s%20Token%20Teleportation%20Service%20%E5%A4%8D%E7%8E%B0/"/>
+    <id>https://justloseit.top/BokkyPooBah&#39;s%20Token%20Teleportation%20Service%20%E5%A4%8D%E7%8E%B0/</id>
+    <published>2023-05-05T04:22:30.000Z</published>
+    <updated>2023-12-19T13:33:40.944Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;当你只有 ERC20 代币时，应该怎么支付 Gas？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   
@@ -421,28 +440,6 @@
     <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="操作系统" scheme="https://justloseit.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·搜索与图论</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</id>
-    <published>2021-08-21T12:46:25.000Z</published>
-    <updated>2022-11-22T04:34:34.907Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
-这是第四节，搜索与图论。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

@@ -16,16 +16,16 @@
   <meta name="author" content="Mobilis In Mobili">
   <meta name="keywords" content="">
   
-    <meta name="description" content="当你只有 ERC20 代币时，应该怎么支付 Gas？">
+    <meta name="description" content="先有鸡还是先有蛋？——当你只有 ERC-20 代币时，应该怎么支付 Gas 呢？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BokkyPooBah&#39;s Token Teleportation Service 复现">
 <meta property="og:url" content="https://justloseit.top/BokkyPooBah's%20Token%20Teleportation%20Service%20%E5%A4%8D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="动中之动">
-<meta property="og:description" content="当你只有 ERC20 代币时，应该怎么支付 Gas？">
+<meta property="og:description" content="先有鸡还是先有蛋？——当你只有 ERC-20 代币时，应该怎么支付 Gas 呢？">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/BokkyPooBah.jpg">
 <meta property="article:published_time" content="2023-05-05T04:22:30.000Z">
-<meta property="article:modified_time" content="2023-12-19T13:46:41.068Z">
+<meta property="article:modified_time" content="2023-12-20T04:10:58.270Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="区块链">
 <meta name="twitter:card" content="summary_large_image">
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3.2k 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          25 分钟
+          28 分钟
         
       </span>
     
@@ -322,7 +322,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年12月19日 晚上
+                    本文最后更新于：2023年12月20日 中午
                   
                 
               </p>
@@ -330,9 +330,20 @@
             
               <div class="markdown-body">
                 
-                <p>当你只有 ERC20 代币时，应该怎么支付 Gas？</p>
+                <p>先有鸡还是先有蛋？——当你只有 ERC-20 代币时，应该怎么支付 Gas 呢？</p>
 <span id="more"></span>
-<h1 id="项目介绍"><a class="markdownIt-Anchor" href="#项目介绍"></a> 项目介绍</h1>
+<h1 id="背景介绍"><a class="markdownIt-Anchor" href="#背景介绍"></a> 背景介绍</h1>
+<ul>
+<li>
+<p>有一个非常现实的问题，如何从 ERC-20 代币冷启动——倘若你有 ERC-20 代币，却没有 Gas Token。这是一个很经典的但是又往往被忽视的问题，很多时候它非常好处理，但是在某些情况下会极其棘手。事实上，解决该类问题相关的想法倒是并不少，OpenZeppelin 就提过  <a target="_blank" rel="noopener" href="https://opengsn.org/">Gas Station Network</a>，以太坊 <a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs/issues/865">ERC-865: 以 Token 支付转账</a>、<a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs/pull/2454">ERC-1077 gas 中继接口</a>、<a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs/pull/2454">EIP965 授权操作</a> 以及 <a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs/issues/1776">ERC-1776 原生元交易</a> 等提案都是与此极大相关。甚至，之前大火的账户抽象 ERC-4337 也能很好的解决这个问题。</p>
+</li>
+<li>
+<p>不过，一般来说，此类提案不太容易受到重视。一方面遇到这类问题真正棘手的时候并不多，另一方面这类提案一定程度上会削弱 ETH 本身的影响力，所以很难有好的叙事。</p>
+</li>
+<li>
+<p>BokkyPooBah’s Token Teleportation Service 是一个早期的 ERC-865 的实现，尽管较为粗糙，但是核心的交互思路和后续的方案是高度一致的。</p>
+</li>
+</ul>
 <h1 id="复现环境"><a class="markdownIt-Anchor" href="#复现环境"></a> 复现环境</h1>
 <ul>
 <li>项目：<a target="_blank" rel="noopener" href="https://github.com/bokkypoobah/BokkyPooBahsTokenTeleportationServiceSmartContract">BokkyPooBahsTokenTeleportationServiceSmartContract</a></li>
@@ -344,30 +355,30 @@
 <table>
 <thead>
 <tr>
-<th>账户</th>
-<th>地址</th>
+<th style="text-align:center"><strong>账户</strong></th>
+<th style="text-align:center"><strong>地址</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>合约部署账户</td>
-<td>0x3240f8664Fcd0faF9bf7d231196C5696D20a0707</td>
+<td style="text-align:center">合约部署账户</td>
+<td style="text-align:center"><em>0x3240f8664Fcd0faF9bf7d231196C5696D20a0707</em></td>
 </tr>
 <tr>
-<td>转账账户</td>
-<td>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</td>
+<td style="text-align:center">转账账户</td>
+<td style="text-align:center"><em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></td>
 </tr>
 <tr>
-<td>接收账户</td>
-<td>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</td>
+<td style="text-align:center">接收账户</td>
+<td style="text-align:center"><em>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</em></td>
 </tr>
 <tr>
-<td>服务提供账户</td>
-<td>0xaaE80fEBBa1046168d6c462e685d513643dde9Fa</td>
+<td style="text-align:center">服务提供账户</td>
+<td style="text-align:center"><em>0xaaE80fEBBa1046168d6c462e685d513643dde9Fa</em></td>
 </tr>
 <tr>
-<td>服务获利账户</td>
-<td>0x080F98C531280d8B6aB9395AbA8dC197dc5100fb</td>
+<td style="text-align:center">服务获利账户</td>
+<td style="text-align:center"><em>0x080F98C531280d8B6aB9395AbA8dC197dc5100fb</em></td>
 </tr>
 </tbody>
 </table>
@@ -378,9 +389,9 @@
 <h1 id="实验流程"><a class="markdownIt-Anchor" href="#实验流程"></a> 实验流程</h1>
 <h2 id="部署合约"><a class="markdownIt-Anchor" href="#部署合约"></a> 部署合约</h2>
 <ul>
-<li>合约部署账户直接部署 BTTSLIB，地址为：0x1f06a5c9551b437d0CfF28Fe2eA9A51BD0f6d219</li>
-<li>合约部署账户直接部署 BTTSTokenFactory，地址为：0xe521c57F10421B5a855153748657B1829E1C07f9</li>
-<li>合约部署账户调用 BTTSTokenFactory 的 deployBTTSTokenContract 函数，部署 BTTSToken，地址为：0xBFee159535A3b48ED2bF7eC8ed0CA92df982B57d（需要在返回值 <code>bttsTokenAddress</code> 字段里找到）
+<li>合约部署账户直接部署 <strong>BTTSLIB</strong>，地址为：<em>0x1f06a5c9551b437d0CfF28Fe2eA9A51BD0f6d219</em></li>
+<li>合约部署账户直接部署 <strong>BTTSTokenFactory</strong>，地址为：<em>0xe521c57F10421B5a855153748657B1829E1C07f9</em></li>
+<li>合约部署账户调用 <strong>BTTSTokenFactory</strong> 的 <code>deployBTTSTokenContract</code> 函数，部署 <strong>BTTSToken</strong>，地址为：<em>0xBFee159535A3b48ED2bF7eC8ed0CA92df982B57d</em>（需要在返回值 <code>bttsTokenAddress</code> 字段里找到）
 <ul>
 <li>函数参数为：
 <ul>
@@ -398,20 +409,20 @@
 <h2 id="获取-token"><a class="markdownIt-Anchor" href="#获取-token"></a> 获取 Token</h2>
 <ul>
 <li>
-<p>合约部署账户调用 BTTSToken 的 Mint 函数，参数为：</p>
+<p>合约部署账户调用 <strong>BTTSToken</strong> 的 Mint 函数，参数为：</p>
 <ul>
-<li>tokenOwner =  0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</li>
+<li>tokenOwner =  <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></li>
 <li>tokens = 1000000000000000000000000</li>
 <li>lockAccount = true</li>
 </ul>
 </li>
 <li>
-<p>此时 call BTTSToken 的 balanceof 函数，可以返回 0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844 的 token 为 1000000000000000000000000，0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E 和 0x080F98C531280d8B6aB9395AbA8dC197dc5100fb 的 token 是零</p>
+<p>此时 call <strong>BTTSToken</strong> 的 <code>balanceof</code> 函数，可以返回 <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em> 的 token 为 1000000000000000000000000，<em>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</em> 和 <em>0x080F98C531280d8B6aB9395AbA8dC197dc5100fb</em> 的 token 是零</p>
 </li>
 <li>
-<p>调用 BTTSToken 的 unlockAccount 函数解锁账户 ，参数为：</p>
+<p>调用 <strong>BTTSToken</strong> 的 <code>unlockAccount</code> 函数解锁账户 ，参数为：</p>
 <ul>
-<li>tokenOwner =  0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</li>
+<li>tokenOwner =  <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></li>
 </ul>
 </li>
 </ul>
@@ -421,31 +432,31 @@
 <p>计算</p>
 </li>
 <li>
-<p>call BTTSToken 的 signedTransferHash，计算 signedTransferHash，参数是</p>
+<p>call <strong>BTTSToken</strong> 的 <code>signedTransferHash</code>，计算 signedTransferHash，参数是</p>
 <ul>
-<li>tokenOwner = 0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</li>
-<li>to = 0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</li>
+<li>tokenOwner = <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></li>
+<li>to = <em>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</em></li>
 <li>tokens = 1000000000000000000</li>
 <li>fee = 10000000000000000</li>
-<li>nonce = call BTTSToken 的 nextNonce(0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844) 获得，这里是 0</li>
+<li>nonce = call <strong>BTTSToken</strong> 的 nextNonce(<em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em>) 获得，这里是 0</li>
 </ul>
 </li>
 <li>
 <p>返回 { “0”: “bytes32: hash 0x59d312d723b09d23fdaaefa542737fceb8fe80185b0b539c2923b49eeaabe755” }</p>
 </li>
 <li>
-<p>用 0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844 签名 0x59d312d723b09d23fdaaefa542737fceb8fe80185b0b539c2923b49eeaabe755，得到 0x141964af6113a974245236a31fb1a91107b4bf8f902b236fff0b33b6de356013641532ec6080fdecaccf3f7534ffa35c4dc4e0fbb82583244dd439d6dc20eba61b</p>
+<p>用 <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em> 签名 0x59d312d723b09d23fdaaefa542737fceb8fe80185b0b539c2923b49eeaabe755，得到 0x141964af6113a974245236a31fb1a91107b4bf8f902b236fff0b33b6de356013641532ec6080fdecaccf3f7534ffa35c4dc4e0fbb82583244dd439d6dc20eba61b</p>
 </li>
 <li>
-<p>call BTTSToken 的 signedTransferCheck 函数，检查元交易是否正确，参数为：</p>
+<p>call <strong>BTTSToken</strong> 的 <code>signedTransferCheck</code> 函数，检查元交易是否正确，参数为：</p>
 <ul>
-<li>from = 0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</li>
-<li>to = 0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</li>
+<li>from = <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></li>
+<li>to = <em>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</em></li>
 <li>tokens = 1000000000000000000</li>
 <li>fee = 10000000000000000</li>
 <li>nonce = 0</li>
 <li>sig = 0x141964af6113a974245236a31fb1a91107b4bf8f902b236fff0b33b6de356013641532ec6080fdecaccf3f7534ffa35c4dc4e0fbb82583244dd439d6dc20eba61b</li>
-<li>feeAccount = 0x080F98C531280d8B6aB9395AbA8dC197dc5100fb</li>
+<li>feeAccount = <em>0x080F98C531280d8B6aB9395AbA8dC197dc5100fb</em></li>
 </ul>
 </li>
 <li>
@@ -455,10 +466,10 @@
 <h2 id="执行元交易"><a class="markdownIt-Anchor" href="#执行元交易"></a> 执行元交易</h2>
 <ul>
 <li>
-<p>调用 BTTSToken 的 signedTransfer 函数，参数为：</p>
+<p>调用 <strong>BTTSToken</strong> 的 <code>signedTransfer</code> 函数，参数为：</p>
 <ul>
-<li>from = 0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</li>
-<li>to = 0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</li>
+<li>from = <em>0xD8182F419A20a7cB7c8DE66e07Eb192a1F972844</em></li>
+<li>to = <em>0x67De25A51E8C6F03BAf4913c7AFDC7e2c26f7F7E</em></li>
 <li>tokens = 1000000000000000000</li>
 <li>fee = 10000000000000000</li>
 <li>nonce = 0</li>
@@ -476,18 +487,16 @@
 <p>如图所示，结果和预期相符合，复现成功</p>
 </li>
 <li>
-<p>转账账户<br />
-![[Pasted image 20230327163652.png]]</p>
-</li>
-<li>
-<p>接收账户<br />
-![[Pasted image 20230327163718.png]]</p>
-</li>
-<li>
-<p>服务获利账户<br />
-![[Pasted image 20230327163733.png]]</p>
+<p>转账账户</p>
 </li>
 </ul>
+<div align=center> <img src="/img/post/BokkyPooBah's Token Teleportation Service 复现/转账账户.png" srcset="/img/loading.gif" lazyload  style="zoom:60%;"/></div>
+<ul>
+<li>接收账户</li>
+</ul>
+<div align=center> <img src="/img/post/BokkyPooBah's Token Teleportation Service 复现/接收账户.png" srcset="/img/loading.gif" lazyload  style="zoom:60%;"/></div>
+<p>-服务获利账户</p>
+<div align=center> <img src="/img/post/BokkyPooBah's Token Teleportation Service 复现/服务获利账户.png" srcset="/img/loading.gif" lazyload  style="zoom:60%;"/></div>
 
                 
               </div>
@@ -552,7 +561,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年12月19日</div>
+          <div>2023年12月20日</div>
         </div>
       
       

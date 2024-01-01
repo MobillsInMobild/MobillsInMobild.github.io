@@ -840,6 +840,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://justloseit.top/tags/%E6%91%84%E5%BD%B1/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -886,6 +893,13 @@
   
   <url>
     <loc>https://justloseit.top/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/categories/%E5%9B%BE%E9%9B%86/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

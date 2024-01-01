@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2024-01-01T06:14:36.074Z</updated>
+  <updated>2024-01-01T09:11:31.506Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>奥森(?)打鸟记录</title>
+    <link href="https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/"/>
+    <id>https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/</id>
+    <published>2023-12-17T04:46:25.000Z</published>
+    <updated>2024-01-01T09:11:31.506Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;等效 135 的 300mm 变焦头到了，正好去奥森转转（多图杀猫）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
+    
+    
+    <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+    <category term="数学" scheme="https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>Cryptic Woods 对 jaredfromsubway 的采访</title>
@@ -420,25 +441,6 @@
     
     
     <category term="密码学" scheme="https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>密码学数论基础</title>
-    <link href="https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    <id>https://justloseit.top/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80/</id>
-    <published>2021-09-24T08:14:25.000Z</published>
-    <updated>2023-03-03T06:49:24.757Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;密码学中需要知道的一些数论的知识备忘&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="备忘" scheme="https://justloseit.top/categories/%E5%A4%87%E5%BF%98/"/>
-    
-    
-    <category term="数学" scheme="https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   

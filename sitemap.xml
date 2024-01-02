@@ -549,13 +549,6 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/AWD/</loc>
-    <lastmod>2024-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://justloseit.top/tags/Misc/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -570,14 +563,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2024-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
+    <loc>https://justloseit.top/tags/AWD/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -606,6 +592,20 @@
   
   <url>
     <loc>https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
+    <lastmod>2024-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2024-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -710,14 +710,14 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E8%B7%A8%E9%93%BE/</loc>
+    <loc>https://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://justloseit.top/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://justloseit.top/tags/%E8%B7%A8%E9%93%BE/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -739,6 +739,13 @@
   
   <url>
     <loc>https://justloseit.top/tags/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2024-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/tags/%E6%91%84%E5%BD%B1/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -849,21 +856,7 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://justloseit.top/tags/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2024-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2024-01-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://justloseit.top/categories/Writeup/</loc>
@@ -873,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://justloseit.top/categories/%E5%A4%87%E5%BF%98/</loc>
+    <loc>https://justloseit.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -881,6 +874,13 @@
   
   <url>
     <loc>https://justloseit.top/categories/%E6%8E%A8%E8%8D%90/</loc>
+    <lastmod>2024-01-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://justloseit.top/categories/%E5%A4%87%E5%BF%98/</loc>
     <lastmod>2024-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

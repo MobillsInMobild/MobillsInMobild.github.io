@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%9D%82%E9%A1%B9.jpg">
 <meta property="article:published_time" content="2024-05-12T16:16:25.000Z">
-<meta property="article:modified_time" content="2024-05-14T17:28:31.229Z">
+<meta property="article:modified_time" content="2024-05-14T17:32:37.480Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -262,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          666 字
+          678 字
         
       </span>
     
@@ -333,71 +333,72 @@
                 
                 <p>做 Leetcode 模式太多，切换到 ACM 模式，一时间竟忘记了输入输出以及头文件的写法。罪过罪过。</p>
 <span id="more"></span>
-<h1 id="输入输出"><a class="markdownIt-Anchor" href="#输入输出"></a> 输入输出</h1>
-<h2 id="输入"><a class="markdownIt-Anchor" href="#输入"></a> 输入</h2>
-<h3 id="cin"><a class="markdownIt-Anchor" href="#cin"></a> cin</h3>
+<h1 id="杂项"><a class="markdownIt-Anchor" href="#杂项"></a> 杂项</h1>
+<h2 id="输入输出"><a class="markdownIt-Anchor" href="#输入输出"></a> 输入输出</h2>
+<h3 id="输入"><a class="markdownIt-Anchor" href="#输入"></a> 输入</h3>
+<h4 id="cin"><a class="markdownIt-Anchor" href="#cin"></a> cin</h4>
 <ul>
 <li><code>&lt;iostream&gt;</code></li>
 <li>以空格、tab、换行符作为分隔符</li>
 <li>从第一个非空格字符开始读取，直到遇到分隔符结束读取</li>
 </ul>
-<h3 id="getline"><a class="markdownIt-Anchor" href="#getline"></a> getline()</h3>
+<h4 id="getline"><a class="markdownIt-Anchor" href="#getline"></a> getline()</h4>
 <ul>
 <li><code>string</code></li>
 <li>读取一行</li>
 <li>读取的字符串包括空格，遇到换行符结束</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">string s;<br><span class="hljs-built_in">getline</span>(cin, s);<br></code></pre></td></tr></table></figure>
-<h3 id="getchar"><a class="markdownIt-Anchor" href="#getchar"></a> getchar()</h3>
+<h4 id="getchar"><a class="markdownIt-Anchor" href="#getchar"></a> getchar()</h4>
 <ul>
 <li>读取一个字符</li>
 <li>一般用来判断是否是换行符</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> ch;<br>ch = <span class="hljs-built_in">getchar</span>();<br></code></pre></td></tr></table></figure>
-<h3 id="scanf"><a class="markdownIt-Anchor" href="#scanf"></a> scanf()</h3>
+<h4 id="scanf"><a class="markdownIt-Anchor" href="#scanf"></a> scanf()</h4>
 <ul>
 <li><code>&lt;stdio.h&gt;</code></li>
 <li>缓冲区不会自动清空，需要 <code>getchar()</code> 来处理换行符，以防止输入的数据被下一个输入函数接收</li>
 <li>因为 string 并非是 C 的原生类型，所以不建议使用 scanf 输入 string 类型字符串</li>
 </ul>
-<h2 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h2>
-<h3 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> cout</h3>
+<h3 id="输出"><a class="markdownIt-Anchor" href="#输出"></a> 输出</h3>
+<h4 id="cout"><a class="markdownIt-Anchor" href="#cout"></a> cout</h4>
 <ul>
 <li><code>&lt;iostream&gt;</code></li>
 </ul>
-<h4 id="stringstream"><a class="markdownIt-Anchor" href="#stringstream"></a> stringstream</h4>
+<h5 id="stringstream"><a class="markdownIt-Anchor" href="#stringstream"></a> stringstream</h5>
 <ul>
 <li><code>&lt;sstream&gt;</code></li>
 <li>能够灵活的处理字符串，具有和输入输出流相似的接口和方法</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++">stringstream s;<br>string name = <span class="hljs-string">&quot;A&quot;</span>;<br><span class="hljs-type">int</span> age = <span class="hljs-number">13</span>;<br><span class="hljs-type">double</span> height = <span class="hljs-number">1.2</span>;<br>string status = <span class="hljs-string">&quot;is a dog&quot;</span>;<br><br>s &lt;&lt; <span class="hljs-string">&quot;Name: &quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;, Age: &quot;</span> &lt;&lt; age &lt;&lt; <span class="hljs-string">&quot;, Height: &quot;</span> &lt;&lt; height &lt;&lt; <span class="hljs-string">&quot;, Status: &quot;</span> &lt;&lt; status;<br>string str = s.<span class="hljs-built_in">str</span>();<br><br><span class="hljs-comment">// 还能实现字符串转数字</span><br>string str = <span class="hljs-string">&quot;7&quot;</span>;<br>stringstream ss;<br>ss &lt;&lt; str;<br><span class="hljs-type">int</span> num;<br>ss &gt;&gt; num;<br></code></pre></td></tr></table></figure>
-<h3 id="printf"><a class="markdownIt-Anchor" href="#printf"></a> printf()</h3>
+<h4 id="printf"><a class="markdownIt-Anchor" href="#printf"></a> printf()</h4>
 <ul>
 <li><code>&lt;stdio.h&gt;</code></li>
 <li>输出 string 对象中的字符串，可以使用 string 的成员函数 c_str()</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">string a = <span class="hljs-string">&quot;test&quot;</span>;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s&quot;</span>,a.<span class="hljs-built_in">c_str</span>());<br></code></pre></td></tr></table></figure>
-<h2 id="关闭标准流同步"><a class="markdownIt-Anchor" href="#关闭标准流同步"></a> 关闭标准流同步</h2>
+<h3 id="关闭标准流同步"><a class="markdownIt-Anchor" href="#关闭标准流同步"></a> 关闭标准流同步</h3>
 <ul>
 <li>由于同步流机制和类型检查机制，<code>scanf()</code> 和 <code>printf()</code> 输入输出的效率显著优于 <code>cin</code> 和 <code>cout</code></li>
 <li>提高速度</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++">ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>cin.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br>cout.<span class="hljs-built_in">tie</span>(<span class="hljs-literal">nullptr</span>);<br><br><span class="hljs-comment">// 较老版本不支持 nullptr，可以使用：</span><br>ios::<span class="hljs-built_in">sync_with_stdio</span>(<span class="hljs-literal">false</span>);<br>cin.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br>cout.<span class="hljs-built_in">tie</span>(<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
-<h1 id="头文件"><a class="markdownIt-Anchor" href="#头文件"></a> 头文件</h1>
-<h2 id="万能头文件"><a class="markdownIt-Anchor" href="#万能头文件"></a> 万能头文件</h2>
+<h2 id="头文件"><a class="markdownIt-Anchor" href="#头文件"></a> 头文件</h2>
+<h3 id="万能头文件"><a class="markdownIt-Anchor" href="#万能头文件"></a> 万能头文件</h3>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br></code></pre></td></tr></table></figure>
-<h2 id="常用头文件"><a class="markdownIt-Anchor" href="#常用头文件"></a> 常用头文件</h2>
+<h3 id="常用头文件"><a class="markdownIt-Anchor" href="#常用头文件"></a> 常用头文件</h3>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span>　　　 <span class="hljs-comment">//通用算法，max/min/swap/reverse</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bitset&gt;</span>　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span>          <span class="hljs-comment">//memset</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;deque&gt;</span>　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;map&gt;</span>　　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;queue&gt;</span>　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;set&gt;</span>　　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sstream&gt;</span>　　　　 <span class="hljs-comment">//基于字符串的流</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stack&gt;</span>　　　　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span>　　　　　</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span>　　　　</span><br></code></pre></td></tr></table></figure>
-<h1 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h1>
-<h2 id="string-number"><a class="markdownIt-Anchor" href="#string-number"></a> string &lt;—&gt; number</h2>
-<h3 id="string-number-2"><a class="markdownIt-Anchor" href="#string-number-2"></a> string —&gt; number</h3>
+<h2 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h2>
+<h3 id="string-number"><a class="markdownIt-Anchor" href="#string-number"></a> string &lt;—&gt; number</h3>
+<h4 id="string-number-2"><a class="markdownIt-Anchor" href="#string-number-2"></a> string —&gt; number</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> a = <span class="hljs-number">1234567</span>;<br>string str = <span class="hljs-built_in">to_string</span>(a);<br></code></pre></td></tr></table></figure>
-<h3 id="number-strings"><a class="markdownIt-Anchor" href="#number-strings"></a> number —&gt; stringS</h3>
+<h4 id="number-strings"><a class="markdownIt-Anchor" href="#number-strings"></a> number —&gt; stringS</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++">string str = <span class="hljs-string">&#x27;1234567&#x27;</span>;<br><span class="hljs-type">int</span> a = <span class="hljs-built_in">stoi</span>(str);<br><br><span class="hljs-comment">// 或者用前文提到的 stringstream</span><br></code></pre></td></tr></table></figure>
-<h2 id="string-char"><a class="markdownIt-Anchor" href="#string-char"></a> string &lt;—&gt; char*</h2>
-<h3 id="string-char-2"><a class="markdownIt-Anchor" href="#string-char-2"></a> string —&gt; char*</h3>
+<h3 id="string-char"><a class="markdownIt-Anchor" href="#string-char"></a> string &lt;—&gt; char*</h3>
+<h4 id="string-char-2"><a class="markdownIt-Anchor" href="#string-char-2"></a> string —&gt; char*</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++">string str= <span class="hljs-string">&quot;test&quot;</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">char</span> *p = str.<span class="hljs-built_in">c_str</span>();<br></code></pre></td></tr></table></figure>
-<h3 id="char-string"><a class="markdownIt-Anchor" href="#char-string"></a> char* —&gt; string</h3>
+<h4 id="char-string"><a class="markdownIt-Anchor" href="#char-string"></a> char* —&gt; string</h4>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">char</span> a[<span class="hljs-number">10</span>] = <span class="hljs-string">&quot;hello&quot;</span>;<br><span class="hljs-type">char</span> *b = a;<br>string c = b;<br></code></pre></td></tr></table></figure>
 <hr />
 <p>算法备忘录系列目录：<br />
@@ -408,7 +409,8 @@
 <a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">第五节 算法备忘录·数学知识</a><br />
 <a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">第六节 算法备忘录·动态规划</a><br />
 <a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E8%B4%AA%E5%BF%83/">第七节 算法备忘录·贪心</a><br />
-<a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">第八节 算法备忘录·时空复杂度分析</a></p>
+<a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">第八节 算法备忘录·时空复杂度分析</a><br />
+<a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%9D%82%E9%A1%B9/#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">第九节 算法备忘录·杂项</a></p>
 
                 
               </div>

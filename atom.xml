@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2024-01-02T01:25:16.831Z</updated>
+  <updated>2024-05-14T17:23:51.100Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法备忘录·杂项</title>
+    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%9D%82%E9%A1%B9/"/>
+    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%9D%82%E9%A1%B9/</id>
+    <published>2024-05-12T16:16:25.000Z</published>
+    <updated>2024-05-14T17:23:51.100Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;做 Leetcode 模式太多，切换到 ACM 模式，一时间竟忘记了输入输出以及头文件的写法。罪过罪过。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>年度总结：2023年我的阅读·影视·游戏</title>
@@ -421,28 +442,6 @@
     <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
     <category term="跨链" scheme="https://justloseit.top/tags/%E8%B7%A8%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·数学知识</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/</id>
-    <published>2021-11-22T03:58:25.000Z</published>
-    <updated>2022-11-21T12:44:37.307Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
-这是第五节，数学知识。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

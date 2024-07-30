@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2024-05-14T17:36:43.141Z</updated>
+  <updated>2024-07-30T15:20:46.168Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>硬核烹饪指南</title>
+    <link href="https://justloseit.top/%E7%A1%AC%E6%A0%B8%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97/"/>
+    <id>https://justloseit.top/%E7%A1%AC%E6%A0%B8%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97/</id>
+    <published>2024-07-30T15:46:25.000Z</published>
+    <updated>2024-07-30T15:20:46.168Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;如何科学烹饪&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="美食" scheme="https://justloseit.top/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>算法备忘录·杂项</title>
@@ -419,27 +438,6 @@
     <category term="CTF" scheme="https://justloseit.top/tags/CTF/"/>
     
     <category term="Pikachu" scheme="https://justloseit.top/tags/Pikachu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论丑角精神</title>
-    <link href="https://justloseit.top/%E8%AE%BA%E4%B8%91%E8%A7%92%E7%B2%BE%E7%A5%9E/"/>
-    <id>https://justloseit.top/%E8%AE%BA%E4%B8%91%E8%A7%92%E7%B2%BE%E7%A5%9E/</id>
-    <published>2021-11-29T03:14:04.000Z</published>
-    <updated>2022-11-21T12:32:00.154Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;每个人心里都活着一个小丑&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="哲学" scheme="https://justloseit.top/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   

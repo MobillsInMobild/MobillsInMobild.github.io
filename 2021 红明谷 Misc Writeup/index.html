@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup.jpg">
 <meta property="article:published_time" content="2021-04-15T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-11-21T12:08:21.972Z">
+<meta property="article:modified_time" content="2025-12-28T13:34:27.121Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Misc">
@@ -322,7 +322,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2022年11月21日 晚上
+                    本文最后更新于 2025年12月28日 晚上
                   
                 
               </p>
@@ -362,18 +362,18 @@
 <li><code>ChsPinyinUDL.dat</code>文件记录着系统用户的中文<strong>短句</strong>输入信息</li>
 </ul>
 </li>
-<li>利用 <a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/issues/58">微软拼音自学习词库的导入导出算法</a>中 @HowcanoeWang 的<a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/files/4365598/pinyin.zip">脚本</a>，就能获得输入记录。</li>
+<li>利用 <a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/issues/58">微软拼音自学习词库的导入导出算法</a>中 @HowcanoeWang 的<a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/files/4365598/pinyin.zip">脚本</a>，就能获得输入记录。<br />
+![pinyin](/img/post/2021 红明谷 Misc Writeup/pinyin.jpg)</li>
 </ul>
-<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/pinyin.jpg" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
 </li>
 <li>密码是：<code>有志者事竟成</code>
 <ul>
-<li>解压得到一个 pdf 文件</li>
+<li>解压得到一个 pdf 文件<br />
+![pdf](/img/post/2021 红明谷 Misc Writeup/pdf.png)</li>
 </ul>
-<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/pdf.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
 </li>
-<li>删除图片，得到图片下的 flag<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/pdf2.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
-</li>
+<li>删除图片，得到图片下的 flag<br />
+![pdf2](/img/post/2021 红明谷 Misc Writeup/pdf2.png)</li>
 </ul>
 </li>
 </ul>
@@ -389,8 +389,8 @@
 <li>解法
 <ul>
 <li>
-<p>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？</p>
-<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/winrar.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
+<p>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？<br />
+![winrar](/img/post/2021 红明谷 Misc Writeup/winrar.png)</p>
 <ul>
 <li>看了<a target="_blank" rel="noopener" href="https://l1near.top/index.php/2021/03/15/97.html#comment-174">L1near 师傅的官方 writeup</a> 后，需要修改 RAR 第 24 字节处（对应 <code>PASSWORD_ENCRYPTED</code>）从1改为0就可以正常打开文件了/把第24字节的后面一个4改成0也可以</li>
 <li>然而，即便是使用了 010editor 的模板也没有解析处这里对应 <code>PASSWORD_ENCRYPTED</code>，看官方 writeup 应该是 RAR 版本问题</li>
@@ -420,8 +420,8 @@
 <p>得到压缩包密码：<code>gnibgnib</code></p>
 </li>
 <li>
-<p>打开压缩包，获得 <code>bingbing.pcapng</code></p>
-<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
+<p>打开压缩包，获得 <code>bingbing.pcapng</code><br />
+![bingbingpcap](/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png)</p>
 </li>
 <li>
 <p>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></p>
@@ -446,9 +446,9 @@
 <li>
 <p>解法</p>
 <ul>
-<li>追踪TCP流，得到如下文本<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/wireshark.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
-<div align=center><img src="/img/post/2021 红明谷 Misc Writeup/wireshark2.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
-</li>
+<li>追踪TCP流，得到如下文本<br />
+![wireshark](/img/post/2021 红明谷 Misc Writeup/wireshark.png)<br />
+![wireshark2](/img/post/2021 红明谷 Misc Writeup/wireshark2.png)</li>
 <li>明显是词频统计，哈夫曼编码</li>
 <li>payload如下：</li>
 </ul>
@@ -526,7 +526,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月21日</div>
+          <div>2025年12月28日</div>
         </div>
       
       

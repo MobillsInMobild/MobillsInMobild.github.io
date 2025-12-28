@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup.jpg">
 <meta property="article:published_time" content="2021-04-15T02:19:04.000Z">
-<meta property="article:modified_time" content="2025-12-28T13:34:27.121Z">
+<meta property="article:modified_time" content="2025-12-28T13:37:46.416Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Misc">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.6k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          13 分钟
+          14 分钟
         
       </span>
     
@@ -363,17 +363,17 @@
 </ul>
 </li>
 <li>利用 <a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/issues/58">微软拼音自学习词库的导入导出算法</a>中 @HowcanoeWang 的<a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter/files/4365598/pinyin.zip">脚本</a>，就能获得输入记录。<br />
-![pinyin](/img/post/2021 红明谷 Misc Writeup/pinyin.jpg)</li>
+![pinyin](&lt;/img/post/2021 红明谷 Misc Writeup/pinyin.jpg&gt;)</li>
 </ul>
 </li>
 <li>密码是：<code>有志者事竟成</code>
 <ul>
 <li>解压得到一个 pdf 文件<br />
-![pdf](/img/post/2021 红明谷 Misc Writeup/pdf.png)</li>
+![pdf](&lt;/img/post/2021 红明谷 Misc Writeup/pdf.png&gt;)</li>
 </ul>
 </li>
 <li>删除图片，得到图片下的 flag<br />
-![pdf2](/img/post/2021 红明谷 Misc Writeup/pdf2.png)</li>
+![pdf2](&lt;/img/post/2021 红明谷 Misc Writeup/pdf2.png&gt;)</li>
 </ul>
 </li>
 </ul>
@@ -390,7 +390,7 @@
 <ul>
 <li>
 <p>用 WinRAR 打开就报错，解压还需要密码……应该是使用了伪加密——然而，一般伪加密不是对于ZIP而言的么？<br />
-![winrar](/img/post/2021 红明谷 Misc Writeup/winrar.png)</p>
+![winrar](&lt;/img/post/2021 红明谷 Misc Writeup/winrar.png&gt;)</p>
 <ul>
 <li>看了<a target="_blank" rel="noopener" href="https://l1near.top/index.php/2021/03/15/97.html#comment-174">L1near 师傅的官方 writeup</a> 后，需要修改 RAR 第 24 字节处（对应 <code>PASSWORD_ENCRYPTED</code>）从1改为0就可以正常打开文件了/把第24字节的后面一个4改成0也可以</li>
 <li>然而，即便是使用了 010editor 的模板也没有解析处这里对应 <code>PASSWORD_ENCRYPTED</code>，看官方 writeup 应该是 RAR 版本问题</li>
@@ -412,8 +412,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -jar .\BlindWatermark.jar decode -c .\bingbing.jpg clue.jpg<br></code></pre></td></tr></table></figure>
 <ul>
 <li>Java 盲水印的工具：<a target="_blank" rel="noopener" href="https://github.com/ww23/BlindWatermark">BlindWatermark</a><br />
-![](/img/post/2021 红明谷 Misc Writeup/bingbing.png)<br />
-![](/img/post/2021 红明谷 Misc Writeup/blindwatermark.png)</li>
+![bingbing](&lt;/img/post/2021 红明谷 Misc Writeup/bingbing.png&gt;)<br />
+![blindwatermark](&lt;/img/post/2021 红明谷 Misc Writeup/blindwatermark.png&gt;)</li>
 </ul>
 </li>
 <li>
@@ -421,7 +421,7 @@
 </li>
 <li>
 <p>打开压缩包，获得 <code>bingbing.pcapng</code><br />
-![bingbingpcap](/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png)</p>
+![bingbingpcap](&lt;/img/post/2021 红明谷 Misc Writeup/bingbingpcap.png&gt;)</p>
 </li>
 <li>
 <p>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></p>
@@ -447,8 +447,8 @@
 <p>解法</p>
 <ul>
 <li>追踪TCP流，得到如下文本<br />
-![wireshark](/img/post/2021 红明谷 Misc Writeup/wireshark.png)<br />
-![wireshark2](/img/post/2021 红明谷 Misc Writeup/wireshark2.png)</li>
+![wireshark](&lt;/img/post/2021 红明谷 Misc Writeup/wireshark.png&gt;)<br />
+![wireshark2](&lt;/img/post/2021 红明谷 Misc Writeup/wireshark2.png&gt;)</li>
 <li>明显是词频统计，哈夫曼编码</li>
 <li>payload如下：</li>
 </ul>

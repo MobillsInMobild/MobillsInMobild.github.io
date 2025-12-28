@@ -1,2 +1,1030 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="auto"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png"><link rel="icon" href="/img/favicon/favicon.png"><link rel="canonical" href="https://justloseit.top/NetworkX简明教程/"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="Mobilis In Mobili"><meta name="keywords" content=""><meta name="description" content="看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询"><meta property="og:type" content="article"><meta property="og:title" content="NetworkX简明教程"><meta property="og:url" content="https://justloseit.top/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/index.html"><meta property="og:site_name" content="动中之动"><meta property="og:description" content="看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://justloseit.top/img/index/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.jpg"><meta property="article:published_time" content="2020-03-04T04:55:25.000Z"><meta property="article:modified_time" content="2022-11-21T12:46:21.302Z"><meta property="article:author" content="Mobilis In Mobili"><meta property="article:tag" content="NetworkX"><meta property="article:tag" content="Python"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://justloseit.top/img/index/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.jpg"><title>NetworkX简明教程 - 动中之动</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"justloseit.top",root:"/",version:"1.9.8",typing:{enable:!0,typeSpeed:60,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"right",visible:"hover",icon:"§"},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:null,google:{measurement_id:null},tencent:{sid:null,cid:null},leancloud:{app_id:"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz",app_key:"x2YseXJIHmvnsM4v9y9UAlvu",server_url:"https://sni2xnrh.lc-cn-n1-shared.com",path:"window.location.pathname",ignore_local:!1},umami:{src:null,website_id:null,domains:null,start_time:"2024-01-01T00:00:00.000Z",token:null,api_server:null}},search_path:"/local-search.xml",include_content_in_search:!0};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="动中之动" type="application/atom+xml">
-</head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>Mobilis In Mobili</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/" target="_self"><i class="iconfont icon-home-fill"></i> <span>首页</span></a></li><li class="nav-item"><a class="nav-link" href="/archives/" target="_self"><i class="iconfont icon-archive-fill"></i> <span>归档</span></a></li><li class="nav-item"><a class="nav-link" href="/categories/" target="_self"><i class="iconfont icon-category-fill"></i> <span>分类</span></a></li><li class="nav-item"><a class="nav-link" href="/tags/" target="_self"><i class="iconfont icon-tags-fill"></i> <span>标签</span></a></li><li class="nav-item"><a class="nav-link" href="/about/" target="_self"><i class="iconfont icon-user-fill"></i> <span>关于</span></a></li><li class="nav-item"><a class="nav-link" href="/links/" target="_self"><i class="iconfont icon-link-fill"></i> <span>友链</span></a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search"><i class="iconfont icon-search"></i></a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle"><i class="iconfont icon-dark" id="color-toggle-icon"></i></a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/banner/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.png) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="NetworkX简明教程"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> Mobilis In Mobili </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2020-03-04 12:55" pubdate>2020年3月4日 下午</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 2.4k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 21 分钟 </span><span id="leancloud-page-views-container" class="post-meta" style="display:none"><i class="iconfont icon-eye" aria-hidden="true"></i> <span id="leancloud-page-views"></span> 次</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 id="seo-header">NetworkX简明教程</h1><p id="updated-time" class="note note-info">本文最后更新于 2022年11月21日 晚上</p><div class="markdown-body"><p>看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询</p><span id="more"></span><h1 id="networkx简明教程"><a class="markdownIt-Anchor" href="#networkx简明教程"></a> NetworkX简明教程</h1><h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2><h3 id="什么是networkx"><a class="markdownIt-Anchor" href="#什么是networkx"></a> 什么是NetworkX？</h3><p>NetworkX是用于研究图论和网络的Python库，内置了常用的图与复杂网络分析算法，可以方便的进行复杂网络数据分析、仿真建模等工作。</p><h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3><!-- more --><p>anaconda中内置有NetworkX，其他可以用下述命令进行安装</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install networkx<br></code></pre></td></tr></table></figure><h2 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h2><p>导入NetworkX库</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> network <span class="hljs-keyword">as</span> nx <br></code></pre></td></tr></table></figure><h3 id="添加和删除"><a class="markdownIt-Anchor" href="#添加和删除"></a> 添加和删除</h3><h4 id="创建和清除图"><a class="markdownIt-Anchor" href="#创建和清除图"></a> 创建和清除图</h4><p>下列语句用来创建一个没有节点和边的空图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">G = nx.Graph()<span class="hljs-comment"># 无多重边无向图</span><br>G = nx.DiGraph()<span class="hljs-comment"># 无多重边有向图</span><br>G = nx.MultiGraph()<span class="hljs-comment"># 有多重边无向图</span><br>G = nx.MultiDiGraph()<span class="hljs-comment"># 有多重边有向图</span><br></code></pre></td></tr></table></figure><p>下列语句用来清除图</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">G.clear()<br></code></pre></td></tr></table></figure><h4 id="添加和删除节点"><a class="markdownIt-Anchor" href="#添加和删除节点"></a> 添加和删除节点</h4><p>下列语句均可以添加节点</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一个节点a</span><br>G.add_node(<span class="hljs-string">&#x27;a&#x27;</span>)<br><span class="hljs-comment"># 添加节点列表</span><br>G.add_nodes_from([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-comment"># 添加node的Iterable对象</span><br>N = nx.path_graph(<span class="hljs-number">10</span>)<br>G.add_nodes_from(N)<br><span class="hljs-comment"># 添加其他的图表、图形作为节点</span><br>H = nx.path_graph(<span class="hljs-number">10</span>)  <span class="hljs-comment"># 返回由10个节点的无向图</span><br>G.add_nodes_from(H)<br></code></pre></td></tr></table></figure><p>※：注意下列两种语句的区别</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.add_node(<span class="hljs-string">&quot;spam&quot;</span>)        <span class="hljs-comment"># 添加节点&quot;spam&quot;</span><br>G.add_nodes_from(<span class="hljs-string">&quot;spam&quot;</span>)  <span class="hljs-comment"># 添加4个节点: &#x27;s&#x27;, &#x27;p&#x27;, &#x27;a&#x27;, &#x27;m&#x27;</span><br></code></pre></td></tr></table></figure><p>下列语句用来删除节点</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.remove_node(<span class="hljs-number">1</span>)    <span class="hljs-comment"># 删除指定节点</span><br>G.remove_nodes_from([<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-string">&#x27;c&#x27;</span>,<span class="hljs-string">&#x27;d&#x27;</span>,<span class="hljs-string">&#x27;e&#x27;</span>])    <span class="hljs-comment"># 删除集合中的节点</span><br></code></pre></td></tr></table></figure><h4 id="添加和删除边"><a class="markdownIt-Anchor" href="#添加和删除边"></a> 添加和删除边</h4><p>下列语句均可以添加边</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一条从节点11到节点12的边</span><br>F.add_edge(<span class="hljs-number">11</span>,<span class="hljs-number">12</span>) <br><span class="hljs-comment"># 添加边列表</span><br>G.add_edges_from([(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)])<br><span class="hljs-comment"># 利用包裹传参添加边</span><br>e=(<span class="hljs-number">13</span>,<span class="hljs-number">14</span>)        <span class="hljs-comment"># e是一个元组</span><br>F.add_edge(*e) <span class="hljs-comment"># 这是python中解包裹的过程</span><br><span class="hljs-comment"># 利用ebunch (container of edges) 添加边</span><br>H = nx.path_graph(<span class="hljs-number">10</span>)       <span class="hljs-comment"># 返回由10个节点的无向图</span><br>F.add_edges_from(H.edges()) <span class="hljs-comment"># 不能写作F.add_edges_from(H) ※:注意和节点区分</span><br></code></pre></td></tr></table></figure><p>下列语句用来删除边</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.remove_edge() <span class="hljs-comment"># 删除单个边</span><br>G.remove_edges_from(ebunch) <span class="hljs-comment"># 删除ebunch中指定的所有边</span><br></code></pre></td></tr></table></figure><h4 id="添加一个闭环"><a class="markdownIt-Anchor" href="#添加一个闭环"></a> 添加一个闭环</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一个节点为f,g,h,j的闭环</span><br>G.add_cycle([<span class="hljs-string">&#x27;f&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>, <span class="hljs-string">&#x27;h&#x27;</span>, <span class="hljs-string">&#x27;j&#x27;</span>]) <br></code></pre></td></tr></table></figure><h3 id="访问"><a class="markdownIt-Anchor" href="#访问"></a> 访问</h3><h4 id="对节点相关的访问"><a class="markdownIt-Anchor" href="#对节点相关的访问"></a> 对节点相关的访问</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">nodes(G)  <span class="hljs-comment"># 在图节点上返回一个迭代器</span><br>number_of_nodes(G)  <span class="hljs-comment"># 返回图中节点的数量</span><br>all_neighbors(graph, node)  <span class="hljs-comment"># 返回图中节点的所有邻居</span><br>non_neighbors(graph, node)  <span class="hljs-comment"># 返回图中没有邻居的节点</span><br>common_neighbors(G, u, v)  <span class="hljs-comment"># 返回图中两个节点的公共邻居</span><br></code></pre></td></tr></table></figure><h4 id="对边相关的访问"><a class="markdownIt-Anchor" href="#对边相关的访问"></a> 对边相关的访问</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">edges(G[, nbunch]) <span class="hljs-comment"># 返回与nbunch中的节点相关的边的视图</span><br>number_of_edges(G) <span class="hljs-comment"># 返回图中边的数目</span><br>non_edges(graph) <span class="hljs-comment"># 返回图中不存在的边</span><br>G[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] <span class="hljs-comment"># 用下标访问边</span><br>G.edges[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>] <span class="hljs-comment"># 用下标访问边</span><br></code></pre></td></tr></table></figure><h4 id="对邻近的访问"><a class="markdownIt-Anchor" href="#对邻近的访问"></a> 对邻近的访问</h4><p>※：对于无向图，邻接迭代可以看到每个边两次。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">G.adjacency() <span class="hljs-comment"># 返回所有节点的迭代器</span><br></code></pre></td></tr></table></figure><p>eg：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">G = nx.path_graph(<span class="hljs-number">4</span>)  <span class="hljs-comment"># or DiGraph, MultiGraph, MultiDiGraph, etc</span><br>[(n, nbrdict) <span class="hljs-keyword">for</span> n, nbrdict <span class="hljs-keyword">in</span> G.adjacency()]<br><span class="hljs-comment"># [(0, &#123;1: &#123;&#125;&#125;), (1, &#123;0: &#123;&#125;, 2: &#123;&#125;&#125;), (2, &#123;1: &#123;&#125;, 3: &#123;&#125;&#125;), (3, &#123;2: &#123;&#125;&#125;)]</span><br></code></pre></td></tr></table></figure><h3 id="属性"><a class="markdownIt-Anchor" href="#属性"></a> 属性</h3><h4 id="图的属性"><a class="markdownIt-Anchor" href="#图的属性"></a> 图的属性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#图的属性</span><br><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;Monday&#x27;</span>)    <span class="hljs-comment">#可以在创建图时分配图的属性</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br>G.graph[<span class="hljs-string">&#x27;day&#x27;</span>] = <span class="hljs-string">&#x27;Friday&#x27;</span>     <span class="hljs-comment">#也可以修改已有的属性</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br>G.graph[<span class="hljs-string">&#x27;name&#x27;</span>] = <span class="hljs-string">&#x27;time&#x27;</span>      <span class="hljs-comment">#可以随时添加新的属性到图中</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br><span class="hljs-comment">#输出：</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Monday&#x27;&#125;</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Friday&#x27;&#125;</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Friday&#x27;, &#x27;name&#x27;: &#x27;time&#x27;&#125;</span><br></code></pre></td></tr></table></figure><h4 id="节点属性"><a class="markdownIt-Anchor" href="#节点属性"></a> 节点属性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#节点的属性</span><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;Monday&#x27;</span>)<br>G.add_node(<span class="hljs-number">1</span>, index=<span class="hljs-string">&#x27;1th&#x27;</span>)             <span class="hljs-comment">#在添加节点时分配节点属性</span><br><span class="hljs-comment"># print(G.node(data=True))  #TypeError: &#x27;dict&#x27; object is not callable</span><br><span class="hljs-built_in">print</span>(G.node) <br><span class="hljs-comment">#&#123;1: &#123;&#x27;index&#x27;: &#x27;1th&#x27;&#125;&#125;</span><br><br><br>G.node[<span class="hljs-number">1</span>][<span class="hljs-string">&#x27;index&#x27;</span>] = <span class="hljs-string">&#x27;0th&#x27;</span>             <span class="hljs-comment">#通过G.node[][]来添加或修改属性</span><br><span class="hljs-built_in">print</span>(G.node)<br><span class="hljs-comment"># &#123;1: &#123;&#x27;index&#x27;: &#x27;0th&#x27;&#125;&#125;</span><br><br><br>G.add_nodes_from([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], index=<span class="hljs-string">&#x27;2/3th&#x27;</span>) <span class="hljs-comment">#从集合中添加节点时分配属性</span><br><span class="hljs-built_in">print</span>(G.node)<br><span class="hljs-comment"># &#123;1: &#123;&#x27;index&#x27;: &#x27;0th&#x27;&#125;, 2: &#123;&#x27;index&#x27;: &#x27;2/3th&#x27;&#125;, 3: &#123;&#x27;index&#x27;: &#x27;2/3th&#x27;&#125;&#125;</span><br></code></pre></td></tr></table></figure><h4 id="边的属性"><a class="markdownIt-Anchor" href="#边的属性"></a> 边的属性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#边的属性</span><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;manday&#x27;</span>)<br>G.add_edge(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,weight=<span class="hljs-number">10</span>)                    <span class="hljs-comment">#在添加边时分配属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment">#[(1, 2, &#123;&#x27;weight&#x27;: 10&#125;)]</span><br><br>G.add_edges_from([(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>), (<span class="hljs-number">4</span>,<span class="hljs-number">5</span>)], <span class="hljs-built_in">len</span>=<span class="hljs-number">22</span>)     <span class="hljs-comment">#从集合中添加边时分配属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-string">&#x27;len&#x27;</span>))<br><span class="hljs-comment"># [(1, 2, None), (1, 3, 22), (4, 5, 22)]</span><br><br>G.add_edges_from([(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,&#123;<span class="hljs-string">&#x27;hight&#x27;</span>:<span class="hljs-number">10</span>&#125;),(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,&#123;<span class="hljs-string">&#x27;high&#x27;</span>:<span class="hljs-string">&#x27;unknow&#x27;</span>&#125;)])<br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment"># [(1, 2, &#123;&#x27;weight&#x27;: 10&#125;), (1, 3, &#123;&#x27;len&#x27;: 22&#125;), (1, 4, &#123;&#x27;high&#x27;: &#x27;unknow&#x27;&#125;), (3, 4, &#123;&#x27;hight&#x27;: 10&#125;), (4, 5, &#123;&#x27;len&#x27;: 22&#125;)]</span><br><br><br>G[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>][<span class="hljs-string">&#x27;weight&#x27;</span>] = <span class="hljs-number">100000</span>                   <span class="hljs-comment">#通过下标来添加或修改属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment"># [(1, 2, &#123;&#x27;weight&#x27;: 100000&#125;), (1, 3, &#123;&#x27;len&#x27;: 22&#125;), (1, 4, &#123;&#x27;high&#x27;: &#x27;unknow&#x27;&#125;), (3, 4, &#123;&#x27;hight&#x27;: 10&#125;), (4, 5, &#123;&#x27;len&#x27;: 22&#125;)]</span><br></code></pre></td></tr></table></figure><p>※：特殊属性 <code>weight</code> 应该是数字，因为它被需要加权边缘的算法使用</p><h3 id="有向图"><a class="markdownIt-Anchor" href="#有向图"></a> 有向图</h3><h4 id="有向图和无向图互转"><a class="markdownIt-Anchor" href="#有向图和无向图互转"></a> 有向图和无向图互转</h4><p>有些算法只适用于有向图，而另一些算法不适用于有向图。实际上，将有向图和无向图集中在一起的趋势是危险的。所以有必要进行两者的相互转换。</p><p>下列语句和两种图的互转有关</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#有向图转化成无向图</span><br><br>H=DG.to_undirected()<br><span class="hljs-comment">#或者</span><br>H=nx.Graph(DG)<br><br><span class="hljs-comment">#无向图转化成有向图</span><br><br>F = H.to_directed()<br><span class="hljs-comment">#或者</span><br>F = nx.DiGraph(H)<br></code></pre></td></tr></table></figure><h4 id="有向图添加-删除和访问"><a class="markdownIt-Anchor" href="#有向图添加-删除和访问"></a> 有向图添加、删除和访问</h4><p>有向图的添加、删除和访问和无向图基本上是一样的，在这里不做赘述。</p><h3 id="图形分析"><a class="markdownIt-Anchor" href="#图形分析"></a> 图形分析</h3><h4 id="介数中心性"><a class="markdownIt-Anchor" href="#介数中心性"></a> 介数中心性</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">betweenness_centrality(G,k=<span class="hljs-literal">None</span>,normalized=<span class="hljs-literal">True</span>,weight=<span class="hljs-literal">None</span>,endpoints=<span class="hljs-literal">False</span>, seed=<span class="hljs-literal">None</span>)<br><span class="hljs-comment">#参数说明</span><br><span class="hljs-comment">#G--网络图。</span><br><span class="hljs-comment">#k--如果k不是“无”，则使用k节点样本来估计中间值。k的值&lt;=n，其中n是图中的节点数。值越大，近似值越高。</span><br><span class="hljs-comment">#归一化--如果为真，则中间值通过 2/((n-1)(n-2)) 对于图，以及 1/((n-1)(n-2)) 对于有向图，其中 n 是g中的节点数。</span><br><span class="hljs-comment">#权重--如果没有，则认为所有边权重相等。否则将保留用作权重的边缘属性的名称。</span><br><span class="hljs-comment">#端点--如果为真，则在最短路径计数中包括端点。</span><br><span class="hljs-comment">#seed--随机数生成状态的指示器。见 Randomness . 请注意，这仅在k不是“无”时使用。</span><br></code></pre></td></tr></table></figure><p>更多的算法可见下列站点：</p><ul><li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/reference/algorithms/index.html">https://www.osgeo.cn/networkx/reference/algorithms/index.html</a></li><li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/reference/algorithms/index.html">https://networkx.github.io/documentation/stable/reference/algorithms/index.html</a></li></ul><h3 id="图片绘制"><a class="markdownIt-Anchor" href="#图片绘制"></a> 图片绘制</h3><p>可以利用matplotlib库进行图形可视化，常见的语句如下：</p><table cellspacing="0" border="0"><colgroup width="462"></colgroup><colgroup width="230"></colgroup><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">draw&nbsp;(g)&nbsp;[,&nbsp;pos,&nbsp;ax]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#29992;matplotlib&#32472;&#21046;&#22270;g&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">draw_networkx&nbsp;(g)&nbsp;[,&nbsp;pos,&nbsp;arrows,&nbsp;with_labels]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#20351;&#29992;matplotlib&#32472;&#21046;&#22270;g&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">draw_networkx_nodes&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;nodelist,&nbsp;...]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#22270;G&#30340;&#33410;&#28857;&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">draw_networkx_edges&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;edgelist,&nbsp;...]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#22270;G&#30340;&#36793;&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">draw_networkx_labels&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;labels,&nbsp;...]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#22312;&#22270;G&#19978;&#32472;&#21046;&#33410;&#28857;&#26631;&#31614;&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">draw_networkx_edge_labels&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;...]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#36793;&#32536;&#26631;&#31614;&#12290;</font></td></tr></table>除此之外，也可以通过下列语句进行指定节点的**布局**<table cellspacing="0" border="0"><colgroup width="444"></colgroup><colgroup width="246"></colgroup><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">bipartite_layout&nbsp;(g,node)&nbsp;[,&nbsp;align,&nbsp;scale,&nbsp;...]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#23558;&#33410;&#28857;&#23450;&#20301;&#22312;&#20004;&#26465;&#30452;&#32447;&#19978;&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">circular_layout&nbsp;(g)&nbsp;[,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#22312;&#19968;&#20010;&#22278;&#29615;&#19978;&#22343;&#21248;&#20998;&#24067;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">planar_layout&nbsp;(g)&nbsp;[,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#27809;&#26377;&#36793;&#32536;&#20132;&#28857;&#30340;&#33410;&#28857;&#20998;&#24067;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="37" align="left" valign="middle"><font color="#000000">random_layout&nbsp;(g)&nbsp;[,&nbsp;center,&nbsp;dim,&nbsp;seed]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#22312;&#21333;&#20301;&#27491;&#26041;&#24418;&#20869;&#22343;&#21248;&#38543;&#26426;&#23450;&#20301;&#33410;&#28857;&#12290;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">shell_layout&nbsp;(g)&nbsp;[,&nbsp;nlist,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#22312;&#21516;&#24515;&#22278;&#19978;&#20998;&#24067;</font></td></tr></table><p>下列给出了一些图片绘制中可能用到的<strong>参数</strong></p><table cellspacing="0" border="0"><colgroup width="444"></colgroup><colgroup width="700"></colgroup><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="37" align="left" valign="middle"><font color="#000000">pos(dictionary, optional)</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#22270;&#20687;&#30340;&#24067;&#23616;&#65292;&#21487;&#36873;&#25321;&#21442;&#25968;&#65307;&#22914;&#26524;&#26159;&#23383;&#20856;&#20803;&#32032;&#65292;&#21017;&#33410;&#28857;&#26159;&#20851;&#38190;&#23383;&#65292;&#20301;&#32622;&#26159;&#23545;&#24212;&#30340;&#20540;&#12290;&#22914;&#26524;&#27809;&#26377;&#25351;&#26126;&#65292;&#21017;&#20250;&#26159;spring&#30340;&#24067;&#23616;&#65307;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">arrows</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#24067;&#23572;&#20540;&#65292;&#40664;&#35748;True; &#23545;&#20110;&#26377;&#21521;&#22270;&#65292;&#22914;&#26524;&#26159;True&#21017;&#20250;&#30011;&#20986;&#31661;&#22836;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">with_labels:</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26159;&#21542;&#24102;&#26631;&#31614;&#65288;&#40664;&#35748;&#20026;True&#65289;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">ax&#65306;</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#22352;&#26631;&#35774;&#32622;&#65292;&#21487;&#36873;&#25321;&#21442;&#25968;&#65307;&#20381;&#29031;&#35774;&#32622;&#22909;&#30340;Matplotlib&#22352;&#26631;&#30011;&#22270;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">nodelist</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#19968;&#20010;&#21015;&#34920;&#65292;&#40664;&#35748;G.nodes(); &#32473;&#23450;&#33410;&#28857;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">edgelist</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#19968;&#20010;&#21015;&#34920;&#65292;&#40664;&#35748;G.edges();&#32473;&#23450;&#36793;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">node_siz</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#25351;&#23450;&#33410;&#28857;&#30340;&#23610;&#23544;&#22823;&#23567;(&#40664;&#35748;&#26159;300)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">node_color</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#25351;&#23450;&#33410;&#28857;&#30340;&#39068;&#33394; (&#40664;&#35748;&#26159;&#32418;&#33394;&#65292;&#21487;&#20197;&#29992;&#23383;&#31526;&#20018;&#31616;&#21333;&#26631;&#35782;&#39068;&#33394;&#65292;&#20855;&#20307;&#21487;&#26597;&#30475;&#25163;&#20876;)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">node_shape:</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#30340;&#24418;&#29366;&#65288;&#40664;&#35748;&#26159;&#22278;&#24418;&#65292;&#29992;&#23383;&#31526;&#20018;&rsquo;o&rsquo;&#26631;&#35782;&#65292;&#20855;&#20307;&#21487;&#26597;&#30475;&#25163;&#20876;&#65289;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">alpha</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#36879;&#26126;&#24230; (&#40664;&#35748;&#26159;1.0&#65292;&#19981;&#36879;&#26126;&#65292;0&#20026;&#23436;&#20840;&#36879;&#26126;)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">cmap</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">Matplotlib&#30340;&#39068;&#33394;&#26144;&#23556;&#65292;&#40664;&#35748;None; &#29992;&#26469;&#34920;&#31034;&#33410;&#28857;&#23545;&#24212;&#30340;&#24378;&#24230;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">vmin,vmax</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#28014;&#28857;&#25968;&#65292;&#40664;&#35748;None;&#33410;&#28857;&#39068;&#33394;&#26144;&#23556;&#23610;&#24230;&#30340;&#26368;&#22823;&#21644;&#26368;&#23567;&#20540;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">linewidths</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">[None|&#26631;&#37327;|&#19968;&#21015;&#20540;];&#22270;&#20687;&#36793;&#30028;&#30340;&#32447;&#23485;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">width</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#23485;&#24230; (&#40664;&#35748;&#20026;1.0)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">edge_color</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#39068;&#33394;(&#40664;&#35748;&#20026;&#40657;&#33394;)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">edge_cmap</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">Matplotlib&#30340;&#39068;&#33394;&#26144;&#23556;&#65292;&#40664;&#35748;None; &#29992;&#26469;&#34920;&#31034;&#36793;&#23545;&#24212;&#30340;&#24378;&#24230;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">edge_vmin,edge_vmax</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#28014;&#28857;&#25968;&#65292;&#40664;&#35748;None;&#36793;&#30340;&#39068;&#33394;&#26144;&#23556;&#23610;&#24230;&#30340;&#26368;&#22823;&#21644;&#26368;&#23567;&#20540;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">style</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#26679;&#24335;(&#40664;&#35748;&#20026;&#23454;&#29616;&#65292;&#21487;&#36873;&#65306; solid|dashed|dotted,dashdot)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">labels</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#23383;&#20856;&#20803;&#32032;&#65292;&#40664;&#35748;None;&#25991;&#26412;&#24418;&#24335;&#30340;&#33410;&#28857;&#26631;&#31614;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">font_size</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26631;&#31614;&#23383;&#20307;&#22823;&#23567; (&#40664;&#35748;&#20026;12)</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">font_color</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26631;&#31614;&#23383;&#20307;&#39068;&#33394;&#65288;&#40664;&#35748;&#20026;&#40657;&#33394;&#65289;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">font_weight</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#23383;&#31526;&#20018;&#65292;&#40664;&#35748;&rsquo;normal&rsquo;</font></td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" height="18" align="left" valign="middle"><font color="#000000">font_family</font></td><td style="border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;border-right:1px solid #000" align="left" valign="middle"><font face="DejaVu Sans Mono" color="#000000">&#23383;&#31526;&#20018;&#65292;&#40664;&#35748;&rsquo;sans-serif&rsquo;</font></td></tr></table><h3 id="图表读写"><a class="markdownIt-Anchor" href="#图表读写"></a> 图表读写</h3><p>详见下列站点：</p><ul><li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/reference/readwrite/index.html">https://www.osgeo.cn/networkx/reference/readwrite/index.html</a></li><li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">https://networkx.github.io/documentation/stable/reference/readwrite/index.html</a></li></ul><h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2><ul><li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/index.html">https://www.osgeo.cn/networkx/index.html</a></li><li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/">https://networkx.github.io/documentation/stable/</a></li><li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yyl424525/article/details/102539703">https://blog.csdn.net/yyl424525/article/details/102539703</a></li></ul></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a></span></span></div><div class="post-meta"><i class="iconfont icon-tags"></i> <a href="/tags/NetworkX/" class="print-no-link">#NetworkX</a> <a href="/tags/Python/" class="print-no-link">#Python</a></div></div><div class="license-box my-3"><div class="license-title"><div>NetworkX简明教程</div><div>https://justloseit.top/NetworkX简明教程/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>Mobilis In Mobili</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2020年3月4日</div></div><div class="license-meta-item license-meta-date"><div>更新于</div><div>2022年11月21日</div></div><div class="license-meta-item"><div>许可协议</div><div><a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-cc-by"></i> </span></a><a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-cc-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E5%A4%87%E5%BF%98/" title="复杂网络分析备忘"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">复杂网络分析备忘</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98/" title="数字电路与系统备忘"><span class="hidden-mobile">数字电路与系统备忘</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var i=Object.assign({appId:"t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz",appKey:"BpNeeVt0v3tKAbF1L6RTf94X",path:"window.location.pathname",placeholder:"说点什么",avatar:"hide",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!1,serverURLs:"https://t4w421ai.lc-cn-n1-shared.com",emojiCDN:null,emojiMaps:null,enableQQ:!1},{el:"#valine",path:window.location.pathname});new Valine(i),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var i="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(i),Fluid.plugins.fancyBox(i)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i> <span>目录</span></p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a></div><div class="statistics"><span id="leancloud-site-pv-container" style="display:none">总访问量 <span id="leancloud-site-pv"></span> 次 </span><span id="leancloud-site-uv-container" style="display:none">总访客数 <span id="leancloud-site-uv"></span> 人</span></div><div class="beian"><span><a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">京ICP备2021006744号-1</a> </a></span><span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802034644" rel="nofollow noopener" class="beian-police" target="_blank"><span style="visibility:hidden;width:0">|</span> <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"> <span>京公网安备 11010802034644号</span></a></span></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script defer src="/js/leancloud.js"></script><script src="/js/local-search.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript></body></html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png">
+  <link rel="icon" href="/img/favicon/favicon.png">
+  
+    <link rel="canonical" href="https://justloseit.top/NetworkX简明教程/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mobilis In Mobili">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetworkX简明教程">
+<meta property="og:url" content="https://justloseit.top/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="动中之动">
+<meta property="og:description" content="看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://justloseit.top/img/index/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.jpg">
+<meta property="article:published_time" content="2020-03-04T04:55:25.000Z">
+<meta property="article:modified_time" content="2022-11-21T12:46:21.302Z">
+<meta property="article:author" content="Mobilis In Mobili">
+<meta property="article:tag" content="NetworkX">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://justloseit.top/img/index/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.jpg">
+  
+  
+  
+  <title>NetworkX简明教程 - 动中之动</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="动中之动" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mobilis In Mobili</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/NetworkX%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="NetworkX简明教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mobilis In Mobili
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-03-04 12:55" pubdate>
+          2020年3月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">NetworkX简明教程</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2022年11月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>看完能够轻松上手的 NetworkX 简明教程，也能够用于日常使用的快捷查询</p>
+<span id="more"></span>
+<h1 id="networkx简明教程"><a class="markdownIt-Anchor" href="#networkx简明教程"></a> NetworkX简明教程</h1>
+<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<h3 id="什么是networkx"><a class="markdownIt-Anchor" href="#什么是networkx"></a> 什么是NetworkX？</h3>
+<p>NetworkX是用于研究图论和网络的Python库，内置了常用的图与复杂网络分析算法，可以方便的进行复杂网络数据分析、仿真建模等工作。</p>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<!-- more -->
+<p>anaconda中内置有NetworkX，其他可以用下述命令进行安装</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install networkx<br></code></pre></td></tr></table></figure>
+<h2 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h2>
+<p>导入NetworkX库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> network <span class="hljs-keyword">as</span> nx <br></code></pre></td></tr></table></figure>
+<h3 id="添加和删除"><a class="markdownIt-Anchor" href="#添加和删除"></a> 添加和删除</h3>
+<h4 id="创建和清除图"><a class="markdownIt-Anchor" href="#创建和清除图"></a> 创建和清除图</h4>
+<p>下列语句用来创建一个没有节点和边的空图</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">G = nx.Graph()<span class="hljs-comment"># 无多重边无向图</span><br>G = nx.DiGraph()<span class="hljs-comment"># 无多重边有向图</span><br>G = nx.MultiGraph()<span class="hljs-comment"># 有多重边无向图</span><br>G = nx.MultiDiGraph()<span class="hljs-comment"># 有多重边有向图</span><br></code></pre></td></tr></table></figure>
+<p>下列语句用来清除图</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">G.clear()<br></code></pre></td></tr></table></figure>
+<h4 id="添加和删除节点"><a class="markdownIt-Anchor" href="#添加和删除节点"></a> 添加和删除节点</h4>
+<p>下列语句均可以添加节点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一个节点a</span><br>G.add_node(<span class="hljs-string">&#x27;a&#x27;</span>)<br><span class="hljs-comment"># 添加节点列表</span><br>G.add_nodes_from([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-comment"># 添加node的Iterable对象</span><br>N = nx.path_graph(<span class="hljs-number">10</span>)<br>G.add_nodes_from(N)<br><span class="hljs-comment"># 添加其他的图表、图形作为节点</span><br>H = nx.path_graph(<span class="hljs-number">10</span>)  <span class="hljs-comment"># 返回由10个节点的无向图</span><br>G.add_nodes_from(H)<br></code></pre></td></tr></table></figure>
+<p>※：注意下列两种语句的区别</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.add_node(<span class="hljs-string">&quot;spam&quot;</span>)        <span class="hljs-comment"># 添加节点&quot;spam&quot;</span><br>G.add_nodes_from(<span class="hljs-string">&quot;spam&quot;</span>)  <span class="hljs-comment"># 添加4个节点: &#x27;s&#x27;, &#x27;p&#x27;, &#x27;a&#x27;, &#x27;m&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>下列语句用来删除节点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.remove_node(<span class="hljs-number">1</span>)    <span class="hljs-comment"># 删除指定节点</span><br>G.remove_nodes_from([<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-string">&#x27;c&#x27;</span>,<span class="hljs-string">&#x27;d&#x27;</span>,<span class="hljs-string">&#x27;e&#x27;</span>])    <span class="hljs-comment"># 删除集合中的节点</span><br></code></pre></td></tr></table></figure>
+<h4 id="添加和删除边"><a class="markdownIt-Anchor" href="#添加和删除边"></a> 添加和删除边</h4>
+<p>下列语句均可以添加边</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一条从节点11到节点12的边</span><br>F.add_edge(<span class="hljs-number">11</span>,<span class="hljs-number">12</span>) <br><span class="hljs-comment"># 添加边列表</span><br>G.add_edges_from([(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">3</span>)])<br><span class="hljs-comment"># 利用包裹传参添加边</span><br>e=(<span class="hljs-number">13</span>,<span class="hljs-number">14</span>)        <span class="hljs-comment"># e是一个元组</span><br>F.add_edge(*e) <span class="hljs-comment"># 这是python中解包裹的过程</span><br><span class="hljs-comment"># 利用ebunch (container of edges) 添加边</span><br>H = nx.path_graph(<span class="hljs-number">10</span>)       <span class="hljs-comment"># 返回由10个节点的无向图</span><br>F.add_edges_from(H.edges()) <span class="hljs-comment"># 不能写作F.add_edges_from(H) ※:注意和节点区分</span><br></code></pre></td></tr></table></figure>
+<p>下列语句用来删除边</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">G.remove_edge() <span class="hljs-comment"># 删除单个边</span><br>G.remove_edges_from(ebunch) <span class="hljs-comment"># 删除ebunch中指定的所有边</span><br></code></pre></td></tr></table></figure>
+<h4 id="添加一个闭环"><a class="markdownIt-Anchor" href="#添加一个闭环"></a> 添加一个闭环</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 添加一个节点为f,g,h,j的闭环</span><br>G.add_cycle([<span class="hljs-string">&#x27;f&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>, <span class="hljs-string">&#x27;h&#x27;</span>, <span class="hljs-string">&#x27;j&#x27;</span>]) <br></code></pre></td></tr></table></figure>
+<h3 id="访问"><a class="markdownIt-Anchor" href="#访问"></a> 访问</h3>
+<h4 id="对节点相关的访问"><a class="markdownIt-Anchor" href="#对节点相关的访问"></a> 对节点相关的访问</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">nodes(G)  <span class="hljs-comment"># 在图节点上返回一个迭代器</span><br>number_of_nodes(G)  <span class="hljs-comment"># 返回图中节点的数量</span><br>all_neighbors(graph, node)  <span class="hljs-comment"># 返回图中节点的所有邻居</span><br>non_neighbors(graph, node)  <span class="hljs-comment"># 返回图中没有邻居的节点</span><br>common_neighbors(G, u, v)  <span class="hljs-comment"># 返回图中两个节点的公共邻居</span><br></code></pre></td></tr></table></figure>
+<h4 id="对边相关的访问"><a class="markdownIt-Anchor" href="#对边相关的访问"></a> 对边相关的访问</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">edges(G[, nbunch]) <span class="hljs-comment"># 返回与nbunch中的节点相关的边的视图</span><br>number_of_edges(G) <span class="hljs-comment"># 返回图中边的数目</span><br>non_edges(graph) <span class="hljs-comment"># 返回图中不存在的边</span><br>G[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] <span class="hljs-comment"># 用下标访问边</span><br>G.edges[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>] <span class="hljs-comment"># 用下标访问边</span><br></code></pre></td></tr></table></figure>
+<h4 id="对邻近的访问"><a class="markdownIt-Anchor" href="#对邻近的访问"></a> 对邻近的访问</h4>
+<p>※：对于无向图，邻接迭代可以看到每个边两次。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">G.adjacency() <span class="hljs-comment"># 返回所有节点的迭代器</span><br></code></pre></td></tr></table></figure>
+<p>eg：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">G = nx.path_graph(<span class="hljs-number">4</span>)  <span class="hljs-comment"># or DiGraph, MultiGraph, MultiDiGraph, etc</span><br>[(n, nbrdict) <span class="hljs-keyword">for</span> n, nbrdict <span class="hljs-keyword">in</span> G.adjacency()]<br><span class="hljs-comment"># [(0, &#123;1: &#123;&#125;&#125;), (1, &#123;0: &#123;&#125;, 2: &#123;&#125;&#125;), (2, &#123;1: &#123;&#125;, 3: &#123;&#125;&#125;), (3, &#123;2: &#123;&#125;&#125;)]</span><br></code></pre></td></tr></table></figure>
+<h3 id="属性"><a class="markdownIt-Anchor" href="#属性"></a> 属性</h3>
+<h4 id="图的属性"><a class="markdownIt-Anchor" href="#图的属性"></a> 图的属性</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#图的属性</span><br><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;Monday&#x27;</span>)    <span class="hljs-comment">#可以在创建图时分配图的属性</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br>G.graph[<span class="hljs-string">&#x27;day&#x27;</span>] = <span class="hljs-string">&#x27;Friday&#x27;</span>     <span class="hljs-comment">#也可以修改已有的属性</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br>G.graph[<span class="hljs-string">&#x27;name&#x27;</span>] = <span class="hljs-string">&#x27;time&#x27;</span>      <span class="hljs-comment">#可以随时添加新的属性到图中</span><br><span class="hljs-built_in">print</span>(G.graph)<br><br><span class="hljs-comment">#输出：</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Monday&#x27;&#125;</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Friday&#x27;&#125;</span><br><span class="hljs-comment">#&#123;&#x27;day&#x27;: &#x27;Friday&#x27;, &#x27;name&#x27;: &#x27;time&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+<h4 id="节点属性"><a class="markdownIt-Anchor" href="#节点属性"></a> 节点属性</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#节点的属性</span><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;Monday&#x27;</span>)<br>G.add_node(<span class="hljs-number">1</span>, index=<span class="hljs-string">&#x27;1th&#x27;</span>)             <span class="hljs-comment">#在添加节点时分配节点属性</span><br><span class="hljs-comment"># print(G.node(data=True))  #TypeError: &#x27;dict&#x27; object is not callable</span><br><span class="hljs-built_in">print</span>(G.node) <br><span class="hljs-comment">#&#123;1: &#123;&#x27;index&#x27;: &#x27;1th&#x27;&#125;&#125;</span><br><br><br>G.node[<span class="hljs-number">1</span>][<span class="hljs-string">&#x27;index&#x27;</span>] = <span class="hljs-string">&#x27;0th&#x27;</span>             <span class="hljs-comment">#通过G.node[][]来添加或修改属性</span><br><span class="hljs-built_in">print</span>(G.node)<br><span class="hljs-comment"># &#123;1: &#123;&#x27;index&#x27;: &#x27;0th&#x27;&#125;&#125;</span><br><br><br>G.add_nodes_from([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], index=<span class="hljs-string">&#x27;2/3th&#x27;</span>) <span class="hljs-comment">#从集合中添加节点时分配属性</span><br><span class="hljs-built_in">print</span>(G.node)<br><span class="hljs-comment"># &#123;1: &#123;&#x27;index&#x27;: &#x27;0th&#x27;&#125;, 2: &#123;&#x27;index&#x27;: &#x27;2/3th&#x27;&#125;, 3: &#123;&#x27;index&#x27;: &#x27;2/3th&#x27;&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+<h4 id="边的属性"><a class="markdownIt-Anchor" href="#边的属性"></a> 边的属性</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#边的属性</span><br><span class="hljs-keyword">import</span> networkx <span class="hljs-keyword">as</span> nx<br><br>G = nx.Graph(day=<span class="hljs-string">&#x27;manday&#x27;</span>)<br>G.add_edge(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,weight=<span class="hljs-number">10</span>)                    <span class="hljs-comment">#在添加边时分配属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment">#[(1, 2, &#123;&#x27;weight&#x27;: 10&#125;)]</span><br><br>G.add_edges_from([(<span class="hljs-number">1</span>,<span class="hljs-number">3</span>), (<span class="hljs-number">4</span>,<span class="hljs-number">5</span>)], <span class="hljs-built_in">len</span>=<span class="hljs-number">22</span>)     <span class="hljs-comment">#从集合中添加边时分配属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-string">&#x27;len&#x27;</span>))<br><span class="hljs-comment"># [(1, 2, None), (1, 3, 22), (4, 5, 22)]</span><br><br>G.add_edges_from([(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,&#123;<span class="hljs-string">&#x27;hight&#x27;</span>:<span class="hljs-number">10</span>&#125;),(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,&#123;<span class="hljs-string">&#x27;high&#x27;</span>:<span class="hljs-string">&#x27;unknow&#x27;</span>&#125;)])<br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment"># [(1, 2, &#123;&#x27;weight&#x27;: 10&#125;), (1, 3, &#123;&#x27;len&#x27;: 22&#125;), (1, 4, &#123;&#x27;high&#x27;: &#x27;unknow&#x27;&#125;), (3, 4, &#123;&#x27;hight&#x27;: 10&#125;), (4, 5, &#123;&#x27;len&#x27;: 22&#125;)]</span><br><br><br>G[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>][<span class="hljs-string">&#x27;weight&#x27;</span>] = <span class="hljs-number">100000</span>                   <span class="hljs-comment">#通过下标来添加或修改属性</span><br><span class="hljs-built_in">print</span>(G.edges(data=<span class="hljs-literal">True</span>))<br><span class="hljs-comment"># [(1, 2, &#123;&#x27;weight&#x27;: 100000&#125;), (1, 3, &#123;&#x27;len&#x27;: 22&#125;), (1, 4, &#123;&#x27;high&#x27;: &#x27;unknow&#x27;&#125;), (3, 4, &#123;&#x27;hight&#x27;: 10&#125;), (4, 5, &#123;&#x27;len&#x27;: 22&#125;)]</span><br></code></pre></td></tr></table></figure>
+<p>※：特殊属性 <code>weight</code> 应该是数字，因为它被需要加权边缘的算法使用</p>
+<h3 id="有向图"><a class="markdownIt-Anchor" href="#有向图"></a> 有向图</h3>
+<h4 id="有向图和无向图互转"><a class="markdownIt-Anchor" href="#有向图和无向图互转"></a> 有向图和无向图互转</h4>
+<p>有些算法只适用于有向图，而另一些算法不适用于有向图。实际上，将有向图和无向图集中在一起的趋势是危险的。所以有必要进行两者的相互转换。</p>
+<p>下列语句和两种图的互转有关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#有向图转化成无向图</span><br><br>H=DG.to_undirected()<br><span class="hljs-comment">#或者</span><br>H=nx.Graph(DG)<br><br><span class="hljs-comment">#无向图转化成有向图</span><br><br>F = H.to_directed()<br><span class="hljs-comment">#或者</span><br>F = nx.DiGraph(H)<br></code></pre></td></tr></table></figure>
+<h4 id="有向图添加-删除和访问"><a class="markdownIt-Anchor" href="#有向图添加-删除和访问"></a> 有向图添加、删除和访问</h4>
+<p>有向图的添加、删除和访问和无向图基本上是一样的，在这里不做赘述。</p>
+<h3 id="图形分析"><a class="markdownIt-Anchor" href="#图形分析"></a> 图形分析</h3>
+<h4 id="介数中心性"><a class="markdownIt-Anchor" href="#介数中心性"></a> 介数中心性</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">betweenness_centrality(G,k=<span class="hljs-literal">None</span>,normalized=<span class="hljs-literal">True</span>,weight=<span class="hljs-literal">None</span>,endpoints=<span class="hljs-literal">False</span>, seed=<span class="hljs-literal">None</span>)<br><span class="hljs-comment">#参数说明</span><br><span class="hljs-comment">#G--网络图。</span><br><span class="hljs-comment">#k--如果k不是“无”，则使用k节点样本来估计中间值。k的值&lt;=n，其中n是图中的节点数。值越大，近似值越高。</span><br><span class="hljs-comment">#归一化--如果为真，则中间值通过 2/((n-1)(n-2)) 对于图，以及 1/((n-1)(n-2)) 对于有向图，其中 n 是g中的节点数。</span><br><span class="hljs-comment">#权重--如果没有，则认为所有边权重相等。否则将保留用作权重的边缘属性的名称。</span><br><span class="hljs-comment">#端点--如果为真，则在最短路径计数中包括端点。</span><br><span class="hljs-comment">#seed--随机数生成状态的指示器。见 Randomness . 请注意，这仅在k不是“无”时使用。</span><br></code></pre></td></tr></table></figure>
+<p>更多的算法可见下列站点：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/reference/algorithms/index.html">https://www.osgeo.cn/networkx/reference/algorithms/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/reference/algorithms/index.html">https://networkx.github.io/documentation/stable/reference/algorithms/index.html</a></li>
+</ul>
+<h3 id="图片绘制"><a class="markdownIt-Anchor" href="#图片绘制"></a> 图片绘制</h3>
+<p>可以利用matplotlib库进行图形可视化，常见的语句如下：</p>
+<table cellspacing="0" border="0">
+ <colgroup width="462"></colgroup>
+ <colgroup width="230"></colgroup>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">draw&nbsp;(g)&nbsp;[,&nbsp;pos,&nbsp;ax]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#29992;matplotlib&#32472;&#21046;&#22270;g&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">draw_networkx&nbsp;(g)&nbsp;[,&nbsp;pos,&nbsp;arrows,&nbsp;with_labels]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#20351;&#29992;matplotlib&#32472;&#21046;&#22270;g&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">draw_networkx_nodes&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;nodelist,&nbsp;...]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#22270;G&#30340;&#33410;&#28857;&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">draw_networkx_edges&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;edgelist,&nbsp;...]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#22270;G&#30340;&#36793;&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">draw_networkx_labels&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;labels,&nbsp;...]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#22312;&#22270;G&#19978;&#32472;&#21046;&#33410;&#28857;&#26631;&#31614;&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">draw_networkx_edge_labels&nbsp;(G&#65292;POS)&nbsp;[,&nbsp;...]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#32472;&#21046;&#36793;&#32536;&#26631;&#31614;&#12290;</font></td>
+ </tr>
+</table>
+除此之外，也可以通过下列语句进行指定节点的**布局**
+<table cellspacing="0" border="0">
+ <colgroup width="444"></colgroup>
+ <colgroup width="246"></colgroup>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">bipartite_layout&nbsp;(g,node)&nbsp;[,&nbsp;align,&nbsp;scale,&nbsp;...]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#23558;&#33410;&#28857;&#23450;&#20301;&#22312;&#20004;&#26465;&#30452;&#32447;&#19978;&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">circular_layout&nbsp;(g)&nbsp;[,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#22312;&#19968;&#20010;&#22278;&#29615;&#19978;&#22343;&#21248;&#20998;&#24067;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">planar_layout&nbsp;(g)&nbsp;[,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#27809;&#26377;&#36793;&#32536;&#20132;&#28857;&#30340;&#33410;&#28857;&#20998;&#24067;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font color="#000000">random_layout&nbsp;(g)&nbsp;[,&nbsp;center,&nbsp;dim,&nbsp;seed]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#22312;&#21333;&#20301;&#27491;&#26041;&#24418;&#20869;&#22343;&#21248;&#38543;&#26426;&#23450;&#20301;&#33410;&#28857;&#12290;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">shell_layout&nbsp;(g)&nbsp;[,&nbsp;nlist,&nbsp;scale,&nbsp;center,&nbsp;dim]&nbsp;)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#22312;&#21516;&#24515;&#22278;&#19978;&#20998;&#24067;</font></td>
+ </tr>
+</table>
+<p>下列给出了一些图片绘制中可能用到的<strong>参数</strong></p>
+<table cellspacing="0" border="0">
+ <colgroup width="444"></colgroup>
+ <colgroup width="700"></colgroup>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="37" align="left" valign=middle><font color="#000000">pos(dictionary, optional)</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#22270;&#20687;&#30340;&#24067;&#23616;&#65292;&#21487;&#36873;&#25321;&#21442;&#25968;&#65307;&#22914;&#26524;&#26159;&#23383;&#20856;&#20803;&#32032;&#65292;&#21017;&#33410;&#28857;&#26159;&#20851;&#38190;&#23383;&#65292;&#20301;&#32622;&#26159;&#23545;&#24212;&#30340;&#20540;&#12290;&#22914;&#26524;&#27809;&#26377;&#25351;&#26126;&#65292;&#21017;&#20250;&#26159;spring&#30340;&#24067;&#23616;&#65307;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">arrows </font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#24067;&#23572;&#20540;&#65292;&#40664;&#35748;True; &#23545;&#20110;&#26377;&#21521;&#22270;&#65292;&#22914;&#26524;&#26159;True&#21017;&#20250;&#30011;&#20986;&#31661;&#22836;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">with_labels: </font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26159;&#21542;&#24102;&#26631;&#31614;&#65288;&#40664;&#35748;&#20026;True&#65289;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">ax&#65306;</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#22352;&#26631;&#35774;&#32622;&#65292;&#21487;&#36873;&#25321;&#21442;&#25968;&#65307;&#20381;&#29031;&#35774;&#32622;&#22909;&#30340;Matplotlib&#22352;&#26631;&#30011;&#22270;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">nodelist</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#19968;&#20010;&#21015;&#34920;&#65292;&#40664;&#35748;G.nodes(); &#32473;&#23450;&#33410;&#28857;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">edgelist</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#19968;&#20010;&#21015;&#34920;&#65292;&#40664;&#35748;G.edges();&#32473;&#23450;&#36793;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">node_siz</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#25351;&#23450;&#33410;&#28857;&#30340;&#23610;&#23544;&#22823;&#23567;(&#40664;&#35748;&#26159;300)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">node_color</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#25351;&#23450;&#33410;&#28857;&#30340;&#39068;&#33394; (&#40664;&#35748;&#26159;&#32418;&#33394;&#65292;&#21487;&#20197;&#29992;&#23383;&#31526;&#20018;&#31616;&#21333;&#26631;&#35782;&#39068;&#33394;&#65292;&#20855;&#20307;&#21487;&#26597;&#30475;&#25163;&#20876;)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">node_shape:</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#30340;&#24418;&#29366;&#65288;&#40664;&#35748;&#26159;&#22278;&#24418;&#65292;&#29992;&#23383;&#31526;&#20018;&rsquo;o&rsquo;&#26631;&#35782;&#65292;&#20855;&#20307;&#21487;&#26597;&#30475;&#25163;&#20876;&#65289;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">alpha</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#36879;&#26126;&#24230; (&#40664;&#35748;&#26159;1.0&#65292;&#19981;&#36879;&#26126;&#65292;0&#20026;&#23436;&#20840;&#36879;&#26126;)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">cmap</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">Matplotlib&#30340;&#39068;&#33394;&#26144;&#23556;&#65292;&#40664;&#35748;None; &#29992;&#26469;&#34920;&#31034;&#33410;&#28857;&#23545;&#24212;&#30340;&#24378;&#24230;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">vmin,vmax</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#28014;&#28857;&#25968;&#65292;&#40664;&#35748;None;&#33410;&#28857;&#39068;&#33394;&#26144;&#23556;&#23610;&#24230;&#30340;&#26368;&#22823;&#21644;&#26368;&#23567;&#20540;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">linewidths</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">[None|&#26631;&#37327;|&#19968;&#21015;&#20540;];&#22270;&#20687;&#36793;&#30028;&#30340;&#32447;&#23485;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">width</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#23485;&#24230; (&#40664;&#35748;&#20026;1.0)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">edge_color</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#39068;&#33394;(&#40664;&#35748;&#20026;&#40657;&#33394;)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">edge_cmap</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">Matplotlib&#30340;&#39068;&#33394;&#26144;&#23556;&#65292;&#40664;&#35748;None; &#29992;&#26469;&#34920;&#31034;&#36793;&#23545;&#24212;&#30340;&#24378;&#24230;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">edge_vmin,edge_vmax</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#28014;&#28857;&#25968;&#65292;&#40664;&#35748;None;&#36793;&#30340;&#39068;&#33394;&#26144;&#23556;&#23610;&#24230;&#30340;&#26368;&#22823;&#21644;&#26368;&#23567;&#20540;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">style</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#36793;&#30340;&#26679;&#24335;(&#40664;&#35748;&#20026;&#23454;&#29616;&#65292;&#21487;&#36873;&#65306; solid|dashed|dotted,dashdot)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">labels</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#23383;&#20856;&#20803;&#32032;&#65292;&#40664;&#35748;None;&#25991;&#26412;&#24418;&#24335;&#30340;&#33410;&#28857;&#26631;&#31614;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">font_size</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26631;&#31614;&#23383;&#20307;&#22823;&#23567; (&#40664;&#35748;&#20026;12)</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">font_color</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#33410;&#28857;&#26631;&#31614;&#23383;&#20307;&#39068;&#33394;&#65288;&#40664;&#35748;&#20026;&#40657;&#33394;&#65289;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">font_weight</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#23383;&#31526;&#20018;&#65292;&#40664;&#35748;&rsquo;normal&rsquo;</font></td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="left" valign=middle><font color="#000000">font_family</font></td>
+  <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle><font face="DejaVu Sans Mono" color="#000000">&#23383;&#31526;&#20018;&#65292;&#40664;&#35748;&rsquo;sans-serif&rsquo;</font></td>
+ </tr>
+</table>
+<h3 id="图表读写"><a class="markdownIt-Anchor" href="#图表读写"></a> 图表读写</h3>
+<p>详见下列站点：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/reference/readwrite/index.html">https://www.osgeo.cn/networkx/reference/readwrite/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/reference/readwrite/index.html">https://networkx.github.io/documentation/stable/reference/readwrite/index.html</a></li>
+</ul>
+<h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.osgeo.cn/networkx/index.html">https://www.osgeo.cn/networkx/index.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://networkx.github.io/documentation/stable/">https://networkx.github.io/documentation/stable/</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yyl424525/article/details/102539703">https://blog.csdn.net/yyl424525/article/details/102539703</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/NetworkX/" class="print-no-link">#NetworkX</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>NetworkX简明教程</div>
+      <div>https://justloseit.top/NetworkX简明教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mobilis In Mobili</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年3月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年11月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%A4%8D%E6%9D%82%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E5%A4%87%E5%BF%98/" title="复杂网络分析备忘">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">复杂网络分析备忘</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98/" title="数字电路与系统备忘">
+                        <span class="hidden-mobile">数字电路与系统备忘</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz","appKey":"BpNeeVt0v3tKAbF1L6RTf94X","path":"window.location.pathname","placeholder":"说点什么","avatar":"hide","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://t4w421ai.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">京ICP备2021006744号-1</a>
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802034644"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备 11010802034644号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,2 +1,1009 @@
-<!DOCTYPE html><html lang="zh-CN" data-default-color-scheme="auto"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png"><link rel="icon" href="/img/favicon/favicon.png"><link rel="canonical" href="https://justloseit.top/Bitcoin Core上实现多签交易/"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="author" content="Mobilis In Mobili &amp; zz"><meta name="keywords" content=""><meta name="description" content="建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点"><meta property="og:type" content="article"><meta property="og:title" content="Bitcoin Core上实现多签交易"><meta property="og:url" content="https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/index.html"><meta property="og:site_name" content="动中之动"><meta property="og:description" content="建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://justloseit.top/img/index/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg"><meta property="article:published_time" content="2020-12-14T07:46:25.000Z"><meta property="article:modified_time" content="2022-11-21T12:45:51.691Z"><meta property="article:author" content="Mobilis In Mobili"><meta property="article:tag" content="区块链"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://justloseit.top/img/index/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg"><title>Bitcoin Core上实现多签交易 - 动中之动</title><link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css"><link rel="stylesheet" href="/css/main.css"><link id="highlight-css" rel="stylesheet" href="/css/highlight.css"><link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css"><script id="fluid-configs">var Fluid=window.Fluid||{};Fluid.ctx=Object.assign({},Fluid.ctx);var CONFIG={hostname:"justloseit.top",root:"/",version:"1.9.8",typing:{enable:!0,typeSpeed:60,cursorChar:"_",loop:!1,scope:[]},anchorjs:{enable:!0,element:"h1,h2,h3,h4,h5,h6",placement:"right",visible:"hover",icon:"§"},progressbar:{enable:!0,height_px:3,color:"#29d",options:{showSpinner:!1,trickleSpeed:100}},code_language:{enable:!0,default:"TEXT"},copy_btn:!0,image_caption:{enable:!0},image_zoom:{enable:!0,img_url_replace:["",""]},toc:{enable:!0,placement:"right",headingSelector:"h1,h2,h3,h4,h5,h6",collapseDepth:0},lazyload:{enable:!0,loading_img:"/img/loading.gif",onlypost:!1,offset_factor:2},web_analytics:{enable:!0,follow_dnt:!1,baidu:null,google:{measurement_id:null},tencent:{sid:null,cid:null},leancloud:{app_id:"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz",app_key:"x2YseXJIHmvnsM4v9y9UAlvu",server_url:"https://sni2xnrh.lc-cn-n1-shared.com",path:"window.location.pathname",ignore_local:!1},umami:{src:null,website_id:null,domains:null,start_time:"2024-01-01T00:00:00.000Z",token:null,api_server:null}},search_path:"/local-search.xml",include_content_in_search:!0};if(CONFIG.web_analytics.follow_dnt){var dntVal=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack;Fluid.ctx.dnt=dntVal&&(dntVal.startsWith("1")||dntVal.startsWith("yes")||dntVal.startsWith("on"))}</script><script src="/js/utils.js"></script><script src="/js/color-schema.js"></script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="动中之动" type="application/atom+xml">
-</head><body><header><div class="header-inner" style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/"><strong>Mobilis In Mobili</strong> </a><button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/" target="_self"><i class="iconfont icon-home-fill"></i> <span>首页</span></a></li><li class="nav-item"><a class="nav-link" href="/archives/" target="_self"><i class="iconfont icon-archive-fill"></i> <span>归档</span></a></li><li class="nav-item"><a class="nav-link" href="/categories/" target="_self"><i class="iconfont icon-category-fill"></i> <span>分类</span></a></li><li class="nav-item"><a class="nav-link" href="/tags/" target="_self"><i class="iconfont icon-tags-fill"></i> <span>标签</span></a></li><li class="nav-item"><a class="nav-link" href="/about/" target="_self"><i class="iconfont icon-user-fill"></i> <span>关于</span></a></li><li class="nav-item"><a class="nav-link" href="/links/" target="_self"><i class="iconfont icon-link-fill"></i> <span>友链</span></a></li><li class="nav-item" id="search-btn"><a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search"><i class="iconfont icon-search"></i></a></li><li class="nav-item" id="color-toggle-btn"><a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle"><i class="iconfont icon-dark" id="color-toggle-icon"></i></a></li></ul></div></div></nav><div id="banner" class="banner" parallax="true" style="background:url(/img/banner/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask flex-center" style="background-color:rgba(0,0,0,.3)"><div class="banner-text text-center fade-in-up"><div class="h2"><span id="subtitle" data-typed-text="Bitcoin Core上实现多签交易"></span></div><div class="mt-3"><span class="post-meta mr-2"><i class="iconfont icon-author" aria-hidden="true"></i> Mobilis In Mobili & zz </span><span class="post-meta"><i class="iconfont icon-date-fill" aria-hidden="true"></i> <time datetime="2020-12-14 15:46" pubdate>2020年12月14日 下午</time></span></div><div class="mt-1"><span class="post-meta mr-2"><i class="iconfont icon-chart"></i> 1.3k 字 </span><span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i> 12 分钟 </span><span id="leancloud-page-views-container" class="post-meta" style="display:none"><i class="iconfont icon-eye" aria-hidden="true"></i> <span id="leancloud-page-views"></span> 次</span></div></div></div></div></div></div></header><main><div class="container-fluid nopadding-x"><div class="row nomargin-x"><div class="side-col d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-x-md"><div class="container nopadding-x-md" id="board-ctn"><div id="board"><article class="post-content mx-auto"><h1 id="seo-header">Bitcoin Core上实现多签交易</h1><p id="updated-time" class="note note-info">本文最后更新于 2022年11月21日 晚上</p><div class="markdown-body"><p>建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点</p><span id="more"></span><h1 id="bitcoin-core上实现多签交易"><a class="markdownIt-Anchor" href="#bitcoin-core上实现多签交易"></a> Bitcoin Core上实现多签交易</h1><h2 id="配置-regtestconf"><a class="markdownIt-Anchor" href="#配置-regtestconf"></a> 配置 Regtest.conf</h2><ul><li>在 <code>%APPDATA%\Bitcoin</code> 下面新建四个文件夹，分别命名为 <code>alice</code>, <code>bob</code>, <code>network</code> 和 <code>four</code>。</li><li>在这四个文件夹下分别新建 <code>bitcoin.conf</code> 文件，其内容如下：</li></ul><h3 id="配置文件"><a class="markdownIt-Anchor" href="#配置文件"></a> 配置文件</h3><ul><li>用 <code>netstat -ano|findstr &quot;port&quot;</code> 查看端口是否被占用，若没有则可设置为 <code>port</code> 和 <code>rpcport</code></li></ul><h4 id="alice"><a class="markdownIt-Anchor" href="#alice"></a> alice</h4><ul><li>bitcoin</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18448</span><br>rpcusedr=alice<br>rpcpassword=alice<br></code></pre></td></tr></table></figure><h4 id="bob"><a class="markdownIt-Anchor" href="#bob"></a> bob</h4><ul><li>bitcoin</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18449</span><br>rpcusedr=bob<br>rpcpassword=bob<br></code></pre></td></tr></table></figure><h4 id="network"><a class="markdownIt-Anchor" href="#network"></a> network</h4><ul><li>bitcoin</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18450</span><br>rpcusedr=network<br>rpcpassword=network<br></code></pre></td></tr></table></figure><h4 id="four"><a class="markdownIt-Anchor" href="#four"></a> four</h4><ul><li>bitcoin</li></ul><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18451</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18452</span><br>rpcusedr=four<br>rpcpassword=four<br></code></pre></td></tr></table></figure><h2 id="通过批处理简化命令行输入"><a class="markdownIt-Anchor" href="#通过批处理简化命令行输入"></a> 通过批处理简化命令行输入</h2><ul><li>在 %APPDATA%\Bitcoin 添加 regtest.bat 文件，内容如下：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">@DOSKEY alice-d=bitcoind -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-d=bitcoind -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-d=bitcoind -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-d=bitcoind -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\four $*<br></code></pre></td></tr></table></figure><ul><li>在注册表中找到 <code>HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor</code> ， 右键新建，选择字符串值，名为 <code>AutoRun</code>，值为 <code>regtest.bat</code> 的绝对路径。保存退出，即可完成对指令的优化。</li></ul><h2 id="检查节点连接情况"><a class="markdownIt-Anchor" href="#检查节点连接情况"></a> 检查节点连接情况</h2><ul><li><strong>分别</strong>在四个命令行窗口输入下列命令，启动各个节点</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\alice<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\bob<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\network<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\four<br></code></pre></td></tr></table></figure><ul><li>打开<strong>新</strong>命令行窗口，输入下列命令，查看节点连接情况</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-cli getpeerinfo<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bob-cli getpeerinfo<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">network-cli getpeerinfo<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">four-cli getpeerinfo<br></code></pre></td></tr></table></figure><ul><li>如果节点数大于 4 即成功</li></ul><h2 id="打开-qt-客户端"><a class="markdownIt-Anchor" href="#打开-qt-客户端"></a> 打开 qt 客户端</h2><ul><li><strong>关闭</strong>之前的四个命令行窗口，然后在命令行中输入下列命令</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-qt<br>bob-qt<br>network-qt<br>four-qt<br></code></pre></td></tr></table></figure><ul><li>qt 客户端可能会显示落后XX年，在任意 qt 客户端从 帮助&gt;调试窗口&gt;控制台 输入指令</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 1<br></code></pre></td></tr></table></figure><p>​ 然后等待一段时间即可</p><ul><li>也可以从 帮助&gt;调试窗口&gt;同伴检查节点连接情况——应该是 连接数 6 (输入: 3 / 输出： 3)</li></ul><h2 id="获取公钥"><a class="markdownIt-Anchor" href="#获取公钥"></a> 获取公钥</h2><ul><li>从 qt 客户端的 文件&gt;正在接收地址 中复制当前钱包的一个地址（<strong>不是标签</strong>），然后运用下列命令在 qt 控制台中获取对应公钥和私钥</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">validateaddress &lt;address&gt;<br>dumpprivatekey &lt;address&gt;<br></code></pre></td></tr></table></figure><p>​ 得到的四个节点的对应公钥、私钥、地址如下：</p><table><thead><tr><th>节点</th><th>正在接收地址</th><th>公钥</th><th>私钥</th></tr></thead><tbody><tr><td>alice</td><td>mo7QSvzFhrmSob8Nc4oezMrKFG4kgXfpaQ</td><td>03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247</td><td>cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc</td></tr><tr><td>bob</td><td>mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2</td><td>0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb</td><td>cVkpuL8fJtdqbWjxTkPVsPS7Lgm35DJBv3FaJkiKcHmAFFHqvP4Y</td></tr><tr><td>network</td><td>mx7mERwyydMSYFTzPifQwFBhnmTH2kDcn6</td><td>02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1</td><td>cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn</td></tr><tr><td>four</td><td>mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og</td><td>02186ce1b7f4f33d2e2284111c1442eeb36801424517b15f25410c9089cbe2fcc6</td><td>cTdnyoEahTfrXffKyDQ3rDGJg9DmWWkCtZwfmeybAb8CFjQ7YHDp</td></tr></tbody></table><h2 id="生成多重签名"><a class="markdownIt-Anchor" href="#生成多重签名"></a> 生成多重签名</h2><ul><li>在 <code>alice</code> 的控制台中输入以下命令，生成 2 of 3 多重签名</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig n &lt;<span class="hljs-string">&#x27;[&quot;key1&quot;,&quot;key2&quot;,...,&quot;keyn&quot;]&#x27;</span>&gt;<br></code></pre></td></tr></table></figure><p>​ 在这里，使用 <code>alice</code>，<code>bob</code>，<code>network</code> 的公钥生成，命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure><ul><li>返回信息如下：</li></ul><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure><ul><li>将上述生成的地址加入到 <code>bob</code> 的钱包</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">addmultisigaddress 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure><ul><li>得到地址，加入到 <code>bob</code> 的正在接收地址中</li></ul><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-number">2</span><span class="hljs-symbol">NDuscm8</span>JWy<span class="hljs-number">7</span>jVgQfcCSyEbLzsf<span class="hljs-number">1</span>uwxtfi<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure><h2 id="挖矿并向多签地址转钱"><a class="markdownIt-Anchor" href="#挖矿并向多签地址转钱"></a> 挖矿并向多签地址转钱</h2><ul><li><code>alice</code> 生成 101 个区块，从而获得 50个 BTC</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 100<br></code></pre></td></tr></table></figure><ul><li><code>alice</code> 向 <code>2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8</code> 转账 12 个 BTC</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendaddress 2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8 12<br></code></pre></td></tr></table></figure><ul><li><code>alice</code> 生成 6个区块从而确认交易</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 6<br></code></pre></td></tr></table></figure><ul><li><code>bob</code> 的钱包可以看到交易成功</li></ul><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功"></p><h2 id="构建从多签地址向第四节点转账账单"><a class="markdownIt-Anchor" href="#构建从多签地址向第四节点转账账单"></a> 构建从多签地址向第四节点转账账单</h2><ul><li><code>alice</code> 控制台中输入如下命令，从多签地址向 <code>four</code> 转账 6 个 BTC</li></ul><p>※：要给出找零地址，否则会报错 <code>absurdly-high-fee (code -26)</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createrawtransaction <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;&#123;&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;:6,&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;:5.9998&#125;&#x27;</span> <br></code></pre></td></tr></table></figure><ul><li>其中，<code>txid</code> 和 <code>scriptPubKey</code>，可以直接在 <code>bob</code> 的交易记录中查询，或者使用一下命令</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">listunspent<br></code></pre></td></tr></table></figure><p>生成了 16 进制的交易数据</p><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><span class="hljs-number">0200000001</span>f<span class="hljs-number">253</span>ca<span class="hljs-number">09</span>fb<span class="hljs-number">57</span>a<span class="hljs-number">1</span>a<span class="hljs-number">215423</span>a<span class="hljs-number">587</span>a<span class="hljs-number">60</span>dbca<span class="hljs-number">0395e8</span>aaa<span class="hljs-number">0</span>ab<span class="hljs-number">9</span>adc<span class="hljs-number">8</span>fa<span class="hljs-number">89e5</span>f<span class="hljs-number">3365138</span>b<span class="hljs-number">0100000000</span>ffffffff<span class="hljs-number">020046</span><span class="hljs-keyword">c</span><span class="hljs-number">323000000001976</span>a<span class="hljs-number">9147</span>bacb<span class="hljs-number">21432</span><span class="hljs-keyword">c</span><span class="hljs-number">1e521319387833</span>b<span class="hljs-number">87</span>fe<span class="hljs-number">704</span>dfe<span class="hljs-number">6</span>afc<span class="hljs-number">88</span>ace<span class="hljs-number">0</span>f<span class="hljs-number">7</span><span class="hljs-keyword">c</span><span class="hljs-number">223000000001976</span>a<span class="hljs-number">9140</span>aefe<span class="hljs-number">72</span>eaf<span class="hljs-number">26</span>dae<span class="hljs-number">31397</span><span class="hljs-keyword">c</span><span class="hljs-number">46</span>bfa<span class="hljs-number">821781406541</span>be<span class="hljs-number">88</span>ac<span class="hljs-number">00000000</span><br></code></pre></td></tr></table></figure><h2 id="对交易进行签名"><a class="markdownIt-Anchor" href="#对交易进行签名"></a> 对交易进行签名</h2><ul><li><code>alice</code> 签名</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b0100000000ffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;[&quot;cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc&quot;]&#x27;</span> <br></code></pre></td></tr></table></figure><p>​ 得到一次签名后的交易数据</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;witness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Operation not valid with the current stack size&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="alice签名"></p><ul><li><code>network</code> 签名</li></ul><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> &#x27;<span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span>&#x27; &#x27;<span class="hljs-punctuation">[</span><span class="hljs-string">&quot;cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn&quot;</span><span class="hljs-punctuation">]</span>&#x27; <br></code></pre></td></tr></table></figure><p>​ 得到</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="network签名"></p><ul><li><code>bob</code> 发送交易单</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendrawtransaction 0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000<br></code></pre></td></tr></table></figure><p>​ 得到 <code>txid</code></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec<br></code></pre></td></tr></table></figure><p>​ 通过 <code>getrawtransaction</code> 和 <code>decoderawtransaction</code>，得到</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs json"><br><span class="hljs-number">21</span><span class="hljs-punctuation">:</span><span class="hljs-number">52</span><span class="hljs-punctuation">:</span><span class="hljs-number">51</span><br>￼<br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vsize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;locktime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0 3045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d[ALL] 3045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6[ALL] 522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br>      <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6.00000000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 7bacb21432c1e521319387833b87fe704dfe6afc OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9147bacb21432c1e521319387833b87fe704dfe6afc88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span> <br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5.99980000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 0aefe72eaf26dae31397c46bfa821781406541be OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9140aefe72eaf26dae31397c46bfa821781406541be88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功2"></p><ul><li>找零地址为 <code>network</code> 的地址，可见源地址没有 BTC 了，找零到了 <code>network</code>，支付了 <code>four</code> 地址 6 BTC，实验完成。</li></ul><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="network钱包"></p><p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="four钱包"></p></div><hr><div><div class="post-metas my-3"><div class="post-meta mr-3 d-flex align-items-center"><i class="iconfont icon-category"></i> <span class="category-chains"><span class="category-chain"><a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a></span></span></div><div class="post-meta"><i class="iconfont icon-tags"></i> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="print-no-link">#区块链</a></div></div><div class="license-box my-3"><div class="license-title"><div>Bitcoin Core上实现多签交易</div><div>https://justloseit.top/Bitcoin Core上实现多签交易/</div></div><div class="license-meta"><div class="license-meta-item"><div>作者</div><div>Mobilis In Mobili & zz</div></div><div class="license-meta-item license-meta-date"><div>发布于</div><div>2020年12月14日</div></div><div class="license-meta-item license-meta-date"><div>更新于</div><div>2022年11月21日</div></div><div class="license-meta-item"><div>许可协议</div><div><a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="BY - 署名"><i class="iconfont icon-cc-by"></i> </span></a><a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/"><span class="hint--top hint--rounded" aria-label="SA - 相同方式共享"><i class="iconfont icon-cc-sa"></i></span></a></div></div></div><div class="license-icon iconfont"></div></div><div class="post-prevnext my-3"><article class="post-prev col-6"><a href="/Re-Entrancy%20%E6%94%BB%E5%87%BB%E6%A8%A1%E6%8B%9F%E2%80%94%E2%80%94The%20DAO%20%E4%BA%8B%E4%BB%B6%E5%A4%8D%E7%8E%B0%E4%B8%8E%E5%88%86%E6%9E%90/" title="Re-Entrancy 攻击模拟——The DAO 事件复现与分析"><i class="iconfont icon-arrowleft"></i> <span class="hidden-mobile">Re-Entrancy 攻击模拟——The DAO 事件复现与分析</span> <span class="visible-mobile">上一篇</span></a></article><article class="post-next col-6"><a href="/Introduction%20To%20Modern%20Cryptography/" title="Introduction To Modern Cryptography"><span class="hidden-mobile">Introduction To Modern Cryptography</span> <span class="visible-mobile">下一篇</span> <i class="iconfont icon-arrowright"></i></a></article></div></div><article id="comments" lazyload><div id="valine"></div><script type="text/javascript">Fluid.utils.loadComments("#valine",(function(){Fluid.utils.createScript("https://lib.baomitu.com/valine/1.5.1/Valine.min.js",(function(){var i=Object.assign({appId:"t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz",appKey:"BpNeeVt0v3tKAbF1L6RTf94X",path:"window.location.pathname",placeholder:"说点什么",avatar:"hide",meta:["nick","mail","link"],requiredFields:[],pageSize:10,lang:"zh-CN",highlight:!0,recordIP:!1,serverURLs:"https://t4w421ai.lc-cn-n1-shared.com",emojiCDN:null,emojiMaps:null,enableQQ:!1},{el:"#valine",path:window.location.pathname});new Valine(i),Fluid.utils.waitElementVisible("#valine .vcontent",()=>{var i="#valine .vcontent img:not(.vemoji)";Fluid.plugins.imageCaption(i),Fluid.plugins.fancyBox(i)})}))}))</script><noscript>Please enable JavaScript to view the comments</noscript></article></article></div></div></div><div class="side-col d-none d-lg-block col-lg-2"><aside class="sidebar" style="margin-left:-1rem"><div id="toc"><p class="toc-header"><i class="iconfont icon-list"></i> <span>目录</span></p><div class="toc-body" id="toc-body"></div></div></aside></div></div></div><script>Fluid.utils.createScript("https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js",(function(){mermaid.initialize({theme:"default"}),Fluid.utils.listenDOMLoaded((function(){Fluid.events.registerRefreshCallback((function(){"mermaid"in window&&mermaid.init()}))}))}))</script><a id="scroll-top-button" aria-label="TOP" href="#" role="button"><i class="iconfont icon-arrowup" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div></main><footer><div class="footer-inner"><div class="footer-content"><a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a></div><div class="statistics"><span id="leancloud-site-pv-container" style="display:none">总访问量 <span id="leancloud-site-pv"></span> 次 </span><span id="leancloud-site-uv-container" style="display:none">总访客数 <span id="leancloud-site-uv"></span> 人</span></div><div class="beian"><span><a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">京ICP备2021006744号-1</a> </a></span><span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802034644" rel="nofollow noopener" class="beian-police" target="_blank"><span style="visibility:hidden;width:0">|</span> <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"> <span>京公网安备 11010802034644号</span></a></span></div></div></footer><script src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"></script><link rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css"><script>NProgress.configure({showSpinner:!1,trickleSpeed:100}),NProgress.start(),window.addEventListener("load",(function(){NProgress.done()}))</script><script src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js"></script><script src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js"></script><script src="/js/events.js"></script><script src="/js/plugins.js"></script><script src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js"></script><script>!function(t,e){var i=Fluid.plugins.typing,n=e.getElementById("subtitle");n&&i&&i(n.getAttribute("data-typed-text"))}(window,document)</script><script src="/js/img-lazyload.js"></script><script>Fluid.utils.createScript("https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js",(function(){var t=jQuery("#toc");if(0!==t.length&&window.tocbot){var i=jQuery("#board-ctn").offset().top;window.tocbot.init(Object.assign({tocSelector:"#toc-body",contentSelector:".markdown-body",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,includeTitleTags:!0,headingsOffset:-i},CONFIG.toc)),t.find(".toc-list-item").length>0&&t.css("visibility","visible"),Fluid.events.registerRefreshCallback((function(){if("tocbot"in window){tocbot.refresh();var t=jQuery("#toc");if(0===t.length||!tocbot)return;t.find(".toc-list-item").length>0&&t.css("visibility","visible")}}))}}))</script><script src="https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js"></script><script>Fluid.plugins.codeWidget()</script><script>Fluid.utils.createScript("https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js",(function(){window.anchors.options={placement:CONFIG.anchorjs.placement,visible:CONFIG.anchorjs.visible},CONFIG.anchorjs.icon&&(window.anchors.options.icon=CONFIG.anchorjs.icon);var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(window.anchors.options.class="anchorjs-link-left"),window.anchors.add(o.join(", ")),Fluid.events.registerRefreshCallback((function(){if("anchors"in window){anchors.removeAll();var n=(CONFIG.anchorjs.element||"h1,h2,h3,h4,h5,h6").split(","),o=[];for(var s of n)o.push(".markdown-body > "+s.trim());"left"===CONFIG.anchorjs.placement&&(anchors.options.class="anchorjs-link-left"),anchors.add(o.join(", "))}}))}))</script><script>Fluid.utils.createScript("https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js",(function(){Fluid.plugins.fancyBox()}))</script><script>Fluid.plugins.imageCaption()</script><script defer src="/js/leancloud.js"></script><script src="/js/local-search.js"></script><script src="/js/boot.js"></script><noscript><div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div></noscript></body></html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/favicon.png">
+  <link rel="icon" href="/img/favicon/favicon.png">
+  
+    <link rel="canonical" href="https://justloseit.top/Bitcoin Core上实现多签交易/"/>
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mobilis In Mobili &amp; zz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bitcoin Core上实现多签交易">
+<meta property="og:url" content="https://justloseit.top/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/index.html">
+<meta property="og:site_name" content="动中之动">
+<meta property="og:description" content="建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://justloseit.top/img/index/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg">
+<meta property="article:published_time" content="2020-12-14T07:46:25.000Z">
+<meta property="article:modified_time" content="2022-11-21T12:45:51.691Z">
+<meta property="article:author" content="Mobilis In Mobili">
+<meta property="article:tag" content="区块链">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://justloseit.top/img/index/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg">
+  
+  
+  
+  <title>Bitcoin Core上实现多签交易 - 动中之动</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="动中之动" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mobilis In Mobili</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Bitcoin Core上实现多签交易"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mobilis In Mobili & zz
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-12-14 15:46" pubdate>
+          2020年12月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Bitcoin Core上实现多签交易</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2022年11月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>建立一个 4 节点的回归测试网络，其中任意 3 节点产生一个 2of3 的多签交易付给第四个节点</p>
+<span id="more"></span>
+<h1 id="bitcoin-core上实现多签交易"><a class="markdownIt-Anchor" href="#bitcoin-core上实现多签交易"></a> Bitcoin Core上实现多签交易</h1>
+<h2 id="配置-regtestconf"><a class="markdownIt-Anchor" href="#配置-regtestconf"></a> 配置 Regtest.conf</h2>
+<ul>
+<li>在 <code>%APPDATA%\Bitcoin</code> 下面新建四个文件夹，分别命名为 <code>alice</code>, <code>bob</code>, <code>network</code> 和 <code>four</code>。</li>
+<li>在这四个文件夹下分别新建 <code>bitcoin.conf</code> 文件，其内容如下：</li>
+</ul>
+<h3 id="配置文件"><a class="markdownIt-Anchor" href="#配置文件"></a> 配置文件</h3>
+<ul>
+<li>用 <code>netstat -ano|findstr &quot;port&quot;</code> 查看端口是否被占用，若没有则可设置为 <code>port</code> 和 <code>rpcport</code></li>
+</ul>
+<h4 id="alice"><a class="markdownIt-Anchor" href="#alice"></a> alice</h4>
+<ul>
+<li>bitcoin</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18448</span><br>rpcusedr=alice<br>rpcpassword=alice<br></code></pre></td></tr></table></figure>
+<h4 id="bob"><a class="markdownIt-Anchor" href="#bob"></a> bob</h4>
+<ul>
+<li>bitcoin</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18449</span><br>rpcusedr=bob<br>rpcpassword=bob<br></code></pre></td></tr></table></figure>
+<h4 id="network"><a class="markdownIt-Anchor" href="#network"></a> network</h4>
+<ul>
+<li>bitcoin</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18450</span><br>rpcusedr=network<br>rpcpassword=network<br></code></pre></td></tr></table></figure>
+<h4 id="four"><a class="markdownIt-Anchor" href="#four"></a> four</h4>
+<ul>
+<li>bitcoin</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18451</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18452</span><br>rpcusedr=four<br>rpcpassword=four<br></code></pre></td></tr></table></figure>
+<h2 id="通过批处理简化命令行输入"><a class="markdownIt-Anchor" href="#通过批处理简化命令行输入"></a> 通过批处理简化命令行输入</h2>
+<ul>
+<li>在 %APPDATA%\Bitcoin 添加 regtest.bat 文件，内容如下：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">@DOSKEY alice-d=bitcoind -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-d=bitcoind -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-d=bitcoind -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-d=bitcoind -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\four $*<br></code></pre></td></tr></table></figure>
+<ul>
+<li>在注册表中找到 <code>HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor</code> ， 右键新建，选择字符串值，名为 <code>AutoRun</code>，值为 <code>regtest.bat</code> 的绝对路径。保存退出，即可完成对指令的优化。</li>
+</ul>
+<h2 id="检查节点连接情况"><a class="markdownIt-Anchor" href="#检查节点连接情况"></a> 检查节点连接情况</h2>
+<ul>
+<li><strong>分别</strong>在四个命令行窗口输入下列命令，启动各个节点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\alice<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\bob<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\network<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\four<br></code></pre></td></tr></table></figure>
+<ul>
+<li>打开<strong>新</strong>命令行窗口，输入下列命令，查看节点连接情况</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-cli getpeerinfo<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bob-cli getpeerinfo<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">network-cli getpeerinfo<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">four-cli getpeerinfo<br></code></pre></td></tr></table></figure>
+<ul>
+<li>如果节点数大于 4 即成功</li>
+</ul>
+<h2 id="打开-qt-客户端"><a class="markdownIt-Anchor" href="#打开-qt-客户端"></a> 打开 qt 客户端</h2>
+<ul>
+<li><strong>关闭</strong>之前的四个命令行窗口，然后在命令行中输入下列命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-qt<br>bob-qt<br>network-qt<br>four-qt<br></code></pre></td></tr></table></figure>
+<ul>
+<li>qt 客户端可能会显示落后XX年，在任意 qt 客户端从 帮助&gt;调试窗口&gt;控制台 输入指令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 1<br></code></pre></td></tr></table></figure>
+<p>​        然后等待一段时间即可</p>
+<ul>
+<li>也可以从 帮助&gt;调试窗口&gt;同伴检查节点连接情况——应该是 连接数 6 (输入: 3 / 输出： 3)</li>
+</ul>
+<h2 id="获取公钥"><a class="markdownIt-Anchor" href="#获取公钥"></a> 获取公钥</h2>
+<ul>
+<li>从 qt 客户端的 文件&gt;正在接收地址 中复制当前钱包的一个地址（<strong>不是标签</strong>），然后运用下列命令在 qt 控制台中获取对应公钥和私钥</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">validateaddress &lt;address&gt;<br>dumpprivatekey &lt;address&gt;<br></code></pre></td></tr></table></figure>
+<p>​       得到的四个节点的对应公钥、私钥、地址如下：</p>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>正在接收地址</th>
+<th>公钥</th>
+<th>私钥</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alice</td>
+<td>mo7QSvzFhrmSob8Nc4oezMrKFG4kgXfpaQ</td>
+<td>03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247</td>
+<td>cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc</td>
+</tr>
+<tr>
+<td>bob</td>
+<td>mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2</td>
+<td>0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb</td>
+<td>cVkpuL8fJtdqbWjxTkPVsPS7Lgm35DJBv3FaJkiKcHmAFFHqvP4Y</td>
+</tr>
+<tr>
+<td>network</td>
+<td>mx7mERwyydMSYFTzPifQwFBhnmTH2kDcn6</td>
+<td>02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1</td>
+<td>cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn</td>
+</tr>
+<tr>
+<td>four</td>
+<td>mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og</td>
+<td>02186ce1b7f4f33d2e2284111c1442eeb36801424517b15f25410c9089cbe2fcc6</td>
+<td>cTdnyoEahTfrXffKyDQ3rDGJg9DmWWkCtZwfmeybAb8CFjQ7YHDp</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生成多重签名"><a class="markdownIt-Anchor" href="#生成多重签名"></a> 生成多重签名</h2>
+<ul>
+<li>在 <code>alice</code> 的控制台中输入以下命令，生成 2 of 3 多重签名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig n &lt;<span class="hljs-string">&#x27;[&quot;key1&quot;,&quot;key2&quot;,...,&quot;keyn&quot;]&#x27;</span>&gt;<br></code></pre></td></tr></table></figure>
+<p>​       在这里，使用 <code>alice</code>，<code>bob</code>，<code>network</code> 的公钥生成，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>返回信息如下：</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>将上述生成的地址加入到 <code>bob</code> 的钱包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">addmultisigaddress 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>得到地址，加入到 <code>bob</code> 的正在接收地址中</li>
+</ul>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-number">2</span><span class="hljs-symbol">NDuscm8</span>JWy<span class="hljs-number">7</span>jVgQfcCSyEbLzsf<span class="hljs-number">1</span>uwxtfi<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<h2 id="挖矿并向多签地址转钱"><a class="markdownIt-Anchor" href="#挖矿并向多签地址转钱"></a> 挖矿并向多签地址转钱</h2>
+<ul>
+<li><code>alice</code> 生成 101 个区块，从而获得 50个 BTC</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 100<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>alice</code> 向 <code>2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8</code> 转账 12 个 BTC</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendaddress 2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8 12<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>alice</code> 生成 6个区块从而确认交易</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 6<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>bob</code> 的钱包可以看到交易成功</li>
+</ul>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功" /></p>
+<h2 id="构建从多签地址向第四节点转账账单"><a class="markdownIt-Anchor" href="#构建从多签地址向第四节点转账账单"></a> 构建从多签地址向第四节点转账账单</h2>
+<ul>
+<li><code>alice</code> 控制台中输入如下命令，从多签地址向 <code>four</code> 转账 6 个 BTC</li>
+</ul>
+<p>※：要给出找零地址，否则会报错 <code>absurdly-high-fee (code -26)</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createrawtransaction <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;&#123;&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;:6,&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;:5.9998&#125;&#x27;</span> <br></code></pre></td></tr></table></figure>
+<ul>
+<li>其中，<code>txid</code> 和 <code>scriptPubKey</code>，可以直接在 <code>bob</code> 的交易记录中查询，或者使用一下命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">listunspent<br></code></pre></td></tr></table></figure>
+<p>生成了 16 进制的交易数据</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><span class="hljs-number">0200000001</span>f<span class="hljs-number">253</span>ca<span class="hljs-number">09</span>fb<span class="hljs-number">57</span>a<span class="hljs-number">1</span>a<span class="hljs-number">215423</span>a<span class="hljs-number">587</span>a<span class="hljs-number">60</span>dbca<span class="hljs-number">0395e8</span>aaa<span class="hljs-number">0</span>ab<span class="hljs-number">9</span>adc<span class="hljs-number">8</span>fa<span class="hljs-number">89e5</span>f<span class="hljs-number">3365138</span>b<span class="hljs-number">0100000000</span>ffffffff<span class="hljs-number">020046</span><span class="hljs-keyword">c</span><span class="hljs-number">323000000001976</span>a<span class="hljs-number">9147</span>bacb<span class="hljs-number">21432</span><span class="hljs-keyword">c</span><span class="hljs-number">1e521319387833</span>b<span class="hljs-number">87</span>fe<span class="hljs-number">704</span>dfe<span class="hljs-number">6</span>afc<span class="hljs-number">88</span>ace<span class="hljs-number">0</span>f<span class="hljs-number">7</span><span class="hljs-keyword">c</span><span class="hljs-number">223000000001976</span>a<span class="hljs-number">9140</span>aefe<span class="hljs-number">72</span>eaf<span class="hljs-number">26</span>dae<span class="hljs-number">31397</span><span class="hljs-keyword">c</span><span class="hljs-number">46</span>bfa<span class="hljs-number">821781406541</span>be<span class="hljs-number">88</span>ac<span class="hljs-number">00000000</span><br></code></pre></td></tr></table></figure>
+<h2 id="对交易进行签名"><a class="markdownIt-Anchor" href="#对交易进行签名"></a> 对交易进行签名</h2>
+<ul>
+<li><code>alice</code> 签名</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b0100000000ffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;[&quot;cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc&quot;]&#x27;</span> <br></code></pre></td></tr></table></figure>
+<p>​       得到一次签名后的交易数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;witness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Operation not valid with the current stack size&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="alice签名" /></p>
+<ul>
+<li><code>network</code> 签名</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> &#x27;<span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span>&#x27; &#x27;<span class="hljs-punctuation">[</span><span class="hljs-string">&quot;cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn&quot;</span><span class="hljs-punctuation">]</span>&#x27; <br></code></pre></td></tr></table></figure>
+<p>​        得到</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="network签名" /></p>
+<ul>
+<li><code>bob</code> 发送交易单</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendrawtransaction 0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000<br></code></pre></td></tr></table></figure>
+<p>​       得到 <code>txid</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec<br></code></pre></td></tr></table></figure>
+<p>​      通过 <code>getrawtransaction</code> 和 <code>decoderawtransaction</code>，得到</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs json"><br><span class="hljs-number">21</span><span class="hljs-punctuation">:</span><span class="hljs-number">52</span><span class="hljs-punctuation">:</span><span class="hljs-number">51</span><br>￼<br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vsize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;locktime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0 3045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d[ALL] 3045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6[ALL] 522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br>      <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6.00000000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 7bacb21432c1e521319387833b87fe704dfe6afc OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9147bacb21432c1e521319387833b87fe704dfe6afc88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span> <br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5.99980000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 0aefe72eaf26dae31397c46bfa821781406541be OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9140aefe72eaf26dae31397c46bfa821781406541be88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功2" /></p>
+<ul>
+<li>找零地址为 <code>network</code> 的地址，可见源地址没有 BTC 了，找零到了 <code>network</code>，支付了 <code>four</code> 地址 6 BTC，实验完成。</li>
+</ul>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="network钱包" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="four钱包" /></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="print-no-link">#区块链</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Bitcoin Core上实现多签交易</div>
+      <div>https://justloseit.top/Bitcoin Core上实现多签交易/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mobilis In Mobili & zz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年12月14日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年11月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Re-Entrancy%20%E6%94%BB%E5%87%BB%E6%A8%A1%E6%8B%9F%E2%80%94%E2%80%94The%20DAO%20%E4%BA%8B%E4%BB%B6%E5%A4%8D%E7%8E%B0%E4%B8%8E%E5%88%86%E6%9E%90/" title="Re-Entrancy 攻击模拟——The DAO 事件复现与分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Re-Entrancy 攻击模拟——The DAO 事件复现与分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Introduction%20To%20Modern%20Cryptography/" title="Introduction To Modern Cryptography">
+                        <span class="hidden-mobile">Introduction To Modern Cryptography</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"t4w421aIGl2GXkT0tSGoap5I-gzGzoHsz","appKey":"BpNeeVt0v3tKAbF1L6RTf94X","path":"window.location.pathname","placeholder":"说点什么","avatar":"hide","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://t4w421ai.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn">京ICP备2021006744号-1</a>
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802034644"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备 11010802034644号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

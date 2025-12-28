@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2025-12-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://justloseit.top/%E5%A4%A7%E5%85%B4%E5%8A%A8%E7%89%A9%E5%9B%AD%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2025-12-28</lastmod>
@@ -113,15 +122,6 @@
     <loc>https://justloseit.top/about/index.html</loc>
     
     <lastmod>2024-08-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2024-07-25</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

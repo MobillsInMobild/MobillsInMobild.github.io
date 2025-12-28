@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.jpg">
 <meta property="article:published_time" content="2022-02-04T03:35:25.000Z">
-<meta property="article:modified_time" content="2024-10-17T05:00:00.743Z">
+<meta property="article:modified_time" content="2025-12-28T13:57:32.851Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="算法">
@@ -323,7 +323,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年10月17日 下午
+                    本文最后更新于 2025年12月28日 晚上
                   
                 
               </p>
@@ -336,35 +336,45 @@
 <span id="more"></span>
 <h1 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h1>
 <h2 id="闫氏-dp-分析法"><a class="markdownIt-Anchor" href="#闫氏-dp-分析法"></a> 闫氏 DP 分析法</h2>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/闫氏分析法.svg" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%97%AB%E6%B0%8F%E5%88%86%E6%9E%90%E6%B3%95.svg" srcset="/img/loading.gif" lazyload alt="闫氏分析法" /></p>
 <h2 id="背包问题"><a class="markdownIt-Anchor" href="#背包问题"></a> 背包问题</h2>
 <h3 id="01-背包问题"><a class="markdownIt-Anchor" href="#01-背包问题"></a> 01 背包问题</h3>
 <ul>
 <li>问题：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个物品，每个物品的体积是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，价值是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，背包的容量是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>。若每个物品<strong>最多只能装一个</strong>，且不能超过背包容量，则背包的最大价值是多少？</li>
 <li>DP 分析</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/01背包.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
-- 模板
-  - 二维形式
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> n;  <span class="hljs-comment">// 物品总数</span><br><span class="hljs-type">int</span> m;  <span class="hljs-comment">// 背包容量</span><br><span class="hljs-type">int</span> v[N];  <span class="hljs-comment">// 重量</span><br><span class="hljs-type">int</span> w[N];  <span class="hljs-comment">// 价值</span><br><br><span class="hljs-type">int</span> f[N][M];  <span class="hljs-comment">// f[i][j] 表示 在考虑前 i 个物品后，背包容量为 j 条件下的 max 价值</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<span class="hljs-comment">// 从 1 开始是因为 i 为 0 时，f 一定为 0</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>        <span class="hljs-keyword">if</span> (j &lt; v[i])  f[i][j] = f[i - <span class="hljs-number">1</span>][j];  <span class="hljs-comment">// 当前重量装不进</span><br>        <span class="hljs-keyword">else</span> f[i][j] = <span class="hljs-built_in">max</span>(f[i - <span class="hljs-number">1</span>][j], f[i - <span class="hljs-number">1</span>][j - v[i]] + w[i]);<br><br>cout &lt;&lt; f[n][m];<br><br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%E8%83%8C%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="01背包" /></p>
+<ul>
+<li>
+<p>模板</p>
+<ul>
+<li>二维形式</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> n;  <span class="hljs-comment">// 物品总数</span><br><span class="hljs-type">int</span> m;  <span class="hljs-comment">// 背包容量</span><br><span class="hljs-type">int</span> v[N];  <span class="hljs-comment">// 重量</span><br><span class="hljs-type">int</span> w[N];  <span class="hljs-comment">// 价值</span><br><br><span class="hljs-type">int</span> f[N][M];  <span class="hljs-comment">// f[i][j] 表示 在考虑前 i 个物品后，背包容量为 j 条件下的 max 价值</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<span class="hljs-comment">// 从 1 开始是因为 i 为 0 时，f 一定为 0</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>        <span class="hljs-keyword">if</span> (j &lt; v[i])  f[i][j] = f[i - <span class="hljs-number">1</span>][j];  <span class="hljs-comment">// 当前重量装不进</span><br>        <span class="hljs-keyword">else</span> f[i][j] = <span class="hljs-built_in">max</span>(f[i - <span class="hljs-number">1</span>][j], f[i - <span class="hljs-number">1</span>][j - v[i]] + w[i]);<br><br>cout &lt;&lt; f[n][m];<br><br></code></pre></td></tr></table></figure>
 <ul>
 <li>利用<strong>滚动数组</strong>的原理转化为一维形式</li>
 </ul>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> f、[M];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= v[i]; j --  )  <span class="hljs-comment">// 注意是倒序</span><br>        f[i][j] = <span class="hljs-built_in">max</span>(f[j], f[j - v[i]] + w[i]);<br>    <br><br>cout &lt;&lt; f[m];<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> f、[M];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = m; j &gt;= v[i]; j --  )  <span class="hljs-comment">// 注意是倒序</span><br>        f[i][j] = <span class="hljs-built_in">max</span>(f[j], f[j - v[i]] + w[i]);<br>    <br><br>cout &lt;&lt; f[m];<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
 <h3 id="完全背包问题"><a class="markdownIt-Anchor" href="#完全背包问题"></a> 完全背包问题</h3>
 <ul>
 <li>问题：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个物品，每个物品的体积是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，价值是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，背包的容量是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>。若每个物品<strong>有任意多个</strong>，且不能超过背包容量，则背包的最大价值是多少？</li>
 <li>DP 分析（优化后）</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/完全背包.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
-- 模板
-  - 未优化
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++">  <span class="hljs-type">int</span> n;  <span class="hljs-comment">// 物品总数</span><br>  <span class="hljs-type">int</span> m;  <span class="hljs-comment">// 背包容量</span><br>  <span class="hljs-type">int</span> v[N];  <span class="hljs-comment">// 重量</span><br>  <span class="hljs-type">int</span> w[N];  <span class="hljs-comment">// 价值</span><br><br>  <span class="hljs-type">int</span> f[N][M];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>         <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k *v[i] &lt;= j; k ++ )<br>f[i][j] = <span class="hljs-built_in">max</span>(f[i][j], f[i - <span class="hljs-number">1</span>][j - k * v[i]] + k* w[i]);<br><br>  cout &lt;&lt; f[n][m];  <br><br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="完全背包" /></p>
+<ul>
+<li>
+<p>模板</p>
+<ul>
+<li>未优化</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++">  <span class="hljs-type">int</span> n;  <span class="hljs-comment">// 物品总数</span><br>  <span class="hljs-type">int</span> m;  <span class="hljs-comment">// 背包容量</span><br>  <span class="hljs-type">int</span> v[N];  <span class="hljs-comment">// 重量</span><br>  <span class="hljs-type">int</span> w[N];  <span class="hljs-comment">// 价值</span><br><br>  <span class="hljs-type">int</span> f[N][M];<br>  <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>         <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k *v[i] &lt;= j; k ++ )<br>f[i][j] = <span class="hljs-built_in">max</span>(f[i][j], f[i - <span class="hljs-number">1</span>][j - k * v[i]] + k* w[i]);<br><br>  cout &lt;&lt; f[n][m];  <br><br></code></pre></td></tr></table></figure>
 <ul>
 <li>优化后（公式推出）</li>
 </ul>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> f[N][M];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>        <span class="hljs-keyword">if</span> (j &lt; v[i]) f[i][j] = f[j - <span class="hljs-number">1</span>][j];<br>        <span class="hljs-keyword">else</span> f[i][j] = <span class="hljs-built_in">max</span>(f[i <span class="hljs-number">-1</span>][j], f[i][j - v[i]] + w[i]);  <span class="hljs-comment">// 注意！这里和 01 背包的脚标有区别</span><br><br><br>cout &lt;&lt; f[n][m]        <br></code></pre></td></tr></table></figure>
-<ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> f[N][M];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j ++ )<br>        <span class="hljs-keyword">if</span> (j &lt; v[i]) f[i][j] = f[j - <span class="hljs-number">1</span>][j];<br>        <span class="hljs-keyword">else</span> f[i][j] = <span class="hljs-built_in">max</span>(f[i <span class="hljs-number">-1</span>][j], f[i][j - v[i]] + w[i]);  <span class="hljs-comment">// 注意！这里和 01 背包的脚标有区别</span><br><br><br>cout &lt;&lt; f[n][m]        <br></code></pre></td></tr></table></figure>
+</li>
 <li>
 <p>类似于 01 背包，也能转换为一维形式</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> f[M];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i ++ )<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j = v[i]; j &lt;= m; j ++ )<br>         f[j] = <span class="hljs-built_in">max</span>(f[j], f[j - v[i]] + w[i]);  <span class="hljs-comment">// 仍然是正序！</span><br><br><br>cout &lt;&lt; f[m]        <br></code></pre></td></tr></table></figure>
@@ -398,17 +408,21 @@
 <li>T：898. 数字三角形</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/数字三角形.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2.png" srcset="/img/loading.gif" lazyload alt="数字三角形" /></p>
 <h3 id="最长上升子序列"><a class="markdownIt-Anchor" href="#最长上升子序列"></a> 最长上升子序列</h3>
 <ul>
 <li>T：895. 最长上升子序列</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/最长上升子序列.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
-- 贪心优化：
-  - 二分版：
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> len = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 最长上升子序列 q[] 长度</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ )<br>  &#123;<br>      <span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = len;<br>      <span class="hljs-keyword">while</span> (l &lt; r)<br>      &#123;<br>          <span class="hljs-type">int</span> mid = l + (r - l) / <span class="hljs-number">2</span>;<br>          <span class="hljs-keyword">if</span> (q[mid] &lt; a[i]) l = mid;<br>          <span class="hljs-keyword">else</span> r = mid + <span class="hljs-number">1</span>;<br>      &#125;<br>      q[r ++ ] = a[i];<br>      len = <span class="hljs-built_in">max</span>(len, r);<br>  &#125;<br>cout &lt;&lt; len &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97.png" srcset="/img/loading.gif" lazyload alt="最长上升子序列" /></p>
 <ul>
+<li>
+<p>贪心优化：</p>
+<ul>
+<li>二分版：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-type">int</span> len = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 最长上升子序列 q[] 长度</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i ++ )<br>  &#123;<br>      <span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = len;<br>      <span class="hljs-keyword">while</span> (l &lt; r)<br>      &#123;<br>          <span class="hljs-type">int</span> mid = l + (r - l) / <span class="hljs-number">2</span>;<br>          <span class="hljs-keyword">if</span> (q[mid] &lt; a[i]) l = mid;<br>          <span class="hljs-keyword">else</span> r = mid + <span class="hljs-number">1</span>;<br>      &#125;<br>      q[r ++ ] = a[i];<br>      len = <span class="hljs-built_in">max</span>(len, r);<br>  &#125;<br>cout &lt;&lt; len &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+</li>
 <li>
 <p>stl 版</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++">vector&lt;<span class="hljs-type">int</span>&gt; stk;            <span class="hljs-comment">//类似于单调栈</span><br>stk.<span class="hljs-built_in">push_back</span>(arr[<span class="hljs-number">0</span>]);<br><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i ++ ) &#123;<br>    <span class="hljs-keyword">if</span> (arr[i] &gt; stk.<span class="hljs-built_in">back</span>())        <br>        stk.<span class="hljs-built_in">push_back</span>(arr[i]);          <span class="hljs-comment">// 如果该元素大于栈顶元素,将该元素入栈</span><br>    <span class="hljs-keyword">else</span><br>        *<span class="hljs-built_in">lower_bound</span>(stk.<span class="hljs-built_in">begin</span>(), stk.<span class="hljs-built_in">end</span>(), arr[i]) = arr[i];  <span class="hljs-comment">// 替换掉第一个大于或者等于这个数字的那个数</span><br>&#125;<br>cout &lt;&lt; stk.<span class="hljs-built_in">size</span>() &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
@@ -419,13 +433,13 @@
 <li>T：897. 最长公共子序列</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/最长公共子序列.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.png" srcset="/img/loading.gif" lazyload alt="最长公共子序列" /></p>
 <h3 id="最短编辑距离"><a class="markdownIt-Anchor" href="#最短编辑距离"></a> 最短编辑距离</h3>
 <ul>
 <li>T：902. 最短编辑距离</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/最短编辑距离.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E7%9F%AD%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB.png" srcset="/img/loading.gif" lazyload alt="最短编辑距离" /></p>
 <h2 id="区间-dp"><a class="markdownIt-Anchor" href="#区间-dp"></a> 区间 DP</h2>
 <ul>
 <li>
@@ -447,18 +461,18 @@
 <li>T：282. 石子合并</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/石子合并.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6.png" srcset="/img/loading.gif" lazyload alt="石子合并" /></p>
 <h2 id="计数类-dp"><a class="markdownIt-Anchor" href="#计数类-dp"></a> 计数类 DP</h2>
 <h3 id="整数划分"><a class="markdownIt-Anchor" href="#整数划分"></a> 整数划分</h3>
 <ul>
 <li>问题：把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 拆分成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>∼</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\sim n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的和的方案数（不考虑顺序）</li>
 <li>DP 分析：
 <ul>
-<li>基于完全背包问题</li>
+<li>基于完全背包问题<br />
+<img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%861.png" srcset="/img/loading.gif" lazyload alt="整数划分1" /></li>
+<li>基于“总和-个数”<br />
+<img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%862.png" srcset="/img/loading.gif" lazyload alt="整数划分2" /></li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/整数划分1.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
-- 基于“总和-个数”
-<div align=center> <img src="/img/post/算法备忘录·动态规划/整数划分2.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
 </li>
 </ul>
 <h2 id="数位统计-dp"><a class="markdownIt-Anchor" href="#数位统计-dp"></a> 数位统计 DP</h2>
@@ -504,13 +518,13 @@
 <li>T：291. 蒙德里安的梦想</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/蒙德里安的梦想.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E8%92%99%E5%BE%B7%E9%87%8C%E5%AE%89%E7%9A%84%E6%A2%A6%E6%83%B3.png" srcset="/img/loading.gif" lazyload alt="蒙德里安的梦想" /></p>
 <h3 id="最短-hamilton-路径"><a class="markdownIt-Anchor" href="#最短-hamilton-路径"></a> 最短 Hamilton 路径</h3>
 <ul>
 <li>T：91. 最短 Hamilton 路径</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/最短Hamilton路径.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E7%9F%ADHamilton%E8%B7%AF%E5%BE%84.png" srcset="/img/loading.gif" lazyload alt="最短Hamilton路径" /></p>
 <h2 id="树形-dp"><a class="markdownIt-Anchor" href="#树形-dp"></a> 树形 DP</h2>
 <ul>
 <li>树形 DP：在树上进行的 DP</li>
@@ -520,7 +534,7 @@
 <li>T：285. 没有上司的舞会</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/没有上司的舞会.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%B2%A1%E6%9C%89%E4%B8%8A%E5%8F%B8%E7%9A%84%E8%88%9E%E4%BC%9A.png" srcset="/img/loading.gif" lazyload alt="没有上司的舞会" /></p>
 <h2 id="记忆化搜索"><a class="markdownIt-Anchor" href="#记忆化搜索"></a> 记忆化搜索</h2>
 <ul>
 <li>任何一个 DP 方程都能转为记忆化搜索。记忆化搜索的优点是<strong>特别好写</strong>，但是效率有时不如 DP 写法</li>
@@ -532,7 +546,7 @@
 <li>T：901. 滑雪</li>
 <li>DP 分析：</li>
 </ul>
-<div align=center> <img src="/img/post/算法备忘录·动态规划/滑雪.png" srcset="/img/loading.gif" lazyload  style="zoom:70%;"/></div>
+<p><img src="/img/post/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%BB%91%E9%9B%AA.png" srcset="/img/loading.gif" lazyload alt="滑雪" /></p>
 <hr />
 <p>算法备忘录系列目录：<br />
 <a href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">第一节 算法备忘录·基础算法</a><br />
@@ -610,7 +624,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年10月17日</div>
+          <div>2025年12月28日</div>
         </div>
       
       

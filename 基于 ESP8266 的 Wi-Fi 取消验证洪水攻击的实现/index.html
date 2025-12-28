@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E5%9F%BA%E4%BA%8E%20ESP8266%20%E7%9A%84%20Wi-Fi%20%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0.jpg">
 <meta property="article:published_time" content="2021-01-01T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-11-21T12:20:05.629Z">
+<meta property="article:modified_time" content="2025-12-28T13:51:40.212Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="Wi-Fi">
 <meta property="article:tag" content="NodeMCU">
@@ -321,7 +321,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2022年11月21日 晚上
+                    本文最后更新于 2025年12月28日 晚上
                   
                 
               </p>
@@ -447,32 +447,32 @@
 <ul>
 <li>
 <p>我们选取连入了 Wi-Fi 名为 El-PSY-CONGROO-Android 的米家台灯 1s 作为攻击的对象。这是一款支持通过 Wi-Fi 进行物联网接入的台灯，能够通过米家 APP 进行相应的操控。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家台灯.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" /></div>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/米家APP.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/%E7%B1%B3%E5%AE%B6%E5%8F%B0%E7%81%AF.png" srcset="/img/loading.gif" lazyload alt="米家台灯" /></p>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/%E7%B1%B3%E5%AE%B6APP.jpg" srcset="/img/loading.gif" lazyload alt="米家APP" /></p>
 </li>
 <li>
 <p>我们将Wi-Fi攻击器通过USB供电，工作中的Wi-Fi攻击器如下图。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266连接电源.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/ESP8266%E8%BF%9E%E6%8E%A5%E7%94%B5%E6%BA%90.jpg" srcset="/img/loading.gif" lazyload alt="ESP8266连接电源" /></p>
 </li>
 <li>
 <p>我们首先先连接到 Wi-Fi 中的 pwned，这样我们就可以登陆到操作后台。</p>
 </li>
 <li>
 <p>接下来，我们登陆到 192.168.4.1 对 Wi-Fi 攻击器开始控制：</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/登录到管理页面.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/%E7%99%BB%E5%BD%95%E5%88%B0%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.jpg" srcset="/img/loading.gif" lazyload alt="登录到管理页面" /></p>
 </li>
 <li>
 <p>点击 SCAN APS 开始扫描 Wi-Fi，此时 Wi-Fi 攻击器的指示灯会变蓝，当指示灯不再变蓝时，Wi-Fi 扫描即完成。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/ESP8266扫描WiFi.jpg" srcset="/img/loading.gif" lazyload style="zoom: 33%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/ESP8266%E6%89%AB%E6%8F%8FWiFi.jpg" srcset="/img/loading.gif" lazyload alt="ESP8266扫描WiFi" /></p>
 </li>
 <li>
 <p>在扫描得到的 Wi-Fi 列表中，我们能够发现米家台灯所接入的 Wi-Fi。我们选中对应的 Wi-Fi，并在菜单中选择 Attacks 开始攻击。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/Attack.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/Attack.png" srcset="/img/loading.gif" lazyload alt="Attack" /></p>
 </li>
 <li>
 <p>攻击之后米家 APP 显示米家台灯不在线，无法进行操作。Wi-Fi 网关显示连接设备的数目为 0，这样就实现了攻击。</p>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/攻击效果.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
-<div align=center><img src="/img/post/基于ESP8266的Wi-Fi取消验证洪水攻击的实现/接入设备0.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p><img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/%E6%94%BB%E5%87%BB%E6%95%88%E6%9E%9C.png" srcset="/img/loading.gif" lazyload alt="攻击效果" /><br />
+<img src="/img/post/%E5%9F%BA%E4%BA%8EESP8266%E7%9A%84Wi-Fi%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/%E6%8E%A5%E5%85%A5%E8%AE%BE%E5%A4%870.jpg" srcset="/img/loading.gif" lazyload alt="接入设备0" /></p>
 </li>
 </ul>
 <h2 id="防护措施"><a class="markdownIt-Anchor" href="#防护措施"></a> 防护措施</h2>
@@ -550,7 +550,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月21日</div>
+          <div>2025年12月28日</div>
         </div>
       
       

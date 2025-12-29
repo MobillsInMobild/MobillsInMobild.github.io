@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg">
 <meta property="article:published_time" content="2021-11-29T10:19:04.000Z">
-<meta property="article:modified_time" content="2022-11-21T12:46:25.132Z">
+<meta property="article:modified_time" content="2025-12-29T13:40:53.815Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Pikachu">
@@ -259,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.4k 字
         
       </span>
     
@@ -270,7 +270,7 @@
         
         
         
-          28 分钟
+          29 分钟
         
       </span>
     
@@ -321,7 +321,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2022年11月21日 晚上
+                    本文最后更新于 2025年12月29日 晚上
                   
                 
               </p>
@@ -373,8 +373,8 @@
           </div>
 <ul>
 <li>
-<p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/返回 token.jpg" srcset="/img/loading.gif" lazyload style="zoom:60%;" /></div>
+<p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。<br />
+![返回 token](/img/post/Pikachu 靶场 Writeup/返回 token.jpg)</p>
 </li>
 <li>
 <p>首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。</p>
@@ -383,21 +383,21 @@
 <p>单线程直接在 Intruder 模块的 <code>Options--Request Engine--Number of threads</code> 中修改即可。</p>
 </li>
 <li>
-<p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+<p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：<br />
+![提取上一次的 token](/img/post/Pikachu 靶场 Writeup/提取上一次的 token.jpg)</p>
 </li>
 <li>
-<p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg" srcset="/img/loading.gif" lazyload style="zoom: 40%;" /></div>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg" srcset="/img/loading.gif" lazyload style="zoom: 40%;" /></div>
+<p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。<br />
+![token 设置 Pitchfork](/img/post/Pikachu 靶场 Writeup/token 设置 Pitchfork.jpg)<br />
+![第二个 payload 集](/img/post/Pikachu 靶场 Writeup/第二个 payload 集.jpg)</p>
 </li>
 <li>
-<p>除此之外，还需要设置重定向，保证发包收包是连续的：</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/设置重定向.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+<p>除此之外，还需要设置重定向，保证发包收包是连续的：<br />
+![设置重定向](/img/post/Pikachu 靶场 Writeup/设置重定向.jpg)</p>
 </li>
 <li>
-<p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。</p>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg" srcset="/img/loading.gif" lazyload style="zoom: 60%;" /></div>
+<p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。<br />
+![token 爆破成功](/img/post/Pikachu 靶场 Writeup/token 爆破成功.jpg)</p>
 </li>
 </ul>
 <div class="note note-warning">
@@ -465,7 +465,7 @@
 <li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
 </ul>
 <div class="note note-warning">
-            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br />（飞雷神·二段🥷）</li></ul><div align=center><img src="/img/post/Pikachu 靶场 Writeup/飞雷神二段.gif" srcset="/img/loading.gif" lazyload style="zoom: 100%;" /></div>
+            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br />（飞雷神·二段🥷）</li></ul><p>![飞雷神二段](/img/post/Pikachu 靶场 Writeup/飞雷神二段.gif)</p>
           </div>  
 <h3 id="xss-之盲打"><a class="markdownIt-Anchor" href="#xss-之盲打"></a> xss 之盲打</h3>
 <div class="note note-success">
@@ -528,7 +528,7 @@
 <li>看了<a target="_blank" rel="noopener" href="https://www.naraku.cn/posts/25.html">Pikachu漏洞靶场系列之CSRF</a>，这里使用 OWASP 家的工具 <code>CSRFTester</code>。但是实际使用时，我没能成功抓包（<s>Java 一生之敌</s>）。再加之此工具实在太老了……因此，我转而使用了<a target="_blank" rel="noopener" href="https://security.love/CSRF-PoC-Genorator/">CSRF PoC Generator<br />
 </a>（其实自行编写相应的 html 也是可行的）</li>
 </ul>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/CSRF_POC_Generator.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p>![CSRF_POC_Generator](/img/post/Pikachu 靶场 Writeup/CSRF_POC_Generator.jpg)</p>
 <ul>
 <li>
 <p>不过这个 poc 没有加入自动提交表单，所以加个自动点击提交按钮就行</p>
@@ -542,11 +542,11 @@
 <ul>
 <li>相比于之前的个人信息修改页面，它在 Form 表单的隐藏域中增加了 token 字段：</li>
 </ul>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/csrf_新增token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p>![csrf_新增token](/img/post/Pikachu 靶场 Writeup/csrf_新增token.jpg)</p>
 <ul>
 <li>而在修改时，它会验证 token，并在验证后调用 <code>set_token()</code> 重新生成 token：</li>
 </ul>
-<div align=center><img src="/img/post/Pikachu 靶场 Writeup/csrf_生成token.jpg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" /></div>
+<p>![csrf_生成token](/img/post/Pikachu 靶场 Writeup/csrf_生成token.jpg)</p>
 <ul>
 <li>因此无法进行 CSRF 攻击。<strong>使用 token 是一个防御 CSRF 攻击的方法。</strong></li>
 </ul>
@@ -654,7 +654,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月21日</div>
+          <div>2025年12月29日</div>
         </div>
       
       

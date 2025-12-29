@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/Learn%20Git%20Branching%20%E5%A4%87%E5%BF%98.png">
 <meta property="article:published_time" content="2023-01-15T07:46:25.000Z">
-<meta property="article:modified_time" content="2025-12-29T13:40:53.427Z">
+<meta property="article:modified_time" content="2025-12-29T13:57:40.258Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          946 字
+          914 字
         
       </span>
     
@@ -355,7 +355,7 @@ end
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 把分支记录回退到 commit [commit_id]</span><br><br>git reset [commit_id]<br></code></pre></td></tr></table></figure>
 <ul>
 <li>在reset后， C2 所做的变更还在，但是处于<strong>未加入暂存区状态</strong><br />
-![reset](/img/post/Learn Git Branching 备忘/reset.png)</li>
+<img src="/img/post/Learn-Git-Branching-%E5%A4%87%E5%BF%98/reset.png" srcset="/img/loading.gif" lazyload alt="reset" /></li>
 </ul>
 <div class="note note-success">
             <ul><li><p><code>--mixed</code>：默认，工作区代码不变，暂存区和本地仓库回滚</p></li><li><p><code>--soft</code>：默认，工作区和暂存区代码不变，本地仓库回滚</p></li><li><p><code>--hard</code>：默认，工作区、暂存区和本地仓库回滚</p></li></ul>
@@ -364,7 +364,7 @@ end
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提交一个回退到 [commit_id] 的记录</span><br><br>git revert [commit_id]<br></code></pre></td></tr></table></figure>
 <ul>
 <li>在 revert 后多了一个<strong>表示撤销操作</strong>的新提交，这样就可以<strong>把更改推送到远程仓库</strong>了<br />
-![revert](/img/post/Learn Git Branching 备忘/revert.png)</li>
+<img src="/img/post/Learn-Git-Branching-%E5%A4%87%E5%BF%98/revert.png" srcset="/img/loading.gif" lazyload alt="revert" /></li>
 </ul>
 <h2 id="本地分支"><a class="markdownIt-Anchor" href="#本地分支"></a> 本地分支</h2>
 <h3 id="新建并切换分支"><a class="markdownIt-Anchor" href="#新建并切换分支"></a> 新建并切换分支</h3>
@@ -376,10 +376,10 @@ end
 <h3 id="合并分支"><a class="markdownIt-Anchor" href="#合并分支"></a> 合并分支</h3>
 <h4 id="merge"><a class="markdownIt-Anchor" href="#merge"></a> merge</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 当前分支合并了 [branch_name] 分支的所有修改</span><br><span class="hljs-comment">## 但是 [branch_name] 分支并没有合并当前分支的修改</span><br><br>git merge [branch_name]<br></code></pre></td></tr></table></figure>
-<p>![merge](/img/post/Learn Git Branching 备忘/merge.png)</p>
+<p><img src="/img/post/Learn-Git-Branching-%E5%A4%87%E5%BF%98/merge.png" srcset="/img/loading.gif" lazyload alt="merge" /></p>
 <h4 id="rebase"><a class="markdownIt-Anchor" href="#rebase"></a> rebase</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提取在当前分支上的改动，然后应用在 [branch_name] 分支的代码上</span><br><span class="hljs-comment">## 注意，应用就是指接在对应 commit 后，以 [branch_name] 为基 </span><br><br>git rebase [branch_name]<br></code></pre></td></tr></table></figure>
-<p>![rebase](/img/post/Learn Git Branching 备忘/rebase.png)</p>
+<p><img src="/img/post/Learn-Git-Branching-%E5%A4%87%E5%BF%98/rebase.png" srcset="/img/loading.gif" lazyload alt="rebase" /></p>
 <div class="note note-success">
             <ul><li>rebase 使提交树变得很干净, 所有的提交都在一条线上</li><li>merge 则能够保留提交历史</li></ul>
           </div>

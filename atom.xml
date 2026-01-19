@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2026-01-19T15:45:33.950Z</updated>
+  <updated>2025-12-28T13:47:07.351Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>年度总结：2025年我的阅读·影视·游戏</title>
-    <link href="https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
-    <id>https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
-    <published>2026-01-01T15:31:25.000Z</published>
-    <updated>2026-01-19T15:45:33.950Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;2025年，我觉得&lt;strong&gt;值得记录的&lt;/strong&gt;所读、所看、所玩&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="年度总结" scheme="https://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    
-    <category term="电影" scheme="https://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-    <category term="游戏" scheme="https://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
-    
-    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
   
   <entry>
     <title>Dehancer：当代数字工具如何致敬传统胶片工艺</title>
@@ -429,6 +404,28 @@
     
     <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
 这是第八节，时空复杂度分析。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法备忘录·贪心</title>
+    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E8%B4%AA%E5%BF%83/"/>
+    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E8%B4%AA%E5%BF%83/</id>
+    <published>2022-02-19T09:57:25.000Z</published>
+    <updated>2025-12-28T13:58:48.325Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
+这是第七节，贪心。&lt;/p&gt;</summary>
     
     
     

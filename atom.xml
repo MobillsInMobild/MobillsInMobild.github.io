@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2025-12-28T13:47:07.351Z</updated>
+  <updated>2026-01-26T15:45:20.158Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>广州长隆野生动物园记录</title>
+    <link href="https://justloseit.top/%E5%B9%BF%E5%B7%9E%E9%95%BF%E9%9A%86%E5%8A%A8%E7%89%A9%E5%9B%AD%E5%9B%BE%E9%9B%86/"/>
+    <id>https://justloseit.top/%E5%B9%BF%E5%B7%9E%E9%95%BF%E9%9A%86%E5%8A%A8%E7%89%A9%E5%9B%AD%E5%9B%BE%E9%9B%86/</id>
+    <published>2026-01-03T04:46:25.000Z</published>
+    <updated>2026-01-26T15:45:20.158Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;又一次，爽拍动物！（多图杀猫）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="图集" scheme="https://justloseit.top/categories/%E5%9B%BE%E9%9B%86/"/>
+    
+    
+    <category term="摄影" scheme="https://justloseit.top/tags/%E6%91%84%E5%BD%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>Dehancer：当代数字工具如何致敬传统胶片工艺</title>
@@ -123,10 +142,10 @@
   
   <entry>
     <title>大兴野生动物园记录</title>
-    <link href="https://justloseit.top/%E5%A4%A7%E5%85%B4%E5%8A%A8%E7%89%A9%E5%9B%AD%E8%AE%B0%E5%BD%95/"/>
-    <id>https://justloseit.top/%E5%A4%A7%E5%85%B4%E5%8A%A8%E7%89%A9%E5%9B%AD%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://justloseit.top/%E5%A4%A7%E5%85%B4%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD%E5%9B%BE%E9%9B%86/"/>
+    <id>https://justloseit.top/%E5%A4%A7%E5%85%B4%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD%E5%9B%BE%E9%9B%86/</id>
     <published>2024-04-04T04:46:25.000Z</published>
-    <updated>2025-12-28T13:06:19.045Z</updated>
+    <updated>2026-01-26T15:21:25.110Z</updated>
     
     
     <summary type="html">&lt;p&gt;爽拍动物！（多图杀猫）&lt;/p&gt;</summary>
@@ -167,10 +186,10 @@
   
   <entry>
     <title>奥森打鸟(?)记录</title>
-    <link href="https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/"/>
-    <id>https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E5%9B%BE%E9%9B%86/"/>
+    <id>https://justloseit.top/%E5%A5%A5%E6%A3%AE%E6%89%93%E9%B8%9F%E5%9B%BE%E9%9B%86/</id>
     <published>2023-12-17T12:46:25.000Z</published>
-    <updated>2025-12-28T13:11:47.105Z</updated>
+    <updated>2026-01-26T15:21:34.756Z</updated>
     
     
     <summary type="html">&lt;p&gt;等效 135 的 300mm 变焦头到了，正好去奥森转转（多图杀猫）&lt;/p&gt;</summary>
@@ -404,28 +423,6 @@
     
     <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
 这是第八节，时空复杂度分析。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://justloseit.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="算法" scheme="https://justloseit.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法备忘录·贪心</title>
-    <link href="https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E8%B4%AA%E5%BF%83/"/>
-    <id>https://justloseit.top/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95%C2%B7%E8%B4%AA%E5%BF%83/</id>
-    <published>2022-02-19T09:57:25.000Z</published>
-    <updated>2025-12-28T13:58:48.325Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一直以来，没能系统学习算法，是我心中的痛；现在学了 y 总的算法基础课，做做笔记，希望能够有所收获。&lt;br /&gt;
-这是第七节，贪心。&lt;/p&gt;</summary>
     
     
     

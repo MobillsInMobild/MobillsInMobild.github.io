@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2026-01-28T13:01:13.425Z</updated>
+  <updated>2026-02-11T13:45:13.372Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kindle Keyboard 刷机 KOReader</title>
+    <link href="https://justloseit.top/Kindle%20Keyboard%20%E5%88%B7%E6%9C%BA%20KOReader/"/>
+    <id>https://justloseit.top/Kindle%20Keyboard%20%E5%88%B7%E6%9C%BA%20KOReader/</id>
+    <published>2026-02-09T14:53:25.000Z</published>
+    <updated>2026-02-11T13:45:13.372Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;让 Kindle Keyboard 重获新生&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://justloseit.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Kindle" scheme="https://justloseit.top/tags/Kindle/"/>
+    
+    <category term="刷机" scheme="https://justloseit.top/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>广州长隆野生动物园记录</title>
@@ -408,27 +429,6 @@
     <category term="编程" scheme="https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
     
     <category term="Golang" scheme="https://justloseit.top/tags/Golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>区块链分片技术综述</title>
-    <link href="https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%88%86%E7%89%87%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/"/>
-    <id>https://justloseit.top/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%88%86%E7%89%87%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/</id>
-    <published>2022-03-13T06:46:25.000Z</published>
-    <updated>2026-02-05T13:12:24.145Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;Survey Sharding in Blockchains&lt;/strong&gt; 笔记&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="区块链" scheme="https://justloseit.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-    <category term="分片" scheme="https://justloseit.top/tags/%E5%88%86%E7%89%87/"/>
     
   </entry>
   

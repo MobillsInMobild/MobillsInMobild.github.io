@@ -6,7 +6,7 @@
   <link href="https://justloseit.top/atom.xml" rel="self"/>
   
   <link href="https://justloseit.top/"/>
-  <updated>2026-02-12T13:56:08.958Z</updated>
+  <updated>2026-02-16T09:37:25.496Z</updated>
   <id>https://justloseit.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>年度总结：2025年我的阅读·影视·游戏</title>
+    <link href="https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/"/>
+    <id>https://justloseit.top/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/</id>
+    <published>2026-02-16T15:31:25.000Z</published>
+    <updated>2026-02-16T09:37:25.496Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;2025年，我觉得&lt;strong&gt;值得记录的&lt;/strong&gt;所读、所看、所玩&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈" scheme="https://justloseit.top/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="年度总结" scheme="https://justloseit.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="电影" scheme="https://justloseit.top/tags/%E7%94%B5%E5%BD%B1/"/>
+    
+    <category term="游戏" scheme="https://justloseit.top/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="阅读" scheme="https://justloseit.top/tags/%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Kindle Keyboard 刷机 KOReader</title>
@@ -408,27 +433,6 @@
     <category term="共识" scheme="https://justloseit.top/tags/%E5%85%B1%E8%AF%86/"/>
     
     <category term="异步" scheme="https://justloseit.top/tags/%E5%BC%82%E6%AD%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>“7天用Go从零实现Web框架Gee”学习记录</title>
-    <link href="https://justloseit.top/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-    <id>https://justloseit.top/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
-    <published>2022-07-03T02:19:04.000Z</published>
-    <updated>2022-11-21T12:07:39.109Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;开源项目“七天用 Go 从零实现”系列之 &lt;a href=&quot;https://github.com/geektutu/7days-golang/tree/master/gee-web&quot;&gt;Gee-web&lt;/a&gt; 学习记录&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="笔记" scheme="https://justloseit.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="编程" scheme="https://justloseit.top/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-    <category term="Golang" scheme="https://justloseit.top/tags/Golang/"/>
     
   </entry>
   

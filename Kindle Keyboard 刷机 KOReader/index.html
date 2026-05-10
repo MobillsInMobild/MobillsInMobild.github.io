@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -99,6 +99,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -126,7 +131,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -222,6 +227,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -259,7 +381,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          3k 字
         
       </span>
     
@@ -270,7 +392,7 @@
         
         
         
-          13 分钟
+          26 分钟
         
       </span>
     
@@ -284,7 +406,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -296,6 +417,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -353,14 +476,14 @@
 <p><img src="/img/post/KindleKeyboard%E5%88%B7%E6%9C%BAKOReader/%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF.jpg" srcset="/img/loading.gif" lazyload alt="版本信息，别忘了 Alt + Shift + G 可以截图" /></p>
 <h3 id="升级版本"><a class="markdownIt-Anchor" href="#升级版本"></a> 升级版本</h3>
 <div class="note note-warning">
-            <p>由于后面出现的 MKK 密钥库过期的问题，<strong>必须</strong>将其升级到最新版本 3.4.3。</p>
+            <p>由于后面出现的 MKK 密钥库过期的问题，<strong>必须</strong>将其升级到最新版本 3.4.3。</p> 
           </div>
 <p>在<a target="_blank" rel="noopener" href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GX3VVAQS4DYDE5KE">Previous Software Updates for Kindle E-Reader</a>或者书伴提供的 <a target="_blank" rel="noopener" href="https://bookfere.com/update#kkb">Kindle 固件大全</a> 可以<strong>逐步</strong>升级到最新版本。</p>
 <p>我们使用 B006 的机型对应固件，并将其拷贝至 Kindle Keyboard 的根目录。然后执行 <code>[MENU] &gt; Settings -&gt; [MENU] &gt; Update Your Kindle</code>。</p>
 <h3 id="完全重置-kindle"><a class="markdownIt-Anchor" href="#完全重置-kindle"></a> 完全重置 Kindle</h3>
 <p>另外，完全重置 Kindle：为了减少未知 Bug 的出现，最好是完全重置一遍 Kindle。</p>
 <div class="note note-danger">
-            <p><strong>备份你的文件！</strong><br /><strong>备份你的文件！</strong><br /><strong>备份你的文件！</strong></p>
+            <p><strong>备份你的文件！</strong><br /> <strong>备份你的文件！</strong><br /> <strong>备份你的文件！</strong></p> 
           </div>
 <ul>
 <li>执行 <code>[MENU] &gt; Settings -&gt; [MENU] &gt; Restart</code>，今后在重启期间长按 <code>[HOME]</code> 直至出现 Reset to Factory Defaults 页面，并依次输入 RESET 和 R 即可等待至完全重置。</li>
@@ -372,7 +495,7 @@
 <h2 id="mobileread-kindlet-kit"><a class="markdownIt-Anchor" href="#mobileread-kindlet-kit"></a> Mobileread Kindlet Kit</h2>
 <p>Mobileread Kindlet Kit (MKK) 是在 Kindle 上运行自定义 Kindlet（如 KUAL 或 Collections Manager ）所需的工具包，包括：合并的开发者密钥库和 ixtab 的 Kindle<strong>t</strong> 越狱工具。</p>
 <div class="note note-warning">
-            <p>由于原来的合并的开发者密钥库 developer.keystore 于 2025 年 4 月 17 日过期了，所以需要在 <a target="_blank" rel="noopener" href="https://www.mobileread.com/forums/showpost.php?p=4506164">这里</a> 获取最新的 MKK。</p>
+            <p>由于原来的合并的开发者密钥库 developer.keystore 于 2025 年 4 月 17 日过期了，所以需要在 <a target="_blank" rel="noopener" href="https://www.mobileread.com/forums/showpost.php?p=4506164">这里</a> 获取最新的 MKK。</p> 
           </div>
 <p>和 Jailbreak 的过程类似，只是包换成了 <code>Update-mkk-20250419-k3g-B006_keystore-install.bin</code>。</p>
 <h2 id="kual"><a class="markdownIt-Anchor" href="#kual"></a> KUAL</h2>
@@ -397,14 +520,14 @@
 <h3 id="安装屏幕保护程序-字体-插件"><a class="markdownIt-Anchor" href="#安装屏幕保护程序-字体-插件"></a> 安装屏幕保护程序、字体、插件</h3>
 <p>选择对应的版本拷贝到 <code>mrpackages/</code> 文件夹下即可，使用 <code>KUAL &gt; Helper &gt; Install MR Packages</code> 即可。</p>
 <div class="note note-success">
-            <p>如果使用无框架的 KOReader——它会停止 Kindle 框架，无框架运行更流畅。也可以选择不下载这些插件。</p>
+            <p>如果使用无框架的 KOReader——它会停止 Kindle 框架，无框架运行更流畅。也可以选择不下载这些插件。</p> 
           </div>
 <h2 id="安装-koreader"><a class="markdownIt-Anchor" href="#安装-koreader"></a> 安装 KOReader</h2>
 <p>从 <a target="_blank" rel="noopener" href="https://github.com/koreader/koreader/releases">KOReader Release</a> 下载 <em>legacy</em> 版本，解压至 Kindle 根目录即可。</p>
 <p>至此，已经完成了 KOReader 的安装。</p>
 <p><img src="/img/post/KindleKeyboard%E5%88%B7%E6%9C%BAKOReader/KOReader.png" srcset="/img/loading.gif" lazyload alt="KOReader" /></p>
 <div class="note note-warning">
-            <p>在 KOReader 运行时，将设备切换到 USBMS 模式（通过 USB 连接到电脑）是完全不受支持的 ，并且可能会导致 KOReader 和 Kindle 底层系统崩溃。</p><p>因此，我推荐通过 KOReader 自带的 SSH 服务器用于在使用 KOReader 时进行文件传输和管理。</p>
+            <p>在 KOReader 运行时，将设备切换到 USBMS 模式（通过 USB 连接到电脑）是完全不受支持的 ，并且可能会导致 KOReader 和 Kindle 底层系统崩溃。</p> <p>因此，我推荐通过 KOReader 自带的 SSH 服务器用于在使用 KOReader 时进行文件传输和管理。</p> 
           </div>
 
                 
@@ -770,7 +893,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -781,10 +960,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -796,6 +981,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -856,6 +1043,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

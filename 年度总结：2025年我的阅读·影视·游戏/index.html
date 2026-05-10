@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,6 +101,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -128,7 +133,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -224,6 +229,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -261,7 +383,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k 字
+          5.8k 字
         
       </span>
     
@@ -272,7 +394,7 @@
         
         
         
-          40 分钟
+          48 分钟
         
       </span>
     
@@ -286,7 +408,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -298,6 +419,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -335,7 +458,7 @@
 <span id="more"></span>
 <h1 id="年度总结2025年我的阅读电影游戏"><a class="markdownIt-Anchor" href="#年度总结2025年我的阅读电影游戏"></a> 年度总结：2025年我的阅读·电影·游戏</h1>
 <div class="note note-primary">
-            <p>「幻想曲女巫」</p>
+            <p>「幻想曲女巫」</p> 
           </div>
 <ul>
 <li>
@@ -349,7 +472,7 @@
 <h2 id="阅读"><a class="markdownIt-Anchor" href="#阅读"></a> 阅读</h2>
 <h3 id="风光摄影后期基础"><a class="markdownIt-Anchor" href="#风光摄影后期基础"></a> 《风光摄影后期基础》</h3>
 <div class="note note-primary">
-            <p>世界上没有绝对还原真实的照片，因为从你开始构图的一瞬间，照片中的风景就成为了你的眼中、你的镜头中、你的心中独一无二的画面。</p>
+            <p>世界上没有绝对还原真实的照片，因为从你开始构图的一瞬间，照片中的风景就成为了你的眼中、你的镜头中、你的心中独一无二的画面。</p> 
           </div>
 <ul>
 <li>
@@ -365,7 +488,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%A3%8E%E5%85%89%E5%90%8E%E6%9C%9F%E5%9F%BA%E7%A1%80.jpg" srcset="/img/loading.gif" lazyload alt="风光后期基础-《侏罗纪公园》" /></p>
 <h3 id="what-if"><a class="markdownIt-Anchor" href="#what-if"></a> 《What If?》</h3>
 <div class="note note-primary">
-            <p>彻底回答一个愚蠢的问题可以带你到一些非常有趣的地方。</p>
+            <p>彻底回答一个愚蠢的问题可以带你到一些非常有趣的地方。</p> 
           </div>
 <ul>
 <li>
@@ -378,7 +501,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/what-if.jpg" srcset="/img/loading.gif" lazyload alt="What If?" /></p>
 <h3 id="解决几乎所有机器学习问题approaching-almost-any-machine-learning-problem"><a class="markdownIt-Anchor" href="#解决几乎所有机器学习问题approaching-almost-any-machine-learning-problem"></a> 《 解决（几乎）所有机器学习问题/Approaching (Almost) Any Machine Learning Problem》</h3>
 <div class="note note-primary">
-            <p>所以，这有点像一个带三位密码锁的行李箱。但是，三位密码锁只有一个正确答案。而这个模型却有很多正确答案。那么，你该如何找到最佳参数呢？</p>
+            <p>所以，这有点像一个带三位密码锁的行李箱。但是，三位密码锁只有一个正确答案。而这个模型却有很多正确答案。那么，你该如何找到最佳参数呢？</p> 
           </div>
 <ul>
 <li>
@@ -392,7 +515,7 @@
 <h2 id="影视"><a class="markdownIt-Anchor" href="#影视"></a> 影视</h2>
 <h3 id="f1狂飙飞车f1-the-movie"><a class="markdownIt-Anchor" href="#f1狂飙飞车f1-the-movie"></a> 《F1：狂飙飞车/F1: The Movie》</h3>
 <div class="note note-secondary">
-            <p>Life is about passions. Thank you for sharing mine.</p>
+            <p>Life is about passions. Thank you for sharing mine.</p> 
           </div>
 <ul>
 <li>「Passion」，一个在 F1 赛事中被反复提及的词，而导演约瑟夫·科辛斯基似乎找到了用纯粹的视听语言来传达它的最佳途径。</li>
@@ -402,7 +525,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/F1Movie.jpg" srcset="/img/loading.gif" lazyload alt="F1：狂飙飞车" /></p>
 <h3 id="银河特快-milkysubway銀河特急-ミルキーサブウェイ"><a class="markdownIt-Anchor" href="#银河特快-milkysubway銀河特急-ミルキーサブウェイ"></a> 《银河特快 Milky☆Subway/銀河特急 ミルキー☆サブウェイ》</h3>
 <div class="note note-primary">
-            <p>銀河系まで飛んで行け！</p>
+            <p>銀河系まで飛んで行け！</p> 
           </div>
 <ul>
 <li>
@@ -418,7 +541,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%93%B6%E6%B2%B3%E7%89%B9%E6%80%A5.jpg" srcset="/img/loading.gif" lazyload alt="银河特急" /></p>
 <h3 id="降世神通最后的气宗avatar-the-last-airbender"><a class="markdownIt-Anchor" href="#降世神通最后的气宗avatar-the-last-airbender"></a> 《降世神通：最后的气宗/Avatar: The Last Airbender》</h3>
 <div class="note note-info">
-            <p>西方版本的《钢之炼金术师》</p>
+            <p>西方版本的《钢之炼金术师》</p> 
           </div>
 <ul>
 <li>
@@ -434,7 +557,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%99%8D%E4%B8%96%E7%A5%9E%E9%80%9A.jpg" srcset="/img/loading.gif" lazyload alt="降世神通：最后的气宗" /></p>
 <h3 id="射雕英雄传之东成西就"><a class="markdownIt-Anchor" href="#射雕英雄传之东成西就"></a> 《射雕英雄传之东成西就》</h3>
 <div class="note note-secondary">
-            <p>最鄙俗的东西往往有着最原始而蓬勃的生命力，这种恶搞电影的活力就是来源于此。<br />—— 《电影 43》影评：恶搞的价值</p>
+            <p>最鄙俗的东西往往有着最原始而蓬勃的生命力，这种恶搞电影的活力就是来源于此。<br /> —— 《电影 43》影评：恶搞的价值</p> 
           </div>
 <ul>
 <li>
@@ -447,7 +570,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%B8%9C%E6%88%90%E8%A5%BF%E5%B0%B1.jpg" srcset="/img/loading.gif" lazyload alt="东成西就" /></p>
 <h3 id="疯狂动物城-2-zootopia-2"><a class="markdownIt-Anchor" href="#疯狂动物城-2-zootopia-2"></a> 《疯狂动物城 2/ Zootopia 2》</h3>
 <div class="note note-warning">
-            <p>珠玉在前，木椟在后。</p>
+            <p>珠玉在前，木椟在后。</p> 
           </div>
 <ul>
 <li>
@@ -464,7 +587,7 @@
 <h2 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h2>
 <h3 id="逃离鸭科夫"><a class="markdownIt-Anchor" href="#逃离鸭科夫"></a> 《逃离鸭科夫》</h3>
 <div class="note note-warning">
-            <p>搜打撤，但依旧<strong>幻痛</strong>。</p>
+            <p>搜打撤，但依旧<strong>幻痛</strong>。</p> 
           </div>
 <ul>
 <li>
@@ -480,7 +603,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%80%83%E7%A6%BB%E9%B8%AD%E7%A7%91%E5%A4%AB.jpg" srcset="/img/loading.gif" lazyload alt="逃离鸭科夫" /></p>
 <h3 id="观鸟笔记"><a class="markdownIt-Anchor" href="#观鸟笔记"></a> 《观鸟笔记》</h3>
 <div class="note note-success">
-            <p>赛博观鸟的姿势 I</p>
+            <p>赛博观鸟的姿势 I</p> 
           </div>
 <ul>
 <li>
@@ -493,7 +616,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2025%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E8%A7%82%E9%B8%9F%E7%AC%94%E8%AE%B0.jpg" srcset="/img/loading.gif" lazyload alt="观鸟笔记" /></p>
 <h3 id="阿尔芭与野生动物的故事alba-a-wildlife-adventure"><a class="markdownIt-Anchor" href="#阿尔芭与野生动物的故事alba-a-wildlife-adventure"></a> 《阿尔芭与野生动物的故事/Alba: A Wildlife Adventure》</h3>
 <div class="note note-success">
-            <p>赛博观鸟的姿势 II</p>
+            <p>赛博观鸟的姿势 II</p> 
           </div>
 <ul>
 <li>来自《纪念碑谷》团队的自然环保之作，极简却不失灵性。 在这里，你将化身为小女孩阿尔芭，在短暂的假期里，用镜头收集动物图鉴，用行动清理环境。顺便，在这个小岛上，用小小的力量去挫败镇长想要将小岛改造成高楼酒店阴谋。游戏体量极轻，只需一个午后便能通关，但它带给我的后劲却极长。当全图鉴收集达成的那一刻，我恍惚觉得，自己真的在那个阳光灿烂的岛屿上度过了一个难忘的盛夏。</li>
@@ -878,7 +1001,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -889,10 +1068,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -904,6 +1089,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -964,6 +1151,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

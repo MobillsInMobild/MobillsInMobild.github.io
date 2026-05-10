@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,6 +101,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -128,7 +133,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -224,6 +229,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -261,7 +383,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          13k 字
         
       </span>
     
@@ -272,7 +394,7 @@
         
         
         
-          95 分钟
+          112 分钟
         
       </span>
     
@@ -286,7 +408,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -298,6 +419,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -335,7 +458,7 @@
 <span id="more"></span>
 <h1 id="年度总结2024年我的阅读电影游戏"><a class="markdownIt-Anchor" href="#年度总结2024年我的阅读电影游戏"></a> 年度总结：2024年我的阅读·电影·游戏</h1>
 <div class="note note-primary">
-            <p>「蔚蓝星球」</p>
+            <p>「蔚蓝星球」</p> 
           </div>
 <ul>
 <li>又是一年静物拍摄，使用了漫展人像常用的色温法 + 上三脚架摇摇乐，原图达到了极为惊人的解析力，<strong>「可惜这里的下行速度太小，我写不下 🤣」</strong>。</li>
@@ -344,7 +467,7 @@
 <h2 id="阅读"><a class="markdownIt-Anchor" href="#阅读"></a> 阅读</h2>
 <h3 id="幸福的积分"><a class="markdownIt-Anchor" href="#幸福的积分"></a> 《幸福的积分》</h3>
 <div class="note note-primary">
-            <p>如果将人的幸福画成一个函数图像的话，它在图表中更像是一块面积（积分），而不是高度。</p>
+            <p>如果将人的幸福画成一个函数图像的话，它在图表中更像是一块面积（积分），而不是高度。</p> 
           </div>
 <ul>
 <li>
@@ -360,7 +483,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%B9%B8%E7%A6%8F%E7%9A%84%E7%A7%AF%E5%88%86.jpg" srcset="/img/loading.gif" lazyload alt="幸福的积分" /></p>
 <h3 id="守望者watchmen"><a class="markdownIt-Anchor" href="#守望者watchmen"></a> 《守望者/Watchmen》</h3>
 <div class="note note-primary">
-            <p>Quis custodiet ipsos custodes. 谁来监管守望者？</p>
+            <p>Quis custodiet ipsos custodes. 谁来监管守望者？</p> 
           </div>
 <ul>
 <li>
@@ -379,7 +502,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%AE%88%E6%9C%9B%E8%80%85.jpg" srcset="/img/loading.gif" lazyload alt="守望者" /></p>
 <h3 id="银河铁道之夜銀河鉄道の夜"><a class="markdownIt-Anchor" href="#银河铁道之夜銀河鉄道の夜"></a> 《银河铁道之夜/銀河鉄道の夜》</h3>
 <div class="note note-primary">
-            <p>什么叫做<strong>幸福</strong>，我不知道。无论是多么痛苦的事情，只要能朝着理想的方向前进，不管是上高山，还是下陡坡，都能一步步地接近<strong>幸福</strong>。</p>
+            <p>什么叫做<strong>幸福</strong>，我不知道。无论是多么痛苦的事情，只要能朝着理想的方向前进，不管是上高山，还是下陡坡，都能一步步地接近<strong>幸福</strong>。</p> 
           </div>
 <ul>
 <li>
@@ -398,7 +521,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%93%B6%E6%B2%B3%E9%93%81%E9%81%93%E4%B9%8B%E5%A4%9C.jpg" srcset="/img/loading.gif" lazyload alt="银河铁道之夜" /></p>
 <h3 id="眼泪与圣徒lacrimi-și-sfinți"><a class="markdownIt-Anchor" href="#眼泪与圣徒lacrimi-și-sfinți"></a> 《眼泪与圣徒/Lacrimi și Sfinți》</h3>
 <div class="note note-primary">
-            <p>我既没有愁苦到足以成为诗人，又没有冷漠到像个哲学家，但我清醒到足以成为一个废人。</p>
+            <p>我既没有愁苦到足以成为诗人，又没有冷漠到像个哲学家，但我清醒到足以成为一个废人。</p> 
           </div>
 <ul>
 <li>
@@ -415,7 +538,7 @@
 <h2 id="影视"><a class="markdownIt-Anchor" href="#影视"></a> 影视</h2>
 <h3 id="你想活出怎样的人生君たちはどう生きるか"><a class="markdownIt-Anchor" href="#你想活出怎样的人生君たちはどう生きるか"></a> 《你想活出怎样的人生/君たちはどう生きるか》</h3>
 <div class="note note-secondary">
-            <p>对于这部作品，我不会追求令人感到欢乐、暖意的感觉。要描写出能够承受住恶感、梦餍、染血世界的勇气。</p>
+            <p>对于这部作品，我不会追求令人感到欢乐、暖意的感觉。要描写出能够承受住恶感、梦餍、染血世界的勇气。</p> 
           </div>
 <ul>
 <li>
@@ -431,7 +554,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%BD%A0%E6%83%B3%E6%B4%BB%E5%87%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA%E7%94%9F.jpg" srcset="/img/loading.gif" lazyload alt="你想活出怎样的人生" /></p>
 <h3 id="你的名字-君の名は"><a class="markdownIt-Anchor" href="#你的名字-君の名は"></a> 《你的名字。/君の名は。》</h3>
 <div class="note note-primary">
-            <p>Have you seen Tiamat’s comet?</p><p>I’m looking for my counterpart.</p>
+            <p>Have you seen Tiamat’s comet?</p> <p>I’m looking for my counterpart.</p> 
           </div>
 <ul>
 <li>
@@ -447,7 +570,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97.jpg" srcset="/img/loading.gif" lazyload alt="你的名字" /></p>
 <h3 id="新世纪福音战士新剧场版rebuild-of-evangelion"><a class="markdownIt-Anchor" href="#新世纪福音战士新剧场版rebuild-of-evangelion"></a> 《新世纪福音战士新剧场版/Rebuild of EVANGELION》</h3>
 <div class="note note-primary">
-            <p>再见了，所有的福音战士！</p>
+            <p>再见了，所有的福音战士！</p> 
           </div>
 <ul>
 <li>
@@ -458,11 +581,11 @@
 </li>
 </ul>
 <div class="note note-success">
-            <div style="text-align: center;"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2062133139&auto=0&height=66"></iframe></div><blockquote><p>笔者 🟪，下称动；D 老师 🟩，下称 D</p></blockquote><ul><li><font color=purple>动：咱俩从头开始，关于《序》你怎么评价？感觉第一部和原著差别不大？</font></li><li><font color=green>D：是的，删了几个使徒。绫波丽的戏份被添加得更多了。</font></li><li><font color=purple>动：啊，确实。在原著里面其实绫波丽的戏份也不多，倒是漫画版会多些。我记得贞本义行算是丽党，给漫画也是多加了不少戏份。</font></li><li><font color=green>D：对，漫画是丽党。然后《RE-TAKE》是香党，<strong>非常极端</strong>的香党，半个 Bad Ending 的那种。</font></li><li><font color=purple>动：第一部好像就是凸显了各个人物？结局就是击杀雷天使结束。有一说一，这里面征调全国电力的阳电子炮到后面几部已经可以随便用了……这 14 年内的科技加速真快呐。</font></li><li><font color=green>D：第一部算经典 Jump 热血少年漫的走向吧。先是人物登场，然后以某个难打 Boss 被打败作为终结。</font></li><li><font color=purple>动：我其实这几天对第一部印象已经记不太清了，它的彩蛋就也没有那么吸引人。它出第二部的时间也很快。《序》你觉得在四部曲里面能够排名多少？</font></li><li><font color=green>D：我感觉能排名第三？中规中矩的少年漫，还是龙珠那套「修炼——红缎带军——天下一武道会」剧情走向。</font></li><li><font color=purple>动：其实就旧版也就这个风格，就是后面经费不足搞了一些意识流的东西。我感觉《序》就是高清重制版？我应该也是给它第三排名。</font></li></ul><h2 id="序"><a class="markdownIt-Anchor" href="#序"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%BA%8F.jpg" srcset="/img/loading.gif" lazyload alt="序" /></h2><ul><li><font color=purple>动：接下来是《破》。你感觉第二部最大的特点是什么？</font></li><li><font color=green>D：强调他跟他爸爸的关系。</font></li><li><font color=purple>动：嗯，我感觉这四部比旧版很明显多了这条暗线。</font></li><li><font color=green>D：我甚至觉得这四部最重要的关系就他俩。就和你上次说的<strong>俄狄浦斯情结</strong>一样，第一、二部他不清楚，他只是不希望顺从他爸，所以他才反抗他爸。第三部又被迫顺从了他爸，然后清楚之后又在第四部反抗他爸。</font></li><li><font color=green>D：这部很明显吧。他爸让他杀了明日香那个时候，只是他知道他不想杀，他爸逼着他杀，但是他自己没找解决方法呀。</font></li><li><font color=purple>动：关于第二部，我有一个想说的一点。你有没有觉得这个第二步的前期，我觉得可能是四部整个氛围最好的一部分。大家都很和蔼，然后使徒也很好打。但是就是从明日香那个开始，氛围急转直下。</font></li><li><font color=green>D：前面还是那个热血漫平淡期的时候，然后到了明日香被杀的时候。「破」嘛，就是要这样破局了嘛。</font></li><li><font color=purple>动：原著里面明日香和真嗣一起跳舞打音乐天使，到新剧场版里被省掉了，其实那一段还印象让人挺深刻的。你觉得这边省掉是为了啥，是为了减少他们两个 CP 的戏份吗？</font></li><li><font color=green>D：没必要，这段剧情对什么有贡献？你就当成是整个故事是为了他们父子之间的矛盾来构建的，贡献他们父子矛盾的就转折点是什么？明日香被杀是吧。在之前你可以加其实也没问题，加了就就变成跟明日香组 CP，然后他爸把 CP 给杀了，这当然也是增强矛盾，人家感觉可能要么是考虑时长吧，直接压缩也没问题。</font></li><li><font color=green>D：而且明日香的设定不一样了。设定不一样了，她在新剧场版里相当于是克隆人，你可以把它当成一个纯粹的战斗机器，嗯，然后她就是纯粹渴望被人肯定。</font></li><li><font color=purple>动：对，我感觉她从女主变成女配了。应该说整个新剧场版都没有女主了。旧版里面女主倾向还是很明显的。</font></li><li><font color=green>D：总得给原著党一些不一样的体验吧。而且这种搞 CP 主要是没体现出真嗣的成长。之前做便当的事情已经隐含了绫波丽和明日香的爱，两个人都喜欢真嗣。</font></li><li><font color=purple>动：这个观点我很认同，痞子把爱换了一种表现形式。简化没问题，旧版里面明日香其实是被一堆量产机给吃了，现在这部分明日香的剧情实际上是旧版东治的。</font></li><li><font color=green>D：我都快忘记了旧版的量产机是怎么回事。把这些都合起来倒是把矛盾更加集中了。</font></li><li><font color=purple>动：我感觉第二部节奏其实真还不错的，把握观众情绪收放自如。你给第二部什么排名？</font></li><li><font color=green>D：我估计给第二吧。起码相比《序》它剧情上是有起伏的，不过出于未完待续的原因还是有点没头没尾的。</font></li><li><font color=purple>动：我也觉得排第二毫无疑问。</font></li></ul><h2 id="破"><a class="markdownIt-Anchor" href="#破"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%A0%B4.jpg" srcset="/img/loading.gif" lazyload alt="破" /></h2><ul><li><font color=purple>动：至于《Q》，首先我要来吐槽一点：痞子在第二部、第三部太喜欢搞彩蛋欺诈/开头欺诈了吧。第二部开头估计大伙都以为是明日香出场，结果是 TV 版完全没见过的真希波。真希波前半部分完全又没出过场。我很难想象观众当时在影院是什么表情。第三部上来更是让人感觉懵逼……我是谁？我在哪？怎么所有人都变了？第三部真的让人觉得有点看不懂。</font></li><li><font color=green>D：确实，第三部改动太大了。前两部都是基于 TV 版的，第三部老贼他是真的画不动了。说真的，这部是他之前从没展示过的冲击后世界。</font></li><li><font color=purple>动：毕竟之前是全员补完 🤣。这部渚薰算是唯一的正常人吧，真嗣周围都是不说人话的谜语人。</font></li><li><font color=green>D：第三部，一个很明显的区别是，真嗣就是观众视角，不再是上帝视角了。你跟你跟真嗣是处于同一个状态的，你不知道啥真嗣知道啥。诺兰的《记忆碎片》就是用的这种叙事手法，也是挺有意思的。</font></li><li><font color=green>D：至少你看到目前为止，第一、二部全都是以你没有代入感的视角来看的，因为你不是上帝视角，你就会说：「哎，为什么这这这货为什么不去驾驶机甲？」然后你发现你在第三步，你真的以主角的身份去看，<strong>你驾驶机甲，别人要骂你，你不驾驶机甲，别人还在骂你</strong>。你不是经常吐槽「他老是在纠结自己，为啥要驾驶这个东西」。那你到这一步的时候，你说你驾驶不驾驶？</font></li><li><font color=purple>动：虽然你给第三部找补，但不得不说，我记得你当时看完之后，你都说不想看第四部了。</font></li><li><font color=green>D：因为我当时以为如果第三部，这种这么糟糕的体验延续再下去的话，我感觉第四步完全没意义。<strong>全是挖坑</strong>。</font></li><li><font color=purple>动：所以第三部在四部曲里面<strong>观感</strong>上应该排第四，没有问题吧？</font></li><li><font color=green>D：没问题，但从剧情上说的话，它毕竟创新了嘛。它主要是挖的坑太多了🤬。我说真的，如果这一部它不跟第四部间隔太远的话，我感觉还是可以的。</font></li><li><font color=purple>动：第三部和第四部间隔了九年，真是太可怕了。《凉宫春日的忧郁》有一章「漫无止境的八月」，每集剧情几乎完全一样，意味着在新番更新的时候连续 8 周给观众看同样的内容。从现在来看自然是神编剧，但是当时一播出就震惊了整个动漫界，给观众留下了巨大的心理阴影……堪称京阿尼史上最凶最恶事件了。《Q》的感觉也好不到哪去🤣。</font></li></ul><h2 id="q"><a class="markdownIt-Anchor" href="#q"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/Q.jpg" srcset="/img/loading.gif" lazyload alt="Q" /></h2><ul><li><font color=purple>动：最后是《终》了。我觉得第四部对我来说观感很好。</font></li><li><font color=green>D：我感觉主要是我当时因为第三部已经把期待降到最低了。</font></li><li><font color=purple>动：痞子能这么正常，真是太难得了。就是他真的在解答问题，不再挖坑了。我觉得新剧场版有一个特别好的一点，就是我觉得大家的智商都很在线。其实旧作里面 Seele 和 Nerv 有时候会智商下线，而且最后无论哪种结局都感觉有点牵强附会——母亲选择儿子和妻子选择丈夫这套不是很高明的解释。实在是有点机械降神了。</font></li><li><font color=purple>动：旧作莫名其妙的，我觉得没有真正体验真嗣的成长。人与人之间的羁绊 (<s>谈恋爱</s>) 的水平倒是高了不少（笑 🤭）。</font></li><li><font color=green>D：和人之间有了羁绊，我觉得旧版故事的主旨到这就就够了，它没有办法去做的更深。在新剧场版里面，我感觉更多的是一个男孩变成男人的过程。</font></li><li><font color=purple>动：我很认同你说的话。那我就来抛几个比较有争议的问题了。第一个，你觉得真希波为什么要被设计出来？</font></li><li><font color=green>D：完美女人呗。</font></li><li><font color=purple>动：但是这个也太伤影迷们的心了。而且她的出现也挖了很多没怎么填好的坑。</font></li><li><font color=green>D：不重要。她的背景给我的感觉就是很不重要，所以我也觉得让它挖坑不填也是正常的。</font></li><li><font color=green>D：主要是没有什么情感铺垫，其实。</font></li><li><font color=purple>动：我再问你一个问题，我觉得这可能会让很多老粉都特别愤愤不平的点。你怎么看待剑介和明日香的关系？甚至不少老粉宣称剑介是真嗣假扮的。</font></li><li><font color=green>D：我觉得万事皆有可能。我看当时看了一部《只有我不存在的城市》，男主不断轮回救女主成功后直接昏迷 15 年，最后女主和基友在一起了。男主昏迷了 15 年，女主不等下去才是最正常的选择。第三次冲击之后 EVA 驾驶员都受排挤，剑介算是一个难得能够提供关怀和温暖的人，被喜欢不是很正常的一件事情么？</font></li><li><font color=purple>动：但是我想问的问题倒不是说剧情上正不正常，而是为什么要设置这么一段剧情？</font></li><li><font color=green>D：那我只能说是老贼的恶趣味了。</font></li><li><font color=purple>动：我倒感觉是，剑介其实是替代了旧版里面加持的一个戏份。现在这么设计倒是把加持可能存在的「恋童」倾向给去除了。</font></li><li><font color=green>D：从这个角度来讲，确实没问题。这个版本加持简直就是神。</font></li><li><font color=purple>动：我不能同意更多。新版里面每个人都或多或少有点毛病，只有加持实在是在正常了。加持真男人！</font></li><li><font color=green>D：加持在旧版就是真男人，在新剧场版更是⚡️⚡️⚡️男人中的男人⚡️⚡️⚡️雄性中的雄性⚡️⚡️⚡️男人中的支配者⚡️⚡️⚡️……。</font></li><li><font color=purple>动：打住打住，别放 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15Z421i7TQ/">歌</a> 了。前面这些第三村的东西，和痞子的一贯风格肯定是不相同的。你要说前面是新海诚画的也合理，你不是甚至还幻视了《寄生兽》里的男主女主么？你觉得这种风格的转变，会以影响你对这部作品做出缺乏 EVA 味的评价么？</font></li><li><font color=green>D：对，没有 EVA 的感觉了。但是这么说的话，第三部反而是最有 EVA 的一部，不是吗？这不就是你们想要的吗？</font></li><li><font color=purple>动：痞子听到这个应该会很开心。</font></li><li><font color=green>D：所以你把那个当解篇看的话就还好，确实风格不太一致了。但是你想想旧版，就你说的一样，真嗣真是没成长，到最后都没什么成长。<strong>他本来就不配有个好结局</strong>。如果你要有个好结局的话，那你考虑一下：他靠战斗去成长吗？显然战斗总有一天会结束。你如果你把它当成一个反战电影来看的话，它肯定要从其他的方面来成长。战斗以外的方面，这部分描写你肯定是要的，从具体上来说的话就是第三村这块了。</font></li><li><font color=purple>动：所以我觉得这一部确实做到了「<strong>再见了，所有的 Eva</strong>」。说出这个，我觉得他就是真正的成长了。</font></li><li><font color=green>D：说得好。</font></li><li><font color=purple>动：第四部应该毫无疑义是四部曲排名第一吧。如果满分是十分的话，你能给它十分吗？</font></li><li><font color=green>D：我只能给大概 8.5 分吧，因为我的评分比较严格。主要是制作实在有点糟糕，里面有好多不太行的战斗场面呀，你忘了？那 3D 打架，看着好难受呀。</font></li><li><font color=purple>动：我觉得他这个主题表达我真的是想给十分，我觉得他这个脚本写太好了。但那个 3D 技术……哈哈哈哈哈哈哈哈哈。</font></li><li><font color=green>D：我觉得你打分还是得把什么创意，什么故事性以及什么表现手法，都放到一起考虑。我甚至觉得它算上表现手法都只能打七分了。我感觉它剧情可以做艺术品，但是它的那个制作实在是欠了点意思。</font></li><li><font color=purple>动：确实，该吐槽就得吐槽。</font></li><li><font color=green>D：不过剧情好让我舒服，符合价值观 😂。</font></li><li><font color=purple>动：合理。我没有更多问题了。</font></li></ul><h2 id="终"><a class="markdownIt-Anchor" href="#终"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%BB%88.jpg" srcset="/img/loading.gif" lazyload alt="终" /></h2><div style="text-align: center;"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2144069358&auto=0&height=66"></iframe></div>
+            <div style="text-align: center;"> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2062133139&auto=0&height=66"></iframe> </div> <blockquote> <p>笔者 🟪，下称动；D 老师 🟩，下称 D</p> </blockquote> <ul> <li><font color=purple>动：咱俩从头开始，关于《序》你怎么评价？感觉第一部和原著差别不大？</font></li> <li><font color=green>D：是的，删了几个使徒。绫波丽的戏份被添加得更多了。</font></li> <li><font color=purple>动：啊，确实。在原著里面其实绫波丽的戏份也不多，倒是漫画版会多些。我记得贞本义行算是丽党，给漫画也是多加了不少戏份。</font></li> <li><font color=green>D：对，漫画是丽党。然后《RE-TAKE》是香党，<strong>非常极端</strong>的香党，半个 Bad Ending 的那种。</font></li> <li><font color=purple>动：第一部好像就是凸显了各个人物？结局就是击杀雷天使结束。有一说一，这里面征调全国电力的阳电子炮到后面几部已经可以随便用了……这 14 年内的科技加速真快呐。</font></li> <li><font color=green>D：第一部算经典 Jump 热血少年漫的走向吧。先是人物登场，然后以某个难打 Boss 被打败作为终结。</font></li> <li><font color=purple>动：我其实这几天对第一部印象已经记不太清了，它的彩蛋就也没有那么吸引人。它出第二部的时间也很快。《序》你觉得在四部曲里面能够排名多少？</font></li> <li><font color=green>D：我感觉能排名第三？中规中矩的少年漫，还是龙珠那套「修炼——红缎带军——天下一武道会」剧情走向。</font></li> <li><font color=purple>动：其实就旧版也就这个风格，就是后面经费不足搞了一些意识流的东西。我感觉《序》就是高清重制版？我应该也是给它第三排名。</font></li> </ul> <h2 id="序"><a class="markdownIt-Anchor" href="#序"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%BA%8F.jpg" srcset="/img/loading.gif" lazyload alt="序" /></h2> <ul> <li><font color=purple>动：接下来是《破》。你感觉第二部最大的特点是什么？</font></li> <li><font color=green>D：强调他跟他爸爸的关系。</font></li> <li><font color=purple>动：嗯，我感觉这四部比旧版很明显多了这条暗线。</font></li> <li><font color=green>D：我甚至觉得这四部最重要的关系就他俩。就和你上次说的<strong>俄狄浦斯情结</strong>一样，第一、二部他不清楚，他只是不希望顺从他爸，所以他才反抗他爸。第三部又被迫顺从了他爸，然后清楚之后又在第四部反抗他爸。</font></li> <li><font color=green>D：这部很明显吧。他爸让他杀了明日香那个时候，只是他知道他不想杀，他爸逼着他杀，但是他自己没找解决方法呀。</font></li> <li><font color=purple>动：关于第二部，我有一个想说的一点。你有没有觉得这个第二步的前期，我觉得可能是四部整个氛围最好的一部分。大家都很和蔼，然后使徒也很好打。但是就是从明日香那个开始，氛围急转直下。</font></li> <li><font color=green>D：前面还是那个热血漫平淡期的时候，然后到了明日香被杀的时候。「破」嘛，就是要这样破局了嘛。</font></li> <li><font color=purple>动：原著里面明日香和真嗣一起跳舞打音乐天使，到新剧场版里被省掉了，其实那一段还印象让人挺深刻的。你觉得这边省掉是为了啥，是为了减少他们两个 CP 的戏份吗？</font></li> <li><font color=green>D：没必要，这段剧情对什么有贡献？你就当成是整个故事是为了他们父子之间的矛盾来构建的，贡献他们父子矛盾的就转折点是什么？明日香被杀是吧。在之前你可以加其实也没问题，加了就就变成跟明日香组 CP，然后他爸把 CP 给杀了，这当然也是增强矛盾，人家感觉可能要么是考虑时长吧，直接压缩也没问题。</font></li> <li><font color=green>D：而且明日香的设定不一样了。设定不一样了，她在新剧场版里相当于是克隆人，你可以把它当成一个纯粹的战斗机器，嗯，然后她就是纯粹渴望被人肯定。</font></li> <li><font color=purple>动：对，我感觉她从女主变成女配了。应该说整个新剧场版都没有女主了。旧版里面女主倾向还是很明显的。</font></li> <li><font color=green>D：总得给原著党一些不一样的体验吧。而且这种搞 CP 主要是没体现出真嗣的成长。之前做便当的事情已经隐含了绫波丽和明日香的爱，两个人都喜欢真嗣。</font></li> <li><font color=purple>动：这个观点我很认同，痞子把爱换了一种表现形式。简化没问题，旧版里面明日香其实是被一堆量产机给吃了，现在这部分明日香的剧情实际上是旧版东治的。</font></li> <li><font color=green>D：我都快忘记了旧版的量产机是怎么回事。把这些都合起来倒是把矛盾更加集中了。</font></li> <li><font color=purple>动：我感觉第二部节奏其实真还不错的，把握观众情绪收放自如。你给第二部什么排名？</font></li> <li><font color=green>D：我估计给第二吧。起码相比《序》它剧情上是有起伏的，不过出于未完待续的原因还是有点没头没尾的。</font></li> <li><font color=purple>动：我也觉得排第二毫无疑问。</font></li> </ul> <h2 id="破"><a class="markdownIt-Anchor" href="#破"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%A0%B4.jpg" srcset="/img/loading.gif" lazyload alt="破" /></h2> <ul> <li><font color=purple>动：至于《Q》，首先我要来吐槽一点：痞子在第二部、第三部太喜欢搞彩蛋欺诈/开头欺诈了吧。第二部开头估计大伙都以为是明日香出场，结果是 TV 版完全没见过的真希波。真希波前半部分完全又没出过场。我很难想象观众当时在影院是什么表情。第三部上来更是让人感觉懵逼……我是谁？我在哪？怎么所有人都变了？第三部真的让人觉得有点看不懂。</font></li> <li><font color=green>D：确实，第三部改动太大了。前两部都是基于 TV 版的，第三部老贼他是真的画不动了。说真的，这部是他之前从没展示过的冲击后世界。</font></li> <li><font color=purple>动：毕竟之前是全员补完 🤣。这部渚薰算是唯一的正常人吧，真嗣周围都是不说人话的谜语人。</font></li> <li><font color=green>D：第三部，一个很明显的区别是，真嗣就是观众视角，不再是上帝视角了。你跟你跟真嗣是处于同一个状态的，你不知道啥真嗣知道啥。诺兰的《记忆碎片》就是用的这种叙事手法，也是挺有意思的。</font></li> <li><font color=green>D：至少你看到目前为止，第一、二部全都是以你没有代入感的视角来看的，因为你不是上帝视角，你就会说：「哎，为什么这这这货为什么不去驾驶机甲？」然后你发现你在第三步，你真的以主角的身份去看，<strong>你驾驶机甲，别人要骂你，你不驾驶机甲，别人还在骂你</strong>。你不是经常吐槽「他老是在纠结自己，为啥要驾驶这个东西」。那你到这一步的时候，你说你驾驶不驾驶？</font></li> <li><font color=purple>动：虽然你给第三部找补，但不得不说，我记得你当时看完之后，你都说不想看第四部了。</font></li> <li><font color=green>D：因为我当时以为如果第三部，这种这么糟糕的体验延续再下去的话，我感觉第四步完全没意义。<strong>全是挖坑</strong>。</font></li> <li><font color=purple>动：所以第三部在四部曲里面<strong>观感</strong>上应该排第四，没有问题吧？</font></li> <li><font color=green>D：没问题，但从剧情上说的话，它毕竟创新了嘛。它主要是挖的坑太多了🤬。我说真的，如果这一部它不跟第四部间隔太远的话，我感觉还是可以的。</font></li> <li><font color=purple>动：第三部和第四部间隔了九年，真是太可怕了。《凉宫春日的忧郁》有一章「漫无止境的八月」，每集剧情几乎完全一样，意味着在新番更新的时候连续 8 周给观众看同样的内容。从现在来看自然是神编剧，但是当时一播出就震惊了整个动漫界，给观众留下了巨大的心理阴影……堪称京阿尼史上最凶最恶事件了。《Q》的感觉也好不到哪去🤣。</font></li> </ul> <h2 id="q"><a class="markdownIt-Anchor" href="#q"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/Q.jpg" srcset="/img/loading.gif" lazyload alt="Q" /></h2> <ul> <li><font color=purple>动：最后是《终》了。我觉得第四部对我来说观感很好。</font></li> <li><font color=green>D：我感觉主要是我当时因为第三部已经把期待降到最低了。</font></li> <li><font color=purple>动：痞子能这么正常，真是太难得了。就是他真的在解答问题，不再挖坑了。我觉得新剧场版有一个特别好的一点，就是我觉得大家的智商都很在线。其实旧作里面 Seele 和 Nerv 有时候会智商下线，而且最后无论哪种结局都感觉有点牵强附会——母亲选择儿子和妻子选择丈夫这套不是很高明的解释。实在是有点机械降神了。</font></li> <li><font color=purple>动：旧作莫名其妙的，我觉得没有真正体验真嗣的成长。人与人之间的羁绊 (<s>谈恋爱</s>) 的水平倒是高了不少（笑 🤭）。</font></li> <li><font color=green>D：和人之间有了羁绊，我觉得旧版故事的主旨到这就就够了，它没有办法去做的更深。在新剧场版里面，我感觉更多的是一个男孩变成男人的过程。</font></li> <li><font color=purple>动：我很认同你说的话。那我就来抛几个比较有争议的问题了。第一个，你觉得真希波为什么要被设计出来？</font></li> <li><font color=green>D：完美女人呗。</font></li> <li><font color=purple>动：但是这个也太伤影迷们的心了。而且她的出现也挖了很多没怎么填好的坑。</font></li> <li><font color=green>D：不重要。她的背景给我的感觉就是很不重要，所以我也觉得让它挖坑不填也是正常的。</font></li> <li><font color=green>D：主要是没有什么情感铺垫，其实。</font></li> <li><font color=purple>动：我再问你一个问题，我觉得这可能会让很多老粉都特别愤愤不平的点。你怎么看待剑介和明日香的关系？甚至不少老粉宣称剑介是真嗣假扮的。</font></li> <li><font color=green>D：我觉得万事皆有可能。我看当时看了一部《只有我不存在的城市》，男主不断轮回救女主成功后直接昏迷 15 年，最后女主和基友在一起了。男主昏迷了 15 年，女主不等下去才是最正常的选择。第三次冲击之后 EVA 驾驶员都受排挤，剑介算是一个难得能够提供关怀和温暖的人，被喜欢不是很正常的一件事情么？</font></li> <li><font color=purple>动：但是我想问的问题倒不是说剧情上正不正常，而是为什么要设置这么一段剧情？</font></li> <li><font color=green>D：那我只能说是老贼的恶趣味了。</font></li> <li><font color=purple>动：我倒感觉是，剑介其实是替代了旧版里面加持的一个戏份。现在这么设计倒是把加持可能存在的「恋童」倾向给去除了。</font></li> <li><font color=green>D：从这个角度来讲，确实没问题。这个版本加持简直就是神。</font></li> <li><font color=purple>动：我不能同意更多。新版里面每个人都或多或少有点毛病，只有加持实在是在正常了。加持真男人！</font></li> <li><font color=green>D：加持在旧版就是真男人，在新剧场版更是⚡️⚡️⚡️男人中的男人⚡️⚡️⚡️雄性中的雄性⚡️⚡️⚡️男人中的支配者⚡️⚡️⚡️……。</font></li> <li><font color=purple>动：打住打住，别放 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15Z421i7TQ/">歌</a> 了。前面这些第三村的东西，和痞子的一贯风格肯定是不相同的。你要说前面是新海诚画的也合理，你不是甚至还幻视了《寄生兽》里的男主女主么？你觉得这种风格的转变，会以影响你对这部作品做出缺乏 EVA 味的评价么？</font></li> <li><font color=green>D：对，没有 EVA 的感觉了。但是这么说的话，第三部反而是最有 EVA 的一部，不是吗？这不就是你们想要的吗？</font></li> <li><font color=purple>动：痞子听到这个应该会很开心。</font></li> <li><font color=green>D：所以你把那个当解篇看的话就还好，确实风格不太一致了。但是你想想旧版，就你说的一样，真嗣真是没成长，到最后都没什么成长。<strong>他本来就不配有个好结局</strong>。如果你要有个好结局的话，那你考虑一下：他靠战斗去成长吗？显然战斗总有一天会结束。你如果你把它当成一个反战电影来看的话，它肯定要从其他的方面来成长。战斗以外的方面，这部分描写你肯定是要的，从具体上来说的话就是第三村这块了。</font></li> <li><font color=purple>动：所以我觉得这一部确实做到了「<strong>再见了，所有的 Eva</strong>」。说出这个，我觉得他就是真正的成长了。</font></li> <li><font color=green>D：说得好。</font></li> <li><font color=purple>动：第四部应该毫无疑义是四部曲排名第一吧。如果满分是十分的话，你能给它十分吗？</font></li> <li><font color=green>D：我只能给大概 8.5 分吧，因为我的评分比较严格。主要是制作实在有点糟糕，里面有好多不太行的战斗场面呀，你忘了？那 3D 打架，看着好难受呀。</font></li> <li><font color=purple>动：我觉得他这个主题表达我真的是想给十分，我觉得他这个脚本写太好了。但那个 3D 技术……哈哈哈哈哈哈哈哈哈。</font></li> <li><font color=green>D：我觉得你打分还是得把什么创意，什么故事性以及什么表现手法，都放到一起考虑。我甚至觉得它算上表现手法都只能打七分了。我感觉它剧情可以做艺术品，但是它的那个制作实在是欠了点意思。</font></li> <li><font color=purple>动：确实，该吐槽就得吐槽。</font></li> <li><font color=green>D：不过剧情好让我舒服，符合价值观 😂。</font></li> <li><font color=purple>动：合理。我没有更多问题了。</font></li> </ul> <h2 id="终"><a class="markdownIt-Anchor" href="#终"></a> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%BB%88.jpg" srcset="/img/loading.gif" lazyload alt="终" /></h2> <div style="text-align: center;"> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2144069358&auto=0&height=66"></iframe> </div>
           </div>
 <h3 id="蓦然回首ルックバック"><a class="markdownIt-Anchor" href="#蓦然回首ルックバック"></a> 《蓦然回首/ルックバック》</h3>
 <div class="note note-secondary">
-            <p>Don’t <em>Look Back</em> in Anger</p>
+            <p>Don’t <em>Look Back</em> in Anger</p> 
           </div>
 <ul>
 <li>
@@ -488,7 +611,7 @@
 <h2 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h2>
 <h3 id="remember11-无限轮回的时光remember11-the-age-of-infinity-"><a class="markdownIt-Anchor" href="#remember11-无限轮回的时光remember11-the-age-of-infinity-"></a> 《Remember11 ：无限轮回的时光/Remember11 -the age of infinity-》</h3>
 <div class="note note-primary">
-            <p>This story has not finished yet.</p><p>Truth is not revealed.</p><p>And it circulates through an incident.</p><p>It is an infinity loop!</p>
+            <p>This story has not finished yet.</p> <p>Truth is not revealed.</p> <p>And it circulates through an incident.</p> <p>It is an infinity loop!</p> 
           </div>
 <ul>
 <li>
@@ -507,7 +630,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/Remember11.jpg" srcset="/img/loading.gif" lazyload alt="Remember11" /></p>
 <h3 id="闰跃之年leap-year"><a class="markdownIt-Anchor" href="#闰跃之年leap-year"></a> 《闰跃之年/Leap Year》</h3>
 <div class="note note-info">
-            <p>关卡引导的教科书</p>
+            <p>关卡引导的教科书</p> 
           </div>
 <ul>
 <li>
@@ -520,7 +643,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%97%B0%E8%B7%83%E4%B9%8B%E5%B9%B4.jpg" srcset="/img/loading.gif" lazyload alt="闰跃之年" /></p>
 <h3 id="幽灵诡计ghost-trick-phantom-detective"><a class="markdownIt-Anchor" href="#幽灵诡计ghost-trick-phantom-detective"></a> 《幽灵诡计/Ghost Trick: Phantom Detective》</h3>
 <div class="note note-info">
-            <p>以死者之力「<strong>附身</strong>」和「<strong>操纵</strong>」改写命运</p>
+            <p>以死者之力「<strong>附身</strong>」和「<strong>操纵</strong>」改写命运</p> 
           </div>
 <ul>
 <li>
@@ -538,12 +661,12 @@
 </li>
 </ul>
 <div class="note note-success">
-            <p>天手古舞，原意是手忙脚乱，忙的不可开交。结果巧舟老师又又又又又编了新舞了（大逆转裁判里面搞的那套魔性的「推理剧场」也是一样的调调）</p><p>Tooooooo Funny !!!😄😄😄😄</p><p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%A4%A9%E6%89%8B%E5%8F%A4%E8%88%9E.gif" srcset="/img/loading.gif" lazyload alt="天手古舞" /></p>
+            <p>天手古舞，原意是手忙脚乱，忙的不可开交。结果巧舟老师又又又又又编了新舞了（大逆转裁判里面搞的那套魔性的「推理剧场」也是一样的调调）</p> <p>Tooooooo Funny !!!😄😄😄😄</p> <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%A4%A9%E6%89%8B%E5%8F%A4%E8%88%9E.gif" srcset="/img/loading.gif" lazyload alt="天手古舞" /></p> 
           </div>
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%B9%BD%E7%81%B5%E8%AF%A1%E8%AE%A1.jpg" srcset="/img/loading.gif" lazyload alt="幽灵诡计" /></p>
 <h3 id="noita"><a class="markdownIt-Anchor" href="#noita"></a> 《Noita》</h3>
 <div class="note note-secondary">
-            <p>所有只要是他所通晓的知识，都被刻进石头里藏起来；而所有后来者为了能够获取它们，都应该去找寻。<br />——《赫耳墨斯文集》</p>
+            <p>所有只要是他所通晓的知识，都被刻进石头里藏起来；而所有后来者为了能够获取它们，都应该去找寻。<br /> ——《赫耳墨斯文集》</p> 
           </div>
 <ul>
 <li>
@@ -562,7 +685,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2024%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/noita.jpg" srcset="/img/loading.gif" lazyload alt="noita" /></p>
 <h3 id="手波驾驶stick-shift-driving"><a class="markdownIt-Anchor" href="#手波驾驶stick-shift-driving"></a> 手波驾驶/Stick Shift Driving</h3>
 <div class="note note-success">
-            <p>寻找纯粹驾驶乐趣</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4981397&auto=0&height=66"></iframe>
+            <p>寻找纯粹驾驶乐趣</p> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=4981397&auto=0&height=66"></iframe>
           </div>
 <ul>
 <li>
@@ -953,7 +1076,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -964,10 +1143,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -979,6 +1164,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -1039,6 +1226,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

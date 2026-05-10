@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -99,6 +99,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -126,7 +131,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -222,6 +227,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -259,7 +381,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          7.3k 字
         
       </span>
     
@@ -270,7 +392,7 @@
         
         
         
-          28 分钟
+          61 分钟
         
       </span>
     
@@ -284,7 +406,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -296,6 +417,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -357,7 +480,7 @@
 <li>没有验证码，直接使用 BurpSuite 的 Intruder 模块进行爆破即可。</li>
 </ul>
 <div class="note note-success">
-            <p>（Intruder 模块的 Attack Type）</p><ul><li>Sniper：<ul><li>仅用一组 Payload。</li><li>依次瞄准每个 Payload 的位置，并一次将 Payload 放置到该位置（其他位置此时保持空白）。</li><li>请求的总数是 Payload 的位置数 * Payload 的个数。</li></ul></li><li>Battering ram<ul><li>仅用一组 Payload。</li><li>同时将 Payload 放置到每个位置（所有位置此时保持一致）。</li><li>请求的总数是 Payload 的个数。</li></ul></li><li>Pitchfork<ul><li>使用多组 Payload。</li><li>攻击<strong>同时遍历</strong>所有 Payload 集，并将一个 Payload 放入每个定义的位置。</li><li>请求的总数是最小 Payload 集中的 Payload 数。</li></ul></li><li>Cluster bomb<ul><li>使用多组 Payload。</li><li>攻击<strong>依次迭代</strong>每个 Payload 集，以便测试 Payload 组合的所有排列。</li><li>请求的总数是所有 Payload 集中的 Payload 数的乘积。【非常巨大】</li></ul></li></ul>
+            <p>（Intruder 模块的 Attack Type）</p> <ul> <li>Sniper： <ul> <li>仅用一组 Payload。</li> <li>依次瞄准每个 Payload 的位置，并一次将 Payload 放置到该位置（其他位置此时保持空白）。</li> <li>请求的总数是 Payload 的位置数 * Payload 的个数。</li> </ul> </li> <li>Battering ram <ul> <li>仅用一组 Payload。</li> <li>同时将 Payload 放置到每个位置（所有位置此时保持一致）。</li> <li>请求的总数是 Payload 的个数。</li> </ul> </li> <li>Pitchfork <ul> <li>使用多组 Payload。</li> <li>攻击<strong>同时遍历</strong>所有 Payload 集，并将一个 Payload 放入每个定义的位置。</li> <li>请求的总数是最小 Payload 集中的 Payload 数。</li> </ul> </li> <li>Cluster bomb <ul> <li>使用多组 Payload。</li> <li>攻击<strong>依次迭代</strong>每个 Payload 集，以便测试 Payload 组合的所有排列。</li> <li>请求的总数是所有 Payload 集中的 Payload 数的乘积。【非常巨大】</li> </ul> </li> </ul> 
           </div>
 <h3 id="验证码绕过on-server"><a class="markdownIt-Anchor" href="#验证码绕过on-server"></a> 验证码绕过(on server)</h3>
 <ul>
@@ -369,7 +492,7 @@
 </ul>
 <h3 id="token防爆破"><a class="markdownIt-Anchor" href="#token防爆破"></a> token防爆破?</h3>
 <div class="note note-success">
-            <p>（Token 令牌防重放）</p><ol><li>在服务器端生成一个唯一的随机标识号 Token，同时在当前用户的 Session 域中保存这个 Token；</li><li>然后将 Token 发送到客户端的 Form 表单中，在 Form 表单中使用<strong>隐藏域</strong>来存储这个 Token；</li><li>表单提交的时候连同这个 Token 一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致：<ul><li>如果不一致，说明是重复提交，此时服务器端就可以不处理重复提交的表单。</li><li>如果一致，说明是处理表单提交，处理完后清除当前用户的 Session 域中存储的 Token。</li></ul></li></ol>
+            <p>（Token 令牌防重放）</p> <ol> <li>在服务器端生成一个唯一的随机标识号 Token，同时在当前用户的 Session 域中保存这个 Token；</li> <li>然后将 Token 发送到客户端的 Form 表单中，在 Form 表单中使用<strong>隐藏域</strong>来存储这个 Token；</li> <li>表单提交的时候连同这个 Token 一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致： <ul> <li>如果不一致，说明是重复提交，此时服务器端就可以不处理重复提交的表单。</li> <li>如果一致，说明是处理表单提交，处理完后清除当前用户的 Session 域中存储的 Token。</li> </ul> </li> </ol> 
           </div>
 <ul>
 <li>
@@ -401,7 +524,7 @@
 </li>
 </ul>
 <div class="note note-warning">
-            <p>因此，Token 是不能防爆破的。</p>
+            <p>因此，Token 是不能防爆破的。</p> 
           </div>  
 <h2 id="cross-site-scripting"><a class="markdownIt-Anchor" href="#cross-site-scripting"></a> Cross-Site Scripting</h2>
 <ul>
@@ -439,7 +562,7 @@
 </li>
 </ul>
 <div class="note note-primary">
-            <p>输入 “kobe” 有彩蛋。🏀</p>
+            <p>输入 “kobe” 有彩蛋。🏀</p> 
           </div>
 <h3 id="反射型-xsspost"><a class="markdownIt-Anchor" href="#反射型-xsspost"></a> 反射型 xss(post)</h3>
 <ul>
@@ -450,11 +573,11 @@
 <li>输入 <code>&lt;script&gt;alert(/xss/)&lt;/script&gt;</code> 即可，相比于反射型，该 xss 存储在服务器上。之后刷新即可再次触发</li>
 </ul>
 <div class="note note-primary">
-            <p>存在一个 sql 注入的彩蛋⭕</p>
+            <p>存在一个 sql 注入的彩蛋⭕</p> 
           </div>  
 <h3 id="dom-型-xss"><a class="markdownIt-Anchor" href="#dom-型-xss"></a> DOM 型 xss</h3>
 <div class="note note-success">
-            <ul><li>W3C 文档对象模型（DOM）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的<strong>接口</strong>。</li><li>DOM 型 XSS 是基于 DOM 文档对象模型的一种漏洞。DOM 型 XSS 也能算广义的反射型 XSS，但 DOM 型 XSS 并不会和后台进行交互，仅涉及 Web 前端的安全问题，只能在客户端上进行防御。</li></ul>
+            <ul> <li>W3C 文档对象模型（DOM）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的<strong>接口</strong>。</li> <li>DOM 型 XSS 是基于 DOM 文档对象模型的一种漏洞。DOM 型 XSS 也能算广义的反射型 XSS，但 DOM 型 XSS 并不会和后台进行交互，仅涉及 Web 前端的安全问题，只能在客户端上进行防御。</li> </ul> 
           </div>
 <ul>
 <li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码 <code>document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href='&quot;+str+&quot;'&gt;what do you see?&lt;/a&gt;&quot;;</code>，发现是拼接到 <code>&lt;a href=&quot;123&quot;&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href=&quot;&quot; onclick=&quot;alert(/xss/)&quot;&gt;</code>，所以输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code> 即可。</li>
@@ -465,11 +588,11 @@
 <li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
 </ul>
 <div class="note note-warning">
-            <ul><li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li><li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br />（飞雷神·二段🥷）</li></ul><p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif" srcset="/img/loading.gif" lazyload alt="飞雷神二段" /></p>
+            <ul> <li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li> <li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br /> （飞雷神·二段🥷）</li> </ul> <p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif" srcset="/img/loading.gif" lazyload alt="飞雷神二段" /></p> 
           </div>  
 <h3 id="xss-之盲打"><a class="markdownIt-Anchor" href="#xss-之盲打"></a> xss 之盲打</h3>
 <div class="note note-success">
-            <p>XSS盲打是一种攻击场景：尽可能地于一切可能的地方提交 XSS 语句,只要后台管理员看到某一条语句,此语句就能被执行。</p>
+            <p>XSS盲打是一种攻击场景：尽可能地于一切可能的地方提交 XSS 语句,只要后台管理员看到某一条语句,此语句就能被执行。</p> 
           </div>
 <ul>
 <li>看到输入框就插上 xss 语句，前端无回显，但是管理员一登陆就会被触发。</li>
@@ -480,24 +603,24 @@
 <li>尝试了重写绕过和注释绕过均失败。</li>
 </ul>
 <div class="note note-primary">
-            <p>输入 “yes” 有彩蛋😂</p>
+            <p>输入 “yes” 有彩蛋😂</p> 
           </div>  
 <h3 id="xss-之-htmlspecialchars"><a class="markdownIt-Anchor" href="#xss-之-htmlspecialchars"></a> xss 之 htmlspecialchars</h3>
 <div class="note note-success">
-            <ul><li>PHP htmlspecialchars() 函数：把预定义的字符转换为 HTML 实体<ul><li>&amp; （和号）成为 &amp;amp</li><li>&quot; （双引号）成为 &amp;quot</li><li>’ （单引号）成为 &amp;#039</li><li>&lt; （小于）成为 &amp;lt</li><li><blockquote><p>（大于）成为 &amp;gt</p></blockquote></li></ul></li><li>但是，引号类型是<strong>可选的</strong>：<ul><li>ENT_COMPAT - 默认。仅编码双引号。</li><li>ENT_QUOTES - 编码双引号和单引号。</li><li>ENT_NOQUOTES - 不编码任何引号。</li></ul></li></ul>
+            <ul> <li>PHP htmlspecialchars() 函数：把预定义的字符转换为 HTML 实体 <ul> <li>&amp; （和号）成为 &amp;amp</li> <li>&quot; （双引号）成为 &amp;quot</li> <li>’ （单引号）成为 &amp;#039</li> <li>&lt; （小于）成为 &amp;lt</li> <li> <blockquote> <p>（大于）成为 &amp;gt</p> </blockquote> </li> </ul> </li> <li>但是，引号类型是<strong>可选的</strong>： <ul> <li>ENT_COMPAT - 默认。仅编码双引号。</li> <li>ENT_QUOTES - 编码双引号和单引号。</li> <li>ENT_NOQUOTES - 不编码任何引号。</li> </ul> </li> </ul> 
           </div>
 <ul>
 <li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现仅单引号未过滤，说明是 <code>ENT_COMPAT</code>。构造 <code>' onclick = 'alert(1)'</code> 即可。</li>
 </ul>
 <h3 id="xss-之-href-输出"><a class="markdownIt-Anchor" href="#xss-之-href-输出"></a> xss 之 href 输出</h3>
 <div class="note note-success">
-            <ul><li>JavaScript 伪协议：关联应用程序而使用的协议即为伪协议（对比 HTTP/HTTPS 这种真协议）。该协议声明了 URL 的主体 是 JavaScript 代码，并由 javascript 的解释器运行。</li><li>大名鼎鼎的 <code>javascript:void(0)</code> 就是典型范例</li></ul>
+            <ul> <li>JavaScript 伪协议：关联应用程序而使用的协议即为伪协议（对比 HTTP/HTTPS 这种真协议）。该协议声明了 URL 的主体 是 JavaScript 代码，并由 javascript 的解释器运行。</li> <li>大名鼎鼎的 <code>javascript:void(0)</code> 就是典型范例</li> </ul> 
           </div>
 <ul>
 <li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现全被过滤。所以使用 JavaScript 伪协议 <code>javascript:alert(1)</code> 即可。</li>
 </ul>
 <div class="note note-primary">
-            <p>输入 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> 有彩蛋。❗</p>
+            <p>输入 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> 有彩蛋。❗</p> 
           </div>
 <h3 id="xss-之-js-输出"><a class="markdownIt-Anchor" href="#xss-之-js-输出"></a> xss 之 js 输出</h3>
 <ul>
@@ -505,7 +628,7 @@
 <li>闭合 <code>$ms</code> 即可。Payload：<code>'&lt;/script&gt;&lt;script&gt;alert(/xss/)&lt;/script&gt;'</code></li>
 </ul>
 <div class="note note-primary">
-            <p>输入 tmac 有彩蛋。🏀</p>
+            <p>输入 tmac 有彩蛋。🏀</p> 
           </div>
 <h2 id="csrf"><a class="markdownIt-Anchor" href="#csrf"></a> CSRF</h2>
 <ul>
@@ -585,7 +708,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 确定字段（列）数。【后者报错，说明字段（列）数为 3】<br>id=1%&#x27; order by 3#<br>id=1%&#x27; order by 4# <br><br># 联合查询查看显示位。【有三个显示位】<br>id=0%&#x27; union select 1,2,3# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0%&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id=0%&#x27; union select 1,2,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id=0%&#x27; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0%&#x27; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;#<br><br># 爆值。【得到用户名-密码对】<br>id=0%&#x27; union select 1,2,group_concat(username,&#x27;-&#x27;,password) from users#<br></code></pre></td></tr></table></figure>
 <div class="note note-success">
-            <p>输入 id = %%，能够查询表中非 NULL 的值。这是因为 <code>like '%%'</code>默认为查询所有。(即 % 为通配符)</p>
+            <p>输入 id = %%，能够查询表中非 NULL 的值。这是因为 <code>like '%%'</code>默认为查询所有。(即 % 为通配符)</p> 
           </div>
 <h3 id="xx型注入"><a class="markdownIt-Anchor" href="#xx型注入"></a> xx型注入</h3>
 
@@ -952,7 +1075,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -963,10 +1142,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -978,6 +1163,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -1038,6 +1225,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

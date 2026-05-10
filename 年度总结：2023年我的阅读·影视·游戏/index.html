@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,6 +101,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -128,7 +133,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -224,6 +229,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -261,7 +383,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k 字
+          5.8k 字
         
       </span>
     
@@ -272,7 +394,7 @@
         
         
         
-          40 分钟
+          49 分钟
         
       </span>
     
@@ -286,7 +408,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -298,6 +419,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -335,7 +458,7 @@
 <span id="more"></span>
 <h1 id="年度总结2023年我的阅读电影游戏"><a class="markdownIt-Anchor" href="#年度总结2023年我的阅读电影游戏"></a> 年度总结：2023年我的阅读·电影·游戏</h1>
 <div class="note note-primary">
-            <p>「一马当先，万马无光」</p>
+            <p>「一马当先，万马无光」</p> 
           </div>
 <ul>
 <li>今年拍的最有感觉的照片：《赛马娘Pretty Derby》里目白麦昆的静物，用到一枚 12-40mmF2.8PRO，该说不说 M43 在静物上还是挺好用的。配合的 TT600，最后我感觉效果还算不错。</li>
@@ -348,7 +471,7 @@
 <h2 id="阅读"><a class="markdownIt-Anchor" href="#阅读"></a> 阅读</h2>
 <h3 id="长安的荔枝"><a class="markdownIt-Anchor" href="#长安的荔枝"></a> 《长安的荔枝》</h3>
 <div class="note note-secondary">
-            <p>一骑红尘妃子笑，无人知是荔枝来。</p>
+            <p>一骑红尘妃子笑，无人知是荔枝来。</p> 
           </div>
 <ul>
 <li>
@@ -361,7 +484,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%95%BF%E5%AE%89%E7%9A%84%E8%8D%94%E6%9E%9D.jpg" srcset="/img/loading.gif" lazyload alt="长安的荔枝" /></p>
 <h3 id="singapore-country-handbook"><a class="markdownIt-Anchor" href="#singapore-country-handbook"></a> 《Singapore Country Handbook》</h3>
 <div class="note note-success">
-            <p>（也许是）最全面的旅行指南。</p>
+            <p>（也许是）最全面的旅行指南。</p> 
           </div>
 <ul>
 <li>
@@ -374,7 +497,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/SingaporeCountryHandbook.jpg" srcset="/img/loading.gif" lazyload alt="Singapore Country Handbook" /></p>
 <h3 id="打开高频交易的黑箱all-about-high-frequency-trading"><a class="markdownIt-Anchor" href="#打开高频交易的黑箱all-about-high-frequency-trading"></a> 《打开高频交易的黑箱/All About High-frequency Trading》</h3>
 <div class="note note-success">
-            <p>《打开 XXXX 的黑箱》系列中最好的一本。</p>
+            <p>《打开 XXXX 的黑箱》系列中最好的一本。</p> 
           </div>
 <ul>
 <li>
@@ -387,7 +510,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E6%89%93%E5%BC%80%E9%AB%98%E9%A2%91%E4%BA%A4%E6%98%93%E7%9A%84%E9%BB%91%E7%AE%B1.jpg" srcset="/img/loading.gif" lazyload alt="打开高频交易的黑箱" /></p>
 <h3 id="欢乐英雄"><a class="markdownIt-Anchor" href="#欢乐英雄"></a> 《欢乐英雄》</h3>
 <div class="note note-primary">
-            <p>谁说英雄寂寞？<br />我们的英雄就是欢乐的。</p>
+            <p>谁说英雄寂寞？<br /> 我们的英雄就是欢乐的。</p> 
           </div>
 <ul>
 <li>
@@ -413,7 +536,7 @@
 <h2 id="影视"><a class="markdownIt-Anchor" href="#影视"></a> 影视</h2>
 <h3 id="红猪紅の豚"><a class="markdownIt-Anchor" href="#红猪紅の豚"></a> 《红猪/紅の豚》</h3>
 <div class="note note-primary">
-            <p>再见了，亚得里亚海的自由和放荡的生活。</p>
+            <p>再见了，亚得里亚海的自由和放荡的生活。</p> 
           </div>
 <ul>
 <li>
@@ -426,7 +549,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%BA%A2%E7%8C%AA.jpg" srcset="/img/loading.gif" lazyload alt="红猪" /></p>
 <h3 id="神奇数字马戏团the-amazing-digital-circus"><a class="markdownIt-Anchor" href="#神奇数字马戏团the-amazing-digital-circus"></a> 《神奇数字马戏团/The Amazing Digital circus》</h3>
 <div class="note note-success">
-            <p>美就像雨伞与缝纫机在手术台上偶然相遇。</p>
+            <p>美就像雨伞与缝纫机在手术台上偶然相遇。</p> 
           </div>
 <ul>
 <li>
@@ -439,7 +562,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%A5%9E%E5%A5%87%E6%95%B0%E5%AD%97%E9%A9%AC%E6%88%8F%E5%9B%A2.jpg" srcset="/img/loading.gif" lazyload alt="神奇数字马戏团" /></p>
 <h3 id="三伏"><a class="markdownIt-Anchor" href="#三伏"></a> 《三伏》</h3>
 <div class="note note-secondary">
-            <p>缘起镜中花，缘灭水中月。</p>
+            <p>缘起镜中花，缘灭水中月。</p> 
           </div>
 <ul>
 <li>
@@ -453,7 +576,7 @@
 <h2 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h2>
 <h3 id="燥热superhot"><a class="markdownIt-Anchor" href="#燥热superhot"></a> 《燥热/SUPERHOT》</h3>
 <div class="note note-primary">
-            <p>只有你移动，时间才会流动。</p>
+            <p>只有你移动，时间才会流动。</p> 
           </div>
 <ul>
 <li>
@@ -465,11 +588,11 @@
 </ul>
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/superhot.jpg" srcset="/img/loading.gif" lazyload alt="SUPERHOT" /></p>
 <div class="note note-success">
-            <p>你可以在 <a target="_blank" rel="noopener" href="https://killterest.com/zh-hans">【这里】</a> 欣赏到本游戏行云流水的影片感。</p>
+            <p>你可以在 <a target="_blank" rel="noopener" href="https://killterest.com/zh-hans">【这里】</a> 欣赏到本游戏行云流水的影片感。</p> 
           </div>
 <h3 id="无主之地-3borderlands-3"><a class="markdownIt-Anchor" href="#无主之地-3borderlands-3"></a> 《无主之地 3/Borderlands 3》</h3>
 <div class="note note-warning">
-            <p>成功的本地配音，失败的幼稚剧情。</p>
+            <p>成功的本地配音，失败的幼稚剧情。</p> 
           </div>
 <ul>
 <li>
@@ -485,7 +608,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E6%97%A0%E4%B8%BB%E4%B9%8B%E5%9C%B03.jpg" srcset="/img/loading.gif" lazyload alt="无主之地3" /></p>
 <h3 id="雪居之地wildfrost"><a class="markdownIt-Anchor" href="#雪居之地wildfrost"></a> 《雪居之地/Wildfrost》</h3>
 <div class="note note-warning">
-            <p>制作精良的低容错 Roguelike 卡牌</p>
+            <p>制作精良的低容错 Roguelike 卡牌</p> 
           </div>
 <ul>
 <li>
@@ -501,7 +624,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%9B%AA%E5%B1%85%E4%B9%8B%E5%9C%B0.jpg" srcset="/img/loading.gif" lazyload alt="雪居之地" /></p>
 <h3 id="反物质维度antimatter-dimensions"><a class="markdownIt-Anchor" href="#反物质维度antimatter-dimensions"></a> 《反物质维度/Antimatter Dimensions》</h3>
 <div class="note note-success">
-            <p>没有人会不为数学震撼，真是精湛的指数啊</p>
+            <p>没有人会不为数学震撼，真是精湛的指数啊</p> 
           </div>
 <ul>
 <li>
@@ -517,7 +640,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2023%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%8F%8D%E7%89%A9%E8%B4%A8%E7%BB%B4%E5%BA%A6.jpg" srcset="/img/loading.gif" lazyload alt="反物质维度" /></p>
 <h3 id="健身环大冒险ring-fit-adventure"><a class="markdownIt-Anchor" href="#健身环大冒险ring-fit-adventure"></a> 《健身环大冒险/Ring Fit Adventure》</h3>
 <div class="note note-success">
-            <p>真正在意关怀我们死肥宅的，还得是任天堂啊 🤣</p>
+            <p>真正在意关怀我们死肥宅的，还得是任天堂啊 🤣</p> 
           </div>
 <ul>
 <li>
@@ -904,7 +1027,63 @@
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -915,10 +1094,16 @@
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -930,6 +1115,8 @@
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -990,6 +1177,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,6 +101,11 @@
   
     
   
+
+  
+    
+  
+
 
 
 
@@ -128,7 +133,7 @@
       <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Collapsible content (desktop) -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto text-center">
         
@@ -224,6 +229,123 @@
   </div>
 </nav>
 
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
   
 
 <div id="banner" class="banner" parallax=true
@@ -261,7 +383,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.1k 字
+          10k 字
         
       </span>
     
@@ -272,7 +394,7 @@
         
         
         
-          68 分钟
+          85 分钟
         
       </span>
     
@@ -286,7 +408,6 @@
         </span>
         
       
-      
     
   </div>
 
@@ -298,6 +419,8 @@
     </div>
   </div>
 </div>
+
+
 
 </div>
 
@@ -337,7 +460,7 @@
 <h2 id="阅读"><a class="markdownIt-Anchor" href="#阅读"></a> 阅读</h2>
 <h3 id="电锯人チェンソーマン"><a class="markdownIt-Anchor" href="#电锯人チェンソーマン"></a> 《电锯人/チェンソーマン》</h3>
 <div class="note note-primary">
-            <p>死体が喋っているW。</p>
+            <p>死体が喋っているW。</p> 
           </div>
 <ul>
 <li>
@@ -349,11 +472,11 @@
 </ul>
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%94%B5%E9%94%AF%E4%BA%BA.jpg" srcset="/img/loading.gif" lazyload alt="电锯人" /></p>
 <div class="note note-warning">
-            <p>年底真的被 MAPPA 给动画化了，预告给出的 OP &amp; ED 阵容不可不谓强大。不过浅看了几集，感觉难以还原出藤本树的独特“疯”格，分镜也不如漫画……感觉有点可惜吧。从这种意义上来说，加入了商业考量的《电锯人》都被动画化成这样，所以可以想象《炎拳》的动画化可能真的遥遥无期了。<br /><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%94%B5%E9%94%AF%E4%BA%BA%E5%90%90%E6%A7%BD.png" srcset="/img/loading.gif" lazyload alt="电锯人漫画" /></p>
+            <p>年底真的被 MAPPA 给动画化了，预告给出的 OP &amp; ED 阵容不可不谓强大。不过浅看了几集，感觉难以还原出藤本树的独特“疯”格，分镜也不如漫画……感觉有点可惜吧。从这种意义上来说，加入了商业考量的《电锯人》都被动画化成这样，所以可以想象《炎拳》的动画化可能真的遥遥无期了。<br /> <img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E7%94%B5%E9%94%AF%E4%BA%BA%E5%90%90%E6%A7%BD.png" srcset="/img/loading.gif" lazyload alt="电锯人漫画" /></p> 
           </div>
 <h3 id="再见绘梨さよなら絵梨"><a class="markdownIt-Anchor" href="#再见绘梨さよなら絵梨"></a> 《再见绘梨/さよなら絵梨》</h3>
 <div class="note note-success">
-            <p>如果不确定美丽但修饰过的回忆、与残酷但真实的记忆哪个才值得，或许方法就是跟漫画结局一样，在忘却来临之前炸毁一切。</p>
+            <p>如果不确定美丽但修饰过的回忆、与残酷但真实的记忆哪个才值得，或许方法就是跟漫画结局一样，在忘却来临之前炸毁一切。</p> 
           </div>
 <ul>
 <li>
@@ -369,7 +492,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%86%8D%E8%A7%81%E7%BB%98%E6%A2%A8.jpg" srcset="/img/loading.gif" lazyload alt="再见绘梨" /></p>
 <h3 id="互联网与中国后现代性呓语"><a class="markdownIt-Anchor" href="#互联网与中国后现代性呓语"></a> 《互联网与中国后现代性呓语》</h3>
 <div class="note note-primary">
-            <p>本文的核心目标是试图解释：<strong>为什么作为整体性的人类社会仍在进步，而个体却越发地难以从中受益，或越发难以感受到这种受益？</strong></p>
+            <p>本文的核心目标是试图解释：<strong>为什么作为整体性的人类社会仍在进步，而个体却越发地难以从中受益，或越发难以感受到这种受益？</strong></p> 
           </div>
 <ul>
 <li>
@@ -389,12 +512,12 @@
 </li>
 </ul>
 <div class="note note-primary">
-            <p>现代社会的问题总是关乎于个人，也就是此时此刻正在阅读本文的你。<br />而关于你的问题，只有你能给出答案。</p>
+            <p>现代社会的问题总是关乎于个人，也就是此时此刻正在阅读本文的你。<br /> 而关于你的问题，只有你能给出答案。</p> 
           </div>
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%8E%E4%B8%AD%E5%9B%BD%E5%90%8E%E7%8E%B0%E4%BB%A3%E6%80%A7%E5%91%93%E8%AF%AD.jpg" srcset="/img/loading.gif" lazyload alt="互联网与中国后现代性呓语" /></p>
 <h3 id="人月神话the-mythical-man-month"><a class="markdownIt-Anchor" href="#人月神话the-mythical-man-month"></a> 《人月神话/The Mythical Man-Month》</h3>
 <div class="note note-primary">
-            <p>人月是危险和带有欺骗性的神话，因为它暗示了人员数量和时间可以互相替换的。</p>
+            <p>人月是危险和带有欺骗性的神话，因为它暗示了人员数量和时间可以互相替换的。</p> 
           </div>
 <ul>
 <li>
@@ -407,7 +530,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D.jpg" srcset="/img/loading.gif" lazyload alt="人月神话" /></p>
 <h3 id="亲密关系intimate-relationship"><a class="markdownIt-Anchor" href="#亲密关系intimate-relationship"></a> 《亲密关系/Intimate Relationship》</h3>
 <div class="note note-success">
-            <p>爱虽是本能，却也需要学习。</p>
+            <p>爱虽是本能，却也需要学习。</p> 
           </div>
 <ul>
 <li>
@@ -420,7 +543,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB.jpg" srcset="/img/loading.gif" lazyload alt="亲密关系" /></p>
 <h3 id="手机摄影必修课"><a class="markdownIt-Anchor" href="#手机摄影必修课"></a> 《手机摄影必修课》</h3>
 <div class="note note-primary">
-            <p>最好的相机是带在身边的相机。</p>
+            <p>最好的相机是带在身边的相机。</p> 
           </div>
 <ul>
 <li>
@@ -442,7 +565,7 @@
 <h2 id="影视"><a class="markdownIt-Anchor" href="#影视"></a> 影视</h2>
 <h3 id="大空头the-big-short"><a class="markdownIt-Anchor" href="#大空头the-big-short"></a> 《大空头/The Big Short》</h3>
 <div class="note note-primary">
-            <p>让我们陷入困境的不是无知，而是看似正确的谬误论断。</p>
+            <p>让我们陷入困境的不是无知，而是看似正确的谬误论断。</p> 
           </div>
 <ul>
 <li>
@@ -455,7 +578,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%A4%A7%E7%A9%BA%E5%A4%B4.jpg" srcset="/img/loading.gif" lazyload alt="大空头" /></p>
 <h3 id="冰菓氷菓"><a class="markdownIt-Anchor" href="#冰菓氷菓"></a> 《冰菓/氷菓》</h3>
 <div class="note note-success">
-            <p>推理的日常，朦胧的恋情，蔷薇色的青春。</p>
+            <p>推理的日常，朦胧的恋情，蔷薇色的青春。</p> 
           </div>
 <ul>
 <li>
@@ -472,7 +595,7 @@
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%86%B0%E8%8F%93.jpg" srcset="/img/loading.gif" lazyload alt="冰菓" /></p>
 <h3 id="白日梦想家the-secret-life-of-walter-mitty"><a class="markdownIt-Anchor" href="#白日梦想家the-secret-life-of-walter-mitty"></a> 《白日梦想家/The Secret Life of Walter Mitty》</h3>
 <div class="note note-primary">
-            <p>Stay Gold, Ponyboy!</p>
+            <p>Stay Gold, Ponyboy!</p> 
           </div>
 <ul>
 <li>
@@ -503,7 +626,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 </ul>
 <h3 id="吸血鬼幸存者vampire-survivors"><a class="markdownIt-Anchor" href="#吸血鬼幸存者vampire-survivors"></a> 《吸血鬼幸存者/Vampire Survivors》</h3>
 <div class="note note-success">
-            <p>如果不是亲身体验，你很难想象为什么这部游戏“好评如潮”</p>
+            <p>如果不是亲身体验，你很难想象为什么这部游戏“好评如潮”</p> 
           </div>
 <ul>
 <li>
@@ -525,7 +648,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%90%B8%E8%A1%80%E9%AC%BC%E5%B9%B8%E5%AD%98%E8%80%85.jpg" srcset="/img/loading.gif" lazyload alt="吸血鬼幸存者" /></p>
 <h3 id="幸运房东luck-be-a-landlord"><a class="markdownIt-Anchor" href="#幸运房东luck-be-a-landlord"></a> 《幸运房东/Luck be a Landlord》</h3>
 <div class="note note-success">
-            <p>披着“老虎机”外衣的牌组构建游戏</p>
+            <p>披着“老虎机”外衣的牌组构建游戏</p> 
           </div>
 <ul>
 <li>
@@ -544,7 +667,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E5%B9%B8%E8%BF%90%E6%88%BF%E4%B8%9C.png" srcset="/img/loading.gif" lazyload alt="幸运房东" /></p>
 <h3 id="武装原型broforce"><a class="markdownIt-Anchor" href="#武装原型broforce"></a> 《武装原型/Broforce》</h3>
 <div class="note note-success">
-            <p><strong>重温</strong>经典</p>
+            <p><strong>重温</strong>经典</p> 
           </div>
 <ul>
 <li>
@@ -563,7 +686,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E6%AD%A6%E8%A3%85%E5%8E%9F%E5%9E%8B.jpg" srcset="/img/loading.gif" lazyload alt="武装原型" /></p>
 <h3 id="邪恶冥刻inscryption"><a class="markdownIt-Anchor" href="#邪恶冥刻inscryption"></a> 《邪恶冥刻/Inscryption》</h3>
 <div class="note note-primary">
-            <p>在《邪恶冥刻》中，玩家可以……</p><ul><li>通过抽牌、手术和自残行为获得由林间生物组成的牌组</li><li>解开隐藏在莱西小屋墙壁之后的秘密</li><li>踏上意想不到又令人深感不安的冒险史诗</li></ul>
+            <p>在《邪恶冥刻》中，玩家可以……</p> <ul> <li>通过抽牌、手术和自残行为获得由林间生物组成的牌组</li> <li>解开隐藏在莱西小屋墙壁之后的秘密</li> <li>踏上意想不到又令人深感不安的冒险史诗</li> </ul> 
           </div>
 <ul>
 <li>
@@ -579,7 +702,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E9%82%AA%E6%81%B6%E5%86%A5%E5%88%BB.jpg" srcset="/img/loading.gif" lazyload alt="邪恶冥刻" /></p>
 <h3 id="va-11-hall-a赛博朋克酒保行动va-11-hall-a-cyberpunk-bartender-action"><a class="markdownIt-Anchor" href="#va-11-hall-a赛博朋克酒保行动va-11-hall-a-cyberpunk-bartender-action"></a> 《VA-11 Hall-A：赛博朋克酒保行动/VA-11 Hall-A: Cyberpunk Bartender Action》</h3>
 <div class="note note-primary">
-            <p>调制饮料，改变人生。</p>
+            <p>调制饮料，改变人生。</p> 
           </div>
 <ul>
 <li>
@@ -595,7 +718,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/%E8%B5%9B%E5%8D%9A%E6%9C%8B%E5%85%8B%E9%85%92%E4%BF%9D%E8%A1%8C%E5%8A%A8.jpg" srcset="/img/loading.gif" lazyload alt="赛博朋克酒保行动" /></p>
 <h3 id="画中世界gorogoa"><a class="markdownIt-Anchor" href="#画中世界gorogoa"></a> 《画中世界/Gorogoa》</h3>
 <div class="note note-primary">
-            <p>我为什么喜欢谜题？我想这是因为我觉得世界上存在一些隐藏的结构或是奥义。如果你用正确的方法将世界的各个部分重新排列，就会发现那些隐藏的秘密。</p>
+            <p>我为什么喜欢谜题？我想这是因为我觉得世界上存在一些隐藏的结构或是奥义。如果你用正确的方法将世界的各个部分重新排列，就会发现那些隐藏的秘密。</p> 
           </div>
 <ul>
 <li>
@@ -611,7 +734,7 @@ THAT IS THE PURPOSE OF LIFE.<br />
 <p><img src="/img/post/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%9A2022%E5%B9%B4%E6%88%91%E7%9A%84%E9%98%85%E8%AF%BB%C2%B7%E5%BD%B1%E8%A7%86%C2%B7%E6%B8%B8%E6%88%8F/Gorogoa.jpg" srcset="/img/loading.gif" lazyload alt="Gorogoa" /></p>
 <h3 id="大搜查unlock"><a class="markdownIt-Anchor" href="#大搜查unlock"></a> 《大搜查！/Unlock!》</h3>
 <div class="note note-success">
-            <p>年度最佳桌游，没有之一</p>
+            <p>年度最佳桌游，没有之一</p> 
           </div>
 <ul>
 <li>
@@ -1000,7 +1123,63 @@ THAT IS THE PURPOSE OF LIFE.<br />
     var boardCtn = jQuery('#board-ctn');
     var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
       tocSelector     : '#toc-body',
       contentSelector : '.markdown-body',
       linkClass       : 'tocbot-link',
@@ -1011,10 +1190,16 @@ THAT IS THE PURPOSE OF LIFE.<br />
       scrollSmooth    : true,
       includeTitleTags: true,
       headingsOffset  : -boardTop,
-    }, CONFIG.toc));
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
     if (toc.find('.toc-list-item').length > 0) {
       toc.css('visibility', 'visible');
     }
+    expandAllToc();
+    bindTocToggle();
 
     Fluid.events.registerRefreshCallback(function() {
       if ('tocbot' in window) {
@@ -1026,6 +1211,8 @@ THAT IS THE PURPOSE OF LIFE.<br />
         if (toc.find('.toc-list-item').length > 0) {
           toc.css('visibility', 'visible');
         }
+        expandAllToc();
+        bindTocToggle();
       }
     });
   });
@@ -1086,6 +1273,8 @@ THAT IS THE PURPOSE OF LIFE.<br />
   <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

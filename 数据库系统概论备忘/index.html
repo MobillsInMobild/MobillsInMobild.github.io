@@ -67,18 +67,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -354,7 +349,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据库系统概论备忘"></span>
+            <span id="subtitle">数据库系统概论备忘</span>
           
         </div>
 
@@ -393,7 +388,7 @@
         
         
         
-          183 分钟
+          182 分钟
         
       </span>
     
@@ -663,7 +658,7 @@
 </li>
 <li>内模式：也称存储模式，一个数据库只有一个内模式。它是数据物理结构和存储方式的描述，是数据在数据库内部的组织方式</li>
 </ul>
-<pre><code class=" mermaid">graph TD
+<pre class="highlight"><code class="mermaid">graph TD
 A[数据库] --&gt; B[内模式]
 B--&gt;|内模式/模式影像|C[模式]
 C--&gt;|外模式/模式影像|D[外模式1]
@@ -1176,7 +1171,8 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE SCHEMA &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;[&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE SCHEMA &#x3C;模式名> AUTHORIZATION &#x3C;用户名>[&#x3C;表定义子句>|&#x3C;视图定义子句>|&#x3C;授权定义子句>]</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>定义模式实际上定义了一个<strong>命名空间</strong></li>
 </ul>
@@ -1184,7 +1180,8 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs MYSQL">DROP SCHEMA &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP SCHEMA &#x3C;模式名> &#x3C;CASCADE|RESTRICT></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li><code>CASCADE</code>：删除模式的同时把该模式中所有的数据库对象全部删除</li>
 <li><code>RESTRICT</code>：如果该模式中定义了下属的数据库对象（如表、视图等），则拒绝该删除语句的执行
@@ -1198,7 +1195,12 @@ F--&gt;K[应用E]
 <ul>
 <li>基本格式：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE&lt;表名&gt;<br>(&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]<br>[,&lt;列名&gt;&lt;数据类型&gt;[&lt;列级完整性约束条件&gt;]]<br>…<br>[,&lt;表级完整性约束条件&gt;]);<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE&#x3C;表名></span></span>
+<span class="line"><span>(&#x3C;列名>&#x3C;数据类型>[&#x3C;列级完整性约束条件>]</span></span>
+<span class="line"><span>[,&#x3C;列名>&#x3C;数据类型>[&#x3C;列级完整性约束条件>]]</span></span>
+<span class="line"><span>…</span></span>
+<span class="line"><span>[,&#x3C;表级完整性约束条件>]);</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h5 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h5>
 <ul>
 <li>
@@ -1300,7 +1302,8 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="建立索引"><a class="markdownIt-Anchor" href="#建立索引"></a> 建立索引</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE \[ UNIQUE \]\[ CLUSTER \] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;\[&lt;次序&gt;\]\[ ,&lt;列名&gt;\[&lt;次序&gt;\]\]…)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE \[ UNIQUE \]\[ CLUSTER \] INDEX &#x3C;索引名> ON &#x3C;表名>(&#x3C;列名>\[&#x3C;次序>\]\[ ,&#x3C;列名>\[&#x3C;次序>\]\]…)</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>
 <p>&lt;表名&gt;：要建索引的基本表的名字</p>
@@ -1319,9 +1322,11 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="修改索引"><a class="markdownIt-Anchor" href="#修改索引"></a> 修改索引</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER INDEX &lt;旧索引名&gt; RENAME TO &lt;新索引名&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER INDEX &#x3C;旧索引名> RENAME TO &#x3C;新索引名></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h5 id="删除索引"><a class="markdownIt-Anchor" href="#删除索引"></a> 删除索引</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP INDEX &lt;索引名&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP INDEX &#x3C;索引名></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h4 id="数据字典"><a class="markdownIt-Anchor" href="#数据字典"></a> 数据字典</h4>
 <ul>
 <li>数据字典：是关系数据库管理系统内部的一组系统表，它记录了数据库中所有定义信息
@@ -1481,12 +1486,19 @@ F--&gt;K[应用E]
 <li>子查询不仅可以出现在 <code>WHERE</code> 子句中，<strong>还可以出现在 <code>FROM</code>子句中</strong>，这时子查询生成的<strong>临时派生表</strong>成为主查询的查询对象</li>
 </ul>
 <h4 id="select-语句的一般格式"><a class="markdownIt-Anchor" href="#select-语句的一般格式"></a> SELECT 语句的一般格式</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT [ ALL | DISTINCT ]&lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]…<br>FROM &lt;表名或视图名&gt;[ ,&lt;表名或视图名&gt;]…|( SELECT 语句)<br>[ AS ]&lt;别名&gt;<br>[ WHERE &lt;条件表达式&gt;]<br>[ GROUP BY&lt;列名1&gt;[ HAVING &lt;条件表达式&gt;]]<br>[ ORDER BY&lt;列名2&gt;[ ASC | DESC ]];<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT [ ALL | DISTINCT ]&#x3C;目标列表达式>[,&#x3C;目标列表达式>]…</span></span>
+<span class="line"><span>FROM &#x3C;表名或视图名>[ ,&#x3C;表名或视图名>]…|( SELECT 语句)</span></span>
+<span class="line"><span>[ AS ]&#x3C;别名></span></span>
+<span class="line"><span>[ WHERE &#x3C;条件表达式>]</span></span>
+<span class="line"><span>[ GROUP BY&#x3C;列名1>[ HAVING &#x3C;条件表达式>]]</span></span>
+<span class="line"><span>[ ORDER BY&#x3C;列名2>[ ASC | DESC ]];</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h4 id="select的一些特别用法"><a class="markdownIt-Anchor" href="#select的一些特别用法"></a> SELECT的一些特别用法</h4>
 <ul>
 <li><code>CASE WHEN</code>：条件返回</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT sname, (CASE sdeptwhen &#x27;CS&#x27; THEN &#x27;计算机&#x27; WHEN &#x27;IS&#x27; THEN &#x27;信息&#x27; ELSE &#x27;其他&#x27; END) AS DEPT FROM student;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT sname, (CASE sdeptwhen 'CS' THEN '计算机' WHEN 'IS' THEN '信息' ELSE '其他' END) AS DEPT FROM student;</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>
 <p><code>TOP</code>, <code>LIMIT</code> or <code>ROWNUM</code> ：返回查询结果集的前 N 条记录</p>
@@ -1495,7 +1507,9 @@ F--&gt;K[应用E]
 <p><code>WITH … AS</code>：定义一个临时作用域，便于随后的查询引用，类似临时表/视图</p>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">WITH qry AS ( SELECT * FROM student NATURAL JOIN scNATURAL JOIN course) <br>SELECT sno, sname, cname, grade FROM qry;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>WITH qry AS ( SELECT * FROM student NATURAL JOIN scNATURAL JOIN course) </span></span>
+<span class="line"><span>SELECT sno, sname, cname, grade FROM qry;</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>Oracle<code>CONNECT BY</code> 层次遍历
 <ul>
@@ -1504,9 +1518,15 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <p>正序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE <br>START WITH cno=1 CONNECT BY cno= prior cpno<br>ORDER BY level<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT cno, cpno, level, cnamefrom D9_COURSE </span></span>
+<span class="line"><span>START WITH cno=1 CONNECT BY cno= prior cpno</span></span>
+<span class="line"><span>ORDER BY level</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <p>逆序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT cno, cpno, level, cnamefrom D9_COURSE<br>START WITH cno=6 CONNECT by prior cno= cpno<br>ORDER BY level<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT cno, cpno, level, cnamefrom D9_COURSE</span></span>
+<span class="line"><span>START WITH cno=6 CONNECT by prior cno= cpno</span></span>
+<span class="line"><span>ORDER BY level</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h3 id="数据更新"><a class="markdownIt-Anchor" href="#数据更新"></a> 数据更新</h3>
 <h4 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h4>
 <ul>
@@ -1518,9 +1538,15 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="插入元组"><a class="markdownIt-Anchor" href="#插入元组"></a> 插入元组</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt;[,&lt;属性列2 &gt;…)]<br>VALUES (&lt;常量1&gt; [,&lt;常量2&gt;]… )<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT</span></span>
+<span class="line"><span>INTO &#x3C;表名> [(&#x3C;属性列1>[,&#x3C;属性列2 >…)]</span></span>
+<span class="line"><span>VALUES (&#x3C;常量1> [,&#x3C;常量2>]… )</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h5 id="插入子查询结果"><a class="markdownIt-Anchor" href="#插入子查询结果"></a> 插入子查询结果</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT<br>INTO &lt;表名&gt; [(&lt;属性列1&gt; [,&lt;属性列2&gt;… )]<br>子查询;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT</span></span>
+<span class="line"><span>INTO &#x3C;表名> [(&#x3C;属性列1> [,&#x3C;属性列2>… )]</span></span>
+<span class="line"><span>子查询;</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h5 id="复制表结构数据"><a class="markdownIt-Anchor" href="#复制表结构数据"></a> 复制表结构/数据</h5>
 <ul>
 <li>
@@ -1528,23 +1554,32 @@ F--&gt;K[应用E]
 <ul>
 <li>
 <p>复制表结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE SC_2 LIKE SC<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE SC_2 LIKE SC</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>复制表结构和数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE SC_2 SELECT * FROM SC<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE SC_2 SELECT * FROM SC</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>复制数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT INTO SC_2 SELECT * FROM SC<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT INTO SC_2 SELECT * FROM SC</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 </ul>
 <h4 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">UPDATE &lt;表名&gt;<br>SET &lt;列名&gt;=&lt;表达式&gt;[,&lt;列名&gt;=&lt;表达式&gt;]…<br>[WHERE &lt;条件&gt;];<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>UPDATE &#x3C;表名></span></span>
+<span class="line"><span>SET &#x3C;列名>=&#x3C;表达式>[,&#x3C;列名>=&#x3C;表达式>]…</span></span>
+<span class="line"><span>[WHERE &#x3C;条件>];</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h4 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DELETE<br>FROM&lt;表名&gt;<br>[WHERE&lt;条件&gt;]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DELETE</span></span>
+<span class="line"><span>FROM&#x3C;表名></span></span>
+<span class="line"><span>[WHERE&#x3C;条件>]</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h3 id="空值的处理"><a class="markdownIt-Anchor" href="#空值的处理"></a> 空值的处理</h3>
 <ul>
 <li>空值的产生：插入元组的部分属性为空；外连接；空值的关系运算</li>
@@ -1572,13 +1607,18 @@ F--&gt;K[应用E]
 </ul>
 <h4 id="定义视图"><a class="markdownIt-Anchor" href="#定义视图"></a> 定义视图</h4>
 <h5 id="建立视图"><a class="markdownIt-Anchor" href="#建立视图"></a> 建立视图</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE VIEW<br>&lt;视图名&gt; [(&lt;列名&gt; [,&lt;列名&gt;]…)]<br>AS&lt;子查询&gt;<br>[WITH CHECK OPTION]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE VIEW</span></span>
+<span class="line"><span>&#x3C;视图名> [(&#x3C;列名> [,&#x3C;列名>]…)]</span></span>
+<span class="line"><span>AS&#x3C;子查询></span></span>
+<span class="line"><span>[WITH CHECK OPTION]</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li><code>WITH CHECK OPTION</code> 表示对视图进行 <code>UPDATE</code>，<code>INSERT</code>，<code>DELETE</code> 操作时要保证更新的行<strong>仍然满足视图定义中子查询的条件表达式</strong></li>
 <li>行列子集视图：一个视图是从<strong>单个基本表</strong>导出的，并且只是去掉了基本表的某些行和某些列，但<strong>保留了主码</strong></li>
 </ul>
 <h5 id="删除视图"><a class="markdownIt-Anchor" href="#删除视图"></a> 删除视图</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP VIEW &lt;视图名&gt;[CASCADE]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP VIEW &#x3C;视图名>[CASCADE]</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>如果该视图上还导出了其他视图，使用 <code>CASCADE</code> 级联删除语句，把该视图和由它导出的所有视图一起删除</li>
 <li>删除基表时，由该基表导出的所有视图定义都必须显式地使用 <code>DROP VIEW</code> 语句删除</li>
@@ -1695,7 +1735,8 @@ F--&gt;K[应用E]
 <ol>
 <li>完整性约束命名子句</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CONSTRAINT &lt;完整性约束条件名&gt;&lt;完整性约束条件&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CONSTRAINT &#x3C;完整性约束条件名>&#x3C;完整性约束条件></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>&lt;完整性约束条件&gt;包括 <code>NOT NULL</code>、<code>UNIQUE</code>、<code>PRIMARY KEY</code> 短语、<code>FOREIGN KEY</code> 短语、<code>CHECK</code> 短语等</li>
 </ul>
@@ -1705,7 +1746,8 @@ F--&gt;K[应用E]
 <ul>
 <li>
 <p>eg：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER TABLE Student DROP CONSTRAINT C4<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER TABLE Student DROP CONSTRAINT C4</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 </ul>
 <h3 id="断言"><a class="markdownIt-Anchor" href="#断言"></a> 断言</h3>
@@ -1713,12 +1755,19 @@ F--&gt;K[应用E]
 <li>断言：任何对断言中所涉及的关系的操作都会触发关系数据库管理系统对断言的检查，任何使<strong>断言不为真值</strong>的操作都会<strong>被拒绝执行</strong></li>
 </ul>
 <h4 id="创建断言"><a class="markdownIt-Anchor" href="#创建断言"></a> 创建断言</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE ASSERTION &lt;断言名&gt; &lt;CHECK 子句&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE ASSERTION &#x3C;断言名> &#x3C;CHECK 子句></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h4 id="删除断言"><a class="markdownIt-Anchor" href="#删除断言"></a> 删除断言</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP ASSERTION &lt;断言名&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP ASSERTION &#x3C;断言名></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h3 id="触发器"><a class="markdownIt-Anchor" href="#触发器"></a> 触发器</h3>
 <h4 id="定义触发器"><a class="markdownIt-Anchor" href="#定义触发器"></a> 定义触发器</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TRIGGER &lt;触发器名&gt;<br>&#123;BEFORE  | AFTER&#125; &lt;触发事件&gt; ON &lt;表名&gt;<br>REFERENCING NEW|OLD ROW AS&lt;变量&gt;<br>FOR EACH &#123;ROW | STATEMENT&#125;<br>[WHEN &lt;触发条件&gt;] &lt;触发动作体&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TRIGGER &#x3C;触发器名></span></span>
+<span class="line"><span>{BEFORE  | AFTER} &#x3C;触发事件> ON &#x3C;表名></span></span>
+<span class="line"><span>REFERENCING NEW|OLD ROW AS&#x3C;变量></span></span>
+<span class="line"><span>FOR EACH {ROW | STATEMENT}</span></span>
+<span class="line"><span>[WHEN &#x3C;触发条件>] &#x3C;触发动作体></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>
 <p>当特定的系统事件发生时，对规则的条件进行检查，如果条件成立则执行规则中的动作，否则不执行该动作</p>
@@ -1780,7 +1829,8 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h4 id="删除触发器"><a class="markdownIt-Anchor" href="#删除触发器"></a> 删除触发器</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP TRIGGER &lt;触发器名&gt; ON &lt;表名&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP TRIGGER &#x3C;触发器名> ON &#x3C;表名></span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h2 id="关系数据理论"><a class="markdownIt-Anchor" href="#关系数据理论"></a> 关系数据理论</h2>
 <h3 id="问题的提出"><a class="markdownIt-Anchor" href="#问题的提出"></a> 问题的提出</h3>
 <ul>
@@ -1940,7 +1990,7 @@ F--&gt;K[应用E]
 <li>4NF​ 就是限制<strong>关系模式的属性之间不允许有非平凡且非函数依赖的多值依赖</strong></li>
 </ul>
 <h3 id="规范化小结"><a class="markdownIt-Anchor" href="#规范化小结"></a> 规范化小结</h3>
-<pre><code class=" mermaid">graph TB;
+<pre class="highlight"><code class="mermaid">graph TB;
 A[1NF]--消除非主属性对码的部分函数依赖--&gt;B[2NF]
 B--消除非主属性对码的传递函数依赖--&gt;C[3NF]
 C--消除主属性对码的部分和传递函数依赖--&gt;D[BCNF]
@@ -2227,7 +2277,12 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>执行部分</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">BEGIN<br>   SQL语句、过程化 SQL 的流程控制语句<br>EXCEPTION<br>   异常处理部分<br>END;   <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>BEGIN</span></span>
+<span class="line"><span>   SQL语句、过程化 SQL 的流程控制语句</span></span>
+<span class="line"><span>EXCEPTION</span></span>
+<span class="line"><span>   异常处理部分</span></span>
+<span class="line"><span>END;   </span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
@@ -2294,19 +2349,23 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <ol>
 <li>
 <p>创建存储过程</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE OR REPLACE PROCEDURE 过程名([参数1,参数2,...]) AS&lt;过程 SQL 块&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE OR REPLACE PROCEDURE 过程名([参数1,参数2,...]) AS&#x3C;过程 SQL 块></span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>执行存储过程</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CALL/PERFORM PROCEDURE  过程名([参数1,参数2,...])<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CALL/PERFORM PROCEDURE  过程名([参数1,参数2,...])</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>修改存储过程</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER PROCEDURE 过程1 RENAME TO 过程2<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER PROCEDURE 过程1 RENAME TO 过程2</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>删除存储过程</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">DROP PROCEDURE 过程名<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP PROCEDURE 过程名</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 </ol>
 </li>
@@ -2318,19 +2377,23 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <ol>
 <li>
 <p>创建函数</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE OR REPLACE FUNCTION 函数名([参数1,参数2,...]) RETURNS &lt;类型&gt; AS&lt;过程 SQL 块&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE OR REPLACE FUNCTION 函数名([参数1,参数2,...]) RETURNS &#x3C;类型> AS&#x3C;过程 SQL 块></span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>执行存储过程</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CALL/PERFORM FUNCTION  函数名([参数1,参数2,...])<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>CALL/PERFORM FUNCTION  函数名([参数1,参数2,...])</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>修改函数名</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER FUNCTION 函数名1 RENAME TO 函数名2<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER FUNCTION 函数名1 RENAME TO 函数名2</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>重新编译</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">ALTER FUNCTION 函数名 COMLIPE<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER FUNCTION 函数名 COMLIPE</span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 </ol>
 </li>
@@ -2486,7 +2549,11 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>事务定义</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">BEGIN TRANSACTION                <br>    SQL 语句1                                         <br>    SQL 语句2                                                                                    <br>COMMIT / ROLLBACK                                         <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>BEGIN TRANSACTION                </span></span>
+<span class="line"><span>    SQL 语句1                                         </span></span>
+<span class="line"><span>    SQL 语句2                                                                                    </span></span>
+<span class="line"><span>COMMIT / ROLLBACK                                         </span></span>
+<span class="line"><span></span></span></code></pre></div>
 </li>
 <li>
 <p>事务结束</p>
@@ -2908,12 +2975,32 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -2956,14 +3043,9 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 
   <script>
   Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
+    mermaid.initialize({ startOnLoad: false });
+    Fluid.utils.createScript('/js/mermaid.js', function() {
+      Fluid.initMermaid({"theme":"default"}, true);
     });
   });
 </script>
@@ -2982,22 +3064,22 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -3095,21 +3177,6 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -3120,109 +3187,7 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

@@ -3,6 +3,9 @@
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 
 Fluid.utils = {
+  prefersReducedMotion: function() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  },
 
   listenScroll: function(callback) {
     var dbc = new Debouncer(callback);
@@ -28,10 +31,12 @@ Fluid.utils = {
   scrollToElement: function(target, offset) {
     var of = jQuery(target).offset();
     if (of) {
-      jQuery('html,body').animate({
-        scrollTop: of.top + (offset || 0),
-        easing   : 'swing'
-      });
+      var position = of.top + (offset || 0);
+      if (Fluid.utils.prefersReducedMotion()) {
+        window.scrollTo(0, position);
+      } else {
+        jQuery('html,body').stop(true).animate({ scrollTop: position }, 300);
+      }
     }
   },
 

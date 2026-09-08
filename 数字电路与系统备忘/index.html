@@ -67,18 +67,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -354,7 +349,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数字电路与系统备忘"></span>
+            <span id="subtitle">数字电路与系统备忘</span>
           
         </div>
 
@@ -382,7 +377,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.2k 字
+          7.1k 字
         
       </span>
     
@@ -393,7 +388,7 @@
         
         
         
-          61 分钟
+          60 分钟
         
       </span>
     
@@ -899,18 +894,115 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 </ol>
 <h3 id="fsm的设计方法"><a class="markdownIt-Anchor" href="#fsm的设计方法"></a> FSM的设计方法</h3>
 <h4 id="一段式状态机-单always块结构"><a class="markdownIt-Anchor" href="#一段式状态机-单always块结构"></a> 一段式状态机 (单always块结构)</h4>
-<pre><code class="hljs"><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs Verilog"><span class="hljs-keyword">always</span> @(<span class="hljs-keyword">posedge</span> clk <span class="hljs-keyword">or</span> <span class="hljs-keyword">posedge</span> rst) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">if</span>(rst)<br>        FSM &lt;= S0<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">case</span>(FSM)<br>        S0：<span class="hljs-keyword">begin</span><br>            Out_0;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition1)        FSM&lt;= S1;<span class="hljs-comment">//状态转移</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition2)  FSM&lt;= S2;<span class="hljs-comment">//状态转移</span><br>            …<br>            <span class="hljs-keyword">end</span><br>        S1：<span class="hljs-keyword">begin</span><br>            Out_1;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition3)       FSM&lt;= S3;<span class="hljs-comment">//状态转移</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition4) FSM &lt;=S4; <br>            …<br>            <span class="hljs-keyword">end</span><br>            ……<br>        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">begin</span><br>            Out_0;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition0) FSM&lt;= S0;<span class="hljs-comment">//状态转移</span><br>                <span class="hljs-keyword">end</span><br>        <span class="hljs-keyword">endcase</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
-</code></pre>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<span class="line"><span>always @(posedge clk or posedge rst) begin</span></span>
+<span class="line"><span>    if(rst)</span></span>
+<span class="line"><span>        FSM &#x3C;= S0</span></span>
+<span class="line"><span>    else begin</span></span>
+<span class="line"><span>        case(FSM)</span></span>
+<span class="line"><span>        S0：begin</span></span>
+<span class="line"><span>            Out_0;          //输出</span></span>
+<span class="line"><span>            if(condition1)        FSM&#x3C;= S1;//状态转移</span></span>
+<span class="line"><span>            else if (condition2)  FSM&#x3C;= S2;//状态转移</span></span>
+<span class="line"><span>            …</span></span>
+<span class="line"><span>            end</span></span>
+<span class="line"><span>        S1：begin</span></span>
+<span class="line"><span>            Out_1;          //输出</span></span>
+<span class="line"><span>            if(condition3)       FSM&#x3C;= S3;//状态转移</span></span>
+<span class="line"><span>            else if (condition4) FSM &#x3C;=S4; </span></span>
+<span class="line"><span>            …</span></span>
+<span class="line"><span>            end</span></span>
+<span class="line"><span>            ……</span></span>
+<span class="line"><span>        default: begin</span></span>
+<span class="line"><span>            Out_0;          //输出</span></span>
+<span class="line"><span>            if(condition0) FSM&#x3C;= S0;//状态转移</span></span>
+<span class="line"><span>                end</span></span>
+<span class="line"><span>        endcase</span></span>
+<span class="line"><span>        end</span></span>
+<span class="line"><span>    end</span></span>
+<span class="line"><span>```</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>单 always 块把组合逻辑和时序逻辑放在一个时序 always 块描述。输出时为寄存器输出，所以无毛刺。但是这种方式会产生多余的触发器（因为把组合逻辑也放在时序逻辑中实现），而且代码难以修改调试。对于那些简单的状态机，一段式方便理解。但是对于复杂状态机，代码难于更改，条件复杂带来电路开销大，工作性能（电路最高频率）亦受限，因此实际中这种结构很少使用。</li>
 </ul>
 <h4 id="两段式状态机-双always块结构"><a class="markdownIt-Anchor" href="#两段式状态机-双always块结构"></a> 两段式状态机 (双always块结构)</h4>
-<pre><code class="hljs"><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs Verilog"><span class="hljs-comment">//时序逻辑，这段一般是不变的，描述从现态转移到次态</span><br><span class="hljs-keyword">always</span> @ (<span class="hljs-keyword">posedge</span> clk  <span class="hljs-keyword">or</span> <span class="hljs-keyword">posedge</span> rst ) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">if</span>(rst)<br>        current_state &lt;= S0;<br>    <span class="hljs-keyword">else</span><br>        current_state&lt;=next_state;  <br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">//组合逻辑，包括转移条件以及输出</span><br><span class="hljs-keyword">always</span> @ (current_state) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">case</span>(current_state)<br>        S0：<span class="hljs-keyword">begin</span><br>            Out_0;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition1)        next_state &lt;= S1;<span class="hljs-comment">//状态转移</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition2)  next_state &lt;= S2;<span class="hljs-comment">//状态转移</span><br>            <span class="hljs-keyword">else</span> next_state &lt;= S0;<br>            <span class="hljs-keyword">end</span><br>        S1：<span class="hljs-keyword">begin</span><br>            Out_1;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition3)         next_state &lt;= S3;<span class="hljs-comment">//状态转移</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition4)   next_state &lt;=S4; <br>            …<br>            <span class="hljs-keyword">end</span><br>            ……<br>        <span class="hljs-keyword">default</span>: <span class="hljs-keyword">begin</span><br>            Out_0;          <span class="hljs-comment">//输出</span><br>            <span class="hljs-keyword">if</span>(condition0)         next_state &lt;= S0;<span class="hljs-comment">//状态转移</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">endcase</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
-</code></pre>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<span class="line"><span>//时序逻辑，这段一般是不变的，描述从现态转移到次态</span></span>
+<span class="line"><span>always @ (posedge clk  or posedge rst ) begin</span></span>
+<span class="line"><span>    if(rst)</span></span>
+<span class="line"><span>        current_state &#x3C;= S0;</span></span>
+<span class="line"><span>    else</span></span>
+<span class="line"><span>        current_state&#x3C;=next_state;  </span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>//组合逻辑，包括转移条件以及输出</span></span>
+<span class="line"><span>always @ (current_state) begin</span></span>
+<span class="line"><span>    case(current_state)</span></span>
+<span class="line"><span>        S0：begin</span></span>
+<span class="line"><span>            Out_0;          //输出</span></span>
+<span class="line"><span>            if(condition1)        next_state &#x3C;= S1;//状态转移</span></span>
+<span class="line"><span>            else if (condition2)  next_state &#x3C;= S2;//状态转移</span></span>
+<span class="line"><span>            else next_state &#x3C;= S0;</span></span>
+<span class="line"><span>            end</span></span>
+<span class="line"><span>        S1：begin</span></span>
+<span class="line"><span>            Out_1;          //输出</span></span>
+<span class="line"><span>            if(condition3)         next_state &#x3C;= S3;//状态转移</span></span>
+<span class="line"><span>            else if (condition4)   next_state &#x3C;=S4; </span></span>
+<span class="line"><span>            …</span></span>
+<span class="line"><span>            end</span></span>
+<span class="line"><span>            ……</span></span>
+<span class="line"><span>        default: begin</span></span>
+<span class="line"><span>            Out_0;          //输出</span></span>
+<span class="line"><span>            if(condition0)         next_state &#x3C;= S0;//状态转移</span></span>
+<span class="line"><span>        end</span></span>
+<span class="line"><span>    endcase</span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span>```</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <p>二段式中，一个always块采用同步时序描述状态转移；另一个采用组合逻辑判断转移条件，以及描述输出。二段式便于阅读，理解和维护，有利于综合出更少的资源。但是由于采用的是组合逻辑输出，容易产生毛刺，且不利于约束，也不利于布局布线。</p>
 <h4 id="三式状态机-三always块结构"><a class="markdownIt-Anchor" href="#三式状态机-三always块结构"></a> 三式状态机 (三always块结构)</h4>
-<pre><code class="hljs"><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs Verilog"><span class="hljs-comment">//第一个always块，时序逻辑，描述现态转移到次态</span><br><span class="hljs-keyword">always</span> @ (<span class="hljs-keyword">posedge</span> clk <span class="hljs-keyword">or</span> <span class="hljs-keyword">negedge</span> rst) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">if</span>(rst_n) <br>        current_state&lt;=S0;<br>    <span class="hljs-keyword">else</span><br>        current_state&lt;=next_state;<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">//第二个always块，组合逻辑，描述状态转移的条件</span><br><span class="hljs-keyword">always</span> @ (current_state) <span class="hljs-keyword">begin</span><br>    <span class="hljs-keyword">case</span>(current_state)<br>    S0：<span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">if</span>(condition1)        next_state &lt;= S1;<span class="hljs-comment">//状态转移</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition2)  next_state &lt;= S2;<span class="hljs-comment">//状态转移</span><br>        <span class="hljs-keyword">else</span> next_state &lt;= S0;<br>        <span class="hljs-keyword">end</span><br>    S1：<span class="hljs-keyword">begin</span><br>        <span class="hljs-keyword">if</span>(condition3)       next_state &lt;= S3;<span class="hljs-comment">//状态转移</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (condition4) next_state &lt;=S4; <br>        …<br>        <span class="hljs-keyword">end</span><br>    ……<br>    <span class="hljs-keyword">default</span>: <span class="hljs-keyword">begin</span><br>            <span class="hljs-keyword">if</span>(condition0)   next_state &lt;= S0;<span class="hljs-comment">//状态转移</span><br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">endcase</span><br><span class="hljs-keyword">end</span><br><span class="hljs-comment">//第三个always块，时序逻辑，描述输出</span><br><span class="hljs-keyword">always</span> @ (<span class="hljs-keyword">posedge</span> clk <span class="hljs-keyword">or</span> <span class="hljs-keyword">negedge</span> rst) <span class="hljs-keyword">begin</span><br><span class="hljs-keyword">if</span>(rst)<br>    out0；<br><span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">case</span>(current_state)<br>    S0: out0;<br>    S1: out1;<br>    ….<br>    <span class="hljs-keyword">default</span>:Out0;<br>    <span class="hljs-keyword">endcase</span><br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
-</code></pre>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<span class="line"><span>//第一个always块，时序逻辑，描述现态转移到次态</span></span>
+<span class="line"><span>always @ (posedge clk or negedge rst) begin</span></span>
+<span class="line"><span>    if(rst_n) </span></span>
+<span class="line"><span>        current_state&#x3C;=S0;</span></span>
+<span class="line"><span>    else</span></span>
+<span class="line"><span>        current_state&#x3C;=next_state;</span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>//第二个always块，组合逻辑，描述状态转移的条件</span></span>
+<span class="line"><span>always @ (current_state) begin</span></span>
+<span class="line"><span>    case(current_state)</span></span>
+<span class="line"><span>    S0：begin</span></span>
+<span class="line"><span>        if(condition1)        next_state &#x3C;= S1;//状态转移</span></span>
+<span class="line"><span>        else if (condition2)  next_state &#x3C;= S2;//状态转移</span></span>
+<span class="line"><span>        else next_state &#x3C;= S0;</span></span>
+<span class="line"><span>        end</span></span>
+<span class="line"><span>    S1：begin</span></span>
+<span class="line"><span>        if(condition3)       next_state &#x3C;= S3;//状态转移</span></span>
+<span class="line"><span>        else if (condition4) next_state &#x3C;=S4; </span></span>
+<span class="line"><span>        …</span></span>
+<span class="line"><span>        end</span></span>
+<span class="line"><span>    ……</span></span>
+<span class="line"><span>    default: begin</span></span>
+<span class="line"><span>            if(condition0)   next_state &#x3C;= S0;//状态转移</span></span>
+<span class="line"><span>        end</span></span>
+<span class="line"><span>    endcase</span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span>//第三个always块，时序逻辑，描述输出</span></span>
+<span class="line"><span>always @ (posedge clk or negedge rst) begin</span></span>
+<span class="line"><span>if(rst)</span></span>
+<span class="line"><span>    out0；</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>    case(current_state)</span></span>
+<span class="line"><span>    S0: out0;</span></span>
+<span class="line"><span>    S1: out1;</span></span>
+<span class="line"><span>    ….</span></span>
+<span class="line"><span>    default:Out0;</span></span>
+<span class="line"><span>    endcase</span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span>```</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>三段式结构中，2个时序always块分别用来描述状态跳转和输出。组合always块用于描述状态转移条件。虽然使用的硬件资源较多，但输出采用寄存器结构，无毛刺，而且代码更清晰易读，对于复杂的状态机来说逻辑清晰，是一种比较流行的状态机结构。</li>
 </ul>
@@ -1107,12 +1199,32 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -1155,14 +1267,9 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 
   <script>
   Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
+    mermaid.initialize({ startOnLoad: false });
+    Fluid.utils.createScript('/js/mermaid.js', function() {
+      Fluid.initMermaid({"theme":"default"}, true);
     });
   });
 </script>
@@ -1181,22 +1288,22 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -1294,21 +1401,6 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -1319,109 +1411,7 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

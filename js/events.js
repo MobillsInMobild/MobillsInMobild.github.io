@@ -82,7 +82,7 @@ Fluid.events = {
 
   registerParallaxEvent: function() {
     var ph = jQuery('#banner[parallax="true"]');
-    if (ph.length === 0) {
+    if (ph.length === 0 || Fluid.utils.prefersReducedMotion()) {
       return;
     }
     var board = jQuery('#board');
@@ -154,10 +154,11 @@ Fluid.events = {
     });
     // Click
     topArrow.on('click', function() {
-      jQuery('body,html').animate({
-        scrollTop: 0,
-        easing   : 'swing'
-      });
+      if (Fluid.utils.prefersReducedMotion()) {
+        window.scrollTo(0, 0);
+      } else {
+        jQuery('body,html').stop(true).animate({ scrollTop: 0 }, 300);
+      }
     });
   },
 

@@ -66,18 +66,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -353,7 +348,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SadServers 通关记录"></span>
+            <span id="subtitle">SadServers 通关记录</span>
           
         </div>
 
@@ -381,7 +376,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k 字
+          9.1k 字
         
       </span>
     
@@ -392,7 +387,7 @@
         
         
         
-          85 分钟
+          77 分钟
         
       </span>
     
@@ -477,11 +472,18 @@
 <p>解答</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查找占用 `/var/log/bad.log` 进程的 pid</span><br>lsof |grep /var/log/bad.log<br><br><span class="hljs-comment"># 终止进程</span><br><span class="hljs-built_in">kill</span> -9 [pid]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查找占用 `/var/log/bad.log` 进程的 pid</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lsof</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">grep</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/log/bad.log</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 终止进程</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">kill</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -9</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [pid]</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检测终止进程后是否在 6 秒内被修改过</span><br>find /var/log/bad.log -mmin -0.1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检测终止进程后是否在 6 秒内被修改过</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">find</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/log/bad.log</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -mmin</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -0.1</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="saskatoon-counting-ips"><a class="markdownIt-Anchor" href="#saskatoon-counting-ips"></a> “Saskatoon”: counting IPs</h3>
 <ul>
 <li>
@@ -491,11 +493,30 @@
 <p>解答</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 取出文件第一列</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log<br><br><span class="hljs-comment"># 排序</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span><br><br><span class="hljs-comment"># 计数（次数在第一列）</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c<br><br><span class="hljs-comment"># 对计数排列</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r<br><br><span class="hljs-comment"># 取第二列第一行</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r |<span class="hljs-built_in">head</span> -1 |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span><br><br><span class="hljs-comment"># 输出到指定文件</span><br>awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> /home/admin/access.log |<span class="hljs-built_in">sort</span> |<span class="hljs-built_in">uniq</span> -c |<span class="hljs-built_in">sort</span> -r |<span class="hljs-built_in">head</span> -1 |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> &gt; /home/admin/highestip.txt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 取出文件第一列</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 排序</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 计数（次数在第一列）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">uniq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 对计数排列</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">uniq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -r</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 取第二列第一行</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">uniq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -r</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 输出到指定文件</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/access.log</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">uniq</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sort</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -r</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">head</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> ></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/highestip.txt</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检验 hash 值</span><br><span class="hljs-built_in">sha1sum</span> /home/admin/highestip.txt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检验 hash 值</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sha1sum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/highestip.txt</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="santiago-find-the-secret-combination"><a class="markdownIt-Anchor" href="#santiago-find-the-secret-combination"></a> “Santiago”: Find the secret combination</h3>
 <ul>
 <li>
@@ -510,11 +531,24 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 找字符串出现次数（-type f 指普通文件），返回各文件中字符串出现次数</span><br>find /home/admin -<span class="hljs-built_in">type</span> f  -name <span class="hljs-string">&quot;*.txt&quot;</span> |xargs grep -c <span class="hljs-string">&#x27;Alice&#x27;</span><br><br><span class="hljs-comment"># 写入结果（无换行符）</span><br><span class="hljs-built_in">echo</span> -n 411 &gt; /home/admin/solution<br><br><span class="hljs-comment"># 对仅出现一次的文件 1342-0.txt 查找 alice 出现后的一行</span><br><span class="hljs-built_in">cat</span> /home/admin/1342-0.txt| grep <span class="hljs-string">&#x27;Alice&#x27;</span> -A 1<br><br><span class="hljs-comment"># 写入结果（追加一行）</span><br><span class="hljs-built_in">echo</span> 156 &gt;&gt; /home/admin/solution<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 找字符串出现次数（-type f 指普通文件），返回各文件中字符串出现次数</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">find</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -type</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> f</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  -name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "*.txt"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">xargs</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> grep</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'Alice'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 写入结果（无换行符）</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -n</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 411</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> ></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/solution</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 对仅出现一次的文件 1342-0.txt 查找 alice 出现后的一行</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/1342-0.txt</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> grep</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'Alice'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -A</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 写入结果（追加一行）</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 156</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> >></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/solution</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检验 hash 值</span><br><span class="hljs-built_in">md5sum</span>  /home/admin/solution<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检验 hash 值</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">md5sum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  /home/admin/solution</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="manhattan-cant-write-data-into-database"><a class="markdownIt-Anchor" href="#manhattan-cant-write-data-into-database"></a> “Manhattan”: can’t write data into database</h3>
 <ul>
 <li>
@@ -527,11 +561,31 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重启服务</span><br><span class="hljs-built_in">sudo</span> systemctl restart postgresql<br><br><span class="hljs-comment"># 查看服务错误日志，postgresql cluster 启动失败</span><br>journalctl -p err<br><br><span class="hljs-comment"># 查看系统日志，发现空间不足</span><br><span class="hljs-built_in">cat</span> /var/log/syslog<br><br><span class="hljs-comment"># 查看磁盘空间，/opt/pgdata/ 占用满</span><br><span class="hljs-built_in">df</span> -h<br><br><span class="hljs-comment"># 检查 data_directory 目录大小</span><br><span class="hljs-built_in">du</span> -sh /opt/pgdata/main<br><br><span class="hljs-comment"># 删除 /opt/pgdata/ 中所有 *.bk 文件并重启</span><br><span class="hljs-built_in">rm</span> /opt/pgdata/*.bk <br><span class="hljs-built_in">sudo</span> systemctl restart postgresql<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重启服务</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> postgresql</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看服务错误日志，postgresql cluster 启动失败</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">journalctl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> err</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看系统日志，发现空间不足</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/log/syslog</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看磁盘空间，/opt/pgdata/ 占用满</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">df</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -h</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检查 data_directory 目录大小</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">du</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -sh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata/main</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除 /opt/pgdata/ 中所有 *.bk 文件并重启</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata/</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.bk</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> postgresql</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 插入数据</span><br><span class="hljs-built_in">sudo</span> -u postgres psql -c <span class="hljs-string">&quot;insert into persons(name) values (&#x27;jane smith&#x27;);&quot;</span> -d dt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 插入数据</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> postgres</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> psql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "insert into persons(name) values ('jane smith');"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dt</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="tokyo-cant-serve-web-file"><a class="markdownIt-Anchor" href="#tokyo-cant-serve-web-file"></a> “Tokyo”: can’t serve web file</h3>
 <ul>
 <li>
@@ -541,11 +595,25 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 测试 curl 命令未中止且无回显，说明网阻塞</span><br><span class="hljs-comment"># 查看防火墙规则，http 阻塞</span><br>iptables -L<br><br><span class="hljs-comment"># 清空防火墙</span><br>iptables -F<br><br><span class="hljs-comment"># 测试 curl 命令有回显，显示 403 Forbbiden</span><br><span class="hljs-comment"># 查看权限</span><br><span class="hljs-built_in">ls</span> -l /var/www/html/index.html<br><br><span class="hljs-comment"># 修改权限</span><br><span class="hljs-built_in">chmod</span> 777 /var/www/html/index.html<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 测试 curl 命令未中止且无回显，说明网阻塞</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看防火墙规则，http 阻塞</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">iptables</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -L</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 清空防火墙</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">iptables</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -F</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 测试 curl 命令有回显，显示 403 Forbbiden</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看权限</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -l</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/www/html/index.html</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改权限</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 777</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/www/html/index.html</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl 127.0.0.1:80<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 127.0.0.1:80</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="cape-town-borked-nginx"><a class="markdownIt-Anchor" href="#cape-town-borked-nginx"></a> “Cape Town”: Borked Nginx</h3>
 <ul>
 <li>
@@ -555,11 +623,26 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重启 Nginx，失败</span><br>systemctl restart nginx<br><br><span class="hljs-comment"># 检查配置文件，报错</span><br>nginx -t<br><br><span class="hljs-comment"># 重新加载配置并重启 nginx，检测报错 500 Internal Server Error</span><br><span class="hljs-comment"># 查看 Nginx 日志，发现 24: Too many open files</span><br><span class="hljs-built_in">cat</span> /var/log/nginx/error.log<br><br><span class="hljs-comment"># 增加 systemd 中在 `/etc/systemd/system/nginx.service` 的打开文件上限 LimitNOFILE</span><br><span class="hljs-comment"># 重新加载 systemd 配置并重启 nginx</span><br>systemctl daemon-reload<br>systemctl restart nginx<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重启 Nginx，失败</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nginx</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检查配置文件，报错</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">nginx</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -t</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重新加载配置并重启 nginx，检测报错 500 Internal Server Error</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 Nginx 日志，发现 24: Too many open files</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/log/nginx/error.log</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 增加 systemd 中在 `/etc/systemd/system/nginx.service` 的打开文件上限 LimitNOFILE</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重新加载 systemd 配置并重启 nginx</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> daemon-reload</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nginx</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -Is 127.0.0.1:80| <span class="hljs-built_in">head</span> -1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -Is</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 127.0.0.1:80</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> head</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -1</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="salta-docker-container-wont-start"><a class="markdownIt-Anchor" href="#salta-docker-container-wont-start"></a> “Salta”: Docker container won’t start</h3>
 <ul>
 <li>
@@ -569,11 +652,31 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看列表容器</span><br>docker ps -a<br><br><span class="hljs-comment"># 查看启动日志，server.js 缺失</span><br>docker logs 124a4fb17a1c<br><br><span class="hljs-comment"># 修改 Dockerfile</span><br><span class="hljs-built_in">cd</span> /home/admin/app<br>vim Dockerfile<br><br><span class="hljs-comment"># 重新构建镜像</span><br>docker build -t app .<br><br><span class="hljs-comment"># 启动容器，发现端口占用</span><br>docker run -d -p 8888:8888 app<br><br><span class="hljs-comment"># 查看端口占用（lsof -i:[port] 无法使用，并解除占用后启动成功</span><br>netstat -tunlp| grep 8888<br><span class="hljs-built_in">kill</span> -9 620<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看列表容器</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ps</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -a</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看启动日志，server.js 缺失</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> logs</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 124a4fb17a1c</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改 Dockerfile</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/app</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> Dockerfile</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重新构建镜像</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> build</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> app</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> .</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 启动容器，发现端口占用</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 8888:8888</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> app</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看端口占用（lsof -i:[port] 无法使用，并解除占用后启动成功</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">netstat</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -tunlp</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> grep</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 8888</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">kill</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -9</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 620</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl localhost:8888<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost:8888</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="venice-am-i-in-a-container"><a class="markdownIt-Anchor" href="#venice-am-i-in-a-container"></a> “Venice”: Am I in a container</h3>
 <ul>
 <li>
@@ -583,7 +686,12 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看 PID = 1 进程的环境变量，有 container=youlooked</span><br><span class="hljs-built_in">cat</span> /proc/1/environ|<span class="hljs-built_in">tr</span> <span class="hljs-string">&quot;\0&quot;</span> <span class="hljs-string">&quot;\n&quot;</span><br><br><span class="hljs-comment"># 查看根目录信息 inode 编号（宿主机的根目录的 inode 编号一般为 2，与平台有关）</span><br><span class="hljs-built_in">ls</span> -ali<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 PID = 1 进程的环境变量，有 container=youlooked</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /proc/1/environ</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">tr</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "\0"</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "\n"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看根目录信息 inode 编号（宿主机的根目录的 inode 编号一般为 2，与平台有关）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -ali</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测：无</li>
 </ul>
@@ -596,11 +704,18 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 获取文件描述符编号，77</span><br>lsof /home/admin/somefile<br><br><span class="hljs-comment"># 关闭文件描述符编号 77 的文件</span><br><span class="hljs-built_in">exec</span> 77&gt;&amp;-<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 获取文件描述符编号，77</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lsof</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/somefile</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 关闭文件描述符编号 77 的文件</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">exec</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">7>&#x26;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">-</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 无返回</span><br>lsof /home/admin/somefile<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 无返回</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lsof</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/somefile</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="melbourne-wsgi-with-gunicorn"><a class="markdownIt-Anchor" href="#melbourne-wsgi-with-gunicorn"></a> “Melbourne”: WSGI with Gunicorn</h3>
 <ul>
 <li>
@@ -616,11 +731,29 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 Connection refused</span><br>curl localhost <br><br><span class="hljs-comment"># nginx 代理 /run/gunicorn.socket</span><br><span class="hljs-built_in">cat</span> /etc/nginx/sites-enabled/default<br><br><span class="hljs-comment"># gunicorn 使用的 /run/gunicorn.sock，修改 nginx</span><br><span class="hljs-built_in">cat</span> /etc/systemd/system/gunicorn.service<br><br><span class="hljs-comment"># 无回显</span><br>curl localhost <br><br><span class="hljs-comment"># 返回 Content-Length: 0，修改 wsgi.py（使用等于或大于消息所需的13个字节数，或完全去掉Content-Length 标头）</span><br>curl -i localhost <br><br><span class="hljs-comment"># 重启</span><br>systecm restart gunicorn<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 Connection refused</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># nginx 代理 /run/gunicorn.socket</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/nginx/sites-enabled/default</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># gunicorn 使用的 /run/gunicorn.sock，修改 nginx</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/systemd/system/gunicorn.service</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 无回显</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 Content-Length: 0，修改 wsgi.py（使用等于或大于消息所需的13个字节数，或完全去掉Content-Length 标头）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -i</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重启</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systecm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> gunicorn</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -s http://localhost<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> http://localhost</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="lisbon-etcd-ssl-cert-troubles"><a class="markdownIt-Anchor" href="#lisbon-etcd-ssl-cert-troubles"></a> “Lisbon”: etcd SSL cert troubles</h3>
 <ul>
 <li>
@@ -630,11 +763,23 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># certificate has expired or is not yet valid（系统时间超前一年）</span><br>etcdctl get foo<br><br><span class="hljs-comment"># 设置系统时间到一年前</span><br><span class="hljs-built_in">date</span> -s <span class="hljs-string">&quot;last year&quot;</span><br><br><span class="hljs-comment"># 查看防火墙</span><br><span class="hljs-built_in">sudo</span> /usr/sbin/iptables -t nat -L<br><br><span class="hljs-comment"># 删除规则</span><br><span class="hljs-built_in">sudo</span> /usr/sbin/iptables -t nat -F<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># certificate has expired or is not yet valid（系统时间超前一年）</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">etcdctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> foo</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 设置系统时间到一年前</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">date</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -s</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "last year"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看防火墙</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /usr/sbin/iptables</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nat</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -L</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除规则</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /usr/sbin/iptables</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -t</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> nat</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -F</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">etcdctl get foo<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">etcdctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> foo</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="jakarta-its-always-dns"><a class="markdownIt-Anchor" href="#jakarta-its-always-dns"></a> “Jakarta”: it’s always DNS</h3>
 <ul>
 <li>
@@ -644,11 +789,16 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置解析顺序</span><br><span class="hljs-comment"># 把 hosts: files 修改为 hosts: files dns</span><br><span class="hljs-comment"># 代表先 files（/etc/hosts）解析，再从 dns（/etc/resolv.conf）解析</span><br>vim /etc/nsswitch.conf<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 配置解析顺序</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 把 hosts: files 修改为 hosts: files dns</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 代表先 files（/etc/hosts）解析，再从 dns（/etc/resolv.conf）解析</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/nsswitch.conf</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping google.com<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ping</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> google.com</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="bern-docker-web-container-cant-connect-to-db-container"><a class="markdownIt-Anchor" href="#bern-docker-web-container-cant-connect-to-db-container"></a> “Bern”: Docker web container can’t connect to db container</h3>
 <ul>
 <li>
@@ -658,11 +808,38 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看 Wordpress 容器与 WORDPRESS_DB 相关的配置</span><br>docker <span class="hljs-built_in">exec</span> wordpress <span class="hljs-built_in">env</span> | grep <span class="hljs-string">&quot;WORDPRESS_DB&quot;</span><br><br><span class="hljs-comment"># 查看 MariaDB 容器相关的配置</span><br>docker inspect mariadb<br><br><span class="hljs-comment"># 比较 wp-config.php，username 和 password 正确，但是 WORDPRESS_DB_HOST  未定义</span><br>docker <span class="hljs-built_in">exec</span> wordpress grep WORDPRESS_DB_ /var/www/html/wp-config.php<br><br><span class="hljs-comment"># 能够正常访问</span><br>docker <span class="hljs-built_in">exec</span> wordpress mysqladmin -h mysql -u root -ppassword -h 172.17.0.2<br><br><span class="hljs-comment"># 利用 --link 重建 docker</span><br>docker stop wordpress ; \<br>docker <span class="hljs-built_in">rm</span> wordpress ; \<br>docker run -d \<br>	--name wordpress \<br>	-v html:/var/www/html \<br>	--<span class="hljs-built_in">link</span> mariadb:mysql \<br>	-p 80:80 \<br>	-e WORDPRESS_DB_HOST=mysql \<br>	-e WORDPRESS_DB_NAME=wordpress \<br>	-e WORDPRESS_DB_USER=root \<br>	-e WORDPRESS_DB_PASSWORD=password \<br>	wordpress:sad<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 Wordpress 容器与 WORDPRESS_DB 相关的配置</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> exec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> env</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> grep</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "WORDPRESS_DB"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 MariaDB 容器相关的配置</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> inspect</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mariadb</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 比较 wp-config.php，username 和 password 正确，但是 WORDPRESS_DB_HOST  未定义</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> exec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> grep</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> WORDPRESS_DB_</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /var/www/html/wp-config.php</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 能够正常访问</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> exec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mysqladmin</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -h</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mysql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> root</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -ppassword</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -h</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 172.17.0.2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 利用 --link 重建 docker</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> stop</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ; </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> rm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ; </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	--name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-v</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> html:/var/www/html</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	--link</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mariadb:mysql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-p</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 80:80</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> WORDPRESS_DB_HOST=mysql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> WORDPRESS_DB_NAME=wordpress</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> WORDPRESS_DB_USER=root</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">	-e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> WORDPRESS_DB_PASSWORD=password</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> \</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">	wordpress:sad</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 mysqld is alive</span><br><span class="hljs-built_in">sudo</span> docker <span class="hljs-built_in">exec</span> wordpress mysqladmin -h mysql -u root -ppassword ping<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 mysqld is alive</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> exec</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> wordpress</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mysqladmin</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -h</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> mysql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> root</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -ppassword</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ping</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="karakorum-wtfit-what-the-fun-is-this"><a class="markdownIt-Anchor" href="#karakorum-wtfit-what-the-fun-is-this"></a> “Karakorum”: WTFIT – What The Fun Is This?</h3>
 <ul>
 <li>
@@ -672,11 +849,50 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Permission denied</span><br>/home/admin/wtfit<br><br><span class="hljs-comment"># /usr/bin/chmod: Permission denied</span><br><span class="hljs-built_in">chmod</span> +x /home/admin/wtfit<br><br><br><span class="hljs-comment"># 在无法使用 chmod 的情况下授予执行权限</span><br><span class="hljs-comment"># 通过 perl 脚本调用</span><br>perl -e <span class="hljs-string">&#x27;chmod 0755, &quot;/usr/bin/chmod&quot;&#x27;</span><br><br><span class="hljs-comment"># 通过 ld-linux 库调用</span><br>/lib64/ld-linux-x86-64.so.2 /usr/bin/chmod +x /usr/bin/chmod<br><br><br><span class="hljs-built_in">chmod</span> +x /home/admin/wtfit<br><br><span class="hljs-comment"># ERROR: can&#x27;t open config file</span><br>/home/admin/wtfit <br><br><span class="hljs-comment"># strace 检查调用，发现打开 /home/admin/wtfitconfig.conf</span><br>strace /home/admin/wtfit <br><br><span class="hljs-comment"># 创建 /home/admin/wtfitconfig.conf</span><br><span class="hljs-built_in">touch</span> /home/admin/wtfitconfig.conf<br><br><span class="hljs-comment"># ERROR: can&#x27;t connect to server</span><br>/home/admin/wtfit <br><br><span class="hljs-comment"># 再次检查调用，发现使用 127.0.0.1:7777</span><br>strace /home/admin/wtfit <br><br><span class="hljs-comment"># 使用 netcat 监听端口，接收到一个 HTTP GET 包</span><br>nc -l -p 7777<br><br><span class="hljs-comment"># 启动 HTTP 服务器</span><br>python3 -m http.server --<span class="hljs-built_in">bind</span> 127.0.0.1 7777<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># Permission denied</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/home/admin/wtfit</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># /usr/bin/chmod: Permission denied</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chmod</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> +x</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/wtfit</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 在无法使用 chmod 的情况下授予执行权限</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 通过 perl 脚本调用</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">perl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -e</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'chmod 0755, "/usr/bin/chmod"'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 通过 ld-linux 库调用</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/lib64/ld-linux-x86-64.so.2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /usr/bin/chmod</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> +x</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /usr/bin/chmod</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chmod</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> +x</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/wtfit</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># ERROR: can't open config file</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/home/admin/wtfit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># strace 检查调用，发现打开 /home/admin/wtfitconfig.conf</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">strace</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/wtfit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 创建 /home/admin/wtfitconfig.conf</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">touch</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/wtfitconfig.conf</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># ERROR: can't connect to server</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/home/admin/wtfit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次检查调用，发现使用 127.0.0.1:7777</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">strace</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/wtfit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 使用 netcat 监听端口，接收到一个 HTTP GET 包</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">nc</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -l</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7777</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 启动 HTTP 服务器</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">python3</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -m</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> http.server</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --bind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 127.0.0.1</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7777</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 OK</span><br>/home/admin/wtfit<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 OK</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">/home/admin/wtfit</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="singara-docker-and-kubernetes-web-app-not-working"><a class="markdownIt-Anchor" href="#singara-docker-and-kubernetes-web-app-not-working"></a> “Singara”: Docker and Kubernetes web app not working</h3>
 <ul>
 <li>
@@ -686,11 +902,39 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 获取所有 pod 状态，web 状态为 ImagePullBackOff</span><br>kubectl get -A pod<br><br><span class="hljs-comment"># 尝试 pull webapp 镜像失败</span><br>docker pull webapp<br><br><span class="hljs-comment"># 查看所有镜像，有 register</span><br>docker images<br><br><span class="hljs-comment"># 启动 register 镜像仓库</span><br>docker run -d -p 5000:5000 registry:2<br><br><span class="hljs-comment"># 提交镜像</span><br>docker tag webapp localhost:5000/webapp<br>docker push localhost:5000/webapp<br><br><span class="hljs-comment"># 删除 webapp-deployment 的 Deployment 对象</span><br>kubectl delete deploy webapp-deployment -n web<br><br><span class="hljs-comment"># 修改 deployment.yaml，需要改 image 为 localhost:5000/webapp 以及 port 为 8888</span><br>vim /home/admin/deployment.yml<br><br><span class="hljs-comment"># 应用修改</span><br>kubectl apply -f /home/admin/deployment.yml<br><br><span class="hljs-comment"># 开放端口</span><br>kubectl port-forward deployments/webapp-deployment 8888 -n web<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 获取所有 pod 状态，web 状态为 ImagePullBackOff</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kubectl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> get</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -A</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pod</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 尝试 pull webapp 镜像失败</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> pull</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> webapp</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看所有镜像，有 register</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> images</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 启动 register 镜像仓库</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> run</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 5000:5000</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> registry:2</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 提交镜像</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> tag</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> webapp</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost:5000/webapp</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">docker</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> push</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost:5000/webapp</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除 webapp-deployment 的 Deployment 对象</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kubectl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> delete</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deploy</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> webapp-deployment</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> web</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改 deployment.yaml，需要改 image 为 localhost:5000/webapp 以及 port 为 8888</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/deployment.yml</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 应用修改</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kubectl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> apply</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/deployment.yml</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 开放端口</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">kubectl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> port-forward</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> deployments/webapp-deployment</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 8888</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> web</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl localhost:8888<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost:8888</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="hong-kong-cant-write-data-into-database"><a class="markdownIt-Anchor" href="#hong-kong-cant-write-data-into-database"></a> “Hong-Kong”: can’t write data into database</h3>
 <ul>
 <li>
@@ -700,11 +944,43 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看服务错误日志，显示 Timed out waiting for device /dev/xvdb</span><br><span class="hljs-comment"># postgres 的目录在 /opt/pgdata/ 但没数据，可能有未挂载的磁盘卷</span><br>journalctl -p err<br><br><span class="hljs-comment"># 查看磁盘分区状态，/dev/nvme0n1 未挂载</span><br>lsblk -f<br><br><span class="hljs-comment"># 尝试挂载，失败</span><br>mount /dev/nvme0n1 /opt/pgdata<br><br><span class="hljs-comment"># 查看日志，显示 Unit is bound to inactive unit dev-xvdb.dev</span><br>journalctl|<span class="hljs-built_in">tail</span><br><br><span class="hljs-comment"># 修改 /etc/fstab，把 /dev/xvdb 改成 /dev/nvme0n1</span><br>vim /etc/fstab<br><br><span class="hljs-comment"># 重启，挂载成功</span><br>systemctl daemon-reload<br>mount /dev/nvme0n1 /opt/pgdata<br><br><span class="hljs-comment"># 执行仍失败，日志显示 No space left on device</span><br><span class="hljs-comment"># 检查磁盘空间，/opt/pgdata/ 占用满</span><br><span class="hljs-built_in">df</span> -h<br><br><span class="hljs-comment"># 计算 Postgres 数据目录大小</span><br><span class="hljs-built_in">du</span> -sh /opt/pgdata/main<br><br><span class="hljs-comment"># 删除 /opt/pgdata/ 中所有 *.bk 文件并重启</span><br><span class="hljs-built_in">rm</span> /opt/pgdata/*.bk <br><span class="hljs-built_in">sudo</span> systemctl restart postgresql<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看服务错误日志，显示 Timed out waiting for device /dev/xvdb</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># postgres 的目录在 /opt/pgdata/ 但没数据，可能有未挂载的磁盘卷</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">journalctl</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -p</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> err</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看磁盘分区状态，/dev/nvme0n1 未挂载</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lsblk</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -f</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 尝试挂载，失败</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mount</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /dev/nvme0n1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看日志，显示 Unit is bound to inactive unit dev-xvdb.dev</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">journalctl</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">tail</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改 /etc/fstab，把 /dev/xvdb 改成 /dev/nvme0n1</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/fstab</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 重启，挂载成功</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> daemon-reload</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">mount</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /dev/nvme0n1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 执行仍失败，日志显示 No space left on device</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 检查磁盘空间，/opt/pgdata/ 占用满</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">df</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -h</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 计算 Postgres 数据目录大小</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">du</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -sh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata/main</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除 /opt/pgdata/ 中所有 *.bk 文件并重启</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /opt/pgdata/</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">*</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">.bk</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> postgresql</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 insert 0 1</span><br><span class="hljs-built_in">sudo</span> -u postgres psql -c <span class="hljs-string">&quot;insert into persons(name) values (&#x27;jane smith&#x27;);&quot;</span> -d dt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 insert 0 1</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> postgres</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> psql</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -c</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "insert into persons(name) values ('jane smith');"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> dt</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="pokhara-ssh-and-other-sshenanigans"><a class="markdownIt-Anchor" href="#pokhara-ssh-and-other-sshenanigans"></a> “Pokhara”: SSH and other sshenanigans</h3>
 <ul>
 <li>
@@ -714,11 +990,60 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接运行，报 “man-in-the-middle” 警告</span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 清空 known_hosts 配置</span><br>ssh-keygen -f <span class="hljs-string">&quot;/home/client/.ssh/known_hosts&quot;</span> -R <span class="hljs-string">&quot;localhost&quot;</span><br><br><span class="hljs-comment"># 再次运行，显示 client@localhost: Permission denied (publickey).</span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 删除 ssh 错误配置并重启服务</span><br><span class="hljs-built_in">rm</span> /etc/ssh/sshd_config.d/sad.conf<br>systemctl restart ssh<br><br><span class="hljs-comment"># 再次运行，显示 WARNING: UNPROTECTED PRIVATE KEY FILE! Permissions 0644 for &#x27;/home/client/.ssh/id_rsa&#x27; are too open.</span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 修改 /home/client/.ssh/id_rsa 权限</span><br><span class="hljs-built_in">chmod</span> 600 /home/client/.ssh/id_rsa<br><br><span class="hljs-comment"># 再次运行，显示 Your account has expired; please contact your system administrator.       </span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 查看 client 的账户有效期，被设置到 0</span><br>lslogins client<br><span class="hljs-comment"># 或</span><br>grep client /etc/shadow<br><br><span class="hljs-comment"># 修改有效期</span><br>chage -E-1 client<br><br><span class="hljs-comment"># 再次运行，显示 exec request failed on channel 0，系统线程有限制       </span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br><br><span class="hljs-comment"># 查看文件描述符配置（/etc/pam.d/sshd 中引用），删除 client hard nproc 0</span><br>vim /etc/security/limits.conf<br><br><span class="hljs-comment"># 再次运行，显示 This account is currently not available.</span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span> <br><br><span class="hljs-comment"># 查看用户登录信息，shell 显示  /usr/sbin/nologin                   </span><br>lslogins client<br><br><span class="hljs-comment"># 查看所有可用 shell</span><br><span class="hljs-built_in">cat</span> /etc/shells<br><br><span class="hljs-comment"># 设置用户登录 shell 为 /bin/bash</span><br>usermod --shell /bin/bash client<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 直接运行，报 “man-in-the-middle” 警告</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 清空 known_hosts 配置</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ssh-keygen</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "/home/client/.ssh/known_hosts"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -R</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "localhost"</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次运行，显示 client@localhost: Permission denied (publickey).</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 删除 ssh 错误配置并重启服务</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">rm</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/ssh/sshd_config.d/sad.conf</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">systemctl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> restart</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次运行，显示 WARNING: UNPROTECTED PRIVATE KEY FILE! Permissions 0644 for '/home/client/.ssh/id_rsa' are too open.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改 /home/client/.ssh/id_rsa 权限</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 600</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/client/.ssh/id_rsa</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次运行，显示 Your account has expired; please contact your system administrator.       </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 client 的账户有效期，被设置到 0</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lslogins</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 或</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">grep</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/shadow</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 修改有效期</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">chage</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -E-1</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次运行，显示 exec request failed on channel 0，系统线程有限制       </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看文件描述符配置（/etc/pam.d/sshd 中引用），删除 client hard nproc 0</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/security/limits.conf</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 再次运行，显示 This account is currently not available.</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看用户登录信息，shell 显示  /usr/sbin/nologin                   </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">lslogins</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看所有可用 shell</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">cat</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/shells</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 设置用户登录 shell 为 /bin/bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">usermod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --shell</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /bin/bash</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 /home/client</span><br><span class="hljs-built_in">sudo</span> -u client ssh client@localhost <span class="hljs-string">&#x27;pwd&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 /home/client</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sudo</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ssh</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> client@localhost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'pwd'</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="roseau-hack-a-web-server"><a class="markdownIt-Anchor" href="#roseau-hack-a-web-server"></a> “Roseau”: Hack a Web Server</h3>
 <ul>
 <li>
@@ -731,11 +1056,42 @@
 <p>解答：</p>
 </li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 有 webfile 文件，权限不够无法打开</span><br><span class="hljs-built_in">ls</span>  /var/www/html/<br><br><span class="hljs-comment"># 401 Unauthorized，需要正确的 credentials</span><br>curl localhost<br><br><span class="hljs-comment"># 查看 credentials 位置，在 /etc/apache2/.htpasswd</span><br>vim /etc/apache2/sites-enabled/000-default.conf<br><br><span class="hljs-comment"># 用 John the Ripper 破解，得到账户:密码为 carlos:chalet</span><br><span class="hljs-built_in">cd</span> ~ ; john/run/john /etc/apache2/.htpasswd<br><br><span class="hljs-comment"># 查看 webfile，并输出到 secret</span><br>curl localhost/webfile -u <span class="hljs-string">&quot;carlos:chalet&quot;</span> --output secret<br><br><span class="hljs-comment"># 查看 secret 文件类型，是 zip</span><br>file secret<br><br><span class="hljs-comment"># 解压，但是有密码保护</span><br>unzip secret<br><br><span class="hljs-comment"># zip2john 提取 hash</span><br>john/run/zip2john secret &gt; zip.hash<br><br><span class="hljs-comment"># 用 John the Ripper 破解，得到密码 andes</span><br>john/run/john zip.hash<br><br><span class="hljs-comment"># 解压，成功得到 secret.txt</span><br>unzip secret<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 有 webfile 文件，权限不够无法打开</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">ls</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">  /var/www/html/</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 401 Unauthorized，需要正确的 credentials</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 credentials 位置，在 /etc/apache2/.htpasswd</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">vim</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/apache2/sites-enabled/000-default.conf</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 用 John the Ripper 破解，得到账户:密码为 carlos:chalet</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">cd</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ~</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> ; </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">john/run/john</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /etc/apache2/.htpasswd</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 webfile，并输出到 secret</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">curl</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> localhost/webfile</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -u</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "carlos:chalet"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> --output</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> secret</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 查看 secret 文件类型，是 zip</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">file</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> secret</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 解压，但是有密码保护</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">unzip</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> secret</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># zip2john 提取 hash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">john/run/zip2john</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> secret</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> ></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> zip.hash</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 用 John the Ripper 破解，得到密码 andes</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">john/run/john</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> zip.hash</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 解压，成功得到 secret.txt</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">unzip</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> secret</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>检测</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 返回 cc2c322fbcac56923048d083b465901aac0fe8f8</span><br><span class="hljs-built_in">sha1sum</span> /home/admin/secret.txt |awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># 返回 cc2c322fbcac56923048d083b465901aac0fe8f8</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sha1sum</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> /home/admin/secret.txt</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> |</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">awk</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{print $1}'</span></span>
+<span class="line"></span></code></pre></div>
 <h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2>
 <ul>
 <li>
@@ -912,12 +1268,32 @@
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -966,22 +1342,22 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -1079,21 +1455,6 @@
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -1104,109 +1465,7 @@
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

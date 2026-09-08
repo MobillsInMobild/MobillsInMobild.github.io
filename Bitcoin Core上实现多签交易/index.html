@@ -67,18 +67,13 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -354,7 +349,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Bitcoin Core上实现多签交易"></span>
+            <span id="subtitle">Bitcoin Core上实现多签交易</span>
           
         </div>
 
@@ -382,7 +377,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          12k 字
         
       </span>
     
@@ -393,7 +388,7 @@
         
         
         
-          110 分钟
+          98 分钟
         
       </span>
     
@@ -469,27 +464,75 @@
 <ul>
 <li>bitcoin</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18448</span><br>rpcusedr=alice<br>rpcpassword=alice<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">regtest</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">port</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18445</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18446</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18447</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18451</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">server</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcport</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18448</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcusedr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">alice</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcpassword</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">alice</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="bob"><a class="markdownIt-Anchor" href="#bob"></a> bob</h4>
 <ul>
 <li>bitcoin</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18449</span><br>rpcusedr=bob<br>rpcpassword=bob<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">regtest</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">port</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18446</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18445</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18447</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18451</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">server</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcport</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18449</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcusedr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">bob</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcpassword</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">bob</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="network"><a class="markdownIt-Anchor" href="#network"></a> network</h4>
 <ul>
 <li>bitcoin</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18447</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18451</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18450</span><br>rpcusedr=network<br>rpcpassword=network<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">regtest</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">port</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18447</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18445</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18446</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18451</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">server</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcport</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18450</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcusedr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">network</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcpassword</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">network</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="four"><a class="markdownIt-Anchor" href="#four"></a> four</h4>
 <ul>
 <li>bitcoin</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">regtest=<span class="hljs-number">1</span><br>port=<span class="hljs-number">18451</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18445</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18446</span><br>addnode=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">18447</span><br>server=<span class="hljs-number">1</span><br>rpcport=<span class="hljs-number">18452</span><br>rpcusedr=four<br>rpcpassword=four<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">regtest</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">port</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18451</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18445</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18446</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">addnode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">127.0.0.1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18447</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">server</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcport</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">18452</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcusedr</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">four</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">rpcpassword</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">four</span></span>
+<span class="line"></span></code></pre></div>
 <h2 id="通过批处理简化命令行输入"><a class="markdownIt-Anchor" href="#通过批处理简化命令行输入"></a> 通过批处理简化命令行输入</h2>
 <ul>
 <li>在 %APPDATA%\Bitcoin 添加 regtest.bat 文件，内容如下：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">@DOSKEY alice-d=bitcoind -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-d=bitcoind -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-d=bitcoind -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-d=bitcoind -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-cli=bitcoin-cli -regtest -datadir=%appdata%\bitcoin\four $*<br>@DOSKEY alice-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\alice $* <br>@DOSKEY bob-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\bob $* <br>@DOSKEY network-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\network $*<br>@DOSKEY four-qt=bitcoin-qt -regtest -datadir=%appdata%\bitcoin\four $*<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> alice-d=bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\alice</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bob-d=bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\bob</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> network-d=bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\network</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> four-d=bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\four</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> alice-cli=bitcoin-cli</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\alice</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bob-cli=bitcoin-cli</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\bob</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> network-cli=bitcoin-cli</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\network</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> four-cli=bitcoin-cli</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\four</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> alice-qt=bitcoin-qt</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\alice</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> bob-qt=bitcoin-qt</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\bob</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> network-qt=bitcoin-qt</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\network</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">@DOSKEY</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> four-qt=bitcoin-qt</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -regtest</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%appdata%\bitcoin\four</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> $*</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>在注册表中找到 <code>HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor</code> ， 右键新建，选择字符串值，名为 <code>AutoRun</code>，值为 <code>regtest.bat</code> 的绝对路径。保存退出，即可完成对指令的优化。</li>
 </ul>
@@ -497,17 +540,25 @@
 <ul>
 <li><strong>分别</strong>在四个命令行窗口输入下列命令，启动各个节点</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\alice<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\bob<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\network<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bitcoind -datadir=%APPDATA%\Bitcoin\four<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%APPDATA%\Bitcoin\alice</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%APPDATA%\Bitcoin\bob</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%APPDATA%\Bitcoin\network</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bitcoind</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> -datadir=%APPDATA%\Bitcoin\four</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>打开<strong>新</strong>命令行窗口，输入下列命令，查看节点连接情况</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-cli getpeerinfo<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bob-cli getpeerinfo<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">network-cli getpeerinfo<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">four-cli getpeerinfo<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">alice-cli</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> getpeerinfo</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bob-cli</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> getpeerinfo</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">network-cli</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> getpeerinfo</span></span>
+<span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">four-cli</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> getpeerinfo</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>如果节点数大于 4 即成功</li>
 </ul>
@@ -515,11 +566,16 @@
 <ul>
 <li><strong>关闭</strong>之前的四个命令行窗口，然后在命令行中输入下列命令</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">alice-qt<br>bob-qt<br>network-qt<br>four-qt<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">alice-qt</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">bob-qt</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">network-qt</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">four-qt</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>qt 客户端可能会显示落后XX年，在任意 qt 客户端从 帮助&gt;调试窗口&gt;控制台 输入指令</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">generate</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
+<span class="line"></span></code></pre></div>
 <p>​        然后等待一段时间即可</p>
 <ul>
 <li>也可以从 帮助&gt;调试窗口&gt;同伴检查节点连接情况——应该是 连接数 6 (输入: 3 / 输出： 3)</li>
@@ -528,7 +584,9 @@
 <ul>
 <li>从 qt 客户端的 文件&gt;正在接收地址 中复制当前钱包的一个地址（<strong>不是标签</strong>），然后运用下列命令在 qt 控制台中获取对应公钥和私钥</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">validateaddress &lt;address&gt;<br>dumpprivatekey &lt;address&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">validateaddress</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">addres</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">dumpprivatekey</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">addres</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span>
+<span class="line"></span></code></pre></div>
 <p>​       得到的四个节点的对应公钥、私钥、地址如下：</p>
 <table>
 <thead>
@@ -570,34 +628,45 @@
 <ul>
 <li>在 <code>alice</code> 的控制台中输入以下命令，生成 2 of 3 多重签名</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig n &lt;<span class="hljs-string">&#x27;[&quot;key1&quot;,&quot;key2&quot;,...,&quot;keyn&quot;]&#x27;</span>&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">createmultisig</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> n</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> &#x3C;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'["key1","key2",...,"keyn"]'</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span></span>
+<span class="line"></span></code></pre></div>
 <p>​       在这里，使用 <code>alice</code>，<code>bob</code>，<code>network</code> 的公钥生成，命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createmultisig 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">createmultisig</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '["03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247","0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb","02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1"]'</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>返回信息如下：</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "address"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "redeemScript"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>将上述生成的地址加入到 <code>bob</code> 的钱包</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">addmultisigaddress 2 <span class="hljs-string">&#x27;[&quot;03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247&quot;,&quot;0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb&quot;,&quot;02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1&quot;]&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">addmultisigaddress</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '["03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247","0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb","02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1"]'</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>得到地址，加入到 <code>bob</code> 的正在接收地址中</li>
 </ul>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode"><span class="hljs-number">2</span><span class="hljs-symbol">NDuscm8</span>JWy<span class="hljs-number">7</span>jVgQfcCSyEbLzsf<span class="hljs-number">1</span>uwxtfi<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h2 id="挖矿并向多签地址转钱"><a class="markdownIt-Anchor" href="#挖矿并向多签地址转钱"></a> 挖矿并向多签地址转钱</h2>
 <ul>
 <li><code>alice</code> 生成 101 个区块，从而获得 50个 BTC</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 100<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">generate</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 100</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li><code>alice</code> 向 <code>2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8</code> 转账 12 个 BTC</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendaddress 2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8 12<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sendaddress</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 2NDuscm8JWy7jVgQfcCSyEbLzsf1uwxtfi8</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 12</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li><code>alice</code> 生成 6个区块从而确认交易</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">generate 6<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">generate</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 6</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li><code>bob</code> 的钱包可以看到交易成功</li>
 </ul>
@@ -607,36 +676,113 @@
 <li><code>alice</code> 控制台中输入如下命令，从多签地址向 <code>four</code> 转账 6 个 BTC</li>
 </ul>
 <p>※：要给出找零地址，否则会报错 <code>absurdly-high-fee (code -26)</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">createrawtransaction <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;&#123;&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;:6,&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;:5.9998&#125;&#x27;</span> <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0"> createrawtransaction</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '[{ "txid": "8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2", "vout": 1,"scriptPubKey": "a914e2b1bbb779c898d24ce4695b5773ec0233ee138087","redeemScript": "522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"}]'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '{"mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og":6,"mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2":5.9998}'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>其中，<code>txid</code> 和 <code>scriptPubKey</code>，可以直接在 <code>bob</code> 的交易记录中查询，或者使用一下命令</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">listunspent<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">listunspent</span></span>
+<span class="line"></span></code></pre></div>
 <p>生成了 16 进制的交易数据</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><span class="hljs-number">0200000001</span>f<span class="hljs-number">253</span>ca<span class="hljs-number">09</span>fb<span class="hljs-number">57</span>a<span class="hljs-number">1</span>a<span class="hljs-number">215423</span>a<span class="hljs-number">587</span>a<span class="hljs-number">60</span>dbca<span class="hljs-number">0395e8</span>aaa<span class="hljs-number">0</span>ab<span class="hljs-number">9</span>adc<span class="hljs-number">8</span>fa<span class="hljs-number">89e5</span>f<span class="hljs-number">3365138</span>b<span class="hljs-number">0100000000</span>ffffffff<span class="hljs-number">020046</span><span class="hljs-keyword">c</span><span class="hljs-number">323000000001976</span>a<span class="hljs-number">9147</span>bacb<span class="hljs-number">21432</span><span class="hljs-keyword">c</span><span class="hljs-number">1e521319387833</span>b<span class="hljs-number">87</span>fe<span class="hljs-number">704</span>dfe<span class="hljs-number">6</span>afc<span class="hljs-number">88</span>ace<span class="hljs-number">0</span>f<span class="hljs-number">7</span><span class="hljs-keyword">c</span><span class="hljs-number">223000000001976</span>a<span class="hljs-number">9140</span>aefe<span class="hljs-number">72</span>eaf<span class="hljs-number">26</span>dae<span class="hljs-number">31397</span><span class="hljs-keyword">c</span><span class="hljs-number">46</span>bfa<span class="hljs-number">821781406541</span>be<span class="hljs-number">88</span>ac<span class="hljs-number">00000000</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b0100000000ffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <h2 id="对交易进行签名"><a class="markdownIt-Anchor" href="#对交易进行签名"></a> 对交易进行签名</h2>
 <ul>
 <li><code>alice</code> 签名</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b0100000000ffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> <span class="hljs-string">&#x27;[&#123; &quot;txid&quot;: &quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;, &quot;vout&quot;: 1,&quot;scriptPubKey&quot;: &quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;,&quot;redeemScript&quot;: &quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;&#125;]&#x27;</span> <span class="hljs-string">&#x27;[&quot;cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc&quot;]&#x27;</span> <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">signrawtransaction</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b0100000000ffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000"</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '[{ "txid": "8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2", "vout": 1,"scriptPubKey": "a914e2b1bbb779c898d24ce4695b5773ec0233ee138087","redeemScript": "522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"}]'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> '["cQ9Z4BSY4657dqgfSEPhKVVrYrcGmWZiSBhrSW9cbYXGiDMdeNBc"]'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"></span></code></pre></div>
 <p>​       得到一次签名后的交易数据</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;witness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Operation not valid with the current stack size&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "hex"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "complete"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "errors"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "txid"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "vout"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "witness"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      ],</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "scriptSig"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "sequence"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">4294967295</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "error"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Operation not valid with the current stack size"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  ]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre></div>
 <p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="alice签名" /></p>
 <ul>
 <li><code>network</code> 签名</li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json">signrawtransaction <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span> &#x27;<span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a914e2b1bbb779c898d24ce4695b5773ec0233ee138087&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;redeemScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span>&#x27; &#x27;<span class="hljs-punctuation">[</span><span class="hljs-string">&quot;cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn&quot;</span><span class="hljs-punctuation">]</span>&#x27; <br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">signrawtransaction </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000b500483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> '[{ </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">"txid"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">"vout"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">"scriptPubKey"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"a914e2b1bbb779c898d24ce4695b5773ec0233ee138087"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">"redeemScript"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}]' '[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cPBWwcJU3jEsvYdsSCkMshAd5sugk3y3LBXbAfh5GzYcoJGLxBBn"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]' </span></span>
+<span class="line"></span></code></pre></div>
 <p>​        得到</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;complete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "hex"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "complete"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre></div>
 <p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="network签名" /></p>
 <ul>
 <li><code>bob</code> 发送交易单</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sendrawtransaction 0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0">sendrawtransaction</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 0200000001f253ca09fb57a1a215423a587a60dbca0395e8aaa0ab9adc8fa89e5f3365138b01000000fdfe0000483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153aeffffffff020046c323000000001976a9147bacb21432c1e521319387833b87fe704dfe6afc88ace0f7c223000000001976a9140aefe72eaf26dae31397c46bfa821781406541be88ac00000000</span></span>
+<span class="line"></span></code></pre></div>
 <p>​       得到 <code>txid</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <p>​      通过 <code>getrawtransaction</code> 和 <code>decoderawtransaction</code>，得到</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs json"><br><span class="hljs-number">21</span><span class="hljs-punctuation">:</span><span class="hljs-number">52</span><span class="hljs-punctuation">:</span><span class="hljs-number">51</span><br>￼<br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;hash&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vsize&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">375</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;locktime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;txid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptSig&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0 3045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d[ALL] 3045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6[ALL] 522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae&quot;</span><br>      <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sequence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4294967295</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;vout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6.00000000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 7bacb21432c1e521319387833b87fe704dfe6afc OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9147bacb21432c1e521319387833b87fe704dfe6afc88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span> <br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5.99980000</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;n&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;scriptPubKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;asm&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;OP_DUP OP_HASH160 0aefe72eaf26dae31397c46bfa821781406541be OP_EQUALVERIFY OP_CHECKSIG&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;hex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;76a9140aefe72eaf26dae31397c46bfa821781406541be88ac&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;reqSigs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pubkeyhash&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;addresses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>          <span class="hljs-string">&quot;mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2&quot;</span><br>        <span class="hljs-punctuation">]</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="json"><code><span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">21</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">52</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">51</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">￼</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "txid"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "hash"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"1e58ea5a6d43de28d99cba0f6d9dd8fbf1d9a07187ae4be364f71078ccf529ec"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "version"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "size"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">375</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "vsize"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">375</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "locktime"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "vin"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "txid"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"8b1365335f9ea88fdc9aaba0aae89503cadb607a583a4215a2a157fb09ca53f2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "vout"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "scriptSig"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "asm"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"0 3045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d[ALL] 3045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6[ALL] 522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "hex"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"00483045022100859690df26695e8142b56c4f4e5be62ab9c2101c1c1f63c9b2fa4ac9c7acba7b02204db63f359dd2858609cfca07d9928d1955d441cec86d15e6beddc89344ab0b3d01483045022100ceca365ba0d5ec301401f5792fb333fd6ff9b37124afe7b5b484b51d7dfb038f0220614c1adbc3b84991b042f05022bf29eb106669599b0ee8daabbc9656b98a78a6014c69522103c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247210338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb2102bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d153ae"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      },</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "sequence"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">4294967295</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  ],</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  "vout"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "value"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">6.00000000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "n"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "scriptPubKey"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "asm"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"OP_DUP OP_HASH160 7bacb21432c1e521319387833b87fe704dfe6afc OP_EQUALVERIFY OP_CHECKSIG"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "hex"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"76a9147bacb21432c1e521319387833b87fe704dfe6afc88ac"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "reqSigs"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "type"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"pubkeyhash"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "addresses"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">          "mrntHkXT2ua8rkqXx4SVJoeGY24VxDo8og"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        ]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }, </span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "value"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">5.99980000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "n"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">      "scriptPubKey"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: {</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "asm"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"OP_DUP OP_HASH160 0aefe72eaf26dae31397c46bfa821781406541be OP_EQUALVERIFY OP_CHECKSIG"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "hex"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"76a9140aefe72eaf26dae31397c46bfa821781406541be88ac"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "reqSigs"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "type"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"pubkeyhash"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">,</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">        "addresses"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: [</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">          "mgWnSjEDz1hCBryhkhQ1gXvGtK8aujiCL2"</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">        ]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">      }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  ]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre></div>
 <p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功2" /></p>
 <ul>
 <li>找零地址为 <code>network</code> 的地址，可见源地址没有 BTC 了，找零到了 <code>network</code>，支付了 <code>four</code> 地址 6 BTC，实验完成。</li>
@@ -805,12 +951,32 @@
     <div class="side-col d-none d-lg-block col-lg-2">
       
   <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
+    <div id="toc" data-toc-script="https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js">
   <p class="toc-header">
-    <i class="iconfont icon-list"></i>
+    <i class="iconfont icon-list" aria-hidden="true"></i>
     <span>目录</span>
   </p>
-  <div class="toc-body" id="toc-body"></div>
+  <nav class="toc-body" id="toc-body" aria-label="目录"></nav>
+</div>
+
+<button id="mobile-toc-toggle" class="mobile-toc-toggle d-lg-none" type="button" hidden
+        aria-controls="mobile-toc-dialog" aria-expanded="false" aria-haspopup="dialog">
+  <i class="iconfont icon-list" aria-hidden="true"></i> 目录
+</button>
+<div id="mobile-toc-dialog" class="modal" tabindex="-1" role="dialog"
+     aria-modal="true" aria-labelledby="mobile-toc-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 id="mobile-toc-title" class="modal-title w-100 font-weight-bold">目录</h4>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3"></div>
+    </div>
+  </div>
 </div>
 
 
@@ -853,14 +1019,9 @@
 
   <script>
   Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
+    mermaid.initialize({ startOnLoad: false });
+    Fluid.utils.createScript('/js/mermaid.js', function() {
+      Fluid.initMermaid({"theme":"default"}, true);
     });
   });
 </script>
@@ -879,22 +1040,22 @@
     
 
     
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="local-search-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header search-header">
+        <h4 id="local-search-title" class="sr-only">搜索</h4>
+        <label class="sr-only" for="local-search-input">关键词</label>
+        <i class="iconfont icon-search" aria-hidden="true"></i>
+        <input type="search" id="local-search-input" autocomplete="off" spellcheck="false"
+               placeholder="关键词" aria-describedby="local-search-status" aria-controls="local-search-result">
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="关闭">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
+      <div class="modal-body search-body">
+        <p id="local-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="local-search-result" aria-busy="false"></div>
       </div>
     </div>
   </div>
@@ -992,21 +1153,6 @@
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
 
 
 
@@ -1017,109 +1163,7 @@
 
 
 
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    function isExpandAllEnabled() {
-      return CONFIG.toc && CONFIG.toc.expand_all === true;
-    }
-    function expandAllToc() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
-    }
-    function updateTocToggle($li, $childList) {
-      var $toggle = $li.children('.toc-toggle');
-      if ($toggle.length === 0) { return; }
-      var collapsed = $childList.hasClass('tocbot-is-collapsed');
-      $toggle
-        .toggleClass('toc-toggle-collapsed', collapsed)
-        .toggleClass('toc-toggle-expanded', !collapsed);
-    }
-    function bindTocToggle() {
-      if (!isExpandAllEnabled()) { return; }
-      jQuery('#toc-body .toc-list-item').each(function() {
-        var $li = jQuery(this);
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) {
-          if ($li.children('.toc-toggle').length === 0) {
-            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
-          }
-          return;
-        }
-
-        if ($li.children('.toc-toggle').length === 0) {
-          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
-        }
-        updateTocToggle($li, $childList);
-      });
-      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $li = jQuery(this).parent('.toc-list-item');
-        var $childList = $li.children('ol');
-        if ($childList.length === 0) { return; }
-        $childList.toggleClass('tocbot-is-collapsed');
-        updateTocToggle($li, $childList);
-      });
-      if (!window.__tocToggleObserver) {
-        window.__tocToggleObserver = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
-            var $list = jQuery(mutation.target);
-            var $li = $list.parent('.toc-list-item');
-            if ($li.length === 0) { return; }
-            updateTocToggle($li, $list);
-          });
-        });
-        jQuery('#toc-body ol').each(function() {
-          window.__tocToggleObserver.observe(this, { attributes: true });
-        });
-      }
-    }
-    var tocConfig = Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc);
-    if (isExpandAllEnabled()) {
-      tocConfig.collapseDepth = 6;
-    }
-    window.tocbot.init(tocConfig);
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-    expandAllToc();
-    bindTocToggle();
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-        expandAllToc();
-        bindTocToggle();
-      }
-    });
-  });
-</script>
-
+  <script  src="/js/toc.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98.jpg">
 <meta property="article:published_time" content="2020-01-14T12:46:25.000Z">
-<meta property="article:modified_time" content="2025-12-28T14:13:01.466Z">
+<meta property="article:modified_time" content="2026-09-09T13:08:23.020Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -440,7 +440,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年12月28日 晚上
+                    本文最后更新于 2026年9月9日 晚上
                   
                 
               </p>
@@ -894,7 +894,7 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 </ol>
 <h3 id="fsm的设计方法"><a class="markdownIt-Anchor" href="#fsm的设计方法"></a> FSM的设计方法</h3>
 <h4 id="一段式状态机-单always块结构"><a class="markdownIt-Anchor" href="#一段式状态机-单always块结构"></a> 一段式状态机 (单always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
 <span class="line"><span>always @(posedge clk or posedge rst) begin</span></span>
 <span class="line"><span>    if(rst)</span></span>
 <span class="line"><span>        FSM &#x3C;= S0</span></span>
@@ -926,7 +926,7 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 <li>单 always 块把组合逻辑和时序逻辑放在一个时序 always 块描述。输出时为寄存器输出，所以无毛刺。但是这种方式会产生多余的触发器（因为把组合逻辑也放在时序逻辑中实现），而且代码难以修改调试。对于那些简单的状态机，一段式方便理解。但是对于复杂状态机，代码难于更改，条件复杂带来电路开销大，工作性能（电路最高频率）亦受限，因此实际中这种结构很少使用。</li>
 </ul>
 <h4 id="两段式状态机-双always块结构"><a class="markdownIt-Anchor" href="#两段式状态机-双always块结构"></a> 两段式状态机 (双always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
 <span class="line"><span>//时序逻辑，这段一般是不变的，描述从现态转移到次态</span></span>
 <span class="line"><span>always @ (posedge clk  or posedge rst ) begin</span></span>
 <span class="line"><span>    if(rst)</span></span>
@@ -961,7 +961,7 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 <span class="line"><span></span></span></code></pre></div>
 <p>二段式中，一个always块采用同步时序描述状态转移；另一个采用组合逻辑判断转移条件，以及描述输出。二段式便于阅读，理解和维护，有利于综合出更少的资源。但是由于采用的是组合逻辑输出，容易产生毛刺，且不利于约束，也不利于布局布线。</p>
 <h4 id="三式状态机-三always块结构"><a class="markdownIt-Anchor" href="#三式状态机-三always块结构"></a> 三式状态机 (三always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```Verilog</span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
 <span class="line"><span>//第一个always块，时序逻辑，描述现态转移到次态</span></span>
 <span class="line"><span>always @ (posedge clk or negedge rst) begin</span></span>
 <span class="line"><span>    if(rst_n) </span></span>
@@ -1101,7 +1101,7 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年12月28日</div>
+          <div>2026年9月9日</div>
         </div>
       
       

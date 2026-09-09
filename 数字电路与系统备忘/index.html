@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98.jpg">
 <meta property="article:published_time" content="2020-01-14T12:46:25.000Z">
-<meta property="article:modified_time" content="2026-09-09T13:08:23.020Z">
+<meta property="article:modified_time" content="2026-09-09T13:28:44.745Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="数字电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -894,115 +894,109 @@ eg：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y
 </ol>
 <h3 id="fsm的设计方法"><a class="markdownIt-Anchor" href="#fsm的设计方法"></a> FSM的设计方法</h3>
 <h4 id="一段式状态机-单always块结构"><a class="markdownIt-Anchor" href="#一段式状态机-单always块结构"></a> 一段式状态机 (单always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
-<span class="line"><span>always @(posedge clk or posedge rst) begin</span></span>
-<span class="line"><span>    if(rst)</span></span>
-<span class="line"><span>        FSM &#x3C;= S0</span></span>
-<span class="line"><span>    else begin</span></span>
-<span class="line"><span>        case(FSM)</span></span>
-<span class="line"><span>        S0：begin</span></span>
-<span class="line"><span>            Out_0;          //输出</span></span>
-<span class="line"><span>            if(condition1)        FSM&#x3C;= S1;//状态转移</span></span>
-<span class="line"><span>            else if (condition2)  FSM&#x3C;= S2;//状态转移</span></span>
-<span class="line"><span>            …</span></span>
-<span class="line"><span>            end</span></span>
-<span class="line"><span>        S1：begin</span></span>
-<span class="line"><span>            Out_1;          //输出</span></span>
-<span class="line"><span>            if(condition3)       FSM&#x3C;= S3;//状态转移</span></span>
-<span class="line"><span>            else if (condition4) FSM &#x3C;=S4; </span></span>
-<span class="line"><span>            …</span></span>
-<span class="line"><span>            end</span></span>
-<span class="line"><span>            ……</span></span>
-<span class="line"><span>        default: begin</span></span>
-<span class="line"><span>            Out_0;          //输出</span></span>
-<span class="line"><span>            if(condition0) FSM&#x3C;= S0;//状态转移</span></span>
-<span class="line"><span>                end</span></span>
-<span class="line"><span>        endcase</span></span>
-<span class="line"><span>        end</span></span>
-<span class="line"><span>    end</span></span>
-<span class="line"><span>```</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="verilog"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @(</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> clk </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">or</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> rst) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(rst)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        FSM </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        case</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(FSM)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        S0：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_0;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition1)        FSM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S1;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition2)  FSM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S2;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            …</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        S1：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_1;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition3)       FSM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S3;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition4) FSM </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">S4; </span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            …</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            ……</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        default</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_0;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition0) FSM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">                end</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        endcase</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        end</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    end</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>单 always 块把组合逻辑和时序逻辑放在一个时序 always 块描述。输出时为寄存器输出，所以无毛刺。但是这种方式会产生多余的触发器（因为把组合逻辑也放在时序逻辑中实现），而且代码难以修改调试。对于那些简单的状态机，一段式方便理解。但是对于复杂状态机，代码难于更改，条件复杂带来电路开销大，工作性能（电路最高频率）亦受限，因此实际中这种结构很少使用。</li>
 </ul>
 <h4 id="两段式状态机-双always块结构"><a class="markdownIt-Anchor" href="#两段式状态机-双always块结构"></a> 两段式状态机 (双always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
-<span class="line"><span>//时序逻辑，这段一般是不变的，描述从现态转移到次态</span></span>
-<span class="line"><span>always @ (posedge clk  or posedge rst ) begin</span></span>
-<span class="line"><span>    if(rst)</span></span>
-<span class="line"><span>        current_state &#x3C;= S0;</span></span>
-<span class="line"><span>    else</span></span>
-<span class="line"><span>        current_state&#x3C;=next_state;  </span></span>
-<span class="line"><span>end</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>//组合逻辑，包括转移条件以及输出</span></span>
-<span class="line"><span>always @ (current_state) begin</span></span>
-<span class="line"><span>    case(current_state)</span></span>
-<span class="line"><span>        S0：begin</span></span>
-<span class="line"><span>            Out_0;          //输出</span></span>
-<span class="line"><span>            if(condition1)        next_state &#x3C;= S1;//状态转移</span></span>
-<span class="line"><span>            else if (condition2)  next_state &#x3C;= S2;//状态转移</span></span>
-<span class="line"><span>            else next_state &#x3C;= S0;</span></span>
-<span class="line"><span>            end</span></span>
-<span class="line"><span>        S1：begin</span></span>
-<span class="line"><span>            Out_1;          //输出</span></span>
-<span class="line"><span>            if(condition3)         next_state &#x3C;= S3;//状态转移</span></span>
-<span class="line"><span>            else if (condition4)   next_state &#x3C;=S4; </span></span>
-<span class="line"><span>            …</span></span>
-<span class="line"><span>            end</span></span>
-<span class="line"><span>            ……</span></span>
-<span class="line"><span>        default: begin</span></span>
-<span class="line"><span>            Out_0;          //输出</span></span>
-<span class="line"><span>            if(condition0)         next_state &#x3C;= S0;//状态转移</span></span>
-<span class="line"><span>        end</span></span>
-<span class="line"><span>    endcase</span></span>
-<span class="line"><span>end</span></span>
-<span class="line"><span>```</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="verilog"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//时序逻辑，这段一般是不变的，描述从现态转移到次态</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @ (</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> clk  </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">or</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> rst ) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(rst)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        current_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    else</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        current_state</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">next_state;  </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//组合逻辑，包括转移条件以及输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @ (current_state) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    case</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(current_state)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        S0：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_0;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition1)        next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S1;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition2)  next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S2;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            else</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        S1：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_1;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition3)         next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S3;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition4)   next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">S4; </span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            …</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            ……</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        default</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">            Out_0;          </span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition0)         next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        end</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    endcase</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">end</span></span>
+<span class="line"></span></code></pre></div>
 <p>二段式中，一个always块采用同步时序描述状态转移；另一个采用组合逻辑判断转移条件，以及描述输出。二段式便于阅读，理解和维护，有利于综合出更少的资源。但是由于采用的是组合逻辑输出，容易产生毛刺，且不利于约束，也不利于布局布线。</p>
 <h4 id="三式状态机-三always块结构"><a class="markdownIt-Anchor" href="#三式状态机-三always块结构"></a> 三式状态机 (三always块结构)</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes github-light github-dark shiki-line-numbers" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0" data-language="text"><code><span class="line"><span>```verilog</span></span>
-<span class="line"><span>//第一个always块，时序逻辑，描述现态转移到次态</span></span>
-<span class="line"><span>always @ (posedge clk or negedge rst) begin</span></span>
-<span class="line"><span>    if(rst_n) </span></span>
-<span class="line"><span>        current_state&#x3C;=S0;</span></span>
-<span class="line"><span>    else</span></span>
-<span class="line"><span>        current_state&#x3C;=next_state;</span></span>
-<span class="line"><span>end</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>//第二个always块，组合逻辑，描述状态转移的条件</span></span>
-<span class="line"><span>always @ (current_state) begin</span></span>
-<span class="line"><span>    case(current_state)</span></span>
-<span class="line"><span>    S0：begin</span></span>
-<span class="line"><span>        if(condition1)        next_state &#x3C;= S1;//状态转移</span></span>
-<span class="line"><span>        else if (condition2)  next_state &#x3C;= S2;//状态转移</span></span>
-<span class="line"><span>        else next_state &#x3C;= S0;</span></span>
-<span class="line"><span>        end</span></span>
-<span class="line"><span>    S1：begin</span></span>
-<span class="line"><span>        if(condition3)       next_state &#x3C;= S3;//状态转移</span></span>
-<span class="line"><span>        else if (condition4) next_state &#x3C;=S4; </span></span>
-<span class="line"><span>        …</span></span>
-<span class="line"><span>        end</span></span>
-<span class="line"><span>    ……</span></span>
-<span class="line"><span>    default: begin</span></span>
-<span class="line"><span>            if(condition0)   next_state &#x3C;= S0;//状态转移</span></span>
-<span class="line"><span>        end</span></span>
-<span class="line"><span>    endcase</span></span>
-<span class="line"><span>end</span></span>
-<span class="line"><span>//第三个always块，时序逻辑，描述输出</span></span>
-<span class="line"><span>always @ (posedge clk or negedge rst) begin</span></span>
-<span class="line"><span>if(rst)</span></span>
-<span class="line"><span>    out0；</span></span>
-<span class="line"><span>else</span></span>
-<span class="line"><span>    case(current_state)</span></span>
-<span class="line"><span>    S0: out0;</span></span>
-<span class="line"><span>    S1: out1;</span></span>
-<span class="line"><span>    ….</span></span>
-<span class="line"><span>    default:Out0;</span></span>
-<span class="line"><span>    endcase</span></span>
-<span class="line"><span>end</span></span>
-<span class="line"><span>```</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="verilog"><code><span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//第一个always块，时序逻辑，描述现态转移到次态</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @ (</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> clk </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">or</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> negedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> rst) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(rst_n) </span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        current_state</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">S0;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    else</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        current_state</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">next_state;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">end</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//第二个always块，组合逻辑，描述状态转移的条件</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @ (current_state) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    case</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(current_state)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    S0：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition1)        next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S1;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition2)  next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S2;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        else</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    S1：</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition3)       next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S3;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        else</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (condition4) next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">S4; </span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">        …</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        end</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    ……</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    default</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">: </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">            if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(condition0)   next_state </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> S0;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//状态转移</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">        end</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    endcase</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">end</span></span>
+<span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">//第三个always块，时序逻辑，描述输出</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">always</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> @ (</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">posedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> clk </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">or</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> negedge</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> rst) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">begin</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">if</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(rst)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    out0；</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">else</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    case</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(current_state)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    S0: out0;</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    S1: out1;</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">    ….</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    default</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">:Out0;</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    endcase</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">end</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>三段式结构中，2个时序always块分别用来描述状态跳转和输出。组合always块用于描述状态转移条件。虽然使用的硬件资源较多，但输出采用寄存器结构，无毛刺，而且代码更清晰易读，对于复杂的状态机来说逻辑清晰，是一种比较流行的状态机结构。</li>
 </ul>

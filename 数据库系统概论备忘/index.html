@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E5%A4%87%E5%BF%98.jpg">
 <meta property="article:published_time" content="2021-01-05T12:46:25.000Z">
-<meta property="article:modified_time" content="2026-05-10T02:25:09.937Z">
+<meta property="article:modified_time" content="2026-09-09T15:13:53.789Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,6 +39,8 @@
   
   
   <title>数据库系统概论备忘 - 动中之动</title>
+
+  
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -73,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1.5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -440,7 +442,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2026年5月10日 上午
+                    本文最后更新于 2026年9月9日 晚上
                   
                 
               </p>
@@ -1171,8 +1173,8 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE SCHEMA &#x3C;模式名> AUTHORIZATION &#x3C;用户名>[&#x3C;表定义子句>|&#x3C;视图定义子句>|&#x3C;授权定义子句>]</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> SCHEMA</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">模式名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> AUTHORIZATION </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">用户名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[&#x3C;表定义子句>|&#x3C;视图定义子句>|&#x3C;授权定义子句>]</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>定义模式实际上定义了一个<strong>命名空间</strong></li>
 </ul>
@@ -1180,8 +1182,8 @@ F--&gt;K[应用E]
 <ul>
 <li>e.g:</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP SCHEMA &#x3C;模式名> &#x3C;CASCADE|RESTRICT></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> SCHEMA</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">模式名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">CASCADE|RESTRICT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li><code>CASCADE</code>：删除模式的同时把该模式中所有的数据库对象全部删除</li>
 <li><code>RESTRICT</code>：如果该模式中定义了下属的数据库对象（如表、视图等），则拒绝该删除语句的执行
@@ -1195,12 +1197,12 @@ F--&gt;K[应用E]
 <ul>
 <li>基本格式：</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE&#x3C;表名></span></span>
-<span class="line"><span>(&#x3C;列名>&#x3C;数据类型>[&#x3C;列级完整性约束条件>]</span></span>
-<span class="line"><span>[,&#x3C;列名>&#x3C;数据类型>[&#x3C;列级完整性约束条件>]]</span></span>
-<span class="line"><span>…</span></span>
-<span class="line"><span>[,&#x3C;表级完整性约束条件>]);</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TABLE</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">列名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">数据类型</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[&#x3C;列级完整性约束条件>]</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[,&#x3C;列名>&#x3C;数据类型>[&#x3C;列级完整性约束条件>]]</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">…</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[,&#x3C;表级完整性约束条件>]);</span></span>
+<span class="line"></span></code></pre></div>
 <h5 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h5>
 <ul>
 <li>
@@ -1302,8 +1304,8 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="建立索引"><a class="markdownIt-Anchor" href="#建立索引"></a> 建立索引</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE \[ UNIQUE \]\[ CLUSTER \] INDEX &#x3C;索引名> ON &#x3C;表名>(&#x3C;列名>\[&#x3C;次序>\]\[ ,&#x3C;列名>\[&#x3C;次序>\]\]…)</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> \[ UNIQUE \]\[ CLUSTER \] </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INDEX</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">索引名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> ON</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">列名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">\[&#x3C;次序>\]\[ ,&#x3C;列名>\[&#x3C;次序>\]\]…)</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>
 <p>&lt;表名&gt;：要建索引的基本表的名字</p>
@@ -1322,11 +1324,11 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="修改索引"><a class="markdownIt-Anchor" href="#修改索引"></a> 修改索引</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER INDEX &#x3C;旧索引名> RENAME TO &#x3C;新索引名></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ALTER</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> INDEX</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">旧索引名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> RENAME </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">TO</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">新索引名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <h5 id="删除索引"><a class="markdownIt-Anchor" href="#删除索引"></a> 删除索引</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP INDEX &#x3C;索引名></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> INDEX</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">索引名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="数据字典"><a class="markdownIt-Anchor" href="#数据字典"></a> 数据字典</h4>
 <ul>
 <li>数据字典：是关系数据库管理系统内部的一组系统表，它记录了数据库中所有定义信息
@@ -1486,19 +1488,19 @@ F--&gt;K[应用E]
 <li>子查询不仅可以出现在 <code>WHERE</code> 子句中，<strong>还可以出现在 <code>FROM</code>子句中</strong>，这时子查询生成的<strong>临时派生表</strong>成为主查询的查询对象</li>
 </ul>
 <h4 id="select-语句的一般格式"><a class="markdownIt-Anchor" href="#select-语句的一般格式"></a> SELECT 语句的一般格式</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT [ ALL | DISTINCT ]&#x3C;目标列表达式>[,&#x3C;目标列表达式>]…</span></span>
-<span class="line"><span>FROM &#x3C;表名或视图名>[ ,&#x3C;表名或视图名>]…|( SELECT 语句)</span></span>
-<span class="line"><span>[ AS ]&#x3C;别名></span></span>
-<span class="line"><span>[ WHERE &#x3C;条件表达式>]</span></span>
-<span class="line"><span>[ GROUP BY&#x3C;列名1>[ HAVING &#x3C;条件表达式>]]</span></span>
-<span class="line"><span>[ ORDER BY&#x3C;列名2>[ ASC | DESC ]];</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> [ ALL | DISTINCT ]</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">目标列表达式</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[,&#x3C;目标列表达式>]…</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FROM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名或视图名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[ ,&#x3C;表名或视图名>]…|( </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 语句)</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[ AS ]</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">别名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[ WHERE &#x3C;条件表达式>]</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[ GROUP BY&#x3C;列名1>[ HAVING &#x3C;条件表达式>]]</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[ ORDER BY&#x3C;列名2>[ ASC | DESC ]];</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="select的一些特别用法"><a class="markdownIt-Anchor" href="#select的一些特别用法"></a> SELECT的一些特别用法</h4>
 <ul>
 <li><code>CASE WHEN</code>：条件返回</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT sname, (CASE sdeptwhen 'CS' THEN '计算机' WHEN 'IS' THEN '信息' ELSE '其他' END) AS DEPT FROM student;</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> sname, (</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CASE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> sdeptwhen </span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">'CS'</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> THEN</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> '计算机'</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> WHEN</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> 'IS'</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> THEN</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> '信息'</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> ELSE</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> '其他'</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> END</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">AS</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> DEPT </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FROM</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> student;</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>
 <p><code>TOP</code>, <code>LIMIT</code> or <code>ROWNUM</code> ：返回查询结果集的前 N 条记录</p>
@@ -1507,9 +1509,9 @@ F--&gt;K[应用E]
 <p><code>WITH … AS</code>：定义一个临时作用域，便于随后的查询引用，类似临时表/视图</p>
 </li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>WITH qry AS ( SELECT * FROM student NATURAL JOIN scNATURAL JOIN course) </span></span>
-<span class="line"><span>SELECT sno, sname, cname, grade FROM qry;</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">WITH</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> qry </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">AS</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> ( </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> *</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FROM</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> student </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">NATURAL JOIN</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> scNATURAL </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">JOIN</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> course) </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> sno, sname, cname, grade </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FROM</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> qry;</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>Oracle<code>CONNECT BY</code> 层次遍历
 <ul>
@@ -1518,15 +1520,15 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <p>正序：</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT cno, cpno, level, cnamefrom D9_COURSE </span></span>
-<span class="line"><span>START WITH cno=1 CONNECT BY cno= prior cpno</span></span>
-<span class="line"><span>ORDER BY level</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno, cpno, </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">level</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">, cnamefrom D9_COURSE </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">START</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> WITH</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">1</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> CONNECT</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> BY</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> prior</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cpno</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ORDER BY</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> level</span></span>
+<span class="line"></span></code></pre></div>
 <p>逆序：</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>SELECT cno, cpno, level, cnamefrom D9_COURSE</span></span>
-<span class="line"><span>START WITH cno=6 CONNECT by prior cno= cpno</span></span>
-<span class="line"><span>ORDER BY level</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno, cpno, </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">level</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">, cnamefrom D9_COURSE</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">START</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> WITH</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">6</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> CONNECT</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> by</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> prior</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cno</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">=</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cpno</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ORDER BY</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> level</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="数据更新"><a class="markdownIt-Anchor" href="#数据更新"></a> 数据更新</h3>
 <h4 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h4>
 <ul>
@@ -1538,48 +1540,46 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h5 id="插入元组"><a class="markdownIt-Anchor" href="#插入元组"></a> 插入元组</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT</span></span>
-<span class="line"><span>INTO &#x3C;表名> [(&#x3C;属性列1>[,&#x3C;属性列2 >…)]</span></span>
-<span class="line"><span>VALUES (&#x3C;常量1> [,&#x3C;常量2>]… )</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INSERT</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INTO</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> [(&#x3C;属性列1>[,&#x3C;属性列2 >…)]</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">VALUES</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> (</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">常量1</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> [,&#x3C;常量2>]… )</span></span>
+<span class="line"></span></code></pre></div>
 <h5 id="插入子查询结果"><a class="markdownIt-Anchor" href="#插入子查询结果"></a> 插入子查询结果</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT</span></span>
-<span class="line"><span>INTO &#x3C;表名> [(&#x3C;属性列1> [,&#x3C;属性列2>… )]</span></span>
-<span class="line"><span>子查询;</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INSERT</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INTO</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> [(&#x3C;属性列1> [,&#x3C;属性列2>… )]</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">子查询;</span></span>
+<span class="line"></span></code></pre></div>
 <h5 id="复制表结构数据"><a class="markdownIt-Anchor" href="#复制表结构数据"></a> 复制表结构/数据</h5>
 <ul>
 <li>
 <p>MySQL</p>
 <ul>
-<li>
-<p>复制表结构</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE SC_2 LIKE SC</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>复制表结构和数据</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TABLE SC_2 SELECT * FROM SC</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>复制数据</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>INSERT INTO SC_2 SELECT * FROM SC</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
+<li>复制表结构</li>
 </ul>
 </li>
 </ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TABLE</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> SC_2</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> LIKE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> SC</span></span>
+<span class="line"></span></code></pre></div>
+<ul>
+<li>复制表结构和数据</li>
+</ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TABLE</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> SC_2</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> SELECT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> *</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FROM</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> SC</span></span>
+<span class="line"></span></code></pre></div>
+<ul>
+<li>复制数据</li>
+</ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">INSERT INTO</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> SC_2 </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SELECT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> *</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FROM</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> SC</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>UPDATE &#x3C;表名></span></span>
-<span class="line"><span>SET &#x3C;列名>=&#x3C;表达式>[,&#x3C;列名>=&#x3C;表达式>]…</span></span>
-<span class="line"><span>[WHERE &#x3C;条件>];</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">UPDATE</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SET</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">列名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>=&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表达式</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[,&#x3C;列名>=&#x3C;表达式>]…</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[WHERE &#x3C;条件>];</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DELETE</span></span>
-<span class="line"><span>FROM&#x3C;表名></span></span>
-<span class="line"><span>[WHERE&#x3C;条件>]</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DELETE</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FROM</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[WHERE&#x3C;条件>]</span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="空值的处理"><a class="markdownIt-Anchor" href="#空值的处理"></a> 空值的处理</h3>
 <ul>
 <li>空值的产生：插入元组的部分属性为空；外连接；空值的关系运算</li>
@@ -1607,18 +1607,18 @@ F--&gt;K[应用E]
 </ul>
 <h4 id="定义视图"><a class="markdownIt-Anchor" href="#定义视图"></a> 定义视图</h4>
 <h5 id="建立视图"><a class="markdownIt-Anchor" href="#建立视图"></a> 建立视图</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE VIEW</span></span>
-<span class="line"><span>&#x3C;视图名> [(&#x3C;列名> [,&#x3C;列名>]…)]</span></span>
-<span class="line"><span>AS&#x3C;子查询></span></span>
-<span class="line"><span>[WITH CHECK OPTION]</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> VIEW</span></span>
+<span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">视图名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> [(&#x3C;列名> [,&#x3C;列名>]…)]</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">AS</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">子查询</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[WITH CHECK OPTION]</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li><code>WITH CHECK OPTION</code> 表示对视图进行 <code>UPDATE</code>，<code>INSERT</code>，<code>DELETE</code> 操作时要保证更新的行<strong>仍然满足视图定义中子查询的条件表达式</strong></li>
 <li>行列子集视图：一个视图是从<strong>单个基本表</strong>导出的，并且只是去掉了基本表的某些行和某些列，但<strong>保留了主码</strong></li>
 </ul>
 <h5 id="删除视图"><a class="markdownIt-Anchor" href="#删除视图"></a> 删除视图</h5>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP VIEW &#x3C;视图名>[CASCADE]</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> VIEW</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">视图名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[CASCADE]</span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>如果该视图上还导出了其他视图，使用 <code>CASCADE</code> 级联删除语句，把该视图和由它导出的所有视图一起删除</li>
 <li>删除基表时，由该基表导出的所有视图定义都必须显式地使用 <code>DROP VIEW</code> 语句删除</li>
@@ -1735,8 +1735,8 @@ F--&gt;K[应用E]
 <ol>
 <li>完整性约束命名子句</li>
 </ol>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CONSTRAINT &#x3C;完整性约束条件名>&#x3C;完整性约束条件></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CONSTRAINT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">完整性约束条件名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">>&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">完整性约束条件</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>&lt;完整性约束条件&gt;包括 <code>NOT NULL</code>、<code>UNIQUE</code>、<code>PRIMARY KEY</code> 短语、<code>FOREIGN KEY</code> 短语、<code>CHECK</code> 短语等</li>
 </ul>
@@ -1746,8 +1746,8 @@ F--&gt;K[应用E]
 <ul>
 <li>
 <p>eg：</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER TABLE Student DROP CONSTRAINT C4</span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ALTER</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TABLE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> Student </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> CONSTRAINT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> C4</span></span>
+<span class="line"></span></code></pre></div>
 </li>
 </ul>
 <h3 id="断言"><a class="markdownIt-Anchor" href="#断言"></a> 断言</h3>
@@ -1755,19 +1755,19 @@ F--&gt;K[应用E]
 <li>断言：任何对断言中所涉及的关系的操作都会触发关系数据库管理系统对断言的检查，任何使<strong>断言不为真值</strong>的操作都会<strong>被拒绝执行</strong></li>
 </ul>
 <h4 id="创建断言"><a class="markdownIt-Anchor" href="#创建断言"></a> 创建断言</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE ASSERTION &#x3C;断言名> &#x3C;CHECK 子句></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> ASSERTION </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">断言名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CHECK</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 子句</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="删除断言"><a class="markdownIt-Anchor" href="#删除断言"></a> 删除断言</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP ASSERTION &#x3C;断言名></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> ASSERTION </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">断言名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <h3 id="触发器"><a class="markdownIt-Anchor" href="#触发器"></a> 触发器</h3>
 <h4 id="定义触发器"><a class="markdownIt-Anchor" href="#定义触发器"></a> 定义触发器</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE TRIGGER &#x3C;触发器名></span></span>
-<span class="line"><span>{BEFORE  | AFTER} &#x3C;触发事件> ON &#x3C;表名></span></span>
-<span class="line"><span>REFERENCING NEW|OLD ROW AS&#x3C;变量></span></span>
-<span class="line"><span>FOR EACH {ROW | STATEMENT}</span></span>
-<span class="line"><span>[WHEN &#x3C;触发条件>] &#x3C;触发动作体></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> TRIGGER </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">触发器名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">{</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">BEFORE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">  | </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">AFTER</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">} </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">触发事件</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> ON</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">REFERENCING NEW|OLD </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ROW</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> AS</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">变量</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FOR</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> EACH {</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ROW</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> | </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">STATEMENT</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">}</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">[WHEN &#x3C;触发条件>] </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">触发动作体</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <ul>
 <li>
 <p>当特定的系统事件发生时，对规则的条件进行检查，如果条件成立则执行规则中的动作，否则不执行该动作</p>
@@ -1829,8 +1829,8 @@ F--&gt;K[应用E]
 </li>
 </ul>
 <h4 id="删除触发器"><a class="markdownIt-Anchor" href="#删除触发器"></a> 删除触发器</h4>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP TRIGGER &#x3C;触发器名> ON &#x3C;表名></span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TRIGGER</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">触发器名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> ON</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">表名</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
 <h2 id="关系数据理论"><a class="markdownIt-Anchor" href="#关系数据理论"></a> 关系数据理论</h2>
 <h3 id="问题的提出"><a class="markdownIt-Anchor" href="#问题的提出"></a> 问题的提出</h3>
 <ul>
@@ -1950,7 +1950,7 @@ F--&gt;K[应用E]
 <h3 id="3nf"><a class="markdownIt-Anchor" href="#3nf"></a> 3NF</h3>
 <ul>
 <li>
-<p>设关系模式  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>，若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 中<strong>不存在</strong>这样的码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span>、属性组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> 及非主属性 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Z</mi><mo stretchy="false">(</mo><mi>Z</mi><mo>⊇</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Z(Z \supseteq Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊇</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>, 使得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\rightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>，Y\rightarrowZ 成立，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Y\rightarrow X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 不成立，则称 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>∈</mo><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span></p>
+<p>设关系模式  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span>，若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 中<strong>不存在</strong>这样的码 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span>、属性组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> 及非主属性 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Z</mi><mo stretchy="false">(</mo><mi>Z</mi><mo>⊇</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Z(Z \supseteq Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊇</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span>, 使得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\rightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">Y\rightarrow Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">Z</span></span></span></span> 成立，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Y\rightarrow X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 不成立，则称 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>∈</mo><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span></span></span></span></p>
 </li>
 <li>
 <p>解决非主属性之间的依赖关系</p>
@@ -2277,16 +2277,16 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>执行部分</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>BEGIN</span></span>
-<span class="line"><span>   SQL语句、过程化 SQL 的流程控制语句</span></span>
-<span class="line"><span>EXCEPTION</span></span>
-<span class="line"><span>   异常处理部分</span></span>
-<span class="line"><span>END;   </span></span>
-<span class="line"><span></span></span></code></pre></div>
 </li>
 </ul>
 </li>
 </ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">BEGIN</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">   SQL语句、过程化 </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SQL</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 的流程控制语句</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">EXCEPTION</span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">   异常处理部分</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">END</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">;</span></span>
+<span class="line"></span></code></pre></div>
 <h4 id="变量和常量的定义"><a class="markdownIt-Anchor" href="#变量和常量的定义"></a> 变量和常量的定义</h4>
 <ul>
 <li>变量定义</li>
@@ -2347,27 +2347,25 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <li>
 <p>存储过程的用户接口</p>
 <ol>
-<li>
-<p>创建存储过程</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE OR REPLACE PROCEDURE 过程名([参数1,参数2,...]) AS&#x3C;过程 SQL 块></span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>执行存储过程</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CALL/PERFORM PROCEDURE  过程名([参数1,参数2,...])</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>修改存储过程</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER PROCEDURE 过程1 RENAME TO 过程2</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>删除存储过程</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>DROP PROCEDURE 过程名</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
+<li>创建存储过程</li>
 </ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> OR</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> REPLACE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> PROCEDURE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 过程名([参数1,参数2,...]) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">AS</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">过程 </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SQL</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 块</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
+<ol start="2">
+<li>执行存储过程</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CALL</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">/</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">PERFORM </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">PROCEDURE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">  过程名([参数1,参数2,...])</span></span>
+<span class="line"></span></code></pre></div>
+<ol start="3">
+<li>修改存储过程</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ALTER</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> PROCEDURE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 过程1 RENAME </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">TO</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 过程2</span></span>
+<span class="line"></span></code></pre></div>
+<ol start="4">
+<li>删除存储过程</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">DROP</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> PROCEDURE</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 过程名</span></span>
+<span class="line"></span></code></pre></div>
 </li>
 </ul>
 <h4 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h4>
@@ -2375,27 +2373,25 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 <li>
 <p>函数：和存储过程一样，都是<strong>持久性存储模块</strong>，但是函数<strong>必须指定返回的类型</strong></p>
 <ol>
-<li>
-<p>创建函数</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CREATE OR REPLACE FUNCTION 函数名([参数1,参数2,...]) RETURNS &#x3C;类型> AS&#x3C;过程 SQL 块></span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>执行存储过程</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>CALL/PERFORM FUNCTION  函数名([参数1,参数2,...])</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>修改函数名</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER FUNCTION 函数名1 RENAME TO 函数名2</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
-<li>
-<p>重新编译</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>ALTER FUNCTION 函数名 COMLIPE</span></span>
-<span class="line"><span></span></span></code></pre></div>
-</li>
+<li>创建函数</li>
 </ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CREATE OR REPLACE</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FUNCTION</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> 函数名</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">([参数1,参数2,...]) </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">RETURNS</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">类型</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> AS</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">过程 </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">SQL</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 块</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"></span></code></pre></div>
+<ol start="2">
+<li>执行存储过程</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">CALL</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">/</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">PERFORM </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">FUNCTION</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">  函数名([参数1,参数2,...])</span></span>
+<span class="line"></span></code></pre></div>
+<ol start="3">
+<li>修改函数名</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ALTER</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FUNCTION</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 函数名1 RENAME </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">TO</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 函数名2</span></span>
+<span class="line"></span></code></pre></div>
+<ol start="4">
+<li>重新编译</li>
+</ol>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">ALTER</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> FUNCTION</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 函数名 COMLIPE</span></span>
+<span class="line"></span></code></pre></div>
 </li>
 </ul>
 <h2 id="关系查询处理和查询优化"><a class="markdownIt-Anchor" href="#关系查询处理和查询优化"></a> 关系查询处理和查询优化</h2>
@@ -2549,11 +2545,11 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
 </li>
 <li>
 <p>事务定义</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="mysql"><code><span class="line"><span>BEGIN TRANSACTION                </span></span>
-<span class="line"><span>    SQL 语句1                                         </span></span>
-<span class="line"><span>    SQL 语句2                                                                                    </span></span>
-<span class="line"><span>COMMIT / ROLLBACK                                         </span></span>
-<span class="line"><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">BEGIN</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> TRANSACTION</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">                </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    SQL</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 语句1                                         </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    SQL</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> 语句2                                                                                    </span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">COMMIT</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> /</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> ROLLBACK</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">                                         </span></span>
+<span class="line"></span></code></pre></div>
 </li>
 <li>
 <p>事务结束</p>
@@ -2877,7 +2873,7 @@ D--消除非平凡且非函数依赖的多值依赖--&gt;E[4NF]
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2026年5月10日</div>
+          <div>2026年9月9日</div>
         </div>
       
       

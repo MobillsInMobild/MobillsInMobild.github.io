@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/2021%20%E7%BA%A2%E6%98%8E%E8%B0%B7%20Misc%20Writeup.jpg">
 <meta property="article:published_time" content="2021-04-15T02:19:04.000Z">
-<meta property="article:modified_time" content="2025-12-28T13:40:57.389Z">
+<meta property="article:modified_time" content="2026-09-09T15:02:11.555Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="Misc">
@@ -41,6 +41,8 @@
   
   
   <title>2021 红明谷 Misc Writeup - 动中之动</title>
+
+  
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -73,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1.5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -377,7 +379,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.2k 字
+          9.4k 字
         
       </span>
     
@@ -388,7 +390,7 @@
         
         
         
-          78 分钟
+          79 分钟
         
       </span>
     
@@ -440,7 +442,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年12月28日 晚上
+                    本文最后更新于 2026年9月9日 晚上
                   
                 
               </p>
@@ -525,6 +527,10 @@
 </li>
 <li>
 <p>根据官方 writeup，这是简单 FFT，其 payload 如下：（然而这道题改了，这样跑不出结果）</p>
+</li>
+</ul>
+</li>
+</ul>
 <div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="python"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">import</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cv2 </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">as</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> cv</span></span>
 <span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">import</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> numpy </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">as</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> np</span></span>
 <span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">import</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> matplotlib</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">pyplot </span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">as</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> plt</span></span>
@@ -540,32 +546,20 @@
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">plt</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">title</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">(</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">'center'</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">plt</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">show</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">()</span></span>
 <span class="line"></span></code></pre></div>
-<ul>
-<li>这里需要使用 Java 盲水印：</li>
-</ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>- 这里需要使用 Java 盲水印：</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">java</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> -jar</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> .</span><span style="--shiki-light:#EA76CB;--shiki-dark:#F5C2E7">\B</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">lindWatermark.jar</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> decode</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> -c</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> .</span><span style="--shiki-light:#EA76CB;--shiki-dark:#F5C2E7">\b</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">ingbing.jpg</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> clue.jpg</span></span>
 <span class="line"></span></code></pre></div>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>- Java 盲水印的工具：[BlindWatermark](https://github.com/ww23/BlindWatermark)</span></span>
+<span class="line"><span>  ![bingbing](/img/post/2021红明谷MiscWriteup/bingbing.png)</span></span>
+<span class="line"><span>  ![blindwatermark](/img/post/2021红明谷MiscWriteup/blindwatermark.png)</span></span>
+<span class="line"><span></span></span></code></pre></div>
 <ul>
-<li>Java 盲水印的工具：<a target="_blank" rel="noopener" href="https://github.com/ww23/BlindWatermark">BlindWatermark</a><br />
-<img src="/img/post/2021%E7%BA%A2%E6%98%8E%E8%B0%B7MiscWriteup/bingbing.png" srcset="/img/loading.gif" lazyload alt="bingbing" /><br />
-<img src="/img/post/2021%E7%BA%A2%E6%98%8E%E8%B0%B7MiscWriteup/blindwatermark.png" srcset="/img/loading.gif" lazyload alt="blindwatermark" /></li>
-</ul>
-</li>
-<li>
-<p>得到压缩包密码：<code>gnibgnib</code></p>
-</li>
-<li>
-<p>打开压缩包，获得 <code>bingbing.pcapng</code><br />
-<img src="/img/post/2021%E7%BA%A2%E6%98%8E%E8%B0%B7MiscWriteup/bingbingpcap.png" srcset="/img/loading.gif" lazyload alt="bingbingpcap" /></p>
-</li>
-<li>
-<p>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></p>
-</li>
-<li>
-<p>Hex 转 ascii 得到flag</p>
-</li>
-</ul>
-</li>
+<li>得到压缩包密码：<code>gnibgnib</code></li>
+<li>打开压缩包，获得 <code>bingbing.pcapng</code><br />
+<img src="/img/post/2021%E7%BA%A2%E6%98%8E%E8%B0%B7MiscWriteup/bingbingpcap.png" srcset="/img/loading.gif" lazyload alt="bingbingpcap" /></li>
+<li>USB键盘流量，使用 tshark + <a target="_blank" rel="noopener" href="https://github.com/WangYihang/UsbKeyboardDataHacker">USB Keyboard Data Hacker</a> 得到 <code>666c61677b38663965643266393333656631346138643035323364303334396531323939637d</code></li>
+<li>Hex 转 ascii 得到flag</li>
 </ul>
 <h2 id="歪比歪比"><a class="markdownIt-Anchor" href="#歪比歪比"></a> 歪比歪比</h2>
 <ul>
@@ -810,7 +804,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年12月28日</div>
+          <div>2026年9月9日</div>
         </div>
       
       

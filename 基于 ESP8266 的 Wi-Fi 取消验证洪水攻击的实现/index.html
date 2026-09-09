@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E5%9F%BA%E4%BA%8E%20ESP8266%20%E7%9A%84%20Wi-Fi%20%E5%8F%96%E6%B6%88%E9%AA%8C%E8%AF%81%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB%E7%9A%84%E5%AE%9E%E7%8E%B0.jpg">
 <meta property="article:published_time" content="2021-01-01T02:19:04.000Z">
-<meta property="article:modified_time" content="2025-12-28T13:51:40.212Z">
+<meta property="article:modified_time" content="2026-09-09T15:02:11.567Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="Wi-Fi">
 <meta property="article:tag" content="NodeMCU">
@@ -40,6 +40,8 @@
   
   
   <title>基于 ESP8266 的 Wi-Fi 取消验证洪水攻击的实现 - 动中之动</title>
+
+  
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1.5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -439,7 +441,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年12月28日 晚上
+                    本文最后更新于 2026年9月9日 晚上
                   
                 
               </p>
@@ -608,8 +610,10 @@
 <li>
 <p>Attack.h 和 Attack.cpp 涉及攻击，这里仅分析 Wi-Fi 取消验证洪水攻击的实现</p>
 <ul>
-<li>
-<p>Attack.h 中的 deauth 攻击数据包 deauthPacket[26] 的结构如下，这个攻击数据包中包含有包的类型，包的发送的对象以及伪造的接收方及发送方的信息，以及最后的封包序列号和原因码。</p>
+<li>Attack.h 中的 deauth 攻击数据包 deauthPacket[26] 的结构如下，这个攻击数据包中包含有包的类型，包的发送的对象以及伪造的接收方及发送方的信息，以及最后的封包序列号和原因码。</li>
+</ul>
+</li>
+</ul>
 <div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">int8_t</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> deauthPacket</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">[</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">26</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">]</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> =</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    /*  0 - 1  */</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">C0</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">00</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">                         // type, subtype c0: deauth (a0: disassociate)</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    /*  2 - 3  */</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">00</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">00</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">                         // duration (SDK takes care of that)</span></span>
@@ -620,9 +624,9 @@
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">    /* 24 - 25 */</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">01</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> 0x</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387">00</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">  // reason code (1 = unspecified reason)</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">};</span></span>
 <span class="line"></span></code></pre></div>
-</li>
-<li>
-<p>Attack.cpp 的 deauth 攻击的主要代码，它是利用 memcpy 函数来修改 deauthPacket 中不同位置的值来伪造包，不断发送伪造包从而进行 deauth 攻击的。</p>
+<ul>
+<li>Attack.cpp 的 deauth 攻击的主要代码，它是利用 memcpy 函数来修改 deauthPacket 中不同位置的值来伪造包，不断发送伪造包从而进行 deauth 攻击的。</li>
+</ul>
 <div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="c"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">bool</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> Attack::</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">deauthDevice</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">(</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">uint8_t</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">*</span><span style="--shiki-light:#E64553;--shiki-light-font-style:italic;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic"> apMac</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> uint8_t</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">*</span><span style="--shiki-light:#E64553;--shiki-light-font-style:italic;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic"> stMac</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> uint8_t</span><span style="--shiki-light:#E64553;--shiki-light-font-style:italic;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic"> reason</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">,</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> uint8_t</span><span style="--shiki-light:#E64553;--shiki-light-font-style:italic;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic"> ch</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
 <span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">    if</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> (</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">!</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">stMac</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> return</span><span style="--shiki-light:#D20F39;--shiki-dark:#F38BA8"> false</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span><span style="--shiki-light:#7C7F93;--shiki-light-font-style:italic;--shiki-dark:#9399B2;--shiki-dark-font-style:italic">  // exit when station mac is null</span></span>
 <span class="line"></span>
@@ -683,10 +687,6 @@
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
 <span class="line"></span>
 <span class="line"></span></code></pre></div>
-</li>
-</ul>
-</li>
-</ul>
 <h2 id="实例展示"><a class="markdownIt-Anchor" href="#实例展示"></a> 实例展示</h2>
 <ul>
 <li>
@@ -794,7 +794,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年12月28日</div>
+          <div>2026年9月9日</div>
         </div>
       
       

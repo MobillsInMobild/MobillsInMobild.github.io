@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://justloseit.top/img/index/%E6%B5%85%E8%B0%88GOROOT%E3%80%81GOPATH%E3%80%81Package%E3%80%81Project%E4%B8%8EWorkspace.png">
 <meta property="article:published_time" content="2020-10-25T02:19:04.000Z">
-<meta property="article:modified_time" content="2022-11-21T12:37:27.213Z">
+<meta property="article:modified_time" content="2026-09-09T15:04:43.130Z">
 <meta property="article:author" content="Mobilis In Mobili">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Golang">
@@ -40,6 +40,8 @@
   
   
   <title>浅谈GOROOT、GOPATH、Package、Project与Workspace - 动中之动</title>
+
+  
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"ui":{"search":{"loading":"正在加载搜索索引…","prompt":"输入关键词搜索文章","error":"搜索加载失败，请重试","retry":"重新加载","empty":"没有找到匹配的文章","count":"找到 {count} 篇文章","more":"显示更多"},"copy":"复制代码","copied":"已复制","copyFailed":"复制失败，请选中代码后手动复制","tocExpand":"展开章节","tocCollapse":"收起章节"},"hostname":"justloseit.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":1.5},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"snI2XNrHrhyx5g84m3Uim3EC-gzGzoHsz","app_key":"x2YseXJIHmvnsM4v9y9UAlvu","server_url":"https://sni2xnrh.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -439,7 +441,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2022年11月21日 晚上
+                    本文最后更新于 2026年9月9日 晚上
                   
                 
               </p>
@@ -485,16 +487,18 @@
 <li>
 <p><strong><code>go get</code> 下载的包一般会保存在这里</strong></p>
 <ul>
-<li>
-<p>由于<code>go get</code>  一般使用的是 git 的线路，需要设置 <strong>Git 的代理</strong></p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>git config --global http.proxy ProxyAddress </span></span>
-<span class="line"><span>git config --global https.proxy ProxyAddress </span></span>
+<li>由于<code>go get</code>  一般使用的是 git 的线路，需要设置 <strong>Git 的代理</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>git config --global http.proxy ProxyAddress</span></span>
+<span class="line"><span>git config --global https.proxy ProxyAddress</span></span>
 <span class="line"><span></span></span></code></pre></div>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
 <li>
 <p><code>pkg</code> 是存储<strong>预编译目标文件</strong>的地方，以加速程序的后续编译，可以安全地删除</p>
 </li>
@@ -502,8 +506,6 @@
 <p><code>bin</code> 是存放 <code>go install</code> 编译后生成的<strong>可执行文件</strong>的地方</p>
 <ul>
 <li>为了方便，可以将此工作空间的 <code>bin</code> 子目录添加到你的 <code>PATH</code> 中</li>
-</ul>
-</li>
 </ul>
 </li>
 <li>
@@ -553,11 +555,13 @@
 </li>
 <li>
 <p><code>red</code> 包的 import 语句为</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="go"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">import</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> "blue/red/green"</span></span>
-<span class="line"></span></code></pre></div>
 </li>
 </ul>
 </li>
+</ul>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="go"><code><span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">import</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> "blue/red/green"</span></span>
+<span class="line"></span></code></pre></div>
+<ul>
 <li>
 <p>每个 <code>.go</code>文件都属于且仅属于一个包，必须在源文件中非注释的第一行指明这个文件属于哪个包，如：<code>package ABC</code>。</p>
 <ul>
@@ -660,7 +664,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月21日</div>
+          <div>2026年9月9日</div>
         </div>
       
       

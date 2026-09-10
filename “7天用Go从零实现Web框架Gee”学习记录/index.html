@@ -344,7 +344,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banner/%E2%80%9C7%E5%A4%A9%E7%94%A8Go%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0Web%E6%A1%86%E6%9E%B6Gee%E2%80%9D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.jpg?eo-img.resize=w/1920&eo-img.format=webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -378,7 +378,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.7k 字
+          5.6k 字
         
       </span>
     
@@ -534,7 +534,7 @@
 </ul>
 <h4 id="具体实现"><a class="markdownIt-Anchor" href="#具体实现"></a> 具体实现</h4>
 <ul>
-<li>使用 <code>map[string]interface&#123;&#125;</code> 保存 JSON 数据，因为<strong>空接口类型可以保存任何值，也可以从空接口中取出原值</strong>，一种非常灵活的数据抽象保存和使用的方法。</li>
+<li>使用 <code>map[string]interface{}</code> 保存 JSON 数据，因为<strong>空接口类型可以保存任何值，也可以从空接口中取出原值</strong>，一种非常灵活的数据抽象保存和使用的方法。</li>
 <li><code>json.NewEncoder</code> 在<strong>流</strong>中进行编码，<code>json.Marshal</code> 对 <strong>[]byte</strong> 进行编码。</li>
 </ul>
 <h3 id="路由router"><a class="markdownIt-Anchor" href="#路由router"></a> 路由（Router）</h3>
@@ -684,7 +684,7 @@
 <span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7">func</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> (</span><span style="--shiki-light:#E64553;--shiki-light-font-style:italic;--shiki-dark:#EBA0AC;--shiki-dark-font-style:italic">c </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">*</span><span style="--shiki-light:#DF8E1D;--shiki-light-font-style:italic;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">Context</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> Next</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">()</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">index</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">++</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> s </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">:=</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic"> len</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">(</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">handlers</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span></span>
-<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> for</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> ;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">index </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> s</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">index</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">++</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
+<span class="line"><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> for</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> ;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">index </span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&lt;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> s</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4"> c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">index</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">++</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">  c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">handlers</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">[</span><span style="--shiki-light:#DF8E1D;--shiki-light-font-style:italic;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">.</span><span style="--shiki-light:#DF8E1D;--shiki-light-font-style:italic;--shiki-dark:#F9E2AF;--shiki-dark-font-style:italic">index</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">](</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">c</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">)</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> }</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>

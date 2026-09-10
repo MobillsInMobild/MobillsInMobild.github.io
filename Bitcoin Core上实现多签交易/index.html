@@ -345,7 +345,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banner/Bitcoin%20Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93.jpg?eo-img.resize=w/1920&eo-img.format=webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -460,7 +460,7 @@
 </ul>
 <h3 id="配置文件"><a class="markdownIt-Anchor" href="#配置文件"></a> 配置文件</h3>
 <ul>
-<li>用 <code>netstat -ano|findstr &quot;port&quot;</code> 查看端口是否被占用，若没有则可设置为 <code>port</code> 和 <code>rpcport</code></li>
+<li>用 <code>netstat -ano|findstr "port"</code> 查看端口是否被占用，若没有则可设置为 <code>port</code> 和 <code>rpcport</code></li>
 </ul>
 <h4 id="alice"><a class="markdownIt-Anchor" href="#alice"></a> alice</h4>
 <ul>
@@ -586,8 +586,8 @@
 <ul>
 <li>从 qt 客户端的 文件&gt;正在接收地址 中复制当前钱包的一个地址（<strong>不是标签</strong>），然后运用下列命令在 qt 控制台中获取对应公钥和私钥</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">validateaddress</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">addres</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">s</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
-<span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dumpprivatekey</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">addres</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">s</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">validateaddress</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &lt;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">addres</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">s</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&gt;</span></span>
+<span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">dumpprivatekey</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &lt;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">addres</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">s</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&gt;</span></span>
 <span class="line"></span></code></pre></div>
 <p>​       得到的四个节点的对应公钥、私钥、地址如下：</p>
 <table>
@@ -630,7 +630,7 @@
 <ul>
 <li>在 <code>alice</code> 的控制台中输入以下命令，生成 2 of 3 多重签名</li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">createmultisig</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> n</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &#x3C;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">'["key1","key2",...,"keyn"]'</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">createmultisig</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> n</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> &lt;</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">'["key1","key2",...,"keyn"]'</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&gt;</span></span>
 <span class="line"></span></code></pre></div>
 <p>​       在这里，使用 <code>alice</code>，<code>bob</code>，<code>network</code> 的公钥生成，命令如下：</p>
 <div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="bash"><code><span class="line"><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">createmultisig</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> 2</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1"> '["03c227dd0d3dc063ba152bca22d08459946131a2a02379eb8113c5bb9263d52247","0338c568aff18998f511eabf3c675a3a9596dd71896bc97c939c6a873a43c80dcb","02bf668f096f116ad7a6099227799358a00413467521c9850e688ef9ea18bb86d1"]'</span></span>
@@ -672,7 +672,7 @@
 <ul>
 <li><code>bob</code> 的钱包可以看到交易成功</li>
 </ul>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <h2 id="构建从多签地址向第四节点转账账单"><a class="markdownIt-Anchor" href="#构建从多签地址向第四节点转账账单"></a> 构建从多签地址向第四节点转账账单</h2>
 <ul>
 <li><code>alice</code> 控制台中输入如下命令，从多签地址向 <code>four</code> 转账 6 个 BTC</li>
@@ -711,7 +711,7 @@
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">  ]</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
 <span class="line"></span></code></pre></div>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="alice签名" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="alice签名" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/alice%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li><code>network</code> 签名</li>
 </ul>
@@ -723,7 +723,7 @@
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">  "</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">complete</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">"</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">:</span><span style="--shiki-light:#FE640B;--shiki-dark:#FAB387"> true</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
 <span class="line"></span></code></pre></div>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="network签名" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png" srcset="/img/loading.gif" lazyload alt="network签名" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E7%AD%BE%E5%90%8D.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li><code>bob</code> 发送交易单</li>
 </ul>
@@ -785,12 +785,12 @@
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">}</span></span>
 <span class="line"></span>
 <span class="line"></span></code></pre></div>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功2" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png" srcset="/img/loading.gif" lazyload alt="多签地址转账成功2" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/%E5%A4%9A%E7%AD%BE%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%B4%A6%E6%88%90%E5%8A%9F2.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li>找零地址为 <code>network</code> 的地址，可见源地址没有 BTC 了，找零到了 <code>network</code>，支付了 <code>four</code> 地址 6 BTC，实验完成。</li>
 </ul>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="network钱包" /></p>
-<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="four钱包" /></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="network钱包" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/network%E9%92%B1%E5%8C%85.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
+<p><img src="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png" srcset="/img/loading.gif" lazyload alt="four钱包" data-fluid-srcset="/img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Bitcoin_Core%E4%B8%8A%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AD%BE%E4%BA%A4%E6%98%93/four%E9%92%B1%E5%8C%85.png?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 
                 
               </div>

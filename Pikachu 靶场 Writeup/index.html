@@ -344,7 +344,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banner/Pikachu%20%E9%9D%B6%E5%9C%BA%20Writeup.jpg?eo-img.resize=w/1920&eo-img.format=webp') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -378,7 +378,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7k 字
+          6.9k 字
         
       </span>
     
@@ -389,7 +389,7 @@
         
         
         
-          59 分钟
+          58 分钟
         
       </span>
     
@@ -493,8 +493,8 @@
           </div>
 <ul>
 <li>
-<p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。<br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%BF%94%E5%9B%9E-token.jpg" srcset="/img/loading.gif" lazyload alt="返回 token" /></p>
+<p>抓包，发现<strong>返回包里有 token 的新值</strong>，所以要实现爆破，必须记录在每次发包时使用上次返回包中的 token。<br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%BF%94%E5%9B%9E-token.jpg" srcset="/img/loading.gif" lazyload alt="返回 token" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%BF%94%E5%9B%9E-token.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%BF%94%E5%9B%9E-token.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%BF%94%E5%9B%9E-token.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 </li>
 <li>
 <p>首先要注意的是，必须得用单线程了——否则 token 肯定对不上。除此之外，得设置 token 的 payload 为返回包的 token。</p>
@@ -503,21 +503,21 @@
 <p>单线程直接在 Intruder 模块的 <code>Options--Request Engine--Number of threads</code> 中修改即可。</p>
 </li>
 <li>
-<p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：<br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E6%8F%90%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84-token.jpg" srcset="/img/loading.gif" lazyload alt="提取上一次的 token" /></p>
+<p>每次发包使用上次返回包中的 token,首先抓取返回包中的 token：<br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E6%8F%90%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84-token.jpg" srcset="/img/loading.gif" lazyload alt="提取上一次的 token" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E6%8F%90%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84-token.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E6%8F%90%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84-token.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E6%8F%90%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84-token.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 </li>
 <li>
-<p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。<br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E8%AE%BE%E7%BD%AE-Pitchfork.jpg" srcset="/img/loading.gif" lazyload alt="token 设置 Pitchfork" /><br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E7%AC%AC%E4%BA%8C%E4%B8%AA-payload-%E9%9B%86.jpg" srcset="/img/loading.gif" lazyload alt="第二个 payload 集" /></p>
+<p>Payload 的位置有两个，因此使用 Pitchfork 模式。第一个密码按照之前正常爆破就行；后者需要使用提取的 Token。<br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E8%AE%BE%E7%BD%AE-Pitchfork.jpg" srcset="/img/loading.gif" lazyload alt="token 设置 Pitchfork" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E8%AE%BE%E7%BD%AE-Pitchfork.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E8%AE%BE%E7%BD%AE-Pitchfork.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E8%AE%BE%E7%BD%AE-Pitchfork.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"><br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E7%AC%AC%E4%BA%8C%E4%B8%AA-payload-%E9%9B%86.jpg" srcset="/img/loading.gif" lazyload alt="第二个 payload 集" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E7%AC%AC%E4%BA%8C%E4%B8%AA-payload-%E9%9B%86.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E7%AC%AC%E4%BA%8C%E4%B8%AA-payload-%E9%9B%86.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E7%AC%AC%E4%BA%8C%E4%B8%AA-payload-%E9%9B%86.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 </li>
 <li>
-<p>除此之外，还需要设置重定向，保证发包收包是连续的：<br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91.jpg" srcset="/img/loading.gif" lazyload alt="设置重定向" /></p>
+<p>除此之外，还需要设置重定向，保证发包收包是连续的：<br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91.jpg" srcset="/img/loading.gif" lazyload alt="设置重定向" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%AE%9A%E5%90%91.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 </li>
 <li>
-<p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。<br />
-<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.jpg" srcset="/img/loading.gif" lazyload alt="token 爆破成功" /></p>
+<p>最后爆破成功。可以看到 <code>123456789</code> 的长度也和其他的不一样，这是因为它是爆破数据的第一个，token 是没有正确匹配的。<br>
+<img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.jpg" srcset="/img/loading.gif" lazyload alt="token 爆破成功" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/token-%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 </li>
 </ul>
 <div class="note note-warning">
@@ -529,9 +529,9 @@
 <p>Cross-Site Scripting 简称为“CSS”，为避免与前端叠成样式表冲突，故又称 XSS。</p>
 </li>
 <li>
-<p>一般 XSS 可以分为如下几种常见类型：<br />
-1.反射性 XSS;<br />
-2.存储型 XSS;<br />
+<p>一般 XSS 可以分为如下几种常见类型：<br>
+1.反射性 XSS;<br>
+2.存储型 XSS;<br>
 3.DOM型 XSS;</p>
 </li>
 <li>
@@ -553,7 +553,7 @@
 </ol>
 </li>
 </ul>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>http://localhost/pikachu/vul/xss/xss_reflected_get.php?message=&#x3C;script>alert(/xss/)&#x3C;/script>&#x26;submit=submit#</span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="text"><code><span class="line"><span>http://localhost/pikachu/vul/xss/xss_reflected_get.php?message=&lt;script&gt;alert(/xss/)&lt;/script&gt;&amp;submit=submit#</span></span>
 <span class="line"><span></span></span></code></pre></div>
 <ol start="2">
 <li>删除前端关于字符数限制的 JavaScript 代码</li>
@@ -577,15 +577,15 @@
             <ul> <li>W3C 文档对象模型（DOM）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的<strong>接口</strong>。</li> <li>DOM 型 XSS 是基于 DOM 文档对象模型的一种漏洞。DOM 型 XSS 也能算广义的反射型 XSS，但 DOM 型 XSS 并不会和后台进行交互，仅涉及 Web 前端的安全问题，只能在客户端上进行防御。</li> </ul> 
           </div>
 <ul>
-<li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码 <code>document.getElementById(&quot;dom&quot;).innerHTML = &quot;&lt;a href='&quot;+str+&quot;'&gt;what do you see?&lt;/a&gt;&quot;;</code>，发现是拼接到 <code>&lt;a href=&quot;123&quot;&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href=&quot;&quot; onclick=&quot;alert(/xss/)&quot;&gt;</code>，所以输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code> 即可。</li>
+<li>输入 <code>123</code>，出现 <code>what do you see?</code>。查看源码 <code>document.getElementById("dom").innerHTML = "&lt;a href='"+str+"'&gt;what do you see?&lt;/a&gt;";</code>，发现是拼接到 <code>&lt;a href="123"&gt;what do you see?&lt;/a&gt;</code> 中。需要构造的目标是 <code>&lt;a href="" onclick="alert(/xss/)"&gt;</code>，所以输入 <code>' onclick="alert(/xss/)"&gt;</code> 即可。</li>
 </ul>
 <h3 id="dom-型-xss-x"><a class="markdownIt-Anchor" href="#dom-型-xss-x"></a> DOM 型 xss-x</h3>
 <ul>
-<li>构造方式相同，仍然是输入 <code>' onclick=&quot;alert(/xss/)&quot;&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick=&quot;alert(/xss/)&quot;&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了”，触发 <code>domxss()</code>。</li>
-<li>从源码中可以看出，它重新拼接得到新的链接 <code>&quot;&lt;a href='&quot;+xss+&quot;'&gt;就让往事都随风,都随风吧&lt;/a&gt;&quot;</code>，而点击该链接就会触发 xss。</li>
+<li>构造方式相同，仍然是输入 <code>' onclick="alert(/xss/)"&gt;</code>，输入后 URL 变成 <code>http://localhost/pikachu/vul/xss/xss_dom_x.php?text='+onclick="alert(/xss/)"&gt;</code>，点击“有些费尽心机想要忘记的事情,后来真的就忘掉了”，触发 <code>domxss()</code>。</li>
+<li>从源码中可以看出，它重新拼接得到新的链接 <code>"&lt;a href='"+xss+"'&gt;就让往事都随风,都随风吧&lt;/a&gt;"</code>，而点击该链接就会触发 xss。</li>
 </ul>
 <div class="note note-warning">
-            <ul> <li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li> <li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br /> （飞雷神·二段🥷）</li> </ul> <p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif" srcset="/img/loading.gif" lazyload alt="飞雷神二段" /></p> 
+            <ul> <li>DOM 型 XSS 只在前端,与后端毫无关系。而 DOM-X 型能够像反射型一样在 URL 中体现,将 URL 发给了受害者就能进行攻击。</li> <li>所以 DOM 型 xss 也不是完完全全的鸡肋。<br> （飞雷神·二段🥷）</li> </ul> <p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif" srcset="/img/loading.gif" lazyload alt="飞雷神二段" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/%E9%A3%9E%E9%9B%B7%E7%A5%9E%E4%BA%8C%E6%AE%B5.gif?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p> 
           </div>  
 <h3 id="xss-之盲打"><a class="markdownIt-Anchor" href="#xss-之盲打"></a> xss 之盲打</h3>
 <div class="note note-success">
@@ -604,17 +604,17 @@
           </div>  
 <h3 id="xss-之-htmlspecialchars"><a class="markdownIt-Anchor" href="#xss-之-htmlspecialchars"></a> xss 之 htmlspecialchars</h3>
 <div class="note note-success">
-            <ul> <li>PHP htmlspecialchars() 函数：把预定义的字符转换为 HTML 实体 <ul> <li>&amp; （和号）成为 &amp;amp</li> <li>&quot; （双引号）成为 &amp;quot</li> <li>’ （单引号）成为 &amp;#039</li> <li>&lt; （小于）成为 &amp;lt</li> <li> <blockquote> <p>（大于）成为 &amp;gt</p> </blockquote> </li> </ul> </li> <li>但是，引号类型是<strong>可选的</strong>： <ul> <li>ENT_COMPAT - 默认。仅编码双引号。</li> <li>ENT_QUOTES - 编码双引号和单引号。</li> <li>ENT_NOQUOTES - 不编码任何引号。</li> </ul> </li> </ul> 
+            <ul> <li>PHP htmlspecialchars() 函数：把预定义的字符转换为 HTML 实体 <ul> <li>&amp; （和号）成为 &amp;amp</li> <li>" （双引号）成为 &amp;quot</li> <li>’ （单引号）成为 &amp;#039</li> <li>&lt; （小于）成为 &amp;lt</li> <li> <blockquote> <p>（大于）成为 &amp;gt</p> </blockquote> </li> </ul> </li> <li>但是，引号类型是<strong>可选的</strong>： <ul> <li>ENT_COMPAT - 默认。仅编码双引号。</li> <li>ENT_QUOTES - 编码双引号和单引号。</li> <li>ENT_NOQUOTES - 不编码任何引号。</li> </ul> </li> </ul> 
           </div>
 <ul>
-<li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现仅单引号未过滤，说明是 <code>ENT_COMPAT</code>。构造 <code>' onclick = 'alert(1)'</code> 即可。</li>
+<li>输入 <code>&amp; " ' &lt; &gt;</code> 进行测试，发现仅单引号未过滤，说明是 <code>ENT_COMPAT</code>。构造 <code>' onclick = 'alert(1)'</code> 即可。</li>
 </ul>
 <h3 id="xss-之-href-输出"><a class="markdownIt-Anchor" href="#xss-之-href-输出"></a> xss 之 href 输出</h3>
 <div class="note note-success">
             <ul> <li>JavaScript 伪协议：关联应用程序而使用的协议即为伪协议（对比 HTTP/HTTPS 这种真协议）。该协议声明了 URL 的主体 是 JavaScript 代码，并由 javascript 的解释器运行。</li> <li>大名鼎鼎的 <code>javascript:void(0)</code> 就是典型范例</li> </ul> 
           </div>
 <ul>
-<li>输入 <code>&amp; &quot; ' &lt; &gt;</code> 进行测试，发现全被过滤。所以使用 JavaScript 伪协议 <code>javascript:alert(1)</code> 即可。</li>
+<li>输入 <code>&amp; " ' &lt; &gt;</code> 进行测试，发现全被过滤。所以使用 JavaScript 伪协议 <code>javascript:alert(1)</code> 即可。</li>
 </ul>
 <div class="note note-primary">
             <p>输入 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a> 有彩蛋。❗</p> 
@@ -645,18 +645,18 @@
 <h3 id="csrfpost"><a class="markdownIt-Anchor" href="#csrfpost"></a> CSRF(post)</h3>
 <ul>
 <li>相比于前一题，这里抓包发现是 <code>POST</code> 传参。因此，应该做一个<strong>自动提交表单</strong>的恶意页面挂在服务器上并让受害者触发。当用户点击这个恶意页面的链接时，就会自动向存在 CSRF 的服务器提交 <code>POST</code> 请求修改个人信息。</li>
-<li>看了<a target="_blank" rel="noopener" href="https://www.naraku.cn/posts/25.html">Pikachu漏洞靶场系列之CSRF</a>，这里使用 OWASP 家的工具 <code>CSRFTester</code>。但是实际使用时，我没能成功抓包（<s>Java 一生之敌</s>）。再加之此工具实在太老了……因此，我转而使用了<a target="_blank" rel="noopener" href="https://security.love/CSRF-PoC-Genorator/">CSRF PoC Generator<br />
+<li>看了<a target="_blank" rel="noopener" href="https://www.naraku.cn/posts/25.html">Pikachu漏洞靶场系列之CSRF</a>，这里使用 OWASP 家的工具 <code>CSRFTester</code>。但是实际使用时，我没能成功抓包（<s>Java 一生之敌</s>）。再加之此工具实在太老了……因此，我转而使用了<a target="_blank" rel="noopener" href="https://security.love/CSRF-PoC-Genorator/">CSRF PoC Generator<br>
 </a>（其实自行编写相应的 html 也是可行的）</li>
 </ul>
-<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/CSRF_POC_Generator.jpg" srcset="/img/loading.gif" lazyload alt="CSRF_POC_Generator" /></p>
+<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/CSRF_POC_Generator.jpg" srcset="/img/loading.gif" lazyload alt="CSRF_POC_Generator" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/CSRF_POC_Generator.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/CSRF_POC_Generator.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/CSRF_POC_Generator.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li>
 <p>不过这个 poc 没有加入自动提交表单，所以加个自动点击提交按钮就行</p>
-<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="html"><code><span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&#x3C;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">script</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<div class="code-wrapper"><pre class="shiki shiki-themes catppuccin-latte catppuccin-mocha shiki-line-numbers" style="--shiki-light:#4c4f69;--shiki-dark:#cdd6f4;--shiki-light-bg:#eff1f5;--shiki-dark-bg:#1e1e2e" tabindex="0" data-language="html"><code><span class="line"><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&lt;</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">script</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&gt;</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">      window</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">.</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">onload</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5"> =</span><span style="--shiki-light:#8839EF;--shiki-dark:#CBA6F7"> function</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> ()</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2"> {</span></span>
 <span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">          document</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">.</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">getElementById</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">(</span><span style="--shiki-light:#40A02B;--shiki-dark:#A6E3A1">"postsubmit"</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">)</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">.</span><span style="--shiki-light:#1E66F5;--shiki-light-font-style:italic;--shiki-dark:#89B4FA;--shiki-dark-font-style:italic">click</span><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">()</span><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">;</span></span>
 <span class="line"><span style="--shiki-light:#7C7F93;--shiki-dark:#9399B2">      }</span></span>
-<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">&#x3C;</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">script</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">></span></span>
+<span class="line"><span style="--shiki-light:#4C4F69;--shiki-dark:#CDD6F4">&lt;</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">/</span><span style="--shiki-light:#1E66F5;--shiki-dark:#89B4FA">script</span><span style="--shiki-light:#179299;--shiki-dark:#94E2D5">&gt;</span></span>
 <span class="line"></span></code></pre></div>
 </li>
 <li>
@@ -667,11 +667,11 @@
 <ul>
 <li>相比于之前的个人信息修改页面，它在 Form 表单的隐藏域中增加了 token 字段：</li>
 </ul>
-<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E6%96%B0%E5%A2%9Etoken.jpg" srcset="/img/loading.gif" lazyload alt="csrf_新增token" /></p>
+<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E6%96%B0%E5%A2%9Etoken.jpg" srcset="/img/loading.gif" lazyload alt="csrf_新增token" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E6%96%B0%E5%A2%9Etoken.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E6%96%B0%E5%A2%9Etoken.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E6%96%B0%E5%A2%9Etoken.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li>而在修改时，它会验证 token，并在验证后调用 <code>set_token()</code> 重新生成 token：</li>
 </ul>
-<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E7%94%9F%E6%88%90token.jpg" srcset="/img/loading.gif" lazyload alt="csrf_生成token" /></p>
+<p><img src="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E7%94%9F%E6%88%90token.jpg" srcset="/img/loading.gif" lazyload alt="csrf_生成token" data-fluid-srcset="/img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E7%94%9F%E6%88%90token.jpg?eo-img.resize=w/640&amp;eo-img.format=webp 640w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E7%94%9F%E6%88%90token.jpg?eo-img.resize=w/960&amp;eo-img.format=webp 960w, /img/post/Pikachu-%E9%9D%B6%E5%9C%BA-Writeup/csrf_%E7%94%9F%E6%88%90token.jpg?eo-img.resize=w/1440&amp;eo-img.format=webp 1440w" sizes="(max-width: 767px) calc(100vw - 30px), 840px"></p>
 <ul>
 <li>因此无法进行 CSRF 攻击。<strong>使用 token 是一个防御 CSRF 攻击的方法。</strong></li>
 </ul>

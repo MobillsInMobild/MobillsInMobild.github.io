@@ -30,7 +30,7 @@ Fluid.plugins = {
 
     jQuery(selector || '.markdown-body :not(a) > img, .markdown-body > img').each(function() {
       var $image = jQuery(this);
-      var imageUrl = $image.attr('data-src') || $image.attr('src') || '';
+      var imageUrl = $image.attr('data-fluid-original') || $image.attr('data-src') || $image.attr('src') || '';
       if (CONFIG.image_zoom.img_url_replace) {
         var rep = CONFIG.image_zoom.img_url_replace;
         var r1 = rep[0] || '';
